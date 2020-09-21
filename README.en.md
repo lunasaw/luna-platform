@@ -1,36 +1,17 @@
-# 信息学院党建平台
+# Party building platform of information college
 
-#### Description
-信息工程学院党建平台
+#### 介绍
+Party building platform of information college
 
-#### Software Architecture
-Software architecture description
+#### 作者
 
-#### Installation
+陈章月 罗杰 皇子鑫 乔伟 倪嘉成 徐超刚 王永林 左静怡(排名部分先后)
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+#### 代码规范
 
-#### Instructions
+- the back end uses the same code to format the film template ali-code-style.xml, which is directly imported and used by ecplise, and idea uses Eclipse Code Formatter plug-in to configure xml for use.
+- the front-end code is formatted with the Beautify of vs plug-in, and the indentation uses TAB
+- the back-end code shall comply with P3C plug-in specification in non-special cases.
+- the comments should be as complete and clear as possible, and the submitted code must be formatted first
+- xml files are indented with TAB just like the front end
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Contribution
-
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
-
-
-#### Gitee Feature
-
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
