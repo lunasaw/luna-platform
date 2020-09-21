@@ -3,6 +3,10 @@
 #### 介绍
 信息工程学院党建平台
 
+#### 作者
+
+陈章月 罗杰 皇子鑫 乔伟 倪嘉成 徐超刚 王永林 左静怡(排名部分先后)
+
 #### 代码规范
 
 后端使用同一份代码格式化膜模板ali-code-style.xml，ecplise直接导入使用，idea使用Eclipse Code Formatter插件配置xml后使用。

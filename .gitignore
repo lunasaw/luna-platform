@@ -1,18 +1,43 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+######################################################################
+# Build Tools
 
-# Other files and folders
-.settings/
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+target/
+!.mvn/wrapper/maven-wrapper.jar
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+######################################################################
+# IDE
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/*
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+######################################################################
+# Others
+*.log
+*.xml.versionsBackup
+
+!*/build/*.java
+!*/build/*.html
+!*/build/*.xml
