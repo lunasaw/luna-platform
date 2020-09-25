@@ -23,6 +23,7 @@ import com.ruoyi.common.core.domain.TreeEntity;
 #elseif($table.tree)
 #set($Entity="TreeEntity")
 #end
+@ApiModel("${ClassName}")
 public class ${ClassName} extends ${Entity}
 {
     private static final long serialVersionUID = 1L;
@@ -30,6 +31,7 @@ public class ${ClassName} extends ${Entity}
 #foreach ($column in $columns)
 #if(!$table.isSuperColumn($column.javaField))
     /** $column.columnComment */
+    @ApiModelProperty("$column.columnComment")
 #if($column.list)
 #set($parentheseIndex=$column.columnComment.indexOf("（"))
 #if($parentheseIndex != -1)

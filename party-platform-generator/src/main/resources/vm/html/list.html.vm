@@ -98,6 +98,8 @@
                 removeUrl: prefix + "/remove",
                 exportUrl: prefix + "/export",
                 modalName: "${functionName}",
+                pagination: true,
+                escape: false,
                 columns: [{
                     checkbox: true
                 },

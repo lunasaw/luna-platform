@@ -5,7 +5,7 @@ Party building platform of information college
 
 #### 作者
 
-陈章月 罗杰 皇子鑫 乔伟 倪嘉成 徐朝刚 王永林 左静怡(排名不分先后)
+陈章月 罗杰 黄子鑫 乔伟 倪嘉成 徐朝刚 王永林 左静怡(排名不分先后)
 
 #### 代码规范
 

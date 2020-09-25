@@ -111,6 +111,8 @@ public class FileUploadUtils
         String fileName = extractFilename(file);
 
         File desc = getAbsoluteFile(baseDir, fileName);
+        // 将获取到的文件转为本地文件
+        // 将此文件发送到服务器,返回路径
         file.transferTo(desc);
         String pathFileName = getPathFileName(baseDir, fileName);
         return pathFileName;

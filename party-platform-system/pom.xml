@@ -22,7 +22,6 @@
             <groupId>com.luna</groupId>
             <artifactId>party-platform-common</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>
