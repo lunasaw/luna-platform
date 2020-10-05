@@ -22,13 +22,13 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 
 /**
- * 新闻展示Controller
+ * news-controller
  * 
  * @author party-platform
  * @date 2020-09-25
  */
 @Controller
-@Api("新闻展示Controller")
+@Api("news-controller")
 @RequestMapping("/admin/news")
 public class NewsController extends BaseController
 {
@@ -46,7 +46,7 @@ public class NewsController extends BaseController
     /**
      * 查询新闻展示列表
      */
-    @ApiOperation(value = "查询新闻展示列表", notes = "查询新闻展示列表详情", tags = {"新闻展示Controller"})
+    @ApiOperation(value = "查询新闻展示列表", notes = "查询新闻展示列表详情", tags = {"news-controller"})
     @PostMapping("/list")
     @ResponseBody
     public TableDataInfo list(News news)
@@ -59,7 +59,7 @@ public class NewsController extends BaseController
     /**
      * 导出新闻展示列表
      */
-    @ApiOperation(value = "导出新闻展示列表", notes = "导出新闻展示列表详情", tags = {"新闻展示Controller"})
+    @ApiOperation(value = "导出新闻展示列表", notes = "导出新闻展示列表详情", tags = {"news-controller"})
     @RequiresPermissions("admin:news:export")
     @Log(title = "新闻展示", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
@@ -83,7 +83,7 @@ public class NewsController extends BaseController
     /**
      * 新增保存新闻展示
      */
-    @ApiOperation(value = "新增保存新闻展示", notes = "新增保存新闻展示详情", tags = {"新闻展示Controller"})
+    @ApiOperation(value = "新增保存新闻展示", notes = "新增保存新闻展示详情", tags = {"news-controller"})
     @RequiresPermissions("admin:news:add")
     @Log(title = "新闻展示", businessType = BusinessType.INSERT)
     @PostMapping("/add")
@@ -94,9 +94,9 @@ public class NewsController extends BaseController
     }
 
     /**
-     * 修改新闻展示
+     * 查找某一新闻展示
      */
-    @ApiOperation(value = "修改新闻展示", notes = "修改新闻展示详情", tags = {"新闻展示Controller"})
+    @ApiOperation(value = "修改新闻展示", notes = "修改新闻展示详情", tags = {"news-controller"})
     @ApiImplicitParam(name = "newsId", value = "主键ID", dataType = "Integer", paramType = "path")
     @GetMapping("/edit/{newsId}")
     public String edit(@PathVariable("newsId") Integer newsId, ModelMap mmap)
@@ -109,7 +109,7 @@ public class NewsController extends BaseController
     /**
      * 修改保存新闻展示
      */
-    @ApiOperation(value = "修改保存新闻展示", notes = "修改保存新闻展示详情", tags = {"新闻展示Controller"})
+    @ApiOperation(value = "修改保存新闻展示", notes = "修改保存新闻展示详情", tags = {"news-controller"})
     @RequiresPermissions("admin:news:edit")
     @Log(title = "新闻展示", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
@@ -123,7 +123,7 @@ public class NewsController extends BaseController
      * 删除新闻展示
      @ApiOperation("删除新闻展示")
      */
-    @ApiOperation(value = "删除新闻展示", notes = "删除新闻展示详情", tags = {"新闻展示Controller"})
+    @ApiOperation(value = "删除新闻展示", notes = "删除新闻展示详情", tags = {"news-controller"})
     @RequiresPermissions("admin:news:remove")
     @Log(title = "新闻展示", businessType = BusinessType.DELETE)
     @PostMapping( "/remove")
