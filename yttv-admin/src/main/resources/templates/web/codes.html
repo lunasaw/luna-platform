@@ -1,0 +1,976 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="web/webinclude :: header('盐途之声')"/>
+</head>
+<body>
+    <div class="header" id="ban">
+        <div class="container">
+            <div class="head-left">
+                <div class="header-search">
+                    <div class="search">
+                        <input class="search_box" type="checkbox" id="search_box">
+                        <label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search"
+                                                                          aria-hidden="true"></span></label>
+                        <div class="search_form">
+                            <form action="#" method="post">
+                                <input type="text" name="Search" placeholder="搜索...">
+                                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input
+                                        type="submit" value="发送"></font></font>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header_right">
+                <nav class="navbar navbar-default">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only"><font style="vertical-align: inherit;"><font
+                                    style="vertical-align: inherit;">切换导航</font></font></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div th:include="web/webinclude :: nav"></div>
+                    <!-- /.navbar-collapse -->
+                </nav>
+            </div>
+            <div class="nav navbar-nav navbar-right social-icons wow fadeInRight animated animated" data-wow-delay=".5s"
+                 style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInRight;">
+                <ul>
+                    <li><a href="#"> </a></li>
+                    <li><a href="#" class="pin"> </a></li>
+                    <li><a href="#" class="in"> </a></li>
+                    <li><a href="#" class="be"> </a></li>
+
+                    <li><a href="#" class="vimeo"> </a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!--start-main-->
+    <div class="header-bottom">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">风格博客</font></font></a>
+                </h1>
+                <p><label class="of"></label><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">让我们完美的风格</font></font><label class="on"></label></p>
+            </div>
+        </div>
+    </div>
+    <!-- banner -->
+
+    <div class="banner-1">
+
+    </div>
+
+    <!-- technology-left -->
+    <div class="technology">
+        <div class="container">
+            <div class="col-md-9 technology-left">
+                <div class="page">
+
+                    <div class="short-heading">
+                        <h2 class="w3"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">短代码</font></font></h2>
+                    </div>
+                    <!--button-->
+                    <div class="grid_3 grid_4">
+                        <div class="page-header">
+                            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">标题</font></font>
+                            </h3>
+                        </div>
+
+                        <div class="bs-example animated wow fadeInDown" data-wow-duration="1000ms">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td><h1 id="h1-bootstrap-heading"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">h1。</font><font
+                                            style="vertical-align: inherit;">自举标题</font></font><a class="anchorjs-link"
+                                                                                                  href="#h1.-bootstrap-heading"><span
+                                            class="anchorjs-icon"></span></a></h1></td>
+                                    <td class="type-info"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">半粗体36px</font></font></td>
+                                </tr>
+                                <tr>
+                                    <td><h2 id="h2-bootstrap-heading"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">h2。</font><font
+                                            style="vertical-align: inherit;">自举标题</font></font><a class="anchorjs-link"
+                                                                                                  href="#h2.-bootstrap-heading"><span
+                                            class="anchorjs-icon"></span></a></h2></td>
+                                    <td class="type-info"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">半粗体30px</font></font></td>
+                                </tr>
+                                <tr>
+                                    <td><h3 id="h3-bootstrap-heading"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">h3。</font><font
+                                            style="vertical-align: inherit;">自举标题</font></font><a class="anchorjs-link"
+                                                                                                  href="#h3.-bootstrap-heading"><span
+                                            class="anchorjs-icon"></span></a></h3></td>
+                                    <td class="type-info"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">半粗体24px</font></font></td>
+                                </tr>
+                                <tr>
+                                    <td><h4 id="h4.-bootstrap-heading"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">h4。</font><font
+                                            style="vertical-align: inherit;">自举标题</font></font><a class="anchorjs-link"
+                                                                                                  href="#h4.-bootstrap-heading"><span
+                                            class="anchorjs-icon"></span></a></h4></td>
+                                    <td class="type-info"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">半粗体18px</font></font></td>
+                                </tr>
+                                <tr>
+                                    <td><h5 id="h5-bootstrap-heading"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">h5。</font><font
+                                            style="vertical-align: inherit;">自举标题</font></font><a class="anchorjs-link"
+                                                                                                  href="#h5.-bootstrap-heading"><span
+                                            class="anchorjs-icon"></span></a></h5></td>
+                                    <td class="type-info"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">半粗体14px</font></font></td>
+                                </tr>
+                                <tr>
+                                    <td><h6 id="h6-bootstrap-heading"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">h6。</font><font
+                                            style="vertical-align: inherit;">自举标题</font></font></h6></td>
+                                    <td class="type-info"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">半粗体12px</font></font></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!--buttons-->
+                    <div class="page-header animated wow fadeInUp" data-wow-duration="1000ms">
+                        <h3><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">纽扣</font></font></h3>
+                    </div>
+                    <p class="grid1">
+                        <button type="button" class="btn btn-lg btn-default"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">默认</font></font>
+                        </button>
+                        <button type="button" class="btn btn-lg btn-primary"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">主</font></font>
+                        </button>
+                        <button type="button" class="btn btn-lg btn-success"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">成功</font></font>
+                        </button>
+                        <button type="button" class="btn btn-lg btn-info"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">信息</font></font></button>
+                        <button type="button" class="btn btn-lg btn-warning"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">警告</font></font>
+                        </button>
+                        <button type="button" class="btn btn-lg btn-danger"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">危险</font></font></button>
+                        <button type="button" class="btn btn-lg btn-link"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">链接</font></font></button>
+                    </p>
+                    <p class="grid1 ">
+                        <button type="button" class="btn btn-1 btn-default"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">默认</font></font></button>
+                        <button type="button" class="btn btn-1 btn-primary"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">主</font></font></button>
+                        <button type="button" class="btn btn-1 btn-success"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">成功</font></font></button>
+                        <button type="button" class="btn btn-1 btn-info"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">信息</font></font></button>
+                        <button type="button" class="btn btn-1 btn-warning"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">警告</font></font></button>
+                        <button type="button" class="btn btn-1 btn-danger"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">危险</font></font></button>
+                        <button type="button" class="btn btn-1 btn-link"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">链接</font></font></button>
+                    </p>
+                    <p class="grid1">
+                        <button type="button" class="btn btn-sm btn-default"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">默认</font></font>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-primary"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">主</font></font>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-success"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">成功</font></font>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-info"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">信息</font></font></button>
+                        <button type="button" class="btn btn-sm btn-warning"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">警告</font></font>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-danger"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">危险</font></font></button>
+                        <button type="button" class="btn btn-sm btn-link"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">链接</font></font></button>
+                    </p>
+                    <p class="grid1">
+                        <button type="button" class="btn btn-xs btn-default"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">默认</font></font>
+                        </button>
+                        <button type="button" class="btn btn-xs btn-primary"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">主</font></font>
+                        </button>
+                        <button type="button" class="btn btn-xs btn-success"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">成功</font></font>
+                        </button>
+                        <button type="button" class="btn btn-xs btn-info"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">信息</font></font></button>
+                        <button type="button" class="btn btn-xs btn-warning"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">警告</font></font>
+                        </button>
+                        <button type="button" class="btn btn-xs btn-danger"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">危险</font></font></button>
+                        <button type="button" class="btn btn-xs btn-link"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">链接</font></font></button>
+                    </p>
+                    <!--//button-->
+                    <!--bages-->
+
+                    <div class="page-header ">
+                        <h3><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">徽章</font></font></h3>
+                    </div>
+                    <p>
+                        <a href="#"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">收件箱 </font></font><span class="badge"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">42</font></font></span></a>
+                    </p>
+                    <ul class="nav nav-pills animated wow fadeInLeft" data-wow-duration="1000ms" role="tablist">
+                        <li role="presentation" class="active"><a href="#"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">家 </font></font><span class="badge"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">42</font></font></span></a>
+                        </li>
+                        <li role="presentation"><a href="#"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">个人资料</font></font></a></li>
+                        <li role="presentation"><a href="#"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">留言内容 </font></font><span class="badge"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">3</font></font></span></a>
+                        </li>
+                    </ul>
+                    <!--//bages-->
+                    <!--alerts-->
+                    <div class="page-header animated wow fadeInLeft" data-wow-duration="1000ms">
+                        <h3><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">快讯</font></font></h3>
+                    </div>
+                    <div class="alert alert-success" role="alert">
+                        <strong><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">做得好！</font></font></strong><font
+                            style="vertical-align: inherit;"><font style="vertical-align: inherit;">您已成功阅读此重要警报消息。
+                    </font></font></div>
+                    <div class="alert alert-info" role="alert">
+                        <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">小心！</font></font></strong><font
+                            style="vertical-align: inherit;"><font style="vertical-align: inherit;">此警报需要引起您的注意，但这并不重要。
+                    </font></font></div>
+                    <div class="alert alert-warning" role="alert">
+                        <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">警告！</font></font></strong><font
+                            style="vertical-align: inherit;"><font style="vertical-align: inherit;">最好检查一下自己，你看起来不太好。
+                    </font></font></div>
+                    <div class="alert alert-danger" role="alert">
+                        <strong><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">哦，快点！</font></font></strong><font
+                            style="vertical-align: inherit;"><font style="vertical-align: inherit;">更改一些内容，然后尝试再次提交。
+                    </font></font></div>
+                    <!--//alerts-->
+                    <!--nav-->
+                    <div class="page-header animated wow fadeInDown" data-wow-duration="1000ms">
+                        <h3><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">导航</font></font></h3>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#"><font
+                                    style="vertical-align: inherit;"><font
+                                    style="vertical-align: inherit;">家</font></font></a></li>
+                            <li role="presentation"><a href="#"><font style="vertical-align: inherit;"><font
+                                    style="vertical-align: inherit;">个人资料</font></font></a></li>
+                            <li role="presentation"><a href="#"><font style="vertical-align: inherit;"><font
+                                    style="vertical-align: inherit;">留言内容</font></font></a></li>
+                        </ul>
+                        <ul class="nav nav-pills" role="tablist">
+                            <li role="presentation" class="active"><a href="#"><font
+                                    style="vertical-align: inherit;"><font
+                                    style="vertical-align: inherit;">家</font></font></a></li>
+                            <li role="presentation"><a href="#"><font style="vertical-align: inherit;"><font
+                                    style="vertical-align: inherit;">个人资料</font></font></a></li>
+                            <li role="presentation"><a href="#"><font style="vertical-align: inherit;"><font
+                                    style="vertical-align: inherit;">留言内容</font></font></a></li>
+                        </ul>
+                    </div>
+                    <!--//nav-->
+                    <!--Progress bars-->
+                    <div class="page-header animated wow fadeInLeft" data-wow-duration="1000ms">
+                        <h3><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">进度条</font></font></h3>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                             aria-valuemax="100" style="width: 60%;"><span class="sr-only"><font
+                                style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">完成60％</font></font></span></div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                             aria-valuemin="0" aria-valuemax="100" style="width: 40%"><span class="sr-only"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">40％完成（成功）</font></font></span>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20"
+                             aria-valuemin="0" aria-valuemax="100" style="width: 20%"><span class="sr-only"><font
+                                style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">完成20％</font></font></span></div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
+                             aria-valuemin="0" aria-valuemax="100" style="width: 60%"><span class="sr-only"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">60％完成（警告）</font></font></span>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80"
+                             aria-valuemin="0" aria-valuemax="100" style="width: 80%"><span class="sr-only"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">80％完成（危险）</font></font></span>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="60"
+                             aria-valuemin="0" aria-valuemax="100" style="width: 60%"><span class="sr-only"><font
+                                style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">完成60％</font></font></span></div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" style="width: 35%"><span class="sr-only"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">35％完成（成功）</font></font></span>
+                        </div>
+                        <div class="progress-bar progress-bar-warning" style="width: 20%"><span class="sr-only"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">20％完成（警告）</font></font></span>
+                        </div>
+                        <div class="progress-bar progress-bar-danger" style="width: 10%"><span class="sr-only"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">10％完成（危险）</font></font></span>
+                        </div>
+                    </div>
+                    <!--//Progress bars-->
+                    <!--Panels-->
+                    <div class="page-header">
+                        <h3><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">面板</font></font></h3>
+                    </div>
+                    <div class="row animated wow fadeInRight" data-wow-duration="1000ms">
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">面板标题</font></font></h3>
+                                </div>
+                                <div class="panel-body"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">
+                                    面板内容
+                                </font></font></div>
+                            </div>
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">面板标题</font></font></h3>
+                                </div>
+                                <div class="panel-body"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">
+                                    面板内容
+                                </font></font></div>
+                            </div>
+                        </div><!-- /.col-sm-4 -->
+                        <div class="col-sm-4">
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">面板标题</font></font></h3>
+                                </div>
+                                <div class="panel-body"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">
+                                    面板内容
+                                </font></font></div>
+                            </div>
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">面板标题</font></font></h3>
+                                </div>
+                                <div class="panel-body"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">
+                                    面板内容
+                                </font></font></div>
+                            </div>
+                        </div><!-- /.col-sm-4 -->
+                        <div class="col-sm-4">
+                            <div class="panel panel-warning">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">面板标题</font></font></h3>
+                                </div>
+                                <div class="panel-body"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">
+                                    面板内容
+                                </font></font></div>
+                            </div>
+                            <div class="panel panel-danger">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">面板标题</font></font></h3>
+                                </div>
+                                <div class="panel-body"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">
+                                    面板内容
+                                </font></font></div>
+                            </div>
+                        </div><!-- /.col-sm-4 -->
+                    </div>
+                    <!--//Panels-->
+                    <!--labels-->
+                    <div class="page-header animated wow fadeInDown" data-wow-duration="1000ms">
+                        <h3><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">标签</font></font></h3>
+                    </div>
+                    <h1 class="grid2">
+                        <span class="label label-default"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">默认的</font></font></span>
+                        <span class="label label-primary"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">主要</font></font></span>
+                        <span class="label label-success"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">成功</font></font></span>
+                        <span class="label label-info"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">信息</font></font></span>
+                        <span class="label label-warning"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">警告</font></font></span>
+                        <span class="label label-danger"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">危险</font></font></span>
+                    </h1>
+                    <h2 class="grid2">
+                        <span class="label label-default"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">默认的</font></font></span>
+                        <span class="label label-primary"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">主要</font></font></span>
+                        <span class="label label-success"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">成功</font></font></span>
+                        <span class="label label-info"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">信息</font></font></span>
+                        <span class="label label-warning"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">警告</font></font></span>
+                        <span class="label label-danger"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">危险</font></font></span>
+                    </h2>
+                    <h3 class="grid2">
+                        <span class="label label-default"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">默认的</font></font></span>
+                        <span class="label label-primary"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">主要</font></font></span>
+                        <span class="label label-success"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">成功</font></font></span>
+                        <span class="label label-info"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">信息</font></font></span>
+                        <span class="label label-warning"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">警告</font></font></span>
+                        <span class="label label-danger"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">危险</font></font></span>
+                    </h3>
+                    <h4 class="grid2">
+                        <span class="label label-default"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">默认的</font></font></span>
+                        <span class="label label-primary"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">主要</font></font></span>
+                        <span class="label label-success"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">成功</font></font></span>
+                        <span class="label label-info"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">信息</font></font></span>
+                        <span class="label label-warning"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">警告</font></font></span>
+                        <span class="label label-danger"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">危险</font></font></span>
+                    </h4>
+                    <h5 class="grid2">
+                        <span class="label label-default"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">默认的</font></font></span>
+                        <span class="label label-primary"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">主要</font></font></span>
+                        <span class="label label-success"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">成功</font></font></span>
+                        <span class="label label-info"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">信息</font></font></span>
+                        <span class="label label-warning"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">警告</font></font></span>
+                        <span class="label label-danger"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">危险</font></font></span>
+                    </h5>
+                    <h6 class="grid2">
+                        <span class="label label-default"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">默认的</font></font></span>
+                        <span class="label label-primary"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">主要</font></font></span>
+                        <span class="label label-success"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">成功</font></font></span>
+                        <span class="label label-info"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">信息</font></font></span>
+                        <span class="label label-warning"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">警告</font></font></span>
+                        <span class="label label-danger"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">危险</font></font></span>
+                    </h6>
+                    <p class="grid2">
+                        <span class="label label-default"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">默认的</font></font></span>
+                        <span class="label label-primary"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">主要</font></font></span>
+                        <span class="label label-success"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">成功</font></font></span>
+                        <span class="label label-info"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">信息</font></font></span>
+                        <span class="label label-warning"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">警告</font></font></span>
+                        <span class="label label-danger"><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">危险</font></font></span>
+                    </p>
+                    <!--//labels-->
+
+                    <!--table-->
+                    <div class="page-header">
+                        <h3><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">桌子</font></font></h3>
+                    </div>
+                    <div class="bs-example animated wow fadeInLeft" data-wow-duration="1000ms"
+                         data-example-id="simple-table">
+                        <table class="table">
+                            <caption><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可选的表格标题。</font></font>
+                            </caption>
+                            <thead>
+                            <tr>
+                                <th><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">＃</font></font></th>
+                                <th><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">名字</font></font></th>
+                                <th><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">姓</font></font></th>
+                                <th><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">用户名</font></font></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">1个</font></font></th>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">标记</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">奥托</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">@mdo</font></font></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">2</font></font></th>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">雅各布</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">桑顿</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">@脂肪</font></font></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">3</font></font></th>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">拉里</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">鸟</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">@推特</font></font></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div><!-- /example -->
+                    <!--//table-->
+                    <!--Contextual classes-->
+                    <div class="page-header">
+                        <h3><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">上下文类</font></font></h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped animated wow fadeInUp"
+                               data-wow-duration="1000ms">
+                            <colgroup>
+                                <col class="col-xs-1">
+                                <col class="col-xs-7">
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">类</font></font></th>
+                                <th><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">描述</font></font></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <code>.active</code>
+                                </th>
+                                <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将悬停颜色应用于特定的行或单元格</font></font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <code>.success</code>
+                                </th>
+                                <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">表示成功或积极的行动</font></font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <code>.info</code>
+                                </th>
+                                <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">表示中立的信息变化或行动</font></font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <code>.warning</code>
+                                </th>
+                                <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">表示可能需要注意的警告</font></font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <code>.danger</code>
+                                </th>
+                                <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">表示危险或潜在的负面行为</font></font>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="bs-example animated wow fadeInLeft" data-wow-duration="1000ms"
+                         data-example-id="contextual-table" style="border: 1px solid #eee">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">＃</font></font></th>
+                                <th><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">列标题</font></font></th>
+                                <th><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">列标题</font></font></th>
+                                <th><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">列标题</font></font></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="active">
+                                <th scope="row"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">1个</font></font></th>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">2</font></font></th>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                            </tr>
+                            <tr class="success">
+                                <th scope="row"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">3</font></font></th>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">4</font></font></th>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                            </tr>
+                            <tr class="info">
+                                <th scope="row"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">5</font></font></th>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">6</font></font></th>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                            </tr>
+                            <tr class="warning">
+                                <th scope="row"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">7</font></font></th>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">8</font></font></th>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                            </tr>
+                            <tr class="danger">
+                                <th scope="row"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">9</font></font></th>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                                <td><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">栏内容</font></font></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--//Contextual classes-->
+                    <!--Forms-->
+                    <div class="page-header">
+                        <h3><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">形式</font></font></h3>
+                    </div>
+                    <div class="bs-example animated wow fadeInRight" data-wow-duration="1000ms"
+                         data-example-id="simple-horizontal-form">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label"><font
+                                        style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">电子邮件</font></font></label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="inputEmail3" placeholder="电子邮件">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-2 control-label"><font
+                                        style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">密码</font></font></label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="inputPassword3" placeholder="密码">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"><font style="vertical-align: inherit;"><font
+                                                style="vertical-align: inherit;"> 记得我
+                                        </font></font></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-default"><font
+                                            style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">登入</font></font></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="bs-example animated wow fadeInLeft" data-wow-duration="1000ms"
+                         data-example-id="disabled-fieldset">
+                        <form>
+                            <fieldset disabled="">
+                                <div class="form-group">
+                                    <label for="disabledTextInput"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">禁用输入</font></font></label>
+                                    <input type="text" id="disabledTextInput" class="form-control" placeholder="禁用输入">
+                                </div>
+                                <div class="form-group">
+                                    <label for="disabledSelect"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">禁用选择菜单</font></font></label>
+                                    <select id="disabledSelect" class="form-control">
+                                        <option><font style="vertical-align: inherit;"><font
+                                                style="vertical-align: inherit;">禁用选择</font></font></option>
+                                    </select>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;"> 无法检查
+                                    </font></font></label>
+                                </div>
+                                <button type="submit" class="btn btn-primary"><font
+                                        style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">提交</font></font></button>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <!--//forms-->
+
+                </div>
+            </div>
+            <!-- technology-right -->
+            <div class="col-md-3 technology-right">
+
+
+                <div class="blo-top1">
+
+                    <div class="tech-btm">
+                        <div class="search-1">
+                            <form action="#" method="post">
+                                <input type="search" name="Search" value="Search" onfocus="this.value = '';"
+                                       onblur="if (this.value == '') {this.value = 'Search';}" required="">
+                                <input type="submit" value=" ">
+                            </form>
+                        </div>
+                        <h4><font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">热门帖子 </font></font></h4>
+                        <div class="blog-grids">
+                            <div class="blog-grid-left">
+                                <a href="singlepage.html"><img src="images/t2.jpg" class="img-responsive" alt=""></a>
+                            </div>
+                            <div class="blog-grid-right">
+
+                                <h5><a href="singlepage.html"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">Pellentesque dui Maecenas男</font></font></a>
+                                </h5>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="blog-grids">
+                            <div class="blog-grid-left">
+                                <a href="singlepage.html"><img src="images/m2.jpg" class="img-responsive" alt=""></a>
+                            </div>
+                            <div class="blog-grid-right">
+
+                                <h5><a href="singlepage.html"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">Pellentesque dui Maecenas男</font></font></a>
+                                </h5>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="blog-grids">
+                            <div class="blog-grid-left">
+                                <a href="singlepage.html"><img src="images/f2.jpg" class="img-responsive" alt=""></a>
+                            </div>
+                            <div class="blog-grid-right">
+
+                                <h5><a href="singlepage.html"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">Pellentesque dui Maecenas男</font></font></a>
+                                </h5>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="blog-grids">
+                            <div class="blog-grid-left">
+                                <a href="singlepage.html"><img src="images/t3.jpg" class="img-responsive" alt=""></a>
+                            </div>
+                            <div class="blog-grid-right">
+
+                                <h5><a href="singlepage.html"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">Pellentesque dui Maecenas男</font></font></a>
+                                </h5>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="blog-grids">
+                            <div class="blog-grid-left">
+                                <a href="singlepage.html"><img src="images/m3.jpg" class="img-responsive" alt=""></a>
+                            </div>
+                            <div class="blog-grid-right">
+
+                                <h5><a href="singlepage.html"><font style="vertical-align: inherit;"><font
+                                        style="vertical-align: inherit;">Pellentesque dui Maecenas男</font></font></a>
+                                </h5>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="insta">
+                            <h4><font style="vertical-align: inherit;"><font
+                                    style="vertical-align: inherit;">Instagram的</font></font></h4>
+                            <ul>
+
+                                <li><a href="singlepage.html"><img src="images/t1.jpg" class="img-responsive"
+                                                                   alt=""></a></li>
+                                <li><a href="singlepage.html"><img src="images/m1.jpg" class="img-responsive"
+                                                                   alt=""></a></li>
+                                <li><a href="singlepage.html"><img src="images/f1.jpg" class="img-responsive"
+                                                                   alt=""></a></li>
+                                <li><a href="singlepage.html"><img src="images/m2.jpg" class="img-responsive"
+                                                                   alt=""></a></li>
+                                <li><a href="singlepage.html"><img src="images/f2.jpg" class="img-responsive"
+                                                                   alt=""></a></li>
+                                <li><a href="singlepage.html"><img src="images/t2.jpg" class="img-responsive"
+                                                                   alt=""></a></li>
+                                <li><a href="singlepage.html"><img src="images/f3.jpg" class="img-responsive"
+                                                                   alt=""></a></li>
+                                <li><a href="singlepage.html"><img src="images/t3.jpg" class="img-responsive"
+                                                                   alt=""></a></li>
+                                <li><a href="singlepage.html"><img src="images/m3.jpg" class="img-responsive"
+                                                                   alt=""></a></li>
+                            </ul>
+                        </div>
+
+                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">恶作剧，虚伪等。</font><font
+                                style="vertical-align: inherit;">在vix scripta patrioque scribentur，在pro</font></font>
+                        </p>
+                        <div class="twt">
+
+                            <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true"
+                                    class="twitter-hashtag-button twitter-hashtag-button-rendered twitter-tweet-button"
+                                    title="Twitter推特按钮"
+                                    src="https://platform.twitter.com/widgets/tweet_button.b7de008f493a5185d8df1aedd62d77c6.en.html#button_hashtag=TwitterStories&amp;dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=https%3A%2F%2Fp.w3layouts.com%2Fdemos%2Fduplex%2Fweb%2F&amp;size=l&amp;time=1467721486626&amp;type=hashtag"
+                                    style="position: static; visibility: visible; width: 166px; height: 28px;"
+                                    data-hashtag="TwitterStories"></iframe>
+                            <script>!function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0],
+                                    p = /^http:/.test(d.location) ? 'http' : 'https';
+                                if (!d.getElementById(id)) {
+                                    js = d.createElement(s);
+                                    js.id = id;
+                                    js.src = p + '://platform.twitter.com/widgets.js';
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                }
+                            }(document, 'script', 'twitter-wjs');</script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <!-- technology-right -->
+        </div>
+    </div>
+    <div th:include="web/webinclude :: footer"></div>
+
+    <div th:include="web/webinclude :: copyright"></div>
+
+</body>
+</html>

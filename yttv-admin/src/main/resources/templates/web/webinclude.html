@@ -1,0 +1,184 @@
+<!-- 通用CSS -->
+<head th:fragment=header(title)>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title th:text="${title}"></title>
+    <link rel="shortcut icon" href="favicon.ico" th:href="@{/favicon.ico}">
+    <script type="applijewelleryion/x-javascript">
+		addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+
+    </script>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <!-- Custom Theme files -->
+    <link href='js/googleapis.js' th:href="@{/web/js/googleapis.js}" rel='stylesheet' type='text/css'>
+    <link href="css/style.css" th:href="@{/web/css/style.css}" rel='stylesheet' type='text/css'/>
+    <script src="js/jquery-1.11.1.min.js" th:href="@{/web/js/jquery-1.11.1.min.js}"></script>
+    <script src="js/bootstrap.min.js" th:href="@{/web/js/bootstrap.min.js}"></script>
+    <!-- animation-effect -->
+    <link href="css/animate.min.css" th:href="@{/web/css/animate.min.css}" rel="stylesheet">
+    <script src="js/wow.min.js" th:href="@{/web/js/wow.min.js}"></script>
+    <script src="js/modernizr.custom.js" th:href="@{/web/js/modernizr.custom.js}"></script>
+    <script>
+        new WOW().init();
+    </script>
+</head>
+
+
+
+<div  th:fragment="footer">
+    <div class="footer">
+        <div class="container">
+            <div class="col-md-4 footer-left">
+                <h4>
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">关于我</font>
+                    </font>
+                </h4>
+                <p>
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">我们致力于打造一个个人旅行博客,说在盐途,也是沿途</font>
+                    </font>
+                </p>
+                <img src="images/t4.jpg" class="img-responsive" alt="">
+                <div class="bht1">
+                    <a href="singlepage.html" th:href="@{/web/singlepage}">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">阅读更多</font>
+                        </font>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 footer-middle">
+                <h4>
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">最新资讯</font>
+                    </font>
+                </h4>
+                <div class="mid-btm">
+                    <p>
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">欢迎您访问我们的网站:希望与我们取得联系</font>
+                        </font>
+                    </p>
+                    <a href="https://luna_nov.gitee.io/blog/">https://luna_nov.gitee.io/blog/</a>
+                </div>
+            </div>
+            <div class="col-md-4 footer-right">
+                <h4>
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">通讯</font>
+                    </font>
+                </h4>
+                <p>
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">欢迎您访问我们的网站:希望与我们取得联系</font>
+                    </font>
+                </p>
+                <div class="name">
+                    <form action="#" method="post">
+                        <input type="text" placeholder="你的名字" required="">
+                        <input type="text" placeholder="你的邮件" required="">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;"><input type="submit" value="现在订阅"></font>
+                        </font>
+                    </form>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="nav">
+    <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+        <nav class="link-effect-7" id="link-effect-7">
+            <ul class="nav navbar-nav">
+                <li class="" th:classappend="${index == true} ? 'active act' : '' "><a href="index.html" th:href="@{/web/index}">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">盐途之声</font>
+                    </font>
+                </a></li>
+                <li class="" th:classappend="${about == true} ? 'active act' : '' "><a href="about.html" th:href="@{/web/about}">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">关于</font>
+                    </font>
+                </a></li>
+                <li class="" th:classappend="${features == true} ? 'active act' : '' "><a href="features.html" th:href="@{/web/features}">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">特征</font>
+                    </font>
+                </a></li>
+                <li class="" th:classappend="${travel == true} ? 'active act' : '' "><a href="travel.html" th:href="@{/web/travel}">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">旅行</font>
+                    </font>
+                </a></li>
+                <li class="" th:classappend="${fashion == true} ? 'active act' : '' "><a href="fashion.html" th:href="@{/web/fashion}">
+                    <span style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">时尚</font>
+                    </span>
+                </a></li>
+                <li class="" th:classappend="${music == true} ? 'active act' : '' "><a href="music.html" th:href="@{/web/music}">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">音乐</font>
+                    </font>
+                </a></li>
+                <li class="" th:classappend="${codes == true} ? 'active act' : '' "><a href="codes.html"  th:href="@{/web/codes}">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">样式</font>
+                    </font>
+                </a></li>
+                <li class="" th:classappend="${contact == true} ? 'active act' : '' "><a href="contact.html"  th:href="@{/web/contact}">
+                    <font style="vertical-align: inherit;" >
+                        <font style="vertical-align: inherit;">联系</font>
+                    </font>
+                </a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div th:fragment="copyright">
+    <div class="copyright">
+        <div class="container">
+            <p>
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">©2020盐途之声。</font>
+                    <font style="vertical-align: inherit;">版权所有| </font>
+                    <font style="vertical-align: inherit;">由</font><a href="https://t.im/jhhw">
+                    <font style="vertical-align: inherit;">盐途之声小组</font>
+                </a>
+                    <font style="vertical-align: inherit;">设计</font>
+                </font><a href="https://t.im/jhhw">
+                <font style="vertical-align: inherit;"></font>
+            </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="title">
+    <div class="header-bottom">
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">盐途之声</font>
+                    </font>
+                </a></h1>
+                <p><label class="of"></label>
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">让我们展示最完美的盐途</font>
+                    </font><label class="on"></label>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

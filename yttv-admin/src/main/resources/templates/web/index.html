@@ -1,0 +1,725 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="web/webinclude :: header('盐途之声')"/>
+</head>
+
+<body>
+    <div class="header" id="ban">
+        <div class="container">
+            <div class="head-left wow fadeInLeft animated animated animated animated" data-wow-delay=".5s"
+                 style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInLeft;">
+                <div class="header-search">
+                    <div class="search">
+                        <input class="search_box" type="checkbox" id="search_box">
+                        <label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search"
+                                                                          aria-hidden="true"></span></label>
+                        <div class="search_form">
+                            <form action="#" method="post">
+                                <input type="text" name="Search" placeholder="搜索...">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;"><input type="submit" value="发送">
+                                            </font>
+                                        </font>
+                                    </font>
+                                </font>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header_right wow fadeInLeft animated animated animated animated" data-wow-delay=".5s"
+                 style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInLeft;">
+                <nav class="navbar navbar-default">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">
+								<font style="vertical-align: inherit;">
+									<font style="vertical-align: inherit;">
+										<font style="vertical-align: inherit;">
+											<font style="vertical-align: inherit;">切换导航</font>
+										</font>
+									</font>
+								</font>
+							</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div th:include="web/webinclude :: nav" ></div>
+                    <!-- /.navbar-collapse -->
+                </nav>
+            </div>
+            <div class="nav navbar-nav navbar-right social-icons wow fadeInRight animated animated animated animated"
+                 data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInRight;">
+                <ul>
+                    <li><a href="#"> </a></li>
+                    <li><a href="#" class="pin"> </a></li>
+                    <li><a href="#" class="in"> </a></li>
+                    <li><a href="#" class="be"> </a></li>
+
+                    <li><a href="#" class="vimeo"> </a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!--start-main-->
+    <div th:include="web/webinclude :: title" ></div>
+
+    <!-- banner -->
+
+    <div class="banner">
+        <div class="container">
+            <h2>
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">与普遍的看法相反，lorem ipsum只是</font>
+                        </font>
+                    </font>
+                </font>
+            </h2>
+            <p>
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">自1500年代以来，Loem
+                                ipsum一直是行业的标准伪文本，当时一个不知名的打印机采用了一个厨房类型并导致干扰。使lorem ipsum自1500年代以来，一直是行业的标准伪文本。</font>
+                        </font>
+                    </font>
+                </font>
+            </p>
+            <a href="singlepage.html">
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">阅读更多</font>
+                        </font>
+                    </font>
+                </font>
+            </a>
+        </div>
+    </div>
+    <div class="services w3l wow fadeInDown animated animated" data-wow-duration=".8s" data-wow-delay=".2s"
+         style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+        <div class="container">
+            <div class="grid_3 grid_5">
+                <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                    <ul id="myTab" class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#expeditions" id="expeditions-tab" role="tab"
+                                                                  data-toggle="tab" aria-controls="expeditions"
+                                                                  aria-expanded="true">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">时尚</font>
+                                    </font>
+                                </font>
+                            </font>
+                        </a></li>
+                        <li role="presentation" class=""><a href="#safari" role="tab" id="safari-tab" data-toggle="tab"
+                                                            aria-controls="safari">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">旅行</font>
+                                    </font>
+                                </font>
+                            </font>
+                        </a></li>
+                        <li role="presentation" class=""><a href="#trekking" role="tab" id="trekking-tab"
+                                                            data-toggle="tab" aria-controls="trekking">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">音乐</font>
+                                    </font>
+                                </font>
+                            </font>
+                        </a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade" id="expeditions" aria-labelledby="expeditions-tab">
+
+                            <div class="col-md-4 col-sm-5 tab-image">
+                                <img src="images/f2.jpg" class="img-responsive" alt="流浪者">
+                            </div>
+                            <div class="col-md-4 col-sm-5 tab-image">
+                                <img src="images/f4.jpg" class="img-responsive" alt="流浪者">
+                            </div>
+                            <div class="col-md-4 col-sm-5 tab-image">
+                                <img src="images/f3.jpg" class="img-responsive" alt="流浪者">
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+
+                        <div role="tabpanel" class="tab-pane fade" id="safari" aria-labelledby="safari-tab">
+                            <div class="col-md-4 col-sm-5 tab-image">
+                                <img src="images/t1.jpg" class="img-responsive" alt="流浪者">
+                            </div>
+                            <div class="col-md-4 col-sm-5 tab-image">
+                                <img src="images/t2.jpg" class="img-responsive" alt="流浪者">
+                            </div>
+                            <div class="col-md-4 col-sm-5 tab-image">
+                                <img src="images/t3.jpg" class="img-responsive" alt="流浪者">
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade active in" id="trekking"
+                             aria-labelledby="trekking-tab">
+
+                            <div class="col-md-4 col-sm-5 tab-image">
+                                <img src="images/m2.jpg" class="img-responsive" alt="流浪者">
+                            </div>
+                            <div class="col-md-4 col-sm-5 tab-image">
+                                <img src="images/m1.jpg" class="img-responsive" alt="流浪者">
+                            </div>
+                            <div class="col-md-4 col-sm-5 tab-image">
+                                <img src="images/m3.jpg" class="img-responsive" alt="流浪者">
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- technology-left -->
+    <div class="technology">
+        <div class="container">
+            <div class="col-md-9 technology-left">
+                <div class="tech-no">
+                    <!-- technology-top -->
+
+                    <div class="tc-ch wow fadeInDown animated animated" data-wow-duration=".8s" data-wow-delay=".2s"
+                         style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+
+                        <div class="tch-img">
+                            <a href="singlepage.html"><img src="images/t4.jpg" class="img-responsive" alt=""></a>
+                        </div>
+
+                        <h3><a href="singlepage.html">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Lorem ipsum就是</font>
+                                    </font>
+                                </font>
+                            </font>
+                        </a></h3>
+                        <h6>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">作者：</font>
+                                    </font>
+                                </font>
+                            </font><a href="singlepage.html">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">亚当·罗斯</font>
+                                    </font>
+                                </font>
+                            </font>
+                        </a>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">2016年7月10日。</font>
+                                    </font>
+                                </font>
+                            </font>
+                        </h6>
+                        <p>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Lorem存有悲坐下，私立教育专家，和活力，或做eiusmod长UT
+                                            labore等dolore麦格纳aliqua。</font>
+                                    </font>
+                                </font>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">尽量不要使用普通烟具，要而进行劳动状语从句：以劳动为代价的劳动则要以普通商品为准
+                                        </font>
+                                        <font style="vertical-align: inherit;">。</font>
+                                    </font>
+                                </font>
+                            </font>
+                        </p>
+                        <p>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
+                                    这些年来，我将全力以赴，充满朝气，使一个男人的劳动，以及久经考验的eiusmod进行一些锻炼，学区努力如果感到痛苦，从而使她摆脱了配方的巨大优势。</font>
+                            </font>
+                        </p>
+                        <div class="bht1">
+                            <a href="singlepage.html">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">继续阅读</font>
+                                </font>
+                            </a>
+                        </div>
+                        <div class="soci">
+                            <ul>
+                                <li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>
+                                <li class="hvr-rectangle-out"><a class="twit" href="#"></a></li>
+                                <li class="hvr-rectangle-out"><a class="goog" href="#"></a></li>
+                                <li class="hvr-rectangle-out"><a class="pin" href="#"></a></li>
+                                <li class="hvr-rectangle-out"><a class="drib" href="#"></a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- technology-top -->
+                    <!-- technology-top -->
+                    <div class="w3ls">
+                        <div class="col-md-6 w3ls-left wow fadeInDown animated animated" data-wow-duration=".8s"
+                             data-wow-delay=".2s"
+                             style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+                            <div class="tc-ch">
+                                <div class="tch-img">
+                                    <a href="singlepage.html">
+                                        <img src="images/m4.jpg" class="img-responsive" alt=""></a>
+                                </div>
+
+                                <h3><a href="singlepage.html">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Lorem ipsum很简单</font>
+                                    </font>
+                                </a></h3>
+                                <h6>
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">由</font>
+                                    </font><a href="singlepage.html">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">亚当·罗斯</font>
+                                    </font>
+                                </a>
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">2016年7月10日。</font>
+                                    </font>
+                                </h6>
+                                <p>
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            这些年来，我将全力以赴，充满朝气，使一个男人的劳动，以及久经考验的eiusmod进行一些锻炼，学区努力如果感到痛苦，从而使她摆脱了配方的巨大优势。
+                                        </font>
+                                    </font>
+                                </p>
+                                <div class="bht1">
+                                    <a href="singlepage.html">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">讨论</font>
+                                        </font>
+                                    </a>
+                                </div>
+                                <div class="soci">
+                                    <ul>
+                                        <li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>
+                                        <li class="hvr-rectangle-out"><a class="pin" href="#"></a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 w3ls-left wow fadeInDown animated animated" data-wow-duration=".8s"
+                             data-wow-delay=".2s"
+                             style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+                            <div class="tc-ch">
+                                <div class="tch-img">
+                                    <a href="singlepage.html"><img src="images/m5.jpg" class="img-responsive"
+                                                                   alt=""></a>
+                                </div>
+
+                                <h3><a href="singlepage.html">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Lorem ipsum很简单</font>
+                                    </font>
+                                </a></h3>
+                                <h6>
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">由</font>
+                                    </font><a href="singlepage.html">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">亚当·罗斯</font>
+                                    </font>
+                                </a>
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">2016年7月10日。</font>
+                                    </font>
+                                </h6>
+                                <p>
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            这些年来，我将全力以赴，充满朝气，使一个男人的劳动，以及久经考验的eiusmod进行一些锻炼，学区努力如果感到痛苦，从而使她摆脱了配方的巨大优势。
+                                        </font>
+                                    </font>
+                                </p>
+                                <div class="bht1">
+                                    <a href="singlepage.html">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">讨论</font>
+                                        </font>
+                                    </a>
+                                </div>
+                                <div class="soci">
+                                    <ul>
+                                        <li class="hvr-rectangle-out"><a class="twit" href="#"></a></li>
+                                        <li class="hvr-rectangle-out"><a class="drib" href="#"></a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- technology-top -->
+                    <div class="wthree">
+                        <div class="col-md-6 wthree-left wow fadeInDown animated animated" data-wow-duration=".8s"
+                             data-wow-delay=".2s"
+                             style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+                            <div class="tch-img">
+                                <a href="singlepage.html"><img src="images/f1.jpg" class="img-responsive" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wthree-right wow fadeInDown animated animated" data-wow-duration=".8s"
+                             data-wow-delay=".2s"
+                             style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+                            <h3><a href="singlepage.html">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Lorem ipsum很简单</font>
+                                </font>
+                            </a></h3>
+                            <h6>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">由</font>
+                                </font><a href="singlepage.html">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">亚当·罗斯</font>
+                                </font>
+                            </a>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">2016年7月10日。</font>
+                                </font>
+                            </h6>
+                            <p>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        多年以来，我将来，谁会为一些重要的事情而悲伤，以使自己的运动，学区和长期的生命力得到充实，使劳动力市场的劳动力。</font>
+                                </font>
+                            </p>
+                            <div class="bht1">
+                                <a href="singlepage.html">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">讨论</font>
+                                    </font>
+                                </a>
+                            </div>
+                            <div class="soci">
+                                <ul>
+
+                                    <li class="hvr-rectangle-out"><a class="twit" href="#"></a></li>
+                                    <li class="hvr-rectangle-out"><a class="pin" href="#"></a></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="wthree">
+                        <div class="col-md-6 wthree-left wow fadeInDown animated animated" data-wow-duration=".8s"
+                             data-wow-delay=".2s"
+                             style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+                            <div class="tch-img">
+                                <a href="singlepage.html"><img src="images/f2.jpg" class="img-responsive" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wthree-right wow fadeInDown animated animated" data-wow-duration=".8s"
+                             data-wow-delay=".2s"
+                             style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+                            <h3><a href="singlepage.html">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Lorem ipsum很简单</font>
+                                </font>
+                            </a></h3>
+                            <h6>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">由</font>
+                                </font><a href="singlepage.html">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">亚当·罗斯</font>
+                                </font>
+                            </a>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">2016年7月10日。</font>
+                                </font>
+                            </h6>
+                            <p>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        多年以来，我将来，谁会为一些重要的事情而悲伤，以使自己的运动，学区和长期的生命力得到充实，使劳动力市场的劳动力。</font>
+                                </font>
+                            </p>
+                            <div class="bht1">
+                                <a href="singlepage.html">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">讨论</font>
+                                    </font>
+                                </a>
+                            </div>
+                            <div class="soci">
+                                <ul>
+                                    <li class="hvr-rectangle-out"><a class="goog" href="#"></a></li>
+                                    <li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="wthree">
+                        <div class="col-md-6 wthree-left wow fadeInDown animated animated" data-wow-duration=".8s"
+                             data-wow-delay=".2s"
+                             style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+                            <div class="tch-img">
+                                <a href="singlepage.html"><img src="images/f3.jpg" class="img-responsive" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 wthree-right wow fadeInDown animated animated" data-wow-duration=".8s"
+                             data-wow-delay=".2s"
+                             style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+                            <h3><a href="singlepage.html">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Lorem ipsum很简单</font>
+                                </font>
+                            </a></h3>
+                            <h6>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">由</font>
+                                </font><a href="singlepage.html">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">亚当·罗斯</font>
+                                </font>
+                            </a>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">2016年7月10日。</font>
+                                </font>
+                            </h6>
+                            <p>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        多年以来，我将来，谁会为一些重要的事情而悲伤，以使自己的运动，学区和长期的生命力得到充实，使劳动力市场的劳动力。</font>
+                                </font>
+                            </p>
+                            <div class="bht1">
+                                <a href="singlepage.html">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">讨论</font>
+                                    </font>
+                                </a>
+                            </div>
+                            <div class="soci">
+                                <ul>
+                                    <li class="hvr-rectangle-out"><a class="drib" href="#"></a></li>
+                                    <li class="hvr-rectangle-out"><a class="goog" href="#"></a></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- technology-right -->
+            <div class="col-md-3 technology-right">
+
+
+                <div class="blo-top1">
+
+                    <div class="tech-btm">
+                        <div class="search-1 wow fadeInDown animated animated" data-wow-duration=".8s"
+                             data-wow-delay=".2s"
+                             style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+                            <form action="#" method="post">
+                                <input type="search" name="Search" value="Search" onfocus="this.value = '';"
+                                       onblur="if (this.value == '') {this.value = 'Search';}" required="">
+                                <input type="submit" value=" ">
+                            </form>
+                        </div>
+                        <h4>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">最近的帖子 </font>
+                            </font>
+                        </h4>
+                        <div class="blog-grids wow fadeInDown animated animated" data-wow-duration=".8s"
+                             data-wow-delay=".2s"
+                             style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+                            <div class="blog-grid-left">
+                                <a href="singlepage.html"><img src="images/t2.jpg" class="img-responsive" alt=""></a>
+                            </div>
+                            <div class="blog-grid-right">
+
+                                <h5><a href="singlepage.html">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Dui Maecenas生病的孩子</font>
+                                    </font>
+                                </a></h5>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="blog-grids wow fadeInDown animated animated" data-wow-duration=".8s"
+                             data-wow-delay=".2s"
+                             style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+                            <div class="blog-grid-left">
+                                <a href="singlepage.html"><img src="images/m2.jpg" class="img-responsive" alt=""></a>
+                            </div>
+                            <div class="blog-grid-right">
+
+                                <h5><a href="singlepage.html">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Dui Maecenas生病的孩子</font>
+                                    </font>
+                                </a></h5>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="blog-grids wow fadeInDown animated animated" data-wow-duration=".8s"
+                             data-wow-delay=".2s"
+                             style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+                            <div class="blog-grid-left">
+                                <a href="singlepage.html"><img src="images/f2.jpg" class="img-responsive" alt=""></a>
+                            </div>
+                            <div class="blog-grid-right">
+
+                                <h5><a href="singlepage.html">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Dui Maecenas生病的孩子</font>
+                                    </font>
+                                </a></h5>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="blog-grids wow fadeInDown animated animated" data-wow-duration=".8s"
+                             data-wow-delay=".2s"
+                             style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+                            <div class="blog-grid-left">
+                                <a href="singlepage.html"><img src="images/t3.jpg" class="img-responsive" alt=""></a>
+                            </div>
+                            <div class="blog-grid-right">
+
+                                <h5><a href="singlepage.html">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Dui Maecenas生病的孩子</font>
+                                    </font>
+                                </a></h5>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="blog-grids wow fadeInDown animated animated" data-wow-duration=".8s"
+                             data-wow-delay=".2s"
+                             style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+                            <div class="blog-grid-left">
+                                <a href="singlepage.html"><img src="images/m3.jpg" class="img-responsive" alt=""></a>
+                            </div>
+                            <div class="blog-grid-right">
+
+                                <h5><a href="singlepage.html">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">Dui Maecenas生病的孩子</font>
+                                    </font>
+                                </a></h5>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="insta wow fadeInDown animated animated" data-wow-duration=".8s" data-wow-delay=".2s"
+                             style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+                            <h4>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">instagram</font>
+                                </font>
+                            </h4>
+                            <ul>
+
+                                <li><a href="singlepage.html"><img src="images/t1.jpg" class="img-responsive"
+                                                                   alt=""></a></li>
+                                <li><a href="singlepage.html"><img src="images/m1.jpg" class="img-responsive"
+                                                                   alt=""></a></li>
+                                <li><a href="singlepage.html"><img src="images/f1.jpg" class="img-responsive"
+                                                                   alt=""></a></li>
+                                <li><a href="singlepage.html"><img src="images/m2.jpg" class="img-responsive"
+                                                                   alt=""></a></li>
+                                <li><a href="singlepage.html"><img src="images/f2.jpg" class="img-responsive"
+                                                                   alt=""></a></li>
+                                <li><a href="singlepage.html"><img src="images/t2.jpg" class="img-responsive"
+                                                                   alt=""></a></li>
+                                <li><a href="singlepage.html"><img src="images/f3.jpg" class="img-responsive"
+                                                                   alt=""></a></li>
+                                <li><a href="singlepage.html"><img src="images/t3.jpg" class="img-responsive"
+                                                                   alt=""></a></li>
+                                <li><a href="singlepage.html"><img src="images/m3.jpg" class="img-responsive"
+                                                                   alt=""></a></li>
+                            </ul>
+                        </div>
+
+                        <p>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">我几乎没有走出困境，是新常态，并且爱他们。</font>
+                                <font style="vertical-align: inherit;">但是几乎没有要写的东西就被写好并放下了，但是对于</font>
+                            </font>
+                        </p>
+                        <div class="twt">
+
+                            <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true"
+                                    class="twitter-hashtag-button twitter-hashtag-button-rendered twitter-tweet-button"
+                                    title="推特按钮"
+                                    src="https://platform.twitter.com/widgets/tweet_button.b7de008f493a5185d8df1aedd62d77c6.en.html#button_hashtag=TwitterStories&amp;dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=https%3A%2F%2Fp.w3layouts.com%2Fdemos%2Fduplex%2Fweb%2F&amp;size=l&amp;time=1467721486626&amp;type=hashtag"
+                                    style="position: static; visibility: visible; width: 166px; height: 28px;"
+                                    data-hashtag="TwitterStories"></iframe>
+                            <script>
+                                !function (d, s, id) {
+                                    var js, fjs = d.getElementsByTagName(s)[0],
+                                        p = /^http:/.test(d.location) ? 'http' : 'https';
+                                    if (!d.getElementById(id)) {
+                                        js = d.createElement(s);
+                                        js.id = id;
+                                        js.src = p + '://platform.twitter.com/widgets.js';
+                                        fjs.parentNode.insertBefore(js, fjs);
+                                    }
+                                }(document, 'script', 'twitter-wjs');
+                            </script>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+            <div class="clearfix"></div>
+            <!-- technology-right -->
+        </div>
+    </div>
+
+    <div th:include="web/webinclude :: footer"></div>
+
+    <div th:include="web/webinclude :: copyright"></div>
+
+
+</body>
+
+</html>

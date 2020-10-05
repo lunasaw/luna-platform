@@ -1,0 +1,349 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<th:block th:include="web/webinclude :: header('盐途之声')" />
+	<style type="text/css">
+		html,body{margin:0;padding:0;}
+		.iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+		.iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+</head>
+<body>
+	<div class="header" id="ban">
+		<div class="container">
+			<div class="head-left">
+				<div class="header-search">
+					<div class="search">
+						<input class="search_box" type="checkbox" id="search_box">
+						<label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search"
+								aria-hidden="true"></span></label>
+						<div class="search_form">
+							<form action="#" method="post">
+								<input type="text" name="Search" placeholder="搜索...">
+								<font style="vertical-align: inherit;">
+									<font style="vertical-align: inherit;"><input type="submit" value="发送"></font>
+								</font>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header_right">
+				<nav class="navbar navbar-default">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">
+								<font style="vertical-align: inherit;">
+									<font style="vertical-align: inherit;">切换导航</font>
+								</font>
+							</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+
+					<div th:include="web/webinclude :: nav" ></div>
+					<!-- /.navbar-collapse -->
+				</nav>
+			</div>
+			<div class="nav navbar-nav navbar-right social-icons wow fadeInRight animated animated" data-wow-delay=".5s"
+				style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInRight;">
+				<ul>
+					<li><a href="#"> </a></li>
+					<li><a href="#" class="pin"> </a></li>
+					<li><a href="#" class="in"> </a></li>
+					<li><a href="#" class="be"> </a></li>
+					<li><a href="#" class="pin"> </a></li>
+				</ul>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	<!--start-main-->
+	<div th:include="web/webinclude :: title" ></div>
+	<!-- banner -->
+
+	<div class="banner-1">
+
+	</div>
+
+	<!-- technology-left -->
+	<div class="technology">
+		<div class="container">
+			<div class="col-md-9 technology-left">
+				<div class="contact-section">
+					<h2 class="w3">
+						<font style="vertical-align: inherit;">
+							<font style="vertical-align: inherit;">联系</font>
+						</font>
+					</h2>
+
+
+					<div class="contact-grids">
+						<div class="col-md-8 contact-grid">
+
+							<p>
+								<font style="vertical-align: inherit;">
+									<font style="vertical-align: inherit;">欢迎您联系我们,给我们提出更好的建议</font>
+								</font>
+							</p>
+							<form action="#" method="post">
+								<input type="text" name="Name" value="Name " onfocus="this.value = '';"
+									onblur="if (this.value == '') {this.value = 'Name';}" required="">
+								<input type="email" name="Email" value="Email" onfocus="this.value = '';"
+									onblur="if (this.value == '') {this.value = 'Email';}" required="">
+								<input type="text" name="Phone" value="Phone" onfocus="this.value = '';"
+									onblur="if (this.value == '') {this.value = 'Phone';}" required="">
+								<textarea type="text" name="textarea" onfocus="this.value = '';"
+									onblur="if (this.value == '') {this.value = 'Special Instruction/Comments...';}"
+									required="">Special Instruction/Comments...</textarea>
+								<font style="vertical-align: inherit;">
+									<font style="vertical-align: inherit;"><input type="submit" value="发送"></font>
+								</font>
+							</form>
+						</div>
+						<div class="col-md-4 contact-grid1">
+							<h4>
+								<font style="vertical-align: inherit;">
+									<font style="vertical-align: inherit;">地址</font>
+								</font>
+							</h4>
+							<div class="contact-top">
+
+
+								<div class="clearfix"></div>
+							</div>
+							<ul>
+								<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>
+									<font style="vertical-align: inherit;">
+										<font style="vertical-align: inherit;"> 办公室：0041-456-3692</font>
+									</font>
+								</li>
+								<li><i class="glyphicon glyphicon-phone" aria-hidden="true"></i>
+									<font style="vertical-align: inherit;">
+										<font style="vertical-align: inherit;"> 手机：0200-123-4567</font>
+									</font>
+								</li>
+								<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i> <a href="#"></a><a
+										href="mailto:luna_nov@163.com">luna_nov@163.com</a></li>
+								<li><i class="glyphicon glyphicon-print" aria-hidden="true"></i>
+									<font style="vertical-align: inherit;">
+										<font style="vertical-align: inherit;"> 传真：0091-789-456100</font>
+									</font>
+								</li>
+							</ul>
+
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="google-map">
+						<!--百度地图容器-->
+ 						 <div style="width:620px;height:550px;border:#ccc solid 1px;" id="dituContent"></div>
+					</div>
+
+				</div>
+			</div>
+			<!-- technology-right -->
+			<div class="col-md-3 technology-right">
+
+				<div class="blo-top1">
+
+					<div class="tech-btm">
+						<div class="search-1">
+							<form action="#" method="post">
+								<input type="search" name="Search" value="Search" onfocus="this.value = '';"
+									onblur="if (this.value == '') {this.value = 'Search';}" required="">
+								<input type="submit" value=" ">
+							</form>
+						</div>
+						<h4>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">热门帖子 </font>
+							</font>
+						</h4>
+						<div class="blog-grids">
+							<div class="blog-grid-left">
+								<a href="singlepage.html"><img src="images/t2.jpg" class="img-responsive" alt=""></a>
+							</div>
+							<div class="blog-grid-right">
+
+								<h5><a href="singlepage.html">
+										<font style="vertical-align: inherit;">
+											<font style="vertical-align: inherit;">Dui Maecenas生病的孩子</font>
+										</font>
+									</a> </h5>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="blog-grids">
+							<div class="blog-grid-left">
+								<a href="singlepage.html"><img src="images/m2.jpg" class="img-responsive" alt=""></a>
+							</div>
+							<div class="blog-grid-right">
+
+								<h5><a href="singlepage.html">
+										<font style="vertical-align: inherit;">
+											<font style="vertical-align: inherit;">Dui Maecenas生病的孩子</font>
+										</font>
+									</a> </h5>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="blog-grids">
+							<div class="blog-grid-left">
+								<a href="singlepage.html"><img src="images/f2.jpg" class="img-responsive" alt=""></a>
+							</div>
+							<div class="blog-grid-right">
+
+								<h5><a href="singlepage.html">
+										<font style="vertical-align: inherit;">
+											<font style="vertical-align: inherit;">Dui Maecenas生病的孩子</font>
+										</font>
+									</a> </h5>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="blog-grids">
+							<div class="blog-grid-left">
+								<a href="singlepage.html"><img src="images/t3.jpg" class="img-responsive" alt=""></a>
+							</div>
+							<div class="blog-grid-right">
+
+								<h5><a href="singlepage.html">
+										<font style="vertical-align: inherit;">
+											<font style="vertical-align: inherit;">Dui Maecenas生病的孩子</font>
+										</font>
+									</a> </h5>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="blog-grids">
+							<div class="blog-grid-left">
+								<a href="singlepage.html"><img src="images/m3.jpg" class="img-responsive" alt=""></a>
+							</div>
+							<div class="blog-grid-right">
+
+								<h5><a href="singlepage.html">
+										<font style="vertical-align: inherit;">
+											<font style="vertical-align: inherit;">Dui Maecenas生病的孩子</font>
+										</font>
+									</a> </h5>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="insta">
+							<h4>
+								<font style="vertical-align: inherit;">
+									<font style="vertical-align: inherit;">Instagram的</font>
+								</font>
+							</h4>
+							<ul>
+
+								<li><a href="singlepage.html"><img src="images/t1.jpg" class="img-responsive"
+											alt=""></a></li>
+								<li><a href="singlepage.html"><img src="images/m1.jpg" class="img-responsive"
+											alt=""></a></li>
+								<li><a href="singlepage.html"><img src="images/f1.jpg" class="img-responsive"
+											alt=""></a></li>
+								<li><a href="singlepage.html"><img src="images/m2.jpg" class="img-responsive"
+											alt=""></a></li>
+								<li><a href="singlepage.html"><img src="images/f2.jpg" class="img-responsive"
+											alt=""></a></li>
+								<li><a href="singlepage.html"><img src="images/t2.jpg" class="img-responsive"
+											alt=""></a></li>
+								<li><a href="singlepage.html"><img src="images/f3.jpg" class="img-responsive"
+											alt=""></a></li>
+								<li><a href="singlepage.html"><img src="images/t3.jpg" class="img-responsive"
+											alt=""></a></li>
+								<li><a href="singlepage.html"><img src="images/m3.jpg" class="img-responsive"
+											alt=""></a></li>
+							</ul>
+						</div>
+
+						<p>
+							<font style="vertical-align: inherit;">
+								<font style="vertical-align: inherit;">我几乎没有走出困境，是新常态，并且爱他们。</font>
+								<font style="vertical-align: inherit;">但是几乎没有要写的东西就被写好并放下了，但是对于</font>
+							</font>
+						</p>
+						<div class="twt">
+
+							<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true"
+								class="twitter-hashtag-button twitter-hashtag-button-rendered twitter-tweet-button"
+								title="Twitter推特按钮"
+								src="https://platform.twitter.com/widgets/tweet_button.b7de008f493a5185d8df1aedd62d77c6.en.html#button_hashtag=TwitterStories&amp;dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=https%3A%2F%2Fp.w3layouts.com%2Fdemos%2Fduplex%2Fweb%2F&amp;size=l&amp;time=1467721486626&amp;type=hashtag"
+								style="position: static; visibility: visible; width: 166px; height: 28px;"
+								data-hashtag="TwitterStories"></iframe>
+							<script>
+								! function (d, s, id) {
+									var js, fjs = d.getElementsByTagName(s)[0],
+										p = /^http:/.test(d.location) ? 'http' : 'https';
+									if (!d.getElementById(id)) {
+										js = d.createElement(s);
+										js.id = id;
+										js.src = p + '://platform.twitter.com/widgets.js';
+										fjs.parentNode.insertBefore(js, fjs);
+									}
+								}(document, 'script', 'twitter-wjs');
+							</script>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<!-- technology-right -->
+		</div>
+	</div>
+	<div th:include="web/webinclude :: footer" ></div>
+
+
+	<div th:include="web/webinclude :: copyright" ></div>
+
+
+	<script type="text/javascript">
+		//创建和初始化地图函数：
+		function initMap(){
+			createMap();//创建地图
+			setMapEvent();//设置地图事件
+			addMapControl();//向地图添加控件
+		}
+		
+		//创建地图函数：
+		function createMap(){
+			var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+			var point = new BMap.Point(120.167541,33.355101);//定义一个中心点坐标
+			map.centerAndZoom(point,12);//设定地图的中心点和坐标并将地图显示在地图容器中
+			window.map = map;//将map变量存储在全局
+		}
+		
+		//地图事件设置函数：
+		function setMapEvent(){
+			map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+			map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+			map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+			map.enableKeyboard();//启用键盘上下左右键移动地图
+		}
+		
+		//地图控件添加函数：
+		function addMapControl(){
+			//向地图中添加缩放控件
+		var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+		map.addControl(ctrl_nav);
+			//向地图中添加缩略图控件
+		var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+		map.addControl(ctrl_ove);
+			//向地图中添加比例尺控件
+		var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+		map.addControl(ctrl_sca);
+		}
+		
+		
+		initMap();//创建和初始化地图
+	</script>
+</body>
+
+</html>
