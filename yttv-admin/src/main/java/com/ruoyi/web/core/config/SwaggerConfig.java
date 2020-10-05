@@ -16,7 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * Swagger2的接口配置
- * 
+ *
  * @author ruoyi
  */
 @Configuration
@@ -26,7 +26,7 @@ public class SwaggerConfig
     /** 是否开启swagger */
     @Value("${swagger.enabled}")
     private boolean enabled;
-    
+
     /**
      * 创建API
      */
@@ -57,9 +57,9 @@ public class SwaggerConfig
         // 用ApiInfoBuilder进行定制
         return new ApiInfoBuilder()
                 // 设置标题
-                .title("标题：若依管理系统_接口文档")
+                .title("标题：盐途之声_接口文档")
                 // 描述
-                .description("描述：用于管理集团旗下公司的人员信息,具体包括XXX,XXX模块...")
+                .description("描述：用于盐途之声后台管理信息交互,具体包括XXX,XXX模块...")
                 // 作者信息
                 .contact(new Contact(Global.getName(), null, null))
                 // 版本
