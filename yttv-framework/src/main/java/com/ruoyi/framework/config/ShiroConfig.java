@@ -288,6 +288,7 @@ public class ShiroConfig
         // 新闻列表
         filterChainDefinitionMap.put("/admin/news/list", "newsFilter");
         filterChainDefinitionMap.put("/web/**", "newsFilter");
+        filterChainDefinitionMap.put("/admin/blog/list", "newsFilter");
         // 注册相关
         filterChainDefinitionMap.put("/register", "anon,captchaValidate");
         // 系统权限列表

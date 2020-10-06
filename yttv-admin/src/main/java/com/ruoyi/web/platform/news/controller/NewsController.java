@@ -30,16 +30,14 @@ import io.swagger.annotations.ApiOperation;
 @Controller
 @Api("news-controller")
 @RequestMapping("/admin/news")
-public class NewsController extends BaseController
-{
-    private String prefix = "admin/news";
+public class NewsController extends BaseController {
+    private String       prefix = "admin/news";
 
     @Autowired
     private INewsService newsService;
 
     @GetMapping()
-    public String news()
-    {
+    public String news() {
         return prefix + "/news";
     }
 
@@ -49,8 +47,7 @@ public class NewsController extends BaseController
     @ApiOperation(value = "查询新闻展示列表", notes = "查询新闻展示列表详情", tags = {"news-controller"})
     @PostMapping("/list")
     @ResponseBody
-    public TableDataInfo list(News news)
-    {
+    public TableDataInfo list(News news) {
         startPage();
         List<News> list = newsService.selectNewsList(news);
         return getDataTable(list);
@@ -64,8 +61,7 @@ public class NewsController extends BaseController
     @Log(title = "新闻展示", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     @ResponseBody
-    public AjaxResult export(News news)
-    {
+    public AjaxResult export(News news) {
         List<News> list = newsService.selectNewsList(news);
         ExcelUtil<News> util = new ExcelUtil<News>(News.class);
         return util.exportExcel(list, "news");
@@ -75,8 +71,7 @@ public class NewsController extends BaseController
      * 新增新闻展示
      */
     @GetMapping("/add")
-    public String add()
-    {
+    public String add() {
         return prefix + "/add";
     }
 
@@ -88,8 +83,7 @@ public class NewsController extends BaseController
     @Log(title = "新闻展示", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
-    public AjaxResult addSave(News news)
-    {
+    public AjaxResult addSave(News news) {
         return toAjax(newsService.insertNews(news));
     }
 
@@ -99,8 +93,7 @@ public class NewsController extends BaseController
     @ApiOperation(value = "修改新闻展示", notes = "修改新闻展示详情", tags = {"news-controller"})
     @ApiImplicitParam(name = "newsId", value = "主键ID", dataType = "Integer", paramType = "path")
     @GetMapping("/edit/{newsId}")
-    public String edit(@PathVariable("newsId") Integer newsId, ModelMap mmap)
-    {
+    public String edit(@PathVariable("newsId") Integer newsId, ModelMap mmap) {
         News news = newsService.selectNewsById(newsId);
         mmap.put("news", news);
         return prefix + "/edit";
@@ -114,22 +107,20 @@ public class NewsController extends BaseController
     @Log(title = "新闻展示", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
     @ResponseBody
-    public AjaxResult editSave(News news)
-    {
+    public AjaxResult editSave(News news) {
         return toAjax(newsService.updateNews(news));
     }
 
     /**
      * 删除新闻展示
-     @ApiOperation("删除新闻展示")
+     * @ApiOperation("删除新闻展示")
      */
     @ApiOperation(value = "删除新闻展示", notes = "删除新闻展示详情", tags = {"news-controller"})
     @RequiresPermissions("admin:news:remove")
     @Log(title = "新闻展示", businessType = BusinessType.DELETE)
-    @PostMapping( "/remove")
+    @PostMapping("/remove")
     @ResponseBody
-    public AjaxResult remove(String ids)
-    {
+    public AjaxResult remove(String ids) {
         return toAjax(newsService.deleteNewsByIds(ids));
     }
 }

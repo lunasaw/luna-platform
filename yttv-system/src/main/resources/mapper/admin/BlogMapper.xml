@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.web.platform.blog.mapper.BlogMapper">
+    
+    <resultMap type="Blog" id="BlogResult">
+        <result property="blogId"    column="blog_id"    />
+        <result property="blogTitle"    column="blog_title"    />
+        <result property="blogType"    column="blog_type"    />
+        <result property="blogContent"    column="blog_content"    />
+        <result property="blogPicture"    column="blog_picture"    />
+        <result property="blogSimple"    column="blog_simple"    />
+        <result property="status"    column="status"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectBlogVo">
+        select blog_id, blog_title, blog_type, blog_content, blog_picture, blog_simple, status, create_by, create_time, update_by, update_time, remark from sys_blog
+    </sql>
+
+    <select id="selectBlogList" parameterType="Blog" resultMap="BlogResult">
+        <include refid="selectBlogVo"/>
+        <where>
+            <if test="blogId != null  and blogId != ''"> and blog_id = #{blogId}</if>
+            <if test="blogTitle != null  and blogTitle != ''"> and blog_title = #{blogTitle}</if>
+            <if test="blogType != null  and blogType != ''"> and blog_type = #{blogType}</if>
+            <if test="blogContent != null  and blogContent != ''"> and blog_content = #{blogContent}</if>
+            <if test="blogPicture != null  and blogPicture != ''"> and blog_picture = #{blogPicture}</if>
+            <if test="blogSimple != null  and blogSimple != ''"> and blog_simple = #{blogSimple}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="createBy != null  and createBy != ''"> and create_by = #{createBy}</if>
+            <if test="createTime != null "> and create_time = #{createTime}</if>
+            <if test="remark != null  and remark != ''"> and remark = #{remark}</if>
+        </where>
+    </select>
+    
+    <select id="selectBlogById" parameterType="Integer" resultMap="BlogResult">
+        <include refid="selectBlogVo"/>
+        where blog_id = #{blogId}
+    </select>
+        
+    <insert id="insertBlog" parameterType="Blog" useGeneratedKeys="true" keyProperty="blogId">
+        insert into sys_blog
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="blogTitle != null and blogTitle != ''">blog_title,</if>
+            <if test="blogType != null and blogType != ''">blog_type,</if>
+            <if test="blogContent != null and blogContent != ''">blog_content,</if>
+            <if test="blogPicture != null and blogPicture != ''">blog_picture,</if>
+            <if test="blogSimple != null and blogSimple != ''">blog_simple,</if>
+            <if test="status != null and status != ''">status,</if>
+            <if test="createBy != null and createBy != ''">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null and updateBy != ''">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null and remark != ''">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="blogTitle != null and blogTitle != ''">#{blogTitle},</if>
+            <if test="blogType != null and blogType != ''">#{blogType},</if>
+            <if test="blogContent != null and blogContent != ''">#{blogContent},</if>
+            <if test="blogPicture != null and blogPicture != ''">#{blogPicture},</if>
+            <if test="blogSimple != null and blogSimple != ''">#{blogSimple},</if>
+            <if test="status != null and status != ''">#{status},</if>
+            <if test="createBy != null and createBy != ''">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null and updateBy != ''">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null and remark != ''">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBlog" parameterType="Blog">
+        update sys_blog
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="blogTitle != null and blogTitle != ''">blog_title = #{blogTitle},</if>
+            <if test="blogType != null and blogType != ''">blog_type = #{blogType},</if>
+            <if test="blogContent != null and blogContent != ''">blog_content = #{blogContent},</if>
+            <if test="blogPicture != null and blogPicture != ''">blog_picture = #{blogPicture},</if>
+            <if test="blogSimple != null and blogSimple != ''">blog_simple = #{blogSimple},</if>
+            <if test="status != null and status != ''">status = #{status},</if>
+            <if test="createBy != null and createBy != ''">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null and remark != ''">remark = #{remark},</if>
+        </trim>
+        where blog_id = #{blogId}
+    </update>
+
+    <delete id="deleteBlogById" parameterType="Integer">
+        delete from sys_blog where blog_id = #{blogId}
+    </delete>
+
+    <delete id="deleteBlogByIds" parameterType="String">
+        delete from sys_blog where blog_id in 
+        <foreach item="blogId" collection="array" open="(" separator="," close=")">
+            #{blogId}
+        </foreach>
+    </delete>
+
+</mapper>
