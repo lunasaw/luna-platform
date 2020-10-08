@@ -3,6 +3,7 @@
 <head>
 	<th:block th:include="web/webinclude :: header('盐途之声')"/>
 </head>
+
 <body>
 	<div class="header" id="ban">
 		<div class="container">
@@ -75,16 +76,16 @@
 						</font>
 					</h2>
 					<div class="single">
-						<img src="images/sing-1.jpg" class="img-responsive" alt="">
+						<img src="images/sing-1.jpg" th:src="${{blog.blogPicture}}" class="img-responsive" alt="">
 						<div class="b-bottom">
 							<h5 class="top">
 								<font style="vertical-align: inherit;">
-									<font style="vertical-align: inherit;">最终结果是什么</font>
+									<font style="vertical-align: inherit;" th:text="${{blog.blogTitle}}">最终结果是什么</font>
 								</font>
 							</h5>
 							<p class="sub">
 								<font style="vertical-align: inherit;">
-									<font style="vertical-align: inherit;">Lorem
+									<font style="vertical-align: inherit;" th:utext="${{blog.blogContent}}">Lorem
 										Ipsum只是印刷和排版行业的伪文本。LoremIpsum一直是该行业的标准伪文本，Lorem
 										Ipsum只是印刷和排版行业的伪文本。LoremIpsum只是印刷和排版行业的伪文本自Lorem以来，Ipsum一直是行业的标准伪文本，自1500年代以来，Ipsum一直是行业的标准伪文本。
 									</font>
@@ -92,7 +93,7 @@
 							</p>
 							<p>
 								<font style="vertical-align: inherit;">
-									<font style="vertical-align: inherit;">8月01日 </font>
+									<font style="vertical-align: inherit;" th:text="${#dates.format(blog.createTime, 'yyyy-MM-dd')}">8月01日 </font>
 								</font><a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>
 									<font style="vertical-align: inherit;">
 										<font style="vertical-align: inherit;">0 </font>
@@ -117,7 +118,7 @@
 						<div class="media response-info">
 							<div class="media-left response-text-left">
 								<a href="#">
-									<img src="images/sin1.jpg" class="img-responsive" alt="">
+									<img src="images/sin1.jpg" th:src="@{/web/images/sin1.jpg}" class="img-responsive" alt="">
 								</a>
 							</div>
 							<div class="media-body response-text-right">
@@ -143,7 +144,7 @@
 								<div class="media response-info">
 									<div class="media-left response-text-left">
 										<a href="#">
-											<img src="images/sin2.jpg" class="img-responsive" alt="">
+											<img src="images/sin2.jpg" th:src="@{/web/images/sin2.jpg}" class="img-responsive" alt="">
 										</a>
 									</div>
 									<div class="media-body response-text-right">
@@ -175,7 +176,7 @@
 						<div class="media response-info">
 							<div class="media-left response-text-left">
 								<a href="#">
-									<img src="images/sin1.jpg" class="img-responsive" alt="">
+									<img src="images/sin1.jpg" th:src="@{/web/images/sin1.jpg}" class="img-responsive" alt="">
 								</a>
 							</div>
 							<div class="media-body response-text-right">
@@ -201,7 +202,7 @@
 								<div class="media response-info">
 									<div class="media-left response-text-left">
 										<a href="#">
-											<img src="images/sin2.jpg" class="img-responsive" alt="">
+											<img src="images/sin2.jpg" th:src="@{/web/images/sin2.jpg}" class="img-responsive" alt="">
 										</a>
 									</div>
 									<div class="media-body response-text-right">
@@ -257,10 +258,7 @@
 			</div>
 			<!-- technology-right -->
 			<div class="col-md-3 technology-right">
-
-
 				<div class="blo-top1">
-
 					<div class="tech-btm">
 						<div class="search-1">
 							<form action="#" method="post">
@@ -274,76 +272,8 @@
 								<font style="vertical-align: inherit;">热门帖子 </font>
 							</font>
 						</h4>
-						<div class="blog-grids">
-							<div class="blog-grid-left">
-								<a href="singlepage.html"><img src="images/t2.jpg" class="img-responsive" alt=""></a>
-							</div>
-							<div class="blog-grid-right">
-
-								<h5><a href="singlepage.html">
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">Pellentesque dui Maecenas男</font>
-										</font>
-									</a> </h5>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="blog-grids">
-							<div class="blog-grid-left">
-								<a href="singlepage.html"><img src="images/m2.jpg" class="img-responsive" alt=""></a>
-							</div>
-							<div class="blog-grid-right">
-
-								<h5><a href="singlepage.html">
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">Pellentesque dui Maecenas男</font>
-										</font>
-									</a> </h5>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="blog-grids">
-							<div class="blog-grid-left">
-								<a href="singlepage.html"><img src="images/f2.jpg" class="img-responsive" alt=""></a>
-							</div>
-							<div class="blog-grid-right">
-
-								<h5><a href="singlepage.html">
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">Pellentesque dui Maecenas男</font>
-										</font>
-									</a> </h5>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="blog-grids">
-							<div class="blog-grid-left">
-								<a href="singlepage.html"><img src="images/t3.jpg" class="img-responsive" alt=""></a>
-							</div>
-							<div class="blog-grid-right">
-
-								<h5><a href="singlepage.html">
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">Pellentesque dui Maecenas男</font>
-										</font>
-									</a> </h5>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="blog-grids">
-							<div class="blog-grid-left">
-								<a href="singlepage.html"><img src="images/m3.jpg" class="img-responsive" alt=""></a>
-							</div>
-							<div class="blog-grid-right">
-
-								<h5><a href="singlepage.html">
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">Pellentesque dui Maecenas男</font>
-										</font>
-									</a> </h5>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
+						<!--右最近编辑-->
+						<div th:include="web/webinclude :: right-top"></div>
 						<div class="insta">
 							<h4>
 								<font style="vertical-align: inherit;">
@@ -401,12 +331,7 @@
 							</script>
 						</div>
 					</div>
-
-
-
 				</div>
-
-
 			</div>
 			<div class="clearfix"></div>
 			<!-- technology-right -->
@@ -417,6 +342,33 @@
 	<div th:include="web/webinclude :: footer"></div>
 
 	<div th:include="web/webinclude :: copyright"></div>
+	<script>
+		$(document).ready(function () {
+			// $.ajax({
+			// 	url: "web/singlepage/10", // url where to submit the request
+			// 	type: "GET", // type of action POST || GET
+			// 	success: function (result) {
+			// 		//console.log(result);
+			// 		let data;
+			// 		try {
+			// 			data = checkResultAndGetData(result);
+			// 		} catch (error) {
+			// 			alert(JSON.stringify(error));
+			// 			return;
+			// 		}
+			//
+			// 		//console.log(data);
+			// 		if (data == null) {
+			// 			return;
+			// 		}
+			// 	},
+			// 	error: function (xhr, resp, text) {
+			// 		console.log(xhr, resp, text);
+			// 	}
+			// });
+
+		})
+	</script>
 
 
 </body>

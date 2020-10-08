@@ -2,6 +2,7 @@ package com.ruoyi.web.platform.blog.service;
 
 import java.util.List;
 import com.ruoyi.web.platform.blog.domain.Blog;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 博客展示Service接口
@@ -58,4 +59,11 @@ public interface IBlogService
      * @return 结果
      */
     public int deleteBlogById(Integer blogId);
+
+    /**
+     * 通过ids 查找博客集合
+     * @param ids
+     * @return
+     */
+    public List<Blog> selectBlogByIds(@Param("ids") List<String> ids);
 }

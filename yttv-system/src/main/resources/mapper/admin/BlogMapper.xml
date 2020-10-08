@@ -103,4 +103,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </foreach>
     </delete>
 
+    <select id="selectByIds" parameterType="String" resultMap="BlogResult">
+        select blog_id, blog_title, blog_type, blog_content, blog_picture, blog_simple, status, create_by, create_time, update_by, update_time, remark from sys_blog WHERE blog_id in
+        <foreach item="orderId" index="index" collection="ids"
+                 open="(" separator="," close=")">
+            #{orderId}
+        </foreach>
+    </select>
 </mapper>

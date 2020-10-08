@@ -53,11 +53,11 @@ public class BlogController extends BaseController {
     @PostMapping("/list")
     @ResponseBody
     public TableDataInfo list(Blog blog) {
-        System.out.println(JSON.toJSONString(blog));
         startPage();
         List<Blog> list = blogService.selectBlogList(blog);
         return getDataTable(list);
     }
+
 
     /**
      * 导出博客展示列表

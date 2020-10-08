@@ -2,6 +2,7 @@ package com.ruoyi.web.platform.blog.mapper;
 
 import java.util.List;
 import com.ruoyi.web.platform.blog.domain.Blog;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 博客展示Mapper接口
@@ -57,4 +58,11 @@ public interface BlogMapper {
      * @return 结果
      */
     public int deleteBlogByIds(String[] blogIds);
+
+    /**
+     * ids 查找
+     * @param ids
+     * @return
+     */
+    public List<Blog> selectByIds(@Param("ids") List<String> ids);
 }

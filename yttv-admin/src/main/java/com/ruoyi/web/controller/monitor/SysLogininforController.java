@@ -1,6 +1,8 @@
 package com.ruoyi.web.controller.monitor;
 
 import java.util.List;
+
+import com.alibaba.fastjson.JSON;
 import com.ruoyi.framework.shiro.service.SysPasswordService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +49,7 @@ public class SysLogininforController extends BaseController
     @ResponseBody
     public TableDataInfo list(SysLogininfor logininfor)
     {
+        System.out.println(JSON.toJSONString(logininfor));
         startPage();
         List<SysLogininfor> list = logininforService.selectLogininforList(logininfor);
         return getDataTable(list);

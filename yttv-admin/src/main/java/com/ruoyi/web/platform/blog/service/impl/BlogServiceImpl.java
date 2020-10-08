@@ -1,6 +1,8 @@
 package com.ruoyi.web.platform.blog.service.impl;
 
 import java.util.List;
+
+import com.alibaba.fastjson.JSON;
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.framework.util.ShiroUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,5 +93,16 @@ public class BlogServiceImpl implements IBlogService {
     @Override
     public int deleteBlogById(Integer blogId) {
         return blogMapper.deleteBlogById(blogId);
+    }
+
+    /**
+     * id集合查询
+     * @param ids
+     * @return
+     */
+    @Override
+    public List<Blog> selectBlogByIds(List<String> ids) {
+        List<Blog> blogs = blogMapper.selectByIds(ids);
+        return blogs;
     }
 }

@@ -27,7 +27,6 @@
 </head>
 
 
-
 <div  th:fragment="footer">
     <div class="footer">
         <div class="container">
@@ -168,7 +167,7 @@
     <div class="header-bottom">
         <div class="container">
             <div class="logo">
-                <h1><a href="index.html">
+                <h1><a href="index.html" th:href="@{/web/index}">
                     <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit;">盐途之声</font>
                     </font>
@@ -179,6 +178,26 @@
                     </font><label class="on"></label>
                 </p>
             </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="right-top">
+    <div th:each="item,iterStat : ${recently}">
+        <div class="blog-grids wow fadeInDown animated animated" data-wow-duration=".8s"
+             data-wow-delay=".2s"
+             style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+            <div class="blog-grid-left">
+                <a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}"><img src="images/t2.jpg" th:src="${{item.blogPicture}}" class="img-responsive" alt=""></a>
+            </div>
+            <div class="blog-grid-right">
+                <h5><a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;" th:text="${{item.blogTitle}}">Dui Maecenas生病的孩子</font>
+                    </font>
+                </a></h5>
+            </div>
+            <div class="clearfix"></div>
         </div>
     </div>
 </div>

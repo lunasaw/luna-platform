@@ -1,30 +1,12 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
-<html>
-
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Style Blog a Blogging Category Flat Bootstrap Responsive Website Template | Music :: w3layouts</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Style Blog Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-	<script type="applijewelleryion/x-javascript">
-		addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
-	</script>
-	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-	<!-- Custom Theme files -->
-	<link href='js/googleapis.js' rel='stylesheet' type='text/css'>
-	<link href="css/style.css" rel='stylesheet' type='text/css' />
-	<link rel="stylesheet" type="text/css" href="css/component.css" />
-	<script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/modernizr.custom.js"></script>
+	<th:block th:include="web/webinclude :: header('盐途之声')" />
+	<link rel="stylesheet" type="text/css" href="css/component.css" th:href="@{/web/css/component.css}" />
+	<script src="js/modernizr.custom.js"  th:href="@{/web/js/modernizr.custom.js}"></script>
 </head>
+
+
 
 <body>
 	<div class="header" id="ban">
@@ -46,6 +28,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 			</div>
+
+
 			<div class="header_right">
 				<nav class="navbar navbar-default">
 					<!-- Brand and toggle get grouped for better mobile display -->
@@ -87,9 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- banner -->
 
 	<div class="banner-1">
-
 	</div>
-
 	<!-- technology-left -->
 	<div class="technology">
 		<div class="container">
@@ -236,76 +218,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<font style="vertical-align: inherit;">最近的帖子 </font>
 							</font>
 						</h4>
-						<div class="blog-grids">
-							<div class="blog-grid-left">
-								<a href="singlepage.html"><img src="images/t2.jpg" class="img-responsive" alt=""></a>
-							</div>
-							<div class="blog-grid-right">
-
-								<h5><a href="singlepage.html">
-									<font style="vertical-align: inherit;">
-										<font style="vertical-align: inherit;">Dui Maecenas生病的孩子</font>
-									</font>
-								</a> </h5>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="blog-grids">
-							<div class="blog-grid-left">
-								<a href="singlepage.html"><img src="images/m2.jpg" class="img-responsive" alt=""></a>
-							</div>
-							<div class="blog-grid-right">
-
-								<h5><a href="singlepage.html">
-									<font style="vertical-align: inherit;">
-										<font style="vertical-align: inherit;">Dui Maecenas生病的孩子</font>
-									</font>
-								</a> </h5>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="blog-grids">
-							<div class="blog-grid-left">
-								<a href="singlepage.html"><img src="images/f2.jpg" class="img-responsive" alt=""></a>
-							</div>
-							<div class="blog-grid-right">
-
-								<h5><a href="singlepage.html">
-									<font style="vertical-align: inherit;">
-										<font style="vertical-align: inherit;">Dui Maecenas生病的孩子</font>
-									</font>
-								</a> </h5>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="blog-grids">
-							<div class="blog-grid-left">
-								<a href="singlepage.html"><img src="images/t3.jpg" class="img-responsive" alt=""></a>
-							</div>
-							<div class="blog-grid-right">
-
-								<h5><a href="singlepage.html">
-									<font style="vertical-align: inherit;">
-										<font style="vertical-align: inherit;">Dui Maecenas生病的孩子</font>
-									</font>
-								</a> </h5>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="blog-grids">
-							<div class="blog-grid-left">
-								<a href="singlepage.html"><img src="images/m3.jpg" class="img-responsive" alt=""></a>
-							</div>
-							<div class="blog-grid-right">
-
-								<h5><a href="singlepage.html">
-									<font style="vertical-align: inherit;">
-										<font style="vertical-align: inherit;">Dui Maecenas生病的孩子</font>
-									</font>
-								</a> </h5>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
+						<!--右最近编辑-->
+						<div th:include="web/webinclude :: right-top"></div>
 						<div class="insta">
 							<h4>
 								<font style="vertical-align: inherit;">
