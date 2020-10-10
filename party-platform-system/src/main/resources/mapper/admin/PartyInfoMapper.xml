@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.web.platform.partyInfo.mapper.PartyInfoMapper">
+
+    <resultMap type="PartyInfo" id="PartyInfoResult">
+        <result property="partyId" column="party_id"/>
+        <result property="partyStudentNumber" column="party_student_number"/>
+        <result property="partyName" column="party_name"/>
+        <result property="partyClass" column="party_class"/>
+        <result property="partySex" column="party_sex"/>
+        <result property="partyBirthday" column="party_birthday"/>
+        <result property="partyNativePlace" column="party_native_place"/>
+        <result property="partyIdcard" column="party_idcard"/>
+        <result property="partyJoinTime" column="party_join_time"/>
+        <result property="partyJoinApplication" column="party_join_application"/>
+        <result property="partyInspect" column="party_inspect"/>
+        <result property="partyFormalApplication" column="party_formal_application"/>
+        <result property="partyThoughtReport" column="party_thought_report"/>
+        <result property="partyStudentPost" column="party_student_post"/>
+        <result property="partyRewardsPunishments" column="party_rewards_punishments"/>
+        <result property="partyOtherInfo" column="party_other_info"/>
+        <result property="partyHeadMaster" column="party_head_master"/>
+        <result property="partyConnect" column="party_connect"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+    <sql id="selectPartyInfoVo">
+        select party_id, party_student_number, party_name, party_class, party_sex, party_birthday, party_native_place, party_idcard, party_join_time, party_join_application, party_inspect, party_formal_application, party_thought_report, party_student_post, party_rewards_punishments, party_other_info, party_head_master, party_connect, create_time, update_time, create_by, update_by, remark from sys_party_info
+    </sql>
+
+    <select id="selectPartyInfoList" parameterType="PartyInfo" resultMap="PartyInfoResult">
+        <include refid="selectPartyInfoVo"/>
+        <where>
+            <if test="partyStudentNumber != null ">and party_student_number = #{partyStudentNumber}</if>
+            <if test="partyName != null  and partyName != ''">and party_name like concat('%', #{partyName}, '%')</if>
+            <if test="partyClass != null  and partyClass != ''">and party_class = #{partyClass}</if>
+            <if test="partySex != null  and partySex != ''">and party_sex = #{partySex}</if>
+            <if test="partyBirthday != null ">and party_birthday = #{partyBirthday}</if>
+            <if test="partyNativePlace != null  and partyNativePlace != ''">and party_native_place =
+                #{partyNativePlace}
+            </if>
+            <if test="partyIdcard != null  and partyIdcard != ''">and party_idcard = #{partyIdcard}</if>
+            <if test="partyJoinTime != null ">and party_join_time = #{partyJoinTime}</if>
+            <if test="partyJoinApplication != null  and partyJoinApplication != ''">and party_join_application =
+                #{partyJoinApplication}
+            </if>
+            <if test="partyInspect != null  and partyInspect != ''">and party_inspect = #{partyInspect}</if>
+            <if test="partyFormalApplication != null  and partyFormalApplication != ''">and party_formal_application =
+                #{partyFormalApplication}
+            </if>
+            <if test="partyThoughtReport != null  and partyThoughtReport != ''">and party_thought_report =
+                #{partyThoughtReport}
+            </if>
+            <if test="partyStudentPost != null  and partyStudentPost != ''">and party_student_post =
+                #{partyStudentPost}
+            </if>
+            <if test="partyRewardsPunishments != null  and partyRewardsPunishments != ''">and party_rewards_punishments
+                = #{partyRewardsPunishments}
+            </if>
+            <if test="partyOtherInfo != null  and partyOtherInfo != ''">and party_other_info = #{partyOtherInfo}</if>
+            <if test="partyHeadMaster != null  and partyHeadMaster != ''">and party_head_master = #{partyHeadMaster}
+            </if>
+            <if test="partyConnect != null  and partyConnect != ''">and party_connect = #{partyConnect}</if>
+        </where>
+    </select>
+
+    <select id="selectPartyInfoByName" parameterType="String" resultMap="PartyInfoResult">
+        <include refid="selectPartyInfoVo"/>
+        where party_name = #{partyName}
+    </select>
+
+    <select id="selectPartyInfoById" parameterType="Long" resultMap="PartyInfoResult">
+        <include refid="selectPartyInfoVo"/>
+        where party_id = #{partyId}
+    </select>
+
+    <insert id="insertPartyInfo" parameterType="PartyInfo" useGeneratedKeys="true" keyProperty="partyId">
+        insert into sys_party_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="partyStudentNumber != null">party_student_number,</if>
+            <if test="partyName != null and partyName != ''">party_name,</if>
+            <if test="partyClass != null and partyClass != ''">party_class,</if>
+            <if test="partySex != null and partySex != ''">party_sex,</if>
+            <if test="partyBirthday != null">party_birthday,</if>
+            <if test="partyNativePlace != null and partyNativePlace != ''">party_native_place,</if>
+            <if test="partyIdcard != null and partyIdcard != ''">party_idcard,</if>
+            <if test="partyJoinTime != null">party_join_time,</if>
+            <if test="partyJoinApplication != null">party_join_application,</if>
+            <if test="partyInspect != null">party_inspect,</if>
+            <if test="partyFormalApplication != null">party_formal_application,</if>
+            <if test="partyThoughtReport != null">party_thought_report,</if>
+            <if test="partyStudentPost != null">party_student_post,</if>
+            <if test="partyRewardsPunishments != null">party_rewards_punishments,</if>
+            <if test="partyOtherInfo != null">party_other_info,</if>
+            <if test="partyHeadMaster != null">party_head_master,</if>
+            <if test="partyConnect != null">party_connect,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="remark != null">remark,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="partyStudentNumber != null">#{partyStudentNumber},</if>
+            <if test="partyName != null and partyName != ''">#{partyName},</if>
+            <if test="partyClass != null and partyClass != ''">#{partyClass},</if>
+            <if test="partySex != null and partySex != ''">#{partySex},</if>
+            <if test="partyBirthday != null">#{partyBirthday},</if>
+            <if test="partyNativePlace != null and partyNativePlace != ''">#{partyNativePlace},</if>
+            <if test="partyIdcard != null and partyIdcard != ''">#{partyIdcard},</if>
+            <if test="partyJoinTime != null">#{partyJoinTime},</if>
+            <if test="partyJoinApplication != null">#{partyJoinApplication},</if>
+            <if test="partyInspect != null">#{partyInspect},</if>
+            <if test="partyFormalApplication != null">#{partyFormalApplication},</if>
+            <if test="partyThoughtReport != null">#{partyThoughtReport},</if>
+            <if test="partyStudentPost != null">#{partyStudentPost},</if>
+            <if test="partyRewardsPunishments != null">#{partyRewardsPunishments},</if>
+            <if test="partyOtherInfo != null">#{partyOtherInfo},</if>
+            <if test="partyHeadMaster != null">#{partyHeadMaster},</if>
+            <if test="partyConnect != null">#{partyConnect},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="remark != null">#{remark},</if>
+        </trim>
+    </insert>
+
+    <update id="updatePartyInfo" parameterType="PartyInfo">
+        update sys_party_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="partyStudentNumber != null">party_student_number = #{partyStudentNumber},</if>
+            <if test="partyName != null and partyName != ''">party_name = #{partyName},</if>
+            <if test="partyClass != null and partyClass != ''">party_class = #{partyClass},</if>
+            <if test="partySex != null and partySex != ''">party_sex = #{partySex},</if>
+            <if test="partyBirthday != null">party_birthday = #{partyBirthday},</if>
+            <if test="partyNativePlace != null and partyNativePlace != ''">party_native_place = #{partyNativePlace},
+            </if>
+            <if test="partyIdcard != null and partyIdcard != ''">party_idcard = #{partyIdcard},</if>
+            <if test="partyJoinTime != null">party_join_time = #{partyJoinTime},</if>
+            <if test="partyJoinApplication != null">party_join_application = #{partyJoinApplication},</if>
+            <if test="partyInspect != null">party_inspect = #{partyInspect},</if>
+            <if test="partyFormalApplication != null">party_formal_application = #{partyFormalApplication},</if>
+            <if test="partyThoughtReport != null">party_thought_report = #{partyThoughtReport},</if>
+            <if test="partyStudentPost != null">party_student_post = #{partyStudentPost},</if>
+            <if test="partyRewardsPunishments != null">party_rewards_punishments = #{partyRewardsPunishments},</if>
+            <if test="partyOtherInfo != null">party_other_info = #{partyOtherInfo},</if>
+            <if test="partyHeadMaster != null">party_head_master = #{partyHeadMaster},</if>
+            <if test="partyConnect != null">party_connect = #{partyConnect},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where party_id = #{partyId}
+    </update>
+
+    <delete id="deletePartyInfoById" parameterType="Long">
+        delete from sys_party_info where party_id = #{partyId}
+    </delete>
+
+    <delete id="deletePartyInfoByIds" parameterType="String">
+        delete from sys_party_info where party_id in
+        <foreach item="partyId" collection="array" open="(" separator="," close=")">
+            #{partyId}
+        </foreach>
+    </delete>
+
+</mapper>
