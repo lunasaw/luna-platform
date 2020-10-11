@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/party-platform.iml" filepath="$PROJECT_DIR$/party-platform.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/party-platform.iml" filepath="$PROJECT_DIR$/.idea/party-platform.iml" />
       <module fileurl="file://$PROJECT_DIR$/party-platform-admin/party-platform-admin.iml" filepath="$PROJECT_DIR$/party-platform-admin/party-platform-admin.iml" />
       <module fileurl="file://$PROJECT_DIR$/party-platform-common/party-platform-common.iml" filepath="$PROJECT_DIR$/party-platform-common/party-platform-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/party-platform-framework/party-platform-framework.iml" filepath="$PROJECT_DIR$/party-platform-framework/party-platform-framework.iml" />
