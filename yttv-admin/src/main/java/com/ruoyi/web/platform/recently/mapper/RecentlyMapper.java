@@ -7,7 +7,7 @@ import com.ruoyi.web.platform.recently.domain.Recently;
  * 右侧最近记录板块Mapper接口
  * 
  * @author yttv-platform
- * @date 2020-10-07
+ * @date 2020-10-11
  */
 public interface RecentlyMapper {
     /**

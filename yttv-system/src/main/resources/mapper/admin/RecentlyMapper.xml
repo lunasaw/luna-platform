@@ -1,47 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ruoyi.web.platform.recently.mapper.RecentlyMapper">
-    
+
     <resultMap type="Recently" id="RecentlyResult">
-        <result property="recentlyId"    column="recently_id"    />
-        <result property="blogId"    column="blog_id"    />
-        <result property="createTime"    column="create_time"    />
-        <result property="updateTime"    column="update_time"    />
+        <result property="recentlyId" column="recently_id"/>
+        <result property="blogId" column="blog_id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="remark" column="remark"/>
     </resultMap>
 
     <sql id="selectRecentlyVo">
-        select recently_id, blog_id, create_time, update_time from sys_recently
+        select recently_id, blog_id, create_time, update_time, create_by, update_by, remark from sys_recently
     </sql>
 
     <select id="selectRecentlyList" parameterType="Recently" resultMap="RecentlyResult">
         <include refid="selectRecentlyVo"/>
-        <where>  
-            <if test="recentlyId != null "> and recently_id = #{recentlyId}</if>
-            <if test="blogId != null "> and blog_id = #{blogId}</if>
-            <if test="createTime != null "> and create_time = #{createTime}</if>
-            <if test="updateTime != null "> and update_time = #{updateTime}</if>
+        <where>
+            <if test="recentlyId != null ">and recently_id = #{recentlyId}</if>
+            <if test="blogId != null ">and blog_id = #{blogId}</if>
         </where>
     </select>
-    
+
     <select id="selectRecentlyById" parameterType="Integer" resultMap="RecentlyResult">
         <include refid="selectRecentlyVo"/>
         where recently_id = #{recentlyId}
     </select>
-        
+
     <insert id="insertRecently" parameterType="Recently" useGeneratedKeys="true" keyProperty="recentlyId">
         insert into sys_recently
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="blogId != null">blog_id,</if>
             <if test="createTime != null">create_time,</if>
             <if test="updateTime != null">update_time,</if>
-         </trim>
+            <if test="createBy != null and createBy != ''">create_by,</if>
+            <if test="updateBy != null and updateBy != ''">update_by,</if>
+            <if test="remark != null">remark,</if>
+        </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="blogId != null">#{blogId},</if>
             <if test="createTime != null">#{createTime},</if>
             <if test="updateTime != null">#{updateTime},</if>
-         </trim>
+            <if test="createBy != null and createBy != ''">#{createBy},</if>
+            <if test="updateBy != null and updateBy != ''">#{updateBy},</if>
+            <if test="remark != null">#{remark},</if>
+        </trim>
     </insert>
 
     <update id="updateRecently" parameterType="Recently">
@@ -50,6 +57,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="blogId != null">blog_id = #{blogId},</if>
             <if test="createTime != null">create_time = #{createTime},</if>
             <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="createBy != null and createBy != ''">create_by = #{createBy},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+            <if test="remark != null">remark = #{remark},</if>
         </trim>
         where recently_id = #{recentlyId}
     </update>
@@ -59,9 +69,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </delete>
 
     <delete id="deleteRecentlyByIds" parameterType="String">
-        delete from sys_recently where recently_id in 
+        delete from sys_recently where recently_id in
         <foreach item="recentlyId" collection="array" open="(" separator="," close=")">
             #{recentlyId}
         </foreach>
     </delete>
+
 </mapper>

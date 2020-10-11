@@ -11,7 +11,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 右侧最近记录板块对象 sys_recently
  *
  * @author yttv-platform
- * @date 2020-10-07
+ * @date 2020-10-11
  */
 @ApiModel("Recently")
 public class Recently extends BaseEntity {
@@ -50,6 +50,9 @@ public class Recently extends BaseEntity {
             .append("blogId", getBlogId())
             .append("createTime", getCreateTime())
             .append("updateTime", getUpdateTime())
+            .append("createBy", getCreateBy())
+            .append("updateBy", getUpdateBy())
+            .append("remark", getRemark())
             .toString();
     }
 }

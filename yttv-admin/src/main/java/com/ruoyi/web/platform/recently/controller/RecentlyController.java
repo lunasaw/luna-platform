@@ -26,7 +26,7 @@ import com.ruoyi.common.core.page.TableDataInfo;
  * Recently-Controller
  *
  * @author yttv-platform
- * @date 2020-10-07
+ * @date 2020-10-11
  */
 @Controller
 @Api("Recently-Controller")
@@ -47,6 +47,7 @@ public class RecentlyController extends BaseController {
      * 查询右侧最近记录板块列表
      */
     @ApiOperation(value = "查询右侧最近记录板块列表", notes = "查询右侧最近记录板块列表详情", tags = {"Recently-Controller"})
+    @RequiresPermissions("admin:recently:list")
     @PostMapping("/list")
     @ResponseBody
     public TableDataInfo list(Recently recently) {

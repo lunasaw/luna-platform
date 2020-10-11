@@ -18,22 +18,6 @@
                                 <label>最近博客Id：</label>
                                 <input type="text" name="blogId"/>
                             </li>
-                            <li class="select-time">
-                                <label>创建时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间"
-                                       name="params[beginCreateTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间"
-                                       name="params[endCreateTime]"/>
-                            </li>
-                            <li class="select-time">
-                                <label>更新时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间"
-                                       name="params[beginUpdateTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间"
-                                       name="params[endUpdateTime]"/>
-                            </li>
                             <li>
                                 <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i
                                         class="fa fa-search"></i>&nbsp;搜索</a>
@@ -109,6 +93,10 @@
                     {
                         field: 'updateBy',
                         title: '更新者'
+                    },
+                    {
+                        field: 'remark',
+                        title: '备注'
                     },
                     {
                         title: '操作',
