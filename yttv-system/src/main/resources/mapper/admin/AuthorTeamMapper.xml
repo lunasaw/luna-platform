@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.web.platform.teamInfo.mapper.AuthorTeamMapper">
+
+    <resultMap type="AuthorTeam" id="AuthorTeamResult">
+        <result property="teamId" column="team_id"/>
+        <result property="teamName" column="team_name"/>
+        <result property="postId" column="post_id"/>
+        <result property="teamDes" column="team_des"/>
+        <result property="teamPicture" column="team_picture"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+    <sql id="selectAuthorTeamVo">
+        select team_id, team_name, post_id, team_des, team_picture, create_time, update_time, create_by, update_by, remark from sys_author_team
+    </sql>
+
+    <select id="selectAuthorTeamList" parameterType="AuthorTeam" resultMap="AuthorTeamResult">
+        <include refid="selectAuthorTeamVo"/>
+        <where>
+            <if test="teamId != null ">and team_id = #{teamId}</if>
+            <if test="teamName != null  and teamName != ''">and team_name like concat('%', #{teamName}, '%')</if>
+            <if test="postId != null ">and post_id = #{postId}</if>
+            <if test="teamDes != null  and teamDes != ''">and team_des = #{teamDes}</if>
+            <if test="teamPicture != null  and teamPicture != ''">and team_picture = #{teamPicture}</if>
+        </where>
+    </select>
+
+    <select id="selectAuthorTeamById" parameterType="Integer" resultMap="AuthorTeamResult">
+        <include refid="selectAuthorTeamVo"/>
+        where team_id = #{teamId}
+    </select>
+
+    <insert id="insertAuthorTeam" parameterType="AuthorTeam" useGeneratedKeys="true" keyProperty="teamId">
+        insert into sys_author_team
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="teamName != null and teamName != ''">team_name,</if>
+            <if test="postId != null">post_id,</if>
+            <if test="teamDes != null and teamDes != ''">team_des,</if>
+            <if test="teamPicture != null and teamPicture != ''">team_picture,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="createBy != null and createBy != ''">create_by,</if>
+            <if test="updateBy != null and updateBy != ''">update_by,</if>
+            <if test="remark != null">remark,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="teamName != null and teamName != ''">#{teamName},</if>
+            <if test="postId != null">#{postId},</if>
+            <if test="teamDes != null and teamDes != ''">#{teamDes},</if>
+            <if test="teamPicture != null and teamPicture != ''">#{teamPicture},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="createBy != null and createBy != ''">#{createBy},</if>
+            <if test="updateBy != null and updateBy != ''">#{updateBy},</if>
+            <if test="remark != null">#{remark},</if>
+        </trim>
+    </insert>
+
+    <update id="updateAuthorTeam" parameterType="AuthorTeam">
+        update sys_author_team
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="teamName != null and teamName != ''">team_name = #{teamName},</if>
+            <if test="postId != null">post_id = #{postId},</if>
+            <if test="teamDes != null and teamDes != ''">team_des = #{teamDes},</if>
+            <if test="teamPicture != null and teamPicture != ''">team_picture = #{teamPicture},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="createBy != null and createBy != ''">create_by = #{createBy},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where team_id = #{teamId}
+    </update>
+
+    <delete id="deleteAuthorTeamById" parameterType="Integer">
+        delete from sys_author_team where team_id = #{teamId}
+    </delete>
+
+    <delete id="deleteAuthorTeamByIds" parameterType="String">
+        delete from sys_author_team where team_id in
+        <foreach item="teamId" collection="array" open="(" separator="," close=")">
+            #{teamId}
+        </foreach>
+    </delete>
+
+</mapper>

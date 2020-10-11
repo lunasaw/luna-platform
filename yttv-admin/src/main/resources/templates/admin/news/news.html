@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-    <th:block th:include="include :: header('新闻展示列表')" />
+    <th:block th:include="include :: header('新闻展示列表')"/>
 </head>
 <body class="gray-bg">
-     <div class="container-div">
+    <div class="container-div">
         <div class="row">
             <div class="col-sm-12 search-collapse">
                 <form id="formId">
@@ -18,19 +18,23 @@
                                 <label>新闻类型：</label>
                                 <select name="newsType" th:with="type=${@dict.getType('sys_news_type')}">
                                     <option value="">所有</option>
-                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}"
+                                            th:value="${dict.dictValue}"></option>
                                 </select>
                             </li>
                             <li>
                                 <label>新闻状态：</label>
                                 <select name="status" th:with="type=${@dict.getType('sys_news_status')}">
                                     <option value="">所有</option>
-                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}"
+                                            th:value="${dict.dictValue}"></option>
                                 </select>
                             </li>
                             <li>
-                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
-                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i
+                                        class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i
+                                        class="fa fa-refresh"></i>&nbsp;重置</a>
                             </li>
                         </ul>
                     </div>
@@ -41,10 +45,12 @@
                 <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="admin:news:add">
                     <i class="fa fa-plus"></i> 添加
                 </a>
-                <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="admin:news:edit">
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()"
+                   shiro:hasPermission="admin:news:edit">
                     <i class="fa fa-edit"></i> 修改
                 </a>
-                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="admin:news:remove">
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()"
+                   shiro:hasPermission="admin:news:remove">
                     <i class="fa fa-remove"></i> 删除
                 </a>
                 <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="admin:news:export">
@@ -56,7 +62,7 @@
             </div>
         </div>
     </div>
-    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: footer"/>
     <script th:inline="javascript">
         var editFlag = [[${@permission.hasPermi('admin:news:edit')}]];
         var removeFlag = [[${@permission.hasPermi('admin:news:remove')}]];
@@ -64,7 +70,7 @@
         var statusDatas = [[${@dict.getType('sys_news_status')}]];
         var prefix = ctx + "admin/news";
 
-        $(function() {
+        $(function () {
             var options = {
                 url: prefix + "/list",
                 createUrl: prefix + "/add",
@@ -77,47 +83,63 @@
                 columns: [{
                     checkbox: true
                 },
-                {
-                    field: 'newsId',
-                    title: '新闻ID',
-                    visible: false
-                },
-                {
-                    field: 'newsTitle',
-                    title: '新闻标题'
-                },
-                {
-                    field: 'newsType',
-                    title: '新闻类型',
-                    formatter: function(value, row, index) {
-                       return $.table.selectDictLabel(newsTypeDatas, value);
-                    }
-                },
-                {
-                    field: 'newsContent',
-                    title: '新闻内容'
-                },
-                {
-                    field: 'status',
-                    title: '新闻状态',
-                    formatter: function(value, row, index) {
-                       return $.table.selectDictLabel(statusDatas, value);
-                    }
-                },
-                {
-                    field: 'remark',
-                    title: '备注'
-                },
-                {
-                    title: '操作',
-                    align: 'center',
-                    formatter: function(value, row, index) {
-                        var actions = [];
-                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.newsId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
-                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.newsId + '\')"><i class="fa fa-remove"></i>删除</a>');
-                        return actions.join('');
-                    }
-                }]
+                    {
+                        field: 'newsId',
+                        title: '新闻ID',
+                        visible: false
+                    },
+                    {
+                        field: 'newsTitle',
+                        title: '新闻标题'
+                    },
+                    {
+                        field: 'newsType',
+                        title: '新闻类型',
+                        formatter: function (value, row, index) {
+                            return $.table.selectDictLabel(newsTypeDatas, value);
+                        }
+                    },
+                    {
+                        field: 'newsContent',
+                        title: '新闻内容'
+                    },
+                    {
+                        field: 'status',
+                        title: '新闻状态',
+                        formatter: function (value, row, index) {
+                            return $.table.selectDictLabel(statusDatas, value);
+                        }
+                    },
+                    {
+                        field: 'createTime',
+                        title: '创建时间'
+                    },
+                    {
+                        field: 'createBy',
+                        title: '创建者'
+                    },
+                    {
+                        field: 'updateTime',
+                        title: '更新时间'
+                    },
+                    {
+                        field: 'updateBy',
+                        title: '更新者'
+                    },
+                    {
+                        field: 'remark',
+                        title: '备注'
+                    },
+                    {
+                        title: '操作',
+                        align: 'center',
+                        formatter: function (value, row, index) {
+                            var actions = [];
+                            actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.newsId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                            actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.newsId + '\')"><i class="fa fa-remove"></i>删除</a>');
+                            return actions.join('');
+                        }
+                    }]
             };
             $.table.init(options);
         });

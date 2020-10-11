@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-    <th:block th:include="include :: header('右侧最近记录板块列表')"/>
+    <th:block th:include="include :: header('团队介绍板块列表')"/>
 </head>
 <body class="gray-bg">
     <div class="container-div">
@@ -11,28 +11,16 @@
                     <div class="select-list">
                         <ul>
                             <li>
-                                <label>最近记录id：</label>
-                                <input type="text" name="recentlyId"/>
+                                <label>团队人员编号：</label>
+                                <input type="text" name="teamId"/>
                             </li>
                             <li>
-                                <label>最近博客Id：</label>
-                                <input type="text" name="blogId"/>
+                                <label>团队成员姓名：</label>
+                                <input type="text" name="teamName"/>
                             </li>
-                            <li class="select-time">
-                                <label>创建时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间"
-                                       name="params[beginCreateTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间"
-                                       name="params[endCreateTime]"/>
-                            </li>
-                            <li class="select-time">
-                                <label>更新时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间"
-                                       name="params[beginUpdateTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间"
-                                       name="params[endUpdateTime]"/>
+                            <li>
+                                <label>岗位编号：</label>
+                                <input type="text" name="postId"/>
                             </li>
                             <li>
                                 <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i
@@ -46,18 +34,18 @@
             </div>
 
             <div class="btn-group-sm" id="toolbar" role="group">
-                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="admin:recently:add">
+                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="admin:teamInfo:add">
                     <i class="fa fa-plus"></i> 添加
                 </a>
                 <a class="btn btn-primary single disabled" onclick="$.operate.edit()"
-                   shiro:hasPermission="admin:recently:edit">
+                   shiro:hasPermission="admin:teamInfo:edit">
                     <i class="fa fa-edit"></i> 修改
                 </a>
                 <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()"
-                   shiro:hasPermission="admin:recently:remove">
+                   shiro:hasPermission="admin:teamInfo:remove">
                     <i class="fa fa-remove"></i> 删除
                 </a>
-                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="admin:recently:export">
+                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="admin:teamInfo:export">
                     <i class="fa fa-download"></i> 导出
                 </a>
             </div>
@@ -68,9 +56,9 @@
     </div>
     <th:block th:include="include :: footer"/>
     <script th:inline="javascript">
-        var editFlag = [[${@permission.hasPermi('admin:recently:edit')}]];
-        var removeFlag = [[${@permission.hasPermi('admin:recently:remove')}]];
-        var prefix = ctx + "admin/recently";
+        var editFlag = [[${@permission.hasPermi('admin:teamInfo:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('admin:teamInfo:remove')}]];
+        var prefix = ctx + "admin/teamInfo";
 
         $(function () {
             var options = {
@@ -79,20 +67,32 @@
                 updateUrl: prefix + "/edit/{id}",
                 removeUrl: prefix + "/remove",
                 exportUrl: prefix + "/export",
-                modalName: "右侧最近记录板块",
+                modalName: "团队介绍板块",
                 pagination: true,
                 escape: false,
                 columns: [{
                     checkbox: true
                 },
                     {
-                        field: 'recentlyId',
-                        title: '最近记录id',
+                        field: 'teamId',
+                        title: '团队人员编号',
                         visible: false
                     },
                     {
-                        field: 'blogId',
-                        title: '最近博客Id'
+                        field: 'teamName',
+                        title: '团队成员姓名'
+                    },
+                    {
+                        field: 'postId',
+                        title: '岗位编号'
+                    },
+                    {
+                        field: 'teamDes',
+                        title: '个人介绍'
+                    },
+                    {
+                        field: 'teamPicture',
+                        title: '个人照片'
                     },
                     {
                         field: 'createTime',
@@ -111,12 +111,16 @@
                         title: '更新者'
                     },
                     {
+                        field: 'remark',
+                        title: '备注'
+                    },
+                    {
                         title: '操作',
                         align: 'center',
                         formatter: function (value, row, index) {
                             var actions = [];
-                            actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.recentlyId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
-                            actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.recentlyId + '\')"><i class="fa fa-remove"></i>删除</a>');
+                            actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.teamId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                            actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.teamId + '\')"><i class="fa fa-remove"></i>删除</a>');
                             return actions.join('');
                         }
                     }]

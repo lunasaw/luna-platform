@@ -2,6 +2,7 @@ package com.ruoyi.web.platform.recently.service.impl;
 
 import java.util.List;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.framework.util.ShiroUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.web.platform.recently.mapper.RecentlyMapper;
@@ -52,6 +53,7 @@ public class RecentlyServiceImpl implements IRecentlyService {
     public int insertRecently(Recently recently) {
         recently.setCreateTime(DateUtils.getNowDate());
         recently.setUpdateTime(DateUtils.getNowDate());
+        recently.setCreateBy(ShiroUtils.getLoginName());
         return recentlyMapper.insertRecently(recently);
     }
 
@@ -64,6 +66,7 @@ public class RecentlyServiceImpl implements IRecentlyService {
     @Override
     public int updateRecently(Recently recently) {
         recently.setUpdateTime(DateUtils.getNowDate());
+        recently.setUpdateBy(ShiroUtils.getLoginName());
         return recentlyMapper.updateRecently(recently);
     }
 
