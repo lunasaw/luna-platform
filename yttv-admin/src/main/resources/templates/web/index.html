@@ -3,7 +3,6 @@
 <head>
     <th:block th:include="web/webinclude :: header('盐途之声')"/>
 </head>
-
 <body>
     <div class="header" id="ban">
         <div class="container">
@@ -82,7 +81,7 @@
                 <font style="vertical-align: inherit;">
                     <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">与普遍的看法相反，lorem ipsum只是</font>
+                            <font style="vertical-align: inherit;">盐途之声,展示你所见</font>
                         </font>
                     </font>
                 </font>
@@ -91,13 +90,12 @@
                 <font style="vertical-align: inherit;">
                     <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">自1500年代以来，Loem
-                                ipsum一直是行业的标准伪文本，当时一个不知名的打印机采用了一个厨房类型并导致干扰。使lorem ipsum自1500年代以来，一直是行业的标准伪文本。</font>
+                            <font style="vertical-align: inherit;">我们致力于打造一个完美的个人社交平台,帮助你了解并认识这个世界</font>
                         </font>
                     </font>
                 </font>
             </p>
-            <a href="singlepage.html">
+            <a class="anniu">
                 <font style="vertical-align: inherit;">
                     <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit;">
@@ -108,6 +106,12 @@
             </a>
         </div>
     </div>
+    <script>
+        $(".anniu").click(function () {
+            var h = $(window).scrollTop(); //获取当前滚动条距离顶部的位置
+            $("html,body").animate({scrollTop: h + 800}, 800);//点击按钮向下移动800px，时间为800毫秒
+        });
+    </script>
     <div class="services w3l wow fadeInDown animated animated" data-wow-duration=".8s" data-wow-delay=".2s"
          style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
         <div class="container">
@@ -199,84 +203,79 @@
             <div class="col-md-9 technology-left">
                 <div class="tech-no">
                     <!-- technology-top -->
-                    <div class="tc-ch wow fadeInDown animated animated" data-wow-duration=".8s" data-wow-delay=".2s"
-                         style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
-                        <div class="tch-img">
-                            <a href="singlepage.html"><img src="images/t4.jpg" class="img-responsive" alt=""></a>
-                        </div>
-                        <h3><a href="singlepage.html">
-                            <font style="vertical-align: inherit;">
+                    <div th:each="item,iterStat : ${mains}">
+                        <div class="tc-ch wow fadeInDown animated animated" data-wow-duration=".8s" data-wow-delay=".2s"
+                             style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
+                            <div class="tch-img">
+                                <a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
+                                    <img src="images/t4.jpg" th:src="${{item.blogPicture}}" class="img-responsive"
+                                         alt=""></a>
+                            </div>
+                            <h3><a href="singlepage.html">
                                 <font style="vertical-align: inherit;">
                                     <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Lorem ipsum就是</font>
-                                    </font>
-                                </font>
-                            </font>
-                        </a></h3>
-                        <h6>
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">作者：</font>
-                                    </font>
-                                </font>
-                            </font><a href="singlepage.html">
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">亚当·罗斯</font>
-                                    </font>
-                                </font>
-                            </font>
-                        </a>
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">2016年7月10日。</font>
-                                    </font>
-                                </font>
-                            </font>
-                        </h6>
-                        <p>
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Lorem存有悲坐下，私立教育专家，和活力，或做eiusmod长UT
-                                            labore等dolore麦格纳aliqua。</font>
-                                    </font>
-                                </font>
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">尽量不要使用普通烟具，要而进行劳动状语从句：以劳动为代价的劳动则要以普通商品为准
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;" th:text="${{item.blogTitle}}">Lorem
+                                                ipsum就是</font>
                                         </font>
-                                        <font style="vertical-align: inherit;">。</font>
                                     </font>
                                 </font>
-                            </font>
-                        </p>
-                        <p>
-                            <font style="vertical-align: inherit;">
+                            </a></h3>
+                            <h6>
                                 <font style="vertical-align: inherit;">
-                                    这些年来，我将全力以赴，充满朝气，使一个男人的劳动，以及久经考验的eiusmod进行一些锻炼，学区努力如果感到痛苦，从而使她摆脱了配方的巨大优势。</font>
-                            </font>
-                        </p>
-                        <div class="bht1">
-                            <a href="singlepage.html">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">作者：</font>
+                                        </font>
+                                    </font>
+                                </font><a href="singlepage.html"
+                                          th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
                                 <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">继续阅读</font>
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;"
+                                                  th:text="${{item.createBy}}">亚当·罗斯</font>
+                                        </font>
+                                    </font>
                                 </font>
                             </a>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;"
+                                                  th:text="${#dates.format(item.createTime, 'yyyy年MM月dd日')}">2016年7月10日。</font>
+                                        </font>
+                                    </font>
+                                </font>
+                            </h6>
+                            <p>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;" th:text="${{item.blogSimple}}">Lorem存有悲坐下，私立教育专家，和活力，或做eiusmod长UT
+                                                labore等dolore麦格纳aliqua。</font>
+                                        </font>
+                                    </font>
+                                </font>
+                            </p>
+                            <div class="bht1">
+                                <a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">继续阅读</font>
+                                    </font>
+                                </a>
+                            </div>
+                            <div class="soci">
+                                <ul>
+                                    <li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>
+                                    <li class="hvr-rectangle-out"><a class="twit" href="#"></a></li>
+                                    <li class="hvr-rectangle-out"><a class="goog" href="#"></a></li>
+                                    <li class="hvr-rectangle-out"><a class="pin" href="#"></a></li>
+                                    <li class="hvr-rectangle-out"><a class="drib" href="#"></a></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
                         </div>
-                        <div class="soci">
-                            <ul>
-                                <li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>
-                                <li class="hvr-rectangle-out"><a class="twit" href="#"></a></li>
-                                <li class="hvr-rectangle-out"><a class="goog" href="#"></a></li>
-                                <li class="hvr-rectangle-out"><a class="pin" href="#"></a></li>
-                                <li class="hvr-rectangle-out"><a class="drib" href="#"></a></li>
-                            </ul>
-                        </div>
-                        <div class="clearfix"></div>
                     </div>
                     <div class="clearfix"></div>
                     <!-- technology-top -->
@@ -288,11 +287,14 @@
                                  style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
                                 <div class="tc-ch">
                                     <div class="tch-img">
-                                        <a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
-                                            <img src="images/m4.jpg" th:src="${{item.blogPicture}}" class="img-responsive"
+                                        <a href="singlepage.html"
+                                           th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
+                                            <img src="images/m4.jpg" th:src="${{item.blogPicture}}"
+                                                 class="img-responsive"
                                                  alt=""></a>
                                     </div>
-                                    <h3><a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
+                                    <h3><a href="singlepage.html"
+                                           th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
                                         <font style="vertical-align: inherit;">
                                             <font style="vertical-align: inherit;" th:text="${{item.blogTitle}}">Lorem
                                                 ipsum很简单</font>
@@ -304,7 +306,8 @@
                                         </font><a href="singlepage.html"
                                                   th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
                                         <font style="vertical-align: inherit;">
-                                            <font style="vertical-align: inherit;" th:text="${{item.createBy}}">亚当·罗斯</font>
+                                            <font style="vertical-align: inherit;"
+                                                  th:text="${{item.createBy}}">亚当·罗斯</font>
                                         </font>
                                     </a>
                                         <font style="vertical-align: inherit;">
@@ -320,7 +323,8 @@
                                         </font>
                                     </p>
                                     <div class="bht1">
-                                        <a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
+                                        <a href="singlepage.html"
+                                           th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
                                             <font style="vertical-align: inherit;">
                                                 <font style="vertical-align: inherit;">讨论</font>
                                             </font>
@@ -328,7 +332,9 @@
                                     </div>
                                     <div class="soci">
                                         <ul>
-                                            <li class="hvr-rectangle-out"><a class="pin" href="#"  target="_blank" th:href="@{'http://service.weibo.com/share/share.php?title='+${item.blogTitle}+'&url='+'http://luna.vaiwan.com/web/singlepage?blogId='+${{item.blogId}}}"></a></li>
+                                            <li class="hvr-rectangle-out"><a class="pin" href="#" target="_blank"
+                                                                             th:href="@{'http://service.weibo.com/share/share.php?title='+${item.blogTitle}+'&url='+'http://luna.vaiwan.com/web/singlepage?blogId='+${{item.blogId}}}"></a>
+                                            </li>
                                             <li class="hvr-rectangle-out"><a class="pin" href="#"></a></li>
                                         </ul>
                                     </div>
@@ -337,33 +343,39 @@
                             </div>
                         </div>
 
-                        <div class="wthree"  th:if="${iterStat.index}%3==2">
+                        <div class="wthree" th:if="${iterStat.index}%3==2">
                             <div class="col-md-6 wthree-left wow fadeInDown animated animated" data-wow-duration=".8s"
                                  data-wow-delay=".2s"
                                  style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
                                 <div class="tch-img">
-                                    <a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}"><img src="images/f2.jpg"
-                                                                                                                           th:src="${{item.blogPicture}}" class="img-responsive" alt=""></a>
+                                    <a href="singlepage.html"
+                                       th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}"><img src="images/f2.jpg"
+                                                                                                    th:src="${{item.blogPicture}}"
+                                                                                                    class="img-responsive"
+                                                                                                    alt=""></a>
                                 </div>
                             </div>
                             <div class="col-md-6 wthree-right wow fadeInDown animated animated" data-wow-duration=".8s"
                                  data-wow-delay=".2s"
                                  style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
-                                <h3><a href="singlepage.html"  th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
+                                <h3><a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
                                     <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;" th:text="${{item.blogTitle}}">Lorem ipsum很简单</font>
+                                        <font style="vertical-align: inherit;" th:text="${{item.blogTitle}}">Lorem
+                                            ipsum很简单</font>
                                     </font>
                                 </a></h3>
                                 <h6>
                                     <font style="vertical-align: inherit;">
                                         <font style="vertical-align: inherit;">由</font>
-                                    </font><a href="singlepage.html"  th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
+                                    </font><a href="singlepage.html"
+                                              th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
                                     <font style="vertical-align: inherit;">
                                         <font style="vertical-align: inherit;" th:text="${{item.createBy}}">亚当·罗斯</font>
                                     </font>
                                 </a>
                                     <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;" th:text="${#dates.format(item.createTime, 'yyyy年MM月dd日')}">2016年7月10日。</font>
+                                        <font style="vertical-align: inherit;"
+                                              th:text="${#dates.format(item.createTime, 'yyyy年MM月dd日')}">2016年7月10日。</font>
                                     </font>
                                 </h6>
                                 <p>
@@ -373,7 +385,7 @@
                                     </font>
                                 </p>
                                 <div class="bht1">
-                                    <a href="singlepage.html"  th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
+                                    <a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
                                         <font style="vertical-align: inherit;">
                                             <font style="vertical-align: inherit;">讨论</font>
                                         </font>
@@ -381,8 +393,12 @@
                                 </div>
                                 <div class="soci">
                                     <ul>
-                                        <li class="hvr-rectangle-out"><a class="pin" href="#" target="_blank" th:href="@{'http://service.weibo.com/share/share.php?title='+${item.blogTitle}+'&url='+'http://luna.vaiwan.com/web/singlepage?blogId='+${{item.blogId}}}"></a></li>
-                                        <li class="hvr-rectangle-out "><a class="pin" href="#" target="_blank" th:href="@{'http://connect.qq.com/widget/shareqq/index.html?url=http://luna.vaiwan.com/web/singlepage?blogId='+${item.blogId}+'&sharesource=qzone&title='+${item.blogTitle}+'&pics='+${item.blogPicture}}"></a></li>
+                                        <li class="hvr-rectangle-out"><a class="pin" href="#" target="_blank"
+                                                                         th:href="@{'http://service.weibo.com/share/share.php?title='+${item.blogTitle}+'&url='+'http://luna.vaiwan.com/web/singlepage?blogId='+${{item.blogId}}}"></a>
+                                        </li>
+                                        <li class="hvr-rectangle-out "><a class="pin" href="#" target="_blank"
+                                                                          th:href="@{'http://connect.qq.com/widget/shareqq/index.html?url=http://luna.vaiwan.com/web/singlepage?blogId='+${item.blogId}+'&sharesource=qzone&title='+${item.blogTitle}+'&pics='+${item.blogPicture}}"></a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="clearfix"></div>

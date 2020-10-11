@@ -57,7 +57,7 @@
         </div>
     </div>
     <!--start-main-->
-    <div th:include="web/webinclude :: title" ></div>
+    <div th:include="web/webinclude :: title"></div>
     <!-- banner -->
 
     <div class="banner-1">
@@ -75,91 +75,50 @@
                                     style="vertical-align: inherit;">欢迎</font></font></h2>
                             <div class="welcome-bottom">
                                 <img src="images/t4.jpg" class="img-responsive" alt="">
-                                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Vivamus
-                                    interdum diam，它至少不会引起生命的后遗症。</font><font style="vertical-align: inherit;">因此，出现问题的可能性反而会拉小孩子。</font><font
-                                        style="vertical-align: inherit;">但是他们需要根据版权直径聘请一些辣椒。</font><font
-                                        style="vertical-align: inherit;">将有一个大的药丸，结果就这样。</font><font
-                                        style="vertical-align: inherit;">强调方便憎恨或哀悼胡萝卜的任何元素。</font></font></p>
-                                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">没有时间睡觉了。</font><font
-                                        style="vertical-align: inherit;">此外，没有什么胃口的藤本植物坐着。</font><font
-                                        style="vertical-align: inherit;">每个开发人员都独自奋斗。</font><font
-                                        style="vertical-align: inherit;">营养居民足球悲伤和丑陋的netus et
-                                    malesuada饥饿和贫困。</font><font
-                                        style="vertical-align: inherit;">不幸的是，箭和大箭，箭，箭，箭和箭都来自箭。</font></font></p>
+                                <p>我们致力于打造一个完美的个人社交平台,帮助你了解并认识这个世界</p>
                             </div>
                         </div>
                     </div>
                     <div class="team">
                         <h3 class="team-heading"><font style="vertical-align: inherit;"><font
                                 style="vertical-align: inherit;">认识我们的团队</font></font></h3>
-                        <div class="team-grids">
+                        <div class="team-grids" th:each="item,iterStat : ${authors}">
                             <div class="col-md-6 team-grid">
                                 <div class="team-grid1">
-                                    <img src="images/2.jpg" alt=" " class="img-responsive">
+                                    <img src="images/2.jpg" th:src="${{item.teamPicture}}" alt=" "
+                                         class="img-responsive">
                                     <div class="p-mask">
                                         <p><font style="vertical-align: inherit;"><font
-                                                style="vertical-align: inherit;">也没有任何人属于他们，他们的痛苦和痛苦非常重要。</font></font>
+                                                style="vertical-align: inherit;" th:text="${{item.teamDes}}">也没有任何人属于他们，他们的痛苦和痛苦非常重要。</font></font>
                                         </p>
-
                                     </div>
                                 </div>
                                 <h5><font style="vertical-align: inherit;"><font
-                                        style="vertical-align: inherit;">劳拉·马克</font></font><span><font
+                                        style="vertical-align: inherit;"
+                                        th:text="${{item.teamName}}">劳拉·马克</font></font><span><font
                                         style="vertical-align: inherit;"><font
-                                        style="vertical-align: inherit;">销售经理</font></font></span></h5>
+                                        style="vertical-align: inherit;"
+                                        th:text="${{item.remark}}">销售经理</font></font></span></h5>
                                 <ul class="social">
                                     <li><a class="social-facebook" href="#">
                                         <i></i>
                                         <div class="tooltip"><span><font style="vertical-align: inherit;"><font
-                                                style="vertical-align: inherit;">脸书</font></font></span></div>
+                                                style="vertical-align: inherit;">微博</font></font></span></div>
                                     </a></li>
                                     <li><a class="social-twitter" href="#">
                                         <i></i>
                                         <div class="tooltip"><span><font style="vertical-align: inherit;"><font
-                                                style="vertical-align: inherit;">推特</font></font></span></div>
+                                                style="vertical-align: inherit;">微信</font></font></span></div>
                                     </a></li>
                                     <li><a class="social-google" href="#">
                                         <i></i>
                                         <div class="tooltip"><span><font style="vertical-align: inherit;"><font
-                                                style="vertical-align: inherit;">谷歌</font></font></span></div>
+                                                style="vertical-align: inherit;">QQ</font></font></span></div>
                                     </a></li>
                                 </ul>
                             </div>
-                            <div class="col-md-6 team-grid">
-                                <div class="team-grid1">
-                                    <img src="images/3.jpg" alt=" " class="img-responsive">
-                                    <div class="p-mask">
-                                        <p><font style="vertical-align: inherit;"><font
-                                                style="vertical-align: inherit;">也没有任何人属于他们，他们的痛苦和痛苦非常重要。</font></font>
-                                        </p>
-
-                                    </div>
-                                </div>
-                                <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">阿里，约瑟夫；</font></font><span><font
-                                        style="vertical-align: inherit;"><font
-                                        style="vertical-align: inherit;">经理</font></font></span></h5>
-                                <ul class="social">
-                                    <li><a class="social-facebook" href="#">
-                                        <i></i>
-                                        <div class="tooltip"><span><font style="vertical-align: inherit;"><font
-                                                style="vertical-align: inherit;">脸书</font></font></span></div>
-                                    </a></li>
-                                    <li><a class="social-twitter" href="#">
-                                        <i></i>
-                                        <div class="tooltip"><span><font style="vertical-align: inherit;"><font
-                                                style="vertical-align: inherit;">推特</font></font></span></div>
-                                    </a></li>
-                                    <li><a class="social-google" href="#">
-                                        <i></i>
-                                        <div class="tooltip"><span><font style="vertical-align: inherit;"><font
-                                                style="vertical-align: inherit;">谷歌</font></font></span></div>
-                                    </a></li>
-                                </ul>
-                            </div>
-
-
-                            <div class="clearfix"></div>
                         </div>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>

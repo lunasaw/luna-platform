@@ -5,6 +5,8 @@ import com.github.pagehelper.PageInfo;
 import com.google.common.collect.Lists;
 import com.ruoyi.web.platform.blog.domain.Blog;
 import com.ruoyi.web.platform.blog.service.IBlogService;
+import com.ruoyi.web.platform.mainInfo.domain.AuthorMain;
+import com.ruoyi.web.platform.mainInfo.service.IAuthorMainService;
 import com.ruoyi.web.platform.recently.domain.Recently;
 import com.ruoyi.web.platform.recently.service.IRecentlyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +26,13 @@ import java.util.List;
 public class BlogService {
 
     @Autowired
-    private IBlogService     blogService;
+    private IBlogService       blogService;
 
     @Autowired
-    private IRecentlyService recentlyService;
+    private IRecentlyService   recentlyService;
+
+    @Autowired
+    private IAuthorMainService iAuthorMainService;
 
     /**
      * 右侧最近板块
@@ -40,6 +45,20 @@ public class BlogService {
         recentlies.forEach(recently -> {
             ids.add(String.valueOf(recently.getBlogId()));
         });
+        return blogService.selectBlogByIds(ids);
+    }
+
+    /**
+     * 主页板块
+     * 
+     * @return
+     */
+    public List<Blog> getMain() {
+        List<AuthorMain> authorMains = iAuthorMainService.selectAuthorMainList(new AuthorMain());
+        ArrayList<String> ids = Lists.newArrayList();
+        for (AuthorMain authorMain : authorMains) {
+            ids.add(String.valueOf(authorMain.getBlogId()));
+        }
         return blogService.selectBlogByIds(ids);
     }
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="include :: header('修改主页介绍板块')"/>
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-mainInfo-edit" th:object="${authorMain}">
+            <input name="authorId" th:field="*{authorId}" type="hidden">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">主页介绍博客Id：</label>
+                <div class="col-sm-8">
+                    <div class="radio-box">
+                        <input type="radio" name="blogId" value="" required>
+                        <label th:for="blogId" th:text="未知"></label>
+                    </div>
+                    <span class="help-block m-b-none"><i class="fa fa-info-circle"></i> 代码生成请选择字典属性</span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer"/>
+    <script th:inline="javascript">
+        var prefix = ctx + "admin/mainInfo";
+        $("#form-mainInfo-edit").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/edit", $('#form-mainInfo-edit').serialize());
+            }
+        }
+    </script>
+</body>
+</html>

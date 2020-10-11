@@ -9,6 +9,8 @@ import com.ruoyi.web.platform.blog.domain.Blog;
 import com.ruoyi.web.platform.blog.service.IBlogService;
 import com.ruoyi.web.platform.recently.domain.Recently;
 import com.ruoyi.web.platform.recently.service.IRecentlyService;
+import com.ruoyi.web.platform.teamInfo.domain.AuthorTeam;
+import com.ruoyi.web.platform.teamInfo.service.IAuthorTeamService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,6 +45,9 @@ public class WebController {
     @Autowired
     private IBlogService       iBlogService;
 
+    @Autowired
+    private AuthorService      authorService;
+
     @GetMapping("/index")
     public String index(ModelMap modelMap) {
         modelMap.put("recently", blogService.getRecently());
@@ -55,6 +60,7 @@ public class WebController {
         }
         blog.setStatus("0");
         modelMap.put("blogs", iBlogService.selectBlogList(blog));
+        modelMap.put("mains", blogService.getMain());
         modelMap.addAttribute("index", true);
         return BASE + "/index";
     }
@@ -62,6 +68,7 @@ public class WebController {
     @GetMapping("/about")
     public String about(ModelMap modelMap) {
         modelMap.put("recently", blogService.getRecently());
+        modelMap.put("authors", authorService.getAuthor());
         modelMap.addAttribute("about", true);
         return BASE + "/about";
     }
