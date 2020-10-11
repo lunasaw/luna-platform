@@ -1,9 +1,12 @@
 package com.ruoyi.web.platform.blog.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.alibaba.fastjson.JSON;
+import com.google.common.collect.Lists;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.framework.util.ShiroUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -97,12 +100,14 @@ public class BlogServiceImpl implements IBlogService {
 
     /**
      * id集合查询
+     * 
      * @param ids
      * @return
      */
     @Override
     public List<Blog> selectBlogByIds(List<String> ids) {
         List<Blog> blogs = blogMapper.selectByIds(ids);
+
         return blogs;
     }
 }

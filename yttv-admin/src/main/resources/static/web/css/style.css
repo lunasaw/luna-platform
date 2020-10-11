@@ -165,6 +165,9 @@ label.icon-search span {
 .social-icons ul li a.vimeo {
     background-position: -2px -192px;
 }
+.social-icons ul li a.fa-qq {
+    background-position: -2px -192px;
+}
 .social-icons ul li a:hover{
 	-webkit-transform:rotateY(360deg);
 	transform:rotateY(360deg);

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.utils.StringUtils;
+import com.ruoyi.framework.util.ShiroUtils;
 import com.ruoyi.web.platform.blog.domain.Blog;
 import com.ruoyi.web.platform.blog.service.IBlogService;
 import com.ruoyi.web.platform.recently.domain.Recently;
@@ -45,6 +46,15 @@ public class WebController {
     @GetMapping("/index")
     public String index(ModelMap modelMap) {
         modelMap.put("recently", blogService.getRecently());
+        Blog blog = new Blog();
+        try {
+            if (ShiroUtils.getLoginName() != null) {
+                blog.setCreateBy(ShiroUtils.getLoginName());
+            }
+        } catch (Exception e) {
+        }
+        blog.setStatus("0");
+        modelMap.put("blogs", iBlogService.selectBlogList(blog));
         modelMap.addAttribute("index", true);
         return BASE + "/index";
     }
