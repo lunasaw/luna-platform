@@ -281,7 +281,7 @@
                     <!-- technology-top -->
                     <!-- technology-top -->
                     <div th:each="item,iterStat : ${blogs}">
-                        <div class="w3ls" th:if="${iterStat.index}%4<2">
+                        <div class="w3ls">
                             <div class="col-md-6 w3ls-left wow fadeInDown animated animated" data-wow-duration=".8s"
                                  data-wow-delay=".2s"
                                  style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
@@ -342,69 +342,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div th:if="${iterStat.index}%4<1" class="clearfix"></div>
-
-                        <div class="wthree" th:if="${iterStat.index}%4>1">
-                            <div class="col-md-6 wthree-left wow fadeInDown animated animated" data-wow-duration=".8s"
-                                 data-wow-delay=".2s"
-                                 style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
-                                <div class="tch-img">
-                                    <a href="singlepage.html"
-                                       th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}"><img src="images/f2.jpg"
-                                                                                                    th:src="${{item.blogPicture}}"
-                                                                                                    class="img-responsive"
-                                                                                                    alt=""></a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 wthree-right wow fadeInDown animated animated" data-wow-duration=".8s"
-                                 data-wow-delay=".2s"
-                                 style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
-                                <h3><a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;" th:text="${{item.blogTitle}}">Lorem
-                                            ipsum很简单</font>
-                                    </font>
-                                </a></h3>
-                                <h6>
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">由</font>
-                                    </font><a href="singlepage.html"
-                                              th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;" th:text="${{item.createBy}}">亚当·罗斯</font>
-                                    </font>
-                                </a>
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;"
-                                              th:text="${#dates.format(item.createTime, 'yyyy年MM月dd日')}">2016年7月10日。</font>
-                                    </font>
-                                </h6>
-                                <p>
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;" th:text="${{item.blogSimple}}">
-                                            多年以来，我将来，谁会为一些重要的事情而悲伤，以使自己的运动，学区和长期的生命力得到充实，使劳动力市场的劳动力。</font>
-                                    </font>
-                                </p>
-                                <div class="bht1">
-                                    <a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
-                                        <font style="vertical-align: inherit;">
-                                            <font style="vertical-align: inherit;">讨论</font>
-                                        </font>
-                                    </a>
-                                </div>
-                                <div class="soci">
-                                    <ul>
-                                        <li class="hvr-rectangle-out"><a class="pin" href="#" target="_blank"
-                                                                         th:href="@{'http://service.weibo.com/share/share.php?title='+${item.blogTitle}+'&url='+'http://luna.vaiwan.com/web/singlepage?blogId='+${{item.blogId}}}"></a>
-                                        </li>
-                                        <li class="hvr-rectangle-out "><a class="pin" href="#" target="_blank"
-                                                                          th:href="@{'http://connect.qq.com/widget/shareqq/index.html?url=http://luna.vaiwan.com/web/singlepage?blogId='+${item.blogId}+'&sharesource=qzone&title='+${item.blogTitle}+'&pics='+${item.blogPicture}}"></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
                     </div>
+                    <div class="clearfix"></div>
                 </div>
             </div>
             <!-- technology-right -->
