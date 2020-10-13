@@ -78,11 +78,12 @@
                     <div class="blog-grids1" th:each="item,iterStat : ${travels}">
                         <div class="col-md-6 blog-grid" th:if="${iterStat.index}%2==0">
                             <div class="blog-grid-left1">
-                                <a href="singlepage.html"><img src="images/t3.jpg" th:src="${{item.blogPicture}}"
-                                                               alt=" " class="img-responsive"></a>
+                                <a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}"><img
+                                        src="images/t3.jpg" th:src="${{item.blogPicture}}"
+                                        alt=" " class="img-responsive"></a>
                             </div>
                             <div class="blog-grid-right1">
-                                <a href="singlepage.html">
+                                <a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
                                     <font style="vertical-align: inherit;">
                                         <font style="vertical-align: inherit;"
                                               th:text="${{item.blogTitle}}">cupidatat</font>
@@ -114,11 +115,12 @@
                         </div>
                         <div class="col-md-6 blog-grid" th:if="${iterStat.index}%2==1">
                             <div class="blog-grid-left1">
-                                <a href="singlepage.html"><img src="images/t3.jpg" th:src="${{item.blogPicture}}"
-                                                               alt=" " class="img-responsive"></a>
+                                <a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}"><img
+                                        src="images/t3.jpg" th:src="${{item.blogPicture}}"
+                                        alt=" " class="img-responsive"></a>
                             </div>
                             <div class="blog-grid-right1">
-                                <a href="singlepage.html">
+                                <a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
                                     <font style="vertical-align: inherit;">
                                         <font style="vertical-align: inherit;"
                                               th:text="${{item.blogTitle}}">cupidatat</font>
@@ -191,70 +193,12 @@
                         <!--右最近编辑-->
                         <div th:include="web/webinclude :: right-top"></div>
 
-                        <div class="insta">
-                            <h4>
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">Instagram的</font>
-                                </font>
-                            </h4>
-                            <ul>
-                                <li><a href="singlepage.html" th:href="@{/web/singlepage}"><img src="images/t1.jpg"
-                                                                                                class="img-responsive"
-                                                                                                alt=""></a></li>
-                                <li><a href="singlepage.html" th:href="@{/web/singlepage}"><img src="images/m1.jpg"
-                                                                                                class="img-responsive"
-                                                                                                alt=""></a></li>
-                                <li><a href="singlepage.html" th:href="@{/web/singlepage}"><img src="images/f1.jpg"
-                                                                                                class="img-responsive"
-                                                                                                alt=""></a></li>
-                                <li><a href="singlepage.html" th:href="@{/web/singlepage}"><img src="images/m2.jpg"
-                                                                                                class="img-responsive"
-                                                                                                alt=""></a></li>
-                                <li><a href="singlepage.html" th:href="@{/web/singlepage}"><img src="images/f2.jpg"
-                                                                                                class="img-responsive"
-                                                                                                alt=""></a></li>
-                                <li><a href="singlepage.html" th:href="@{/web/singlepage}"><img src="images/t2.jpg"
-                                                                                                class="img-responsive"
-                                                                                                alt=""></a></li>
-                                <li><a href="singlepage.html" th:href="@{/web/singlepage}"><img src="images/f3.jpg"
-                                                                                                class="img-responsive"
-                                                                                                alt=""></a></li>
-                                <li><a href="singlepage.html" th:href="@{/web/singlepage}"><img src="images/t3.jpg"
-                                                                                                class="img-responsive"
-                                                                                                alt=""></a></li>
-                                <li><a href="singlepage.html" th:href="@{/web/singlepage}"><img src="images/m3.jpg"
-                                                                                                class="img-responsive"
-                                                                                                alt=""></a></li>
-                            </ul>
-                        </div>
+                        <div th:include="web/webinclude :: right-button"></div>
 
                         <p>
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">我几乎没有走出困境，是新常态，并且爱他们。</font>
-                                <font style="vertical-align: inherit;">但是几乎没有要写的东西就被写好并放下了，但是对于</font>
-                            </font>
+                            我几乎没有走出困境，是新常态，并且爱他们。
                         </p>
-                        <div class="twt">
 
-                            <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true"
-                                    class="twitter-hashtag-button twitter-hashtag-button-rendered twitter-tweet-button"
-                                    title="Twitter Tweet Button"
-                                    src="https://platform.twitter.com/widgets/tweet_button.b7de008f493a5185d8df1aedd62d77c6.en.html#button_hashtag=TwitterStories&amp;dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=https%3A%2F%2Fp.w3layouts.com%2Fdemos%2Fduplex%2Fweb%2F&amp;size=l&amp;time=1467721486626&amp;type=hashtag"
-                                    style="position: static; visibility: visible; width: 166px; height: 28px;"
-                                    data-hashtag="TwitterStories"></iframe>
-                            <script>
-                                !function (d, s, id) {
-                                    var js, fjs = d.getElementsByTagName(s)[0],
-                                        p = /^http:/.test(d.location) ? 'http' : 'https';
-                                    if (!d.getElementById(id)) {
-                                        js = d.createElement(s);
-                                        js.id = id;
-                                        js.src = p + '://platform.twitter.com/widgets.js';
-                                        fjs.parentNode.insertBefore(js, fjs);
-                                    }
-                                }(document, 'script', 'twitter-wjs');
-                            </script>
-                        </div>
                     </div>
                 </div>
             </div>

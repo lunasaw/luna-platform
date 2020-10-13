@@ -7,7 +7,7 @@ import com.ruoyi.web.platform.mainInfo.domain.AuthorMain;
  * 主页介绍板块Mapper接口
  * 
  * @author yttv-platform
- * @date 2020-10-11
+ * @date 2020-10-13
  */
 public interface AuthorMainMapper {
     /**

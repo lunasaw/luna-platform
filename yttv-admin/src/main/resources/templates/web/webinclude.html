@@ -10,6 +10,7 @@
     <script type="applijewelleryion/x-javascript">
 		addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
 
+
     </script>
     <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
     <!-- Custom Theme files -->
@@ -28,7 +29,7 @@
 </head>
 
 
-<div  th:fragment="footer">
+<div th:fragment="footer">
     <div class="footer">
         <div class="container">
             <div class="col-md-4 footer-left">
@@ -100,43 +101,50 @@
     <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
         <nav class="link-effect-7" id="link-effect-7">
             <ul class="nav navbar-nav">
-                <li class="" th:classappend="${index == true} ? 'active act' : '' "><a href="index.html" th:href="@{/web/index}">
+                <li class="" th:classappend="${index == true} ? 'active act' : '' "><a href="index.html"
+                                                                                       th:href="@{/web/index}">
                     <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit;">盐途之声</font>
                     </font>
                 </a></li>
-                <li class="" th:classappend="${about == true} ? 'active act' : '' "><a href="about.html" th:href="@{/web/about}">
+                <li class="" th:classappend="${about == true} ? 'active act' : '' "><a href="about.html"
+                                                                                       th:href="@{/web/about}">
                     <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit;">关于</font>
                     </font>
                 </a></li>
-                <li class="" th:classappend="${features == true} ? 'active act' : '' "><a href="features.html" th:href="@{/web/features}">
+                <li class="" th:classappend="${features == true} ? 'active act' : '' "><a href="features.html"
+                                                                                          th:href="@{/web/features}">
                     <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit;">特征</font>
                     </font>
                 </a></li>
-                <li class="" th:classappend="${travel == true} ? 'active act' : '' "><a href="travel.html" th:href="@{/web/travel}">
+                <li class="" th:classappend="${travel == true} ? 'active act' : '' "><a href="travel.html"
+                                                                                        th:href="@{/web/travel}">
                     <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit;">旅行</font>
                     </font>
                 </a></li>
-                <li class="" th:classappend="${fashion == true} ? 'active act' : '' "><a href="fashion.html" th:href="@{/web/fashion}">
+                <li class="" th:classappend="${fashion == true} ? 'active act' : '' "><a href="fashion.html"
+                                                                                         th:href="@{/web/fashion}">
                     <span style="vertical-align: inherit;">
                         <font style="vertical-align: inherit;">时尚</font>
                     </span>
                 </a></li>
-                <li class="" th:classappend="${music == true} ? 'active act' : '' "><a href="music.html" th:href="@{/web/music}">
+                <li class="" th:classappend="${music == true} ? 'active act' : '' "><a href="music.html"
+                                                                                       th:href="@{/web/music}">
                     <font style="vertical-align: inherit;">
                         <font style="vertical-align: inherit;">音乐</font>
                     </font>
                 </a></li>
-                <li class="" th:classappend="${codes == true} ? 'active act' : '' "><a href="codes.html"  th:href="@{/web/codes}">
+                <!--                <li class="" th:classappend="${codes == true} ? 'active act' : '' "><a href="codes.html"  th:href="@{/web/codes}">-->
+                <!--                    <font style="vertical-align: inherit;">-->
+                <!--                        <font style="vertical-align: inherit;">样式</font>-->
+                <!--                    </font>-->
+                <!--                </a></li>-->
+                <li class="" th:classappend="${contact == true} ? 'active act' : '' "><a href="contact.html"
+                                                                                         th:href="@{/web/contact}">
                     <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">样式</font>
-                    </font>
-                </a></li>
-                <li class="" th:classappend="${contact == true} ? 'active act' : '' "><a href="contact.html"  th:href="@{/web/contact}">
-                    <font style="vertical-align: inherit;" >
                         <font style="vertical-align: inherit;">联系</font>
                     </font>
                 </a></li>
@@ -189,7 +197,8 @@
              data-wow-delay=".2s"
              style="visibility: visible; animation-duration: 0.8s; animation-delay: 0.2s; animation-name: fadeInDown;">
             <div class="blog-grid-left">
-                <a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}"><img src="images/t2.jpg" th:src="${{item.blogPicture}}" class="img-responsive" alt=""></a>
+                <a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}"><img
+                        src="images/t2.jpg" th:src="${{item.blogPicture}}" class="img-responsive" alt=""></a>
             </div>
             <div class="blog-grid-right">
                 <h5><a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
@@ -200,5 +209,22 @@
             </div>
             <div class="clearfix"></div>
         </div>
+    </div>
+</div>
+
+<div th:fragment="right-button">
+    <div class="insta">
+        <h4>
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">instagram</font>
+            </font>
+        </h4>
+        <ul>
+            <li th:each="item,iterStat : ${rightBelow}">
+                <a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
+                    <img src="images/t1.jpg" th:src="${{item.blogPicture}}" class="img-responsive" alt="">
+                </a>
+            </li>
+        </ul>
     </div>
 </div>

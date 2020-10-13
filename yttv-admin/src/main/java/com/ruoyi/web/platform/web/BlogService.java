@@ -34,6 +34,9 @@ public class BlogService {
     @Autowired
     private IAuthorMainService iAuthorMainService;
 
+    @Autowired
+    private IAuthorMainService mainService;
+
     /**
      * 右侧最近板块
      * 
@@ -43,6 +46,20 @@ public class BlogService {
         List<Recently> recentlies = recentlyService.selectRecentlyList(new Recently());
         ArrayList<String> ids = Lists.newArrayList();
         recentlies.forEach(recently -> {
+            ids.add(String.valueOf(recently.getBlogId()));
+        });
+        return blogService.selectBlogByIds(ids);
+    }
+
+    /**
+     * 右下角板块
+     * 
+     * @return
+     */
+    public List<Blog> getRightBelow() {
+        List<AuthorMain> authorMains = mainService.selectAuthorMainList(new AuthorMain());
+        ArrayList<String> ids = Lists.newArrayList();
+        authorMains.forEach(recently -> {
             ids.add(String.valueOf(recently.getBlogId()));
         });
         return blogService.selectBlogByIds(ids);
@@ -71,7 +88,7 @@ public class BlogService {
      */
     public List<Blog> getTravelList(Integer pageNum, Integer pageSize) {
         if (pageSize == null || pageSize == 0) {
-            pageSize = 6;
+            pageSize = 60;
         }
         if (pageNum == null) {
             pageNum = 0;

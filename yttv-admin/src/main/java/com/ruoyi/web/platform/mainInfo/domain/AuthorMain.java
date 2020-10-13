@@ -13,7 +13,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 主页介绍板块对象 sys_author_main
  *
  * @author yttv-platform
- * @date 2020-10-11
+ * @date 2020-10-13
  */
 @ApiModel("AuthorMain")
 public class AuthorMain extends BaseEntity {

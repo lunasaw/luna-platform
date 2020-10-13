@@ -26,7 +26,7 @@ import com.ruoyi.common.core.page.TableDataInfo;
  * AuthorMain-Controller
  *
  * @author yttv-platform
- * @date 2020-10-11
+ * @date 2020-10-13
  */
 @Controller
 @Api("AuthorMain-Controller")

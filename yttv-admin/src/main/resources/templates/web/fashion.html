@@ -79,54 +79,18 @@
 						</font>
 					</h2>
 					<p>
-						<font style="vertical-align: inherit;">
-							<font style="vertical-align: inherit;">可以使用Lorem
-								Ipsum，但是大多数人遭受了某种形式的改变，例如通过注入幽默感，或者看起来似乎不太可信的随机单词，而发生了某种形式的改变，由于注入了幽默感，或者看起来似乎不太可信的随机单词，可以使用Lorem
-								Ipsum，但是大多数人遭受了某种形式的改变，例如通过注入幽默感，或者看起来有些难以置信的随机单词，发生了某种形式的改变，由于注入了幽默感，或者看起来似乎有些难以置信的随机单词，
-							</font>
-						</font>
+						生活资讯全方位，消费服务零距离。
 					</p>
 					<div class="gallery-grids">
-						<div class="gallery-grid">
-							<a href="images/g1.jpg" class="wow fadeInUp animated animated" data-wow-delay=".5s"
-								style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-								<img src="images/g1.jpg" alt=" " class="img-responsive zoom-img">
-							</a>
-							<a href="images/g5.jpg" class="wow fadeInUp animated animated" data-wow-delay=".5s"
-								style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-								<img src="images/g5.jpg" alt=" " class="img-responsive zoom-img">
+						<div class="gallery-grid" th:each="item,iterStat : ${blogs}">
+							<a href="images/g1.jpg" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}"
+							   class="wow fadeInUp animated animated" data-wow-delay=".5s"
+							   style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+								<img src="images/g1.jpg" th:src="${{item.blogPicture}}" alt=" "
+									 class="img-responsive zoom-img">
 							</a>
 						</div>
-						<div class="gallery-grid">
-							<a href="images/g6.jpg" class="wow fadeInUp animated animated" data-wow-delay=".5s"
-								style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-								<img src="images/g6.jpg" alt=" " class="img-responsive zoom-img">
-							</a>
-							<a href="images/g2.jpg" class="wow fadeInUp animated animated" data-wow-delay=".5s"
-								style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-								<img src="images/g2.jpg" alt=" " class="img-responsive zoom-img">
-							</a>
-						</div>
-						<div class="gallery-grid">
-							<a href="images/g3.jpg" class="wow fadeInUp animated animated" data-wow-delay=".5s"
-								style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-								<img src="images/g3.jpg" alt=" " class="img-responsive zoom-img">
-							</a>
-							<a href="images/g7.jpg" class="wow fadeInUp animated animated" data-wow-delay=".5s"
-								style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-								<img src="images/g7.jpg" alt=" " class="img-responsive zoom-img">
-							</a>
-						</div>
-						<div class="gallery-grid" data-wow-delay=".5s">
-							<a href="images/g8.jpg">
-								<img src="images/g8.jpg" alt=" " class="img-responsive zoom-img">
-							</a>
-							<a href="images/g4.jpg" class="wow fadeInUp animated animated" data-wow-delay=".5s"
-								style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-								<img src="images/g4.jpg" alt=" " class="img-responsive zoom-img">
-							</a>
-						</div>
-						<div class="clearfix"> </div>
+						<div class="clearfix"></div>
 					</div>
 
 				</div>
@@ -152,69 +116,14 @@
 						</h4>
 						<!--右最近编辑-->
 						<div th:include="web/webinclude :: right-top"></div>
-						<div class="insta">
-							<h4>
-								<font style="vertical-align: inherit;">
-									<font style="vertical-align: inherit;">Instagram的</font>
-								</font>
-							</h4>
-							<ul>
-
-								<li><a href="singlepage.html"><img src="images/t1.jpg" class="img-responsive"
-											alt=""></a></li>
-								<li><a href="singlepage.html"><img src="images/m1.jpg" class="img-responsive"
-											alt=""></a></li>
-								<li><a href="singlepage.html"><img src="images/f1.jpg" class="img-responsive"
-											alt=""></a></li>
-								<li><a href="singlepage.html"><img src="images/m2.jpg" class="img-responsive"
-											alt=""></a></li>
-								<li><a href="singlepage.html"><img src="images/f2.jpg" class="img-responsive"
-											alt=""></a></li>
-								<li><a href="singlepage.html"><img src="images/t2.jpg" class="img-responsive"
-											alt=""></a></li>
-								<li><a href="singlepage.html"><img src="images/f3.jpg" class="img-responsive"
-											alt=""></a></li>
-								<li><a href="singlepage.html"><img src="images/t3.jpg" class="img-responsive"
-											alt=""></a></li>
-								<li><a href="singlepage.html"><img src="images/m3.jpg" class="img-responsive"
-											alt=""></a></li>
-							</ul>
-						</div>
+						<div th:include="web/webinclude :: right-button"></div>
 
 						<p>
-							<font style="vertical-align: inherit;">
-								<font style="vertical-align: inherit;">恶作剧，虚伪等。</font>
-								<font style="vertical-align: inherit;">在vix scripta patrioque scribentur，在pro</font>
-							</font>
+							新闻热点都只是媒体制造的，众人只是受愚跟风围观幸乐的对象。
 						</p>
-						<div class="twt">
 
-							<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true"
-								class="twitter-hashtag-button twitter-hashtag-button-rendered twitter-tweet-button"
-								title="Twitter推特按钮"
-								src="https://platform.twitter.com/widgets/tweet_button.b7de008f493a5185d8df1aedd62d77c6.en.html#button_hashtag=TwitterStories&amp;dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=https%3A%2F%2Fp.w3layouts.com%2Fdemos%2Fduplex%2Fweb%2F&amp;size=l&amp;time=1467721486626&amp;type=hashtag"
-								style="position: static; visibility: visible; width: 166px; height: 28px;"
-								data-hashtag="TwitterStories"></iframe>
-							<script>
-								! function (d, s, id) {
-									var js, fjs = d.getElementsByTagName(s)[0],
-										p = /^http:/.test(d.location) ? 'http' : 'https';
-									if (!d.getElementById(id)) {
-										js = d.createElement(s);
-										js.id = id;
-										js.src = p + '://platform.twitter.com/widgets.js';
-										fjs.parentNode.insertBefore(js, fjs);
-									}
-								}(document, 'script', 'twitter-wjs');
-							</script>
-						</div>
 					</div>
-
-
-
 				</div>
-
-
 			</div>
 			<div class="clearfix"></div>
 			<!-- technology-right -->

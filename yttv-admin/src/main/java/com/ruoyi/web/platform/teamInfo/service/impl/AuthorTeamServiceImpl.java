@@ -54,6 +54,10 @@ public class AuthorTeamServiceImpl implements IAuthorTeamService {
         authorTeam.setCreateTime(DateUtils.getNowDate());
         authorTeam.setUpdateTime(DateUtils.getNowDate());
         authorTeam.setCreateBy(ShiroUtils.getLoginName());
+        if (authorTeam.getTeamPicture() != null) {
+            String pic = authorTeam.getTeamPicture().replaceAll("127.0.0.1:8080", "luna.vaiwan.com");
+            authorTeam.setTeamPicture(pic);
+        }
         return authorTeamMapper.insertAuthorTeam(authorTeam);
     }
 
@@ -67,6 +71,10 @@ public class AuthorTeamServiceImpl implements IAuthorTeamService {
     public int updateAuthorTeam(AuthorTeam authorTeam) {
         authorTeam.setUpdateTime(DateUtils.getNowDate());
         authorTeam.setUpdateBy(ShiroUtils.getLoginName());
+        if (authorTeam.getTeamPicture() != null) {
+            String pic = authorTeam.getTeamPicture().replaceAll("127.0.0.1:8080", "luna.vaiwan.com");
+            authorTeam.setTeamPicture(pic);
+        }
         return authorTeamMapper.updateAuthorTeam(authorTeam);
     }
 

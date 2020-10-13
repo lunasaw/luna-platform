@@ -1,322 +1,209 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<th:block th:include="web/webinclude :: header('盐途之声')"/>
+    <th:block th:include="web/webinclude :: header('盐途之声')"/>
 </head>
 
 <body>
-	<div class="header" id="ban">
-		<div class="container">
-			<div class="head-left">
-				<div class="header-search">
-					<div class="search">
-						<input class="search_box" type="checkbox" id="search_box">
-						<label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search"
-								aria-hidden="true"></span></label>
-						<div class="search_form">
-							<form action="#" method="post">
-								<input type="text" name="Search" placeholder="Search...">
-								<font style="vertical-align: inherit;">
-									<font style="vertical-align: inherit;"><input type="submit" value="发送"></font>
-								</font>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="header_right">
-				<nav class="navbar navbar-default">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-							data-target="#bs-example-navbar-collapse-1">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					</div>
+    <div class="header" id="ban">
+        <div class="container">
+            <div class="head-left">
+                <div class="header-search">
+                    <div class="search">
+                        <input class="search_box" type="checkbox" id="search_box">
+                        <label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search"
+                                                                          aria-hidden="true"></span></label>
+                        <div class="search_form">
+                            <form action="#" method="post">
+                                <input type="text" name="Search" placeholder="Search...">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;"><input type="submit" value="发送"></font>
+                                </font>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header_right">
+                <nav class="navbar navbar-default">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
 
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div th:include="web/webinclude :: nav" ></div>
-					<!-- /.navbar-collapse -->
-				</nav>
-			</div>
-			<div class="nav navbar-nav navbar-right social-icons wow fadeInRight animated animated" data-wow-delay=".5s"
-				style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInRight;">
-				<ul>
-					<li><a href="#"> </a></li>
-					<li><a href="#" class="pin"> </a></li>
-					<li><a href="#" class="in"> </a></li>
-					<li><a href="#" class="be"> </a></li>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div th:include="web/webinclude :: nav"></div>
+                    <!-- /.navbar-collapse -->
+                </nav>
+            </div>
+            <div class="nav navbar-nav navbar-right social-icons wow fadeInRight animated animated" data-wow-delay=".5s"
+                 style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInRight;">
+                <ul>
+                    <li><a href="#"> </a></li>
+                    <li><a href="#" class="pin"> </a></li>
+                    <li><a href="#" class="in"> </a></li>
+                    <li><a href="#" class="be"> </a></li>
 
-					<li><a href="#" class="vimeo"> </a></li>
-				</ul>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-	<!--start-main-->
-	<div th:include="web/webinclude :: title" ></div>
-	<!-- banner -->
+                    <li><a href="#" class="vimeo"> </a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!--start-main-->
+    <div th:include="web/webinclude :: title"></div>
+    <!-- banner -->
 
-	<div class="banner-1">
+    <div class="banner-1">
 
-	</div>
+    </div>
 
-	<!-- technology-left -->
-	<div class="technology">
-		<div class="container">
-			<div class="col-md-9 technology-left">
-				<div class="agile-1">
-					<div class="featured-services">
-						<h2 class="w3">
-							<font style="vertical-align: inherit;">
-								<font style="vertical-align: inherit;">特征</font>
-							</font>
-						</h2>
-						<div class="featured-services-grids">
-							<div class="col-md-4 featured-services-grid">
-								<div class="featured-services-grd">
-									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-									<h4>
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">或那种痛苦</font>
-										</font>
-									</h4>
-									<p>
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">
-												也没有人希望自己得到属于他的本人，因为他本来希望得到保全，所以仅凭他们自己的痛苦就不会感到痛苦。</font>
-										</font>
-									</p>
+    <!-- technology-left -->
+    <div class="technology">
+        <div class="container">
+            <div class="col-md-9 technology-left">
+                <div class="agile-1">
+                    <div class="featured-services">
+                        <h2 class="w3">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">特征</font>
+                            </font>
+                        </h2>
+                        <div class="featured-services-grids">
+                            <div class="col-md-4 featured-services-grid">
+                                <div class="featured-services-grd">
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <h4>
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">新闻中心</font>
+                                        </font>
+                                    </h4>
+                                    <p>
 
-								</div>
-							</div>
-							<div class="col-md-4 featured-services-grid">
-								<div class="featured-services-grd">
-									<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-									<h4>
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">或那种痛苦</font>
-										</font>
-									</h4>
-									<p>
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">
-												也没有人希望自己得到属于他的本人，因为他本来希望得到保全，所以仅凭他们自己的痛苦就不会感到痛苦。</font>
-										</font>
-									</p>
+                                    </p>
 
-								</div>
-							</div>
-							<div class="col-md-4 featured-services-grid">
-								<div class="featured-services-grd">
-									<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-									<h4>
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">或那种痛苦</font>
-										</font>
-									</h4>
-									<p>
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">
-												也没有人希望自己得到属于他的本人，因为他本来希望得到保全，所以仅凭他们自己的痛苦就不会感到痛苦。</font>
-										</font>
-									</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 featured-services-grid">
+                                <div class="featured-services-grd">
+                                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                                    <h4>
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">视频点播</font>
+                                        </font>
+                                    </h4>
+                                    <p>
 
-								</div>
-							</div>
+                                    </p>
 
-							<div class="clearfix"> </div>
-						</div>
-					</div>
-					<div class="features-main">
-						<div class="fea-top">
-							<h3 class="w3">
-								<font style="vertical-align: inherit;">
-									<font style="vertical-align: inherit;">惊人的功能</font>
-								</font>
-							</h3>
-							<p>
-								<font style="vertical-align: inherit;">
-									<font style="vertical-align: inherit;">
-										但是我必须向你解释所有这种谴责享乐和赞美痛苦的错误观念是如何产生的，是对制度的完整解释，并阐述了真理伟大探索者和人类幸福建设者的实际教义。</font>
-								</font>
-							</p>
-						</div>
-						<div class="feature-botttom">
-							<div class="col-md-6 fea-grid">
-								<div class="fea-img">
-									<img src="images/f1.jpg" alt="">
-								</div>
-								<div class="fea-text">
-									<h4>
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">错误坐</font>
-										</font>
-									</h4>
-									<p>
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">Lorem ipsum
-												dolor坐立不安，精力充沛，精力充沛，使劳苦而又有些事要做eiusmod。</font>
-										</font>
-									</p>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="col-md-6 fea-grid">
-								<div class="fea-img">
-									<img src="images/m1.jpg" alt="">
-								</div>
-								<div class="fea-text">
-									<h4>
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">认为值得仇恨</font>
-										</font>
-									</h4>
-									<p>
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">Lorem ipsum
-												dolor坐立不安，精力充沛，精力充沛，使劳苦而又有些事要做eiusmod。</font>
-										</font>
-									</p>
-								</div>
-							</div>
-							<div class="col-md-6 fea-grid">
-								<div class="fea-img">
-									<img src="images/t2.jpg" alt="">
-								</div>
-								<div class="fea-text">
-									<h4>
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">错误坐</font>
-										</font>
-									</h4>
-									<p>
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">Lorem ipsum
-												dolor坐立不安，精力充沛，精力充沛，使劳苦而又有些事要做eiusmod。</font>
-										</font>
-									</p>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="col-md-6 fea-grid">
-								<div class="fea-img">
-									<img src="images/t3.jpg" alt="">
-								</div>
-								<div class="fea-text">
-									<h4>
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">认为值得仇恨</font>
-										</font>
-									</h4>
-									<p>
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">Lorem ipsum
-												dolor坐立不安，精力充沛，精力充沛，使劳苦而又有些事要做eiusmod。 </font>
-										</font>
-									</p>
-								</div>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- technology-right -->
-			<div class="col-md-3 technology-right">
-				<div class="blo-top1">
-					<div class="tech-btm">
-						<div class="search-1">
-							<form action="#" method="post">
-								<input type="search" name="Search" value="Search" onfocus="this.value = '';"
-									onblur="if (this.value == '') {this.value = 'Search';}" required="">
-								<input type="submit" value=" ">
-							</form>
-						</div>
-						<h4>
-							<font style="vertical-align: inherit;">
-								<font style="vertical-align: inherit;">最近的帖子 </font>
-							</font>
-						</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4 featured-services-grid">
+                                <div class="featured-services-grd">
+                                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                    <h4>
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">广电总台</font>
+                                        </font>
+                                    </h4>
+                                    <p>
+                                    </p>
+                                </div>
+                            </div>
 
-						<!--右最近编辑-->
-						<div th:include="web/webinclude :: right-top"></div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="features-main">
+                        <div class="fea-top">
+                            <h3 class="w3">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">社会新闻</font>
+                                </font>
+                            </h3>
+                            <p>
+                                要是让广告控制了新闻的话，就再也没办法让每个人知道真相了。
+                            </p>
+                        </div>
 
-						<div class="insta">
-							<h4>
-								<font style="vertical-align: inherit;">
-									<font style="vertical-align: inherit;">instagram</font>
-								</font>
-							</h4>
-							<ul>
+                        <div>
+                            <div class="feature-botttom" th:each="item,iterStat : ${blogs}">
+                                <div class="col-md-6 fea-grid">
+                                    <div class="fea-img">
+                                        <a href="" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}"><img
+                                                src="images/f1.jpg" th:src="${{item.blogPicture}}" alt=""></a>
+                                    </div>
+                                    <div class="fea-text">
+                                        <h4>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;"
+                                                      th:text="${{item.blogTitle}}">错误坐</font>
+                                            </font>
+                                        </h4>
+                                        <p>
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;" th:text="${{item.blogSimple}}">Lorem
+                                                    ipsum
+                                                    dolor坐立不安，精力充沛，精力充沛，使劳苦而又有些事要做eiusmod。</font>
+                                            </font>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- technology-right -->
+            <div class="col-md-3 technology-right">
+                <div class="blo-top1">
+                    <div class="tech-btm">
+                        <div class="search-1">
+                            <form action="#" method="post">
+                                <input type="search" name="Search" value="Search" onfocus="this.value = '';"
+                                       onblur="if (this.value == '') {this.value = 'Search';}" required="">
+                                <input type="submit" value=" ">
+                            </form>
+                        </div>
+                        <h4>
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">最近的帖子 </font>
+                            </font>
+                        </h4>
 
-								<li><a href="singlepage.html"><img src="images/t1.jpg" class="img-responsive"
-											alt=""></a></li>
-								<li><a href="singlepage.html"><img src="images/m1.jpg" class="img-responsive"
-											alt=""></a></li>
-								<li><a href="singlepage.html"><img src="images/f1.jpg" class="img-responsive"
-											alt=""></a></li>
-								<li><a href="singlepage.html"><img src="images/m2.jpg" class="img-responsive"
-											alt=""></a></li>
-								<li><a href="singlepage.html"><img src="images/f2.jpg" class="img-responsive"
-											alt=""></a></li>
-								<li><a href="singlepage.html"><img src="images/t2.jpg" class="img-responsive"
-											alt=""></a></li>
-								<li><a href="singlepage.html"><img src="images/f3.jpg" class="img-responsive"
-											alt=""></a></li>
-								<li><a href="singlepage.html"><img src="images/t3.jpg" class="img-responsive"
-											alt=""></a></li>
-								<li><a href="singlepage.html"><img src="images/m3.jpg" class="img-responsive"
-											alt=""></a></li>
-							</ul>
-						</div>
+                        <!--右最近编辑-->
+                        <div th:include="web/webinclude :: right-top"></div>
 
-						<p>
-							<font style="vertical-align: inherit;">
-								<font style="vertical-align: inherit;">我几乎没有走出困境，是新常态，并且爱他们。</font>
-								<font style="vertical-align: inherit;">但是几乎没有要写的东西就被写好并放下了，但是对于</font>
-							</font>
-						</p>
-						<div class="twt">
+                        <div th:include="web/webinclude :: right-button"></div>
 
-							<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true"
-								class="twitter-hashtag-button twitter-hashtag-button-rendered twitter-tweet-button"
-								title="Twitter Tweet Button"
-								src="https://platform.twitter.com/widgets/tweet_button.b7de008f493a5185d8df1aedd62d77c6.en.html#button_hashtag=TwitterStories&amp;dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=https%3A%2F%2Fp.w3layouts.com%2Fdemos%2Fduplex%2Fweb%2F&amp;size=l&amp;time=1467721486626&amp;type=hashtag"
-								style="position: static; visibility: visible; width: 166px; height: 28px;"
-								data-hashtag="TwitterStories"></iframe>
-							<script>
-								! function (d, s, id) {
-									var js, fjs = d.getElementsByTagName(s)[0],
-										p = /^http:/.test(d.location) ? 'http' : 'https';
-									if (!d.getElementById(id)) {
-										js = d.createElement(s);
-										js.id = id;
-										js.src = p + '://platform.twitter.com/widgets.js';
-										fjs.parentNode.insertBefore(js, fjs);
-									}
-								}(document, 'script', 'twitter-wjs');
-							</script>
-						</div>
-					</div>
+                        <p class="info">
+                            新闻工作者并不仅仅报道新闻：他们的观点臆断和冷漠态度在呈现给大众的画面中也扮演着角色
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <!-- technology-right -->
+        </div>
+    </div>
 
+    <div th:include="web/webinclude :: footer"></div>
 
+    <div th:include="web/webinclude :: copyright"></div>
 
-				</div>
-
-
-			</div>
-			<div class="clearfix"></div>
-			<!-- technology-right -->
-		</div>
-	</div>
-
-	<div th:include="web/webinclude :: footer"></div>
-
-	<div th:include="web/webinclude :: copyright"></div>
+    <script th:inline="javascript">
+        $(document).ready(function () {
+            var message = [[${blogs}]];
+            console.log(message);
+        })
+    </script>
 </body>
 
 </html>

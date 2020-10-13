@@ -58,6 +58,10 @@ public class BlogServiceImpl implements IBlogService {
     public int insertBlog(Blog blog) {
         String loginName = ShiroUtils.getLoginName();
         blog.setCreateBy(loginName);
+        if (blog.getBlogPicture() != null) {
+            String blogPicture = blog.getBlogPicture().replaceAll("127.0.0.1:8080", "luna.vaiwan.com");
+            blog.setBlogPicture(blogPicture);
+        }
         blog.setCreateTime(DateUtils.getNowDate());
         blog.setUpdateTime(DateUtils.getNowDate());
         return blogMapper.insertBlog(blog);
@@ -73,6 +77,10 @@ public class BlogServiceImpl implements IBlogService {
     public int updateBlog(Blog blog) {
         blog.setUpdateBy(ShiroUtils.getLoginName());
         blog.setUpdateTime(DateUtils.getNowDate());
+        if (blog.getBlogPicture() != null) {
+            String blogPicture = blog.getBlogPicture().replaceAll("127.0.0.1:8080", "luna.vaiwan.com");
+            blog.setBlogPicture(blogPicture);
+        }
         return blogMapper.updateBlog(blog);
     }
 

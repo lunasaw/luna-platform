@@ -13,7 +13,7 @@ import com.ruoyi.common.core.text.Convert;
  * 主页介绍板块Service业务层处理
  * 
  * @author yttv-platform
- * @date 2020-10-11
+ * @date 2020-10-13
  */
 @Service
 public class AuthorMainServiceImpl implements IAuthorMainService {
