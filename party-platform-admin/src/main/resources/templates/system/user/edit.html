@@ -189,15 +189,17 @@
         
         function submitHandler() {
 	        if ($.validate.form()) {
-	        	var data = $("#form-user-edit").serializeArray();
-	        	var status = $("input[id='status']").is(':checked') == true ? 0 : 1;
-	        	var roleIds = $.form.selectCheckeds("role");
-	        	var postIds = $.form.selectSelects("post");
-	        	data.push({"name": "status", "value": status});
-	        	data.push({"name": "roleIds", "value": roleIds});
-	        	data.push({"name": "postIds", "value": postIds});
-	        	$.operate.saveTab(prefix + "/edit", data);
-	        }
+                var data = $("#form-user-edit").serializeArray();
+                var status = $("input[id='status']").is(':checked') == true ? 0 : 1;
+                var roleIds = $.form.selectCheckeds("role");
+                console.log(roleIds);
+                var postIds = $.form.selectSelects("post");
+                console.log(postIds);
+                data.push({"name": "status", "value": status});
+                data.push({"name": "roleIds", "value": roleIds});
+                data.push({"name": "postIds", "value": postIds});
+                $.operate.saveTab(prefix + "/edit", data);
+            }
 	    }
 
         /* 用户管理-修改-选择部门树 */

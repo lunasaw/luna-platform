@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.web.platform.documentary.mapper.NewsDocumentaryMapper">
+
+    <resultMap type="NewsDocumentary" id="NewsDocumentaryResult">
+        <result property="documentaryId" column="documentary_id"/>
+        <result property="documentaryTitle" column="documentary_title"/>
+        <result property="documentaryContent" column="documentary_content"/>
+        <result property="documentaryActiveAddress" column="documentary_active_address"/>
+        <result property="documentaryStartTime" column="documentary_start_time"/>
+        <result property="documentaryEndTime" column="documentary_end_time"/>
+        <result property="documentaryJionPeople" column="documentary_jion_people"/>
+        <result property="documentaryOtherPeople" column="documentary_other_people"/>
+        <result property="documentaryStatus" column="documentary_status"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+    <sql id="selectNewsDocumentaryVo">
+        select documentary_id, documentary_title, documentary_content, documentary_active_address, documentary_start_time, documentary_end_time, documentary_jion_people, documentary_other_people, documentary_status, create_by, create_time, update_by, update_time, remark from sys_news_documentary
+    </sql>
+
+    <select id="selectNewsDocumentaryList" parameterType="NewsDocumentary" resultMap="NewsDocumentaryResult">
+        <include refid="selectNewsDocumentaryVo"/>
+        <where>
+            <if test="documentaryTitle != null  and documentaryTitle != ''">and documentary_title like concat('%',
+                #{documentaryTitle}, '%')
+            </if>
+            <if test="documentaryContent != null  and documentaryContent != ''">and documentary_content like concat('%',
+                #{documentaryContent}, '%')
+            </if>
+            <if test="documentaryActiveAddress != null  and documentaryActiveAddress != ''">and
+                documentary_active_address like concat('%', #{documentaryActiveAddress}, '%')
+            </if>
+            <if test="documentaryStartTime != null ">and documentary_start_time = #{documentaryStartTime}</if>
+            <if test="documentaryEndTime != null ">and documentary_end_time = #{documentaryEndTime}</if>
+            <if test="documentaryJionPeople != null  and documentaryJionPeople != ''">and documentary_jion_people =
+                #{documentaryJionPeople}
+            </if>
+            <if test="documentaryOtherPeople != null  and documentaryOtherPeople != ''">and documentary_other_people =
+                #{documentaryOtherPeople}
+            </if>
+            <if test="documentaryStatus != null  and documentaryStatus != ''">and documentary_status =
+                #{documentaryStatus}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectNewsDocumentaryById" parameterType="Long" resultMap="NewsDocumentaryResult">
+        <include refid="selectNewsDocumentaryVo"/>
+        where documentary_id = #{documentaryId}
+    </select>
+
+    <insert id="insertNewsDocumentary" parameterType="NewsDocumentary" useGeneratedKeys="true"
+            keyProperty="documentaryId">
+        insert into sys_news_documentary
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="documentaryTitle != null">documentary_title,</if>
+            <if test="documentaryContent != null">documentary_content,</if>
+            <if test="documentaryActiveAddress != null">documentary_active_address,</if>
+            <if test="documentaryStartTime != null">documentary_start_time,</if>
+            <if test="documentaryEndTime != null">documentary_end_time,</if>
+            <if test="documentaryJionPeople != null">documentary_jion_people,</if>
+            <if test="documentaryOtherPeople != null">documentary_other_people,</if>
+            <if test="documentaryStatus != null">documentary_status,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="documentaryTitle != null">#{documentaryTitle},</if>
+            <if test="documentaryContent != null">#{documentaryContent},</if>
+            <if test="documentaryActiveAddress != null">#{documentaryActiveAddress},</if>
+            <if test="documentaryStartTime != null">#{documentaryStartTime},</if>
+            <if test="documentaryEndTime != null">#{documentaryEndTime},</if>
+            <if test="documentaryJionPeople != null">#{documentaryJionPeople},</if>
+            <if test="documentaryOtherPeople != null">#{documentaryOtherPeople},</if>
+            <if test="documentaryStatus != null">#{documentaryStatus},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+        </trim>
+    </insert>
+
+    <update id="updateNewsDocumentary" parameterType="NewsDocumentary">
+        update sys_news_documentary
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="documentaryTitle != null">documentary_title = #{documentaryTitle},</if>
+            <if test="documentaryContent != null">documentary_content = #{documentaryContent},</if>
+            <if test="documentaryActiveAddress != null">documentary_active_address = #{documentaryActiveAddress},</if>
+            <if test="documentaryStartTime != null">documentary_start_time = #{documentaryStartTime},</if>
+            <if test="documentaryEndTime != null">documentary_end_time = #{documentaryEndTime},</if>
+            <if test="documentaryJionPeople != null">documentary_jion_people = #{documentaryJionPeople},</if>
+            <if test="documentaryOtherPeople != null">documentary_other_people = #{documentaryOtherPeople},</if>
+            <if test="documentaryStatus != null">documentary_status = #{documentaryStatus},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where documentary_id = #{documentaryId}
+    </update>
+
+    <delete id="deleteNewsDocumentaryById" parameterType="Long">
+        delete from sys_news_documentary where documentary_id = #{documentaryId}
+    </delete>
+
+    <delete id="deleteNewsDocumentaryByIds" parameterType="String">
+        delete from sys_news_documentary where documentary_id in
+        <foreach item="documentaryId" collection="array" open="(" separator="," close=")">
+            #{documentaryId}
+        </foreach>
+    </delete>
+
+</mapper>

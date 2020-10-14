@@ -20,6 +20,14 @@ public interface ISysUserService
     public List<SysUser> selectUserList(SysUser user);
 
     /**
+     * ids 查找用户List
+     *
+     * @param ids
+     * @return
+     */
+    public List<SysUser> selectByIds(List<String> ids);
+
+    /**
      * 根据条件分页查询已分配用户角色列表
      * 
      * @param user 用户信息

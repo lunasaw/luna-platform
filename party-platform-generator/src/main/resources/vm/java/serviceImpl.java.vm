@@ -76,6 +76,9 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service
 #if($column.javaField == 'createTime')
         ${className}.setCreateTime(DateUtils.getNowDate());
 #end
+#if($column.javaField == 'create_time')
+    ${className}.setUpdateTime(DateUtils.getNowDate());
+#end
 #end
 #if($table.sub)
         int rows = ${className}Mapper.insert${ClassName}(${className});

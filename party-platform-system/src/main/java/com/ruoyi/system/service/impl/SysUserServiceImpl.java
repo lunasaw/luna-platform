@@ -2,6 +2,8 @@ package com.ruoyi.system.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +67,17 @@ public class SysUserServiceImpl implements ISysUserService
     public List<SysUser> selectUserList(SysUser user)
     {
         return userMapper.selectUserList(user);
+    }
+
+    /**
+     * ids 查找用户List
+     *
+     * @param ids
+     * @return
+     */
+    @Override
+    public List<SysUser> selectByIds(List<String> ids) {
+        return userMapper.selectByIds(ids);
     }
 
     /**
@@ -280,7 +293,7 @@ public class SysUserServiceImpl implements ISysUserService
     /**
      * 新增用户角色信息
      * 
-     * @param user 用户对象
+     * @param userId 用户对象
      */
     public void insertUserRole(Long userId, Long[] roleIds)
     {

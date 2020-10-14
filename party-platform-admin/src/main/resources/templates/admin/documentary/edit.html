@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="include :: header('修改党建纪实')"/>
+    <th:block th:include="include :: datetimepicker-css"/>
+    <th:block th:include="include :: summernote-css"/>
+    <th:block th:include="include :: select2-css"/>
+    <th:block th:include="include :: ztree-css"/>
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-documentary-edit" th:object="${newsDocumentary}">
+            <input name="documentaryId" id="documentaryId" th:field="*{documentaryId}" type="hidden">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">纪实主题：</label>
+                <div class="col-sm-8">
+                    <input name="documentaryTitle" th:field="*{documentaryTitle}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">纪实详情：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" name="documentaryContent" class="form-control"
+                           th:field="*{documentaryContent}">
+                    <div class="summernote" id="documentaryContent"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">活动地点：</label>
+                <div class="col-sm-8">
+                    <input name="documentaryActiveAddress" th:field="*{documentaryActiveAddress}" class="form-control"
+                           type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">起始时间：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="documentaryStartTime"
+                               th:value="${#dates.format(newsDocumentary.documentaryStartTime, 'yyyy-MM-dd')}"
+                               class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">截至时间：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="documentaryEndTime"
+                               th:value="${#dates.format(newsDocumentary.documentaryEndTime, 'yyyy-MM-dd')}"
+                               class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">参与人员：</label>
+                <div class="col-sm-8">
+                    <label class="check-box">
+                        <input type="checkbox" value="1">展开/折叠</label>
+                    <label class="check-box">
+                        <input type="checkbox" value="2">全选/全不选</label>
+                    <label class="check-box">
+                        <input type="checkbox" value="3" checked>父子联动</label>
+                    <div id="allUserTrees" class="ztree ztree-border"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">其他人员：</label>
+                <div class="col-sm-8">
+                    <input name="documentaryOtherPeople" th:field="*{documentaryOtherPeople}" class="form-control"
+                           type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">纪实状态：</label>
+                <div class="col-sm-8">
+                    <div class="radio-box" th:each="dict : ${@dict.getType('sys_news_status')}">
+                        <input type="radio" th:id="${'documentaryStatus_' + dict.dictCode}" name="documentaryStatus"
+                               th:value="${dict.dictValue}" th:field="*{documentaryStatus}">
+                        <label th:for="${'documentaryStatus_' + dict.dictCode}" th:text="${dict.dictLabel}"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">备注：</label>
+                <div class="col-sm-8">
+                    <input name="remark" th:field="*{remark}" class="form-control" type="text">
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer"/>
+    <th:block th:include="include :: datetimepicker-js"/>
+    <th:block th:include="include :: summernote-js"/>
+    <th:block th:include="include :: ztree-js"/>
+    <script th:inline="javascript">
+        $(function () {
+            var url = ctx + "system/user/allTreeData?documentaryId=" + $("#documentaryId").val();
+            var options = {
+                id: "allUserTrees",
+                url: url,
+                check: {enable: true},
+                expandLevel: 0
+            };
+            $.tree.init(options);
+        });
+
+        $('input').on('ifChanged', function (obj) {
+            var type = $(this).val();
+            var checked = obj.currentTarget.checked;
+            if (type == 1) {
+                if (checked) {
+                    $._tree.expandAll(true);
+                } else {
+                    $._tree.expandAll(false);
+                }
+            } else if (type == "2") {
+                if (checked) {
+                    $._tree.checkAllNodes(true);
+                } else {
+                    $._tree.checkAllNodes(false);
+                }
+            } else if (type == "3") {
+                if (checked) {
+                    $._tree.setting.check.chkboxType = {"Y": "ps", "N": "ps"};
+                } else {
+                    $._tree.setting.check.chkboxType = {"Y": "", "N": ""};
+                }
+            }
+        })
+
+        var prefix = ctx + "admin/documentary";
+        $("#form-documentary-edit").validate({
+            focusCleanup: true
+        });
+
+        $("input[name='documentaryStartTime']").datetimepicker({
+            format: "yyyy-mm-dd hh:ii:ss",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='documentaryEndTime']").datetimepicker({
+            format: "yyyy-mm-dd hh:ii:ss",
+            minView: "month",
+            autoclose: true
+        });
+
+        $(function () {
+            $('.summernote').each(function (i) {
+                $('#' + this.id).summernote({
+                    lang: 'zh-CN',
+                    callbacks: {
+                        onChange: function (contents, $edittable) {
+                            $("input[name='" + this.id + "']").val(contents);
+                        },
+                        onImageUpload: function (files) {
+                            var obj = this;
+                            var data = new FormData();
+                            data.append("file", files[0]);
+                            $.ajax({
+                                type: "post",
+                                url: ctx + "/common/upload",
+                                data: data,
+                                cache: false,
+                                contentType: false,
+                                processData: false,
+                                dataType: 'json',
+                                success: function (result) {
+                                    if (result.code == web_status.SUCCESS) {
+                                        $('#' + obj.id).summernote('insertImage', result.url);
+                                    } else {
+                                        $.modal.alertError(result.msg);
+                                    }
+                                },
+                                error: function (error) {
+                                    $.modal.alertWarning("图片上传失败。");
+                                }
+                            });
+                        }
+                    }
+                });
+                var content = $("input[name='" + this.id + "']").val();
+                $('#' + this.id).summernote('code', content);
+            })
+        });
+
+
+        function edit() {
+            var menuIds = $.tree.getCheckedNodes();
+            var documentaryId = $("input[name='documentaryId']").val();
+            console.log(documentaryId);
+            console.log(menuIds);
+            $.ajax({
+                cache: true,
+                type: "POST",
+                url: ctx + "admin/documentary/joinPeopleEdit",
+                data: {
+                    "menuIds": menuIds,
+                    "documentaryId": documentaryId
+                },
+                async: false,
+                error: function (request) {
+                    $.modal.alertError("系统错误");
+                },
+                success: function (data) {
+                    $.operate.successCallback(data);
+                }
+            });
+        }
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                edit();
+                $.operate.save(prefix + "/edit", $('#form-documentary-edit').serialize());
+                $.modal.reload();
+            }
+        }
+    </script>
+</body>
+</html>
