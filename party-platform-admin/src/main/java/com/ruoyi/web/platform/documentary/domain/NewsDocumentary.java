@@ -40,12 +40,12 @@ public class NewsDocumentary extends BaseEntity {
 
     /** 起始时间 */
     @ApiModelProperty("起始时间")
-    @Excel(name = "起始时间", width = 30, dateFormat = "yyyy-MM-dd")
+    @Excel(name = "起始时间", width = 30, dateFormat = "yyyy-MM-dd hh:mm:ss")
     private Date              documentaryStartTime;
 
     /** 截至时间 */
     @ApiModelProperty("截至时间")
-    @Excel(name = "截至时间", width = 30, dateFormat = "yyyy-MM-dd")
+    @Excel(name = "截至时间", width = 30, dateFormat = "yyyy-MM-dd hh:mm:ss")
     private Date              documentaryEndTime;
 
     /** 参与人员 */

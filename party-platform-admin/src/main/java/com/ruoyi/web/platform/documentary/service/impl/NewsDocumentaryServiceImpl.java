@@ -49,7 +49,18 @@ public class NewsDocumentaryServiceImpl implements INewsDocumentaryService {
      */
     @Override
     public List<NewsDocumentary> selectNewsDocumentaryList(NewsDocumentary newsDocumentary) {
-        return newsDocumentaryMapper.selectNewsDocumentaryList(newsDocumentary);
+        List<NewsDocumentary> newsDocumentaries = newsDocumentaryMapper.selectNewsDocumentaryList(newsDocumentary);
+        newsDocumentaries.forEach(documentary -> {
+            List<String> list = Arrays.asList(documentary.getDocumentaryJionPeople().split(","));
+            List<SysUser> sysUsers = sysUserMapper.selectByIds(list);
+            ArrayList<String> userNames = Lists.newArrayList();
+            for (SysUser sysUser : sysUsers) {
+                userNames.add(sysUser.getUserName());
+            }
+            documentary.setDocumentaryJionPeople(userNames.toString());
+        });
+
+        return newsDocumentaries;
     }
 
     /**
