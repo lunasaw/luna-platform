@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('修改教职工汇总')" />
+    <th:block th:include="include :: datetimepicker-css" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-facultySummary-edit" th:object="${facultySummary}">
+            <input name="facultyId" th:field="*{facultyId}" type="hidden">
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">序号：</label>
+                <div class="col-sm-8">
+                    <input name="facultyNum" th:field="*{facultyNum}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">姓名：</label>
+                <div class="col-sm-8">
+                    <input name="facultyName" th:field="*{facultyName}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">性别：</label>
+                <div class="col-sm-8">
+                    <div class="radio-box" th:each="dict : ${@dict.getType('sys_user_sex')}">
+                        <input type="radio" th:id="${'facultySex_' + dict.dictCode}" name="facultySex" th:value="${dict.dictValue}" th:field="*{facultySex}">
+                        <label th:for="${'facultySex_' + dict.dictCode}" th:text="${dict.dictLabel}"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">民族：</label>
+                <div class="col-sm-8">
+                    <input name="facultyNation" th:field="*{facultyNation}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">出生年月：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="facultyBirthday" th:value="${#dates.format(facultySummary.facultyBirthday, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">入党时间：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="facultyTimeJoinPart" th:value="${#dates.format(facultySummary.facultyTimeJoinPart, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">所在支部：</label>
+                <div class="col-sm-8">
+                    <input name="facultyBranchNumber" th:field="*{facultyBranchNumber}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">月交纳党费金额：</label>
+                <div class="col-sm-8">
+                    <input name="facultyPay" th:field="*{facultyPay}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">籍贯：</label>
+                <div class="col-sm-8">
+                    <input name="facultyNativePlace" th:field="*{facultyNativePlace}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">现任行政职务：</label>
+                <div class="col-sm-8">
+                    <input name="facultyCurrentAdministrativePosition" th:field="*{facultyCurrentAdministrativePosition}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">职称：</label>
+                <div class="col-sm-8">
+                    <input name="facultyTitle" th:field="*{facultyTitle}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">社会任职情况：</label>
+                <div class="col-sm-8">
+                    <input name="facultySocialService" th:field="*{facultySocialService}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">学历  学位：</label>
+                <div class="col-sm-8">
+                    <input name="facultyAcademicDegree" th:field="*{facultyAcademicDegree}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">毕业院校及专业：</label>
+                <div class="col-sm-8">
+                    <input name="facultyGraduateSchoolAndMajor" th:field="*{facultyGraduateSchoolAndMajor}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">参加工作时间：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="facultyTimeWork" th:value="${#dates.format(facultySummary.facultyTimeWork, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">留学开始时间：</label>
+                <div class="col-sm-8">
+                    <input name="facultyOverseaStudyBeginAndEnd" th:field="*{facultyOverseaStudyBeginAndEnd}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">身份证：</label>
+                <div class="col-sm-8">
+                    <input name="facultyIdCard" th:field="*{facultyIdCard}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">支委会职务：</label>
+                <div class="col-sm-8">
+                    <input name="facultyBranchPosition" th:field="*{facultyBranchPosition}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">婚姻状况：</label>
+                <div class="col-sm-8">
+                    <div class="radio-box" th:each="dict : ${@dict.getType('sys_is_married')}">
+                        <input type="radio" th:id="${'facultyMaritalStatus_' + dict.dictCode}" name="facultyMaritalStatus" th:value="${dict.dictValue}" th:field="*{facultyMaritalStatus}">
+                        <label th:for="${'facultyMaritalStatus_' + dict.dictCode}" th:text="${dict.dictLabel}"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">联系方式：</label>
+                <div class="col-sm-8">
+                    <input name="facultyPhoneNumber" th:field="*{facultyPhoneNumber}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">备注：</label>
+                <div class="col-sm-8">
+                    <input name="facultyRemarks" th:field="*{facultyRemarks}" class="form-control" type="text">
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
+    <script th:inline="javascript">
+        var prefix = ctx + "admin/facultySummary";
+        $("#form-facultySummary-edit").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/edit", $('#form-facultySummary-edit').serialize());
+            }
+        }
+
+        $("input[name='facultyBirthday']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='facultyTimeJoinPart']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='facultyTimeWork']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+    </script>
+</body>
+</html>

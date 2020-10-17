@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.web.platform.facultySummary.mapper.FacultySummaryMapper">
+    
+    <resultMap type="FacultySummary" id="FacultySummaryResult">
+        <result property="facultyId"    column="faculty_id"    />
+        <result property="facultyNum"    column="faculty_num"    />
+        <result property="facultyName"    column="faculty_name"    />
+        <result property="facultySex"    column="faculty_sex"    />
+        <result property="facultyNation"    column="faculty_nation"    />
+        <result property="facultyBirthday"    column="faculty_birthday"    />
+        <result property="facultyTimeJoinPart"    column="faculty_time_join_part"    />
+        <result property="facultyBranchNumber"    column="faculty_branch_number"    />
+        <result property="facultyPay"    column="faculty_pay"    />
+        <result property="facultyNativePlace"    column="faculty_native_place"    />
+        <result property="facultyCurrentAdministrativePosition"    column="faculty_current_administrative_position"    />
+        <result property="facultyTitle"    column="faculty_title"    />
+        <result property="facultySocialService"    column="faculty_social_service"    />
+        <result property="facultyAcademicDegree"    column="faculty_academic_degree"    />
+        <result property="facultyGraduateSchoolAndMajor"    column="faculty_graduate_school_and_major"    />
+        <result property="facultyTimeWork"    column="faculty_time_work"    />
+        <result property="facultyOverseaStudyBeginAndEnd"    column="faculty_oversea_study_begin_and_end"    />
+        <result property="facultyIdCard"    column="faculty_id_card"    />
+        <result property="facultyBranchPosition"    column="faculty_branch_position"    />
+        <result property="facultyMaritalStatus"    column="faculty_marital_status"    />
+        <result property="facultyPhoneNumber"    column="faculty_phone_number"    />
+        <result property="facultyRemarks"    column="faculty_remarks"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateBy"    column="update_by"    />
+    </resultMap>
+
+    <sql id="selectFacultySummaryVo">
+        select faculty_id, faculty_num, faculty_name, faculty_sex, faculty_nation, faculty_birthday, faculty_time_join_part, faculty_branch_number, faculty_pay, faculty_native_place, faculty_current_administrative_position, faculty_title, faculty_social_service, faculty_academic_degree, faculty_graduate_school_and_major, faculty_time_work, faculty_oversea_study_begin_and_end, faculty_id_card, faculty_branch_position, faculty_marital_status, faculty_phone_number, faculty_remarks, create_time, update_time, create_by, update_by from sys_faculty_summary
+    </sql>
+
+    <select id="selectFacultySummaryList" parameterType="FacultySummary" resultMap="FacultySummaryResult">
+        <include refid="selectFacultySummaryVo"/>
+        <where>  
+            <if test="facultyNum != null "> and faculty_num = #{facultyNum}</if>
+            <if test="facultyName != null  and facultyName != ''"> and faculty_name like concat('%', #{facultyName}, '%')</if>
+            <if test="facultySex != null  and facultySex != ''"> and faculty_sex = #{facultySex}</if>
+            <if test="facultyNation != null  and facultyNation != ''"> and faculty_nation = #{facultyNation}</if>
+            <if test="facultyBirthday != null "> and faculty_birthday = #{facultyBirthday}</if>
+            <if test="facultyTimeJoinPart != null "> and faculty_time_join_part = #{facultyTimeJoinPart}</if>
+            <if test="facultyBranchNumber != null  and facultyBranchNumber != ''"> and faculty_branch_number like concat('%', #{facultyBranchNumber}, '%')</if>
+            <if test="facultyPay != null "> and faculty_pay = #{facultyPay}</if>
+            <if test="facultyNativePlace != null  and facultyNativePlace != ''"> and faculty_native_place like concat('%', #{facultyNativePlace}, '%')</if>
+            <if test="facultyCurrentAdministrativePosition != null  and facultyCurrentAdministrativePosition != ''"> and faculty_current_administrative_position like concat('%', #{facultyCurrentAdministrativePosition}, '%')</if>
+            <if test="facultyTitle != null  and facultyTitle != ''"> and faculty_title like concat('%', #{facultyTitle}, '%')</if>
+            <if test="facultySocialService != null  and facultySocialService != ''"> and faculty_social_service like concat('%', #{facultySocialService}, '%')</if>
+            <if test="facultyAcademicDegree != null  and facultyAcademicDegree != ''"> and faculty_academic_degree like concat('%', #{facultyAcademicDegree}, '%')</if>
+            <if test="facultyGraduateSchoolAndMajor != null  and facultyGraduateSchoolAndMajor != ''"> and faculty_graduate_school_and_major like concat('%', #{facultyGraduateSchoolAndMajor}, '%')</if>
+            <if test="facultyTimeWork != null "> and faculty_time_work = #{facultyTimeWork}</if>
+            <if test="facultyOverseaStudyBeginAndEnd != null  and facultyOverseaStudyBeginAndEnd != ''"> and faculty_oversea_study_begin_and_end like concat('%', #{facultyOverseaStudyBeginAndEnd}, '%')</if>
+            <if test="facultyIdCard != null  and facultyIdCard != ''"> and faculty_id_card like concat('%', #{facultyIdCard}, '%')</if>
+            <if test="facultyBranchPosition != null  and facultyBranchPosition != ''"> and faculty_branch_position like concat('%', #{facultyBranchPosition}, '%')</if>
+            <if test="facultyMaritalStatus != null  and facultyMaritalStatus != ''"> and faculty_marital_status = #{facultyMaritalStatus}</if>
+            <if test="facultyPhoneNumber != null  and facultyPhoneNumber != ''"> and faculty_phone_number like concat('%', #{facultyPhoneNumber}, '%')</if>
+            <if test="facultyRemarks != null  and facultyRemarks != ''"> and faculty_remarks like concat('%', #{facultyRemarks}, '%')</if>
+        </where>
+    </select>
+
+    <select id="selectFacultySummaryByName" parameterType="String" resultMap="FacultySummaryResult">
+        <include refid="selectFacultySummaryVo"/>
+        where faculty_name = #{facultyName}
+    </select>
+
+    <select id="selectFacultySummaryById" parameterType="Long" resultMap="FacultySummaryResult">
+        <include refid="selectFacultySummaryVo"/>
+        where faculty_id = #{facultyId}
+    </select>
+        
+    <insert id="insertFacultySummary" parameterType="FacultySummary" useGeneratedKeys="true" keyProperty="facultyId">
+        insert into sys_faculty_summary
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="facultyNum != null">faculty_num,</if>
+            <if test="facultyName != null">faculty_name,</if>
+            <if test="facultySex != null">faculty_sex,</if>
+            <if test="facultyNation != null">faculty_nation,</if>
+            <if test="facultyBirthday != null">faculty_birthday,</if>
+            <if test="facultyTimeJoinPart != null">faculty_time_join_part,</if>
+            <if test="facultyBranchNumber != null">faculty_branch_number,</if>
+            <if test="facultyPay != null">faculty_pay,</if>
+            <if test="facultyNativePlace != null">faculty_native_place,</if>
+            <if test="facultyCurrentAdministrativePosition != null">faculty_current_administrative_position,</if>
+            <if test="facultyTitle != null">faculty_title,</if>
+            <if test="facultySocialService != null">faculty_social_service,</if>
+            <if test="facultyAcademicDegree != null">faculty_academic_degree,</if>
+            <if test="facultyGraduateSchoolAndMajor != null">faculty_graduate_school_and_major,</if>
+            <if test="facultyTimeWork != null">faculty_time_work,</if>
+            <if test="facultyOverseaStudyBeginAndEnd != null">faculty_oversea_study_begin_and_end,</if>
+            <if test="facultyIdCard != null">faculty_id_card,</if>
+            <if test="facultyBranchPosition != null">faculty_branch_position,</if>
+            <if test="facultyMaritalStatus != null">faculty_marital_status,</if>
+            <if test="facultyPhoneNumber != null">faculty_phone_number,</if>
+            <if test="facultyRemarks != null">faculty_remarks,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="updateBy != null">update_by,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="facultyNum != null">#{facultyNum},</if>
+            <if test="facultyName != null">#{facultyName},</if>
+            <if test="facultySex != null">#{facultySex},</if>
+            <if test="facultyNation != null">#{facultyNation},</if>
+            <if test="facultyBirthday != null">#{facultyBirthday},</if>
+            <if test="facultyTimeJoinPart != null">#{facultyTimeJoinPart},</if>
+            <if test="facultyBranchNumber != null">#{facultyBranchNumber},</if>
+            <if test="facultyPay != null">#{facultyPay},</if>
+            <if test="facultyNativePlace != null">#{facultyNativePlace},</if>
+            <if test="facultyCurrentAdministrativePosition != null">#{facultyCurrentAdministrativePosition},</if>
+            <if test="facultyTitle != null">#{facultyTitle},</if>
+            <if test="facultySocialService != null">#{facultySocialService},</if>
+            <if test="facultyAcademicDegree != null">#{facultyAcademicDegree},</if>
+            <if test="facultyGraduateSchoolAndMajor != null">#{facultyGraduateSchoolAndMajor},</if>
+            <if test="facultyTimeWork != null">#{facultyTimeWork},</if>
+            <if test="facultyOverseaStudyBeginAndEnd != null">#{facultyOverseaStudyBeginAndEnd},</if>
+            <if test="facultyIdCard != null">#{facultyIdCard},</if>
+            <if test="facultyBranchPosition != null">#{facultyBranchPosition},</if>
+            <if test="facultyMaritalStatus != null">#{facultyMaritalStatus},</if>
+            <if test="facultyPhoneNumber != null">#{facultyPhoneNumber},</if>
+            <if test="facultyRemarks != null">#{facultyRemarks},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+         </trim>
+    </insert>
+
+    <update id="updateFacultySummary" parameterType="FacultySummary">
+        update sys_faculty_summary
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="facultyNum != null">faculty_num = #{facultyNum},</if>
+            <if test="facultyName != null">faculty_name = #{facultyName},</if>
+            <if test="facultySex != null">faculty_sex = #{facultySex},</if>
+            <if test="facultyNation != null">faculty_nation = #{facultyNation},</if>
+            <if test="facultyBirthday != null">faculty_birthday = #{facultyBirthday},</if>
+            <if test="facultyTimeJoinPart != null">faculty_time_join_part = #{facultyTimeJoinPart},</if>
+            <if test="facultyBranchNumber != null">faculty_branch_number = #{facultyBranchNumber},</if>
+            <if test="facultyPay != null">faculty_pay = #{facultyPay},</if>
+            <if test="facultyNativePlace != null">faculty_native_place = #{facultyNativePlace},</if>
+            <if test="facultyCurrentAdministrativePosition != null">faculty_current_administrative_position = #{facultyCurrentAdministrativePosition},</if>
+            <if test="facultyTitle != null">faculty_title = #{facultyTitle},</if>
+            <if test="facultySocialService != null">faculty_social_service = #{facultySocialService},</if>
+            <if test="facultyAcademicDegree != null">faculty_academic_degree = #{facultyAcademicDegree},</if>
+            <if test="facultyGraduateSchoolAndMajor != null">faculty_graduate_school_and_major = #{facultyGraduateSchoolAndMajor},</if>
+            <if test="facultyTimeWork != null">faculty_time_work = #{facultyTimeWork},</if>
+            <if test="facultyOverseaStudyBeginAndEnd != null">faculty_oversea_study_begin_and_end = #{facultyOverseaStudyBeginAndEnd},</if>
+            <if test="facultyIdCard != null">faculty_id_card = #{facultyIdCard},</if>
+            <if test="facultyBranchPosition != null">faculty_branch_position = #{facultyBranchPosition},</if>
+            <if test="facultyMaritalStatus != null">faculty_marital_status = #{facultyMaritalStatus},</if>
+            <if test="facultyPhoneNumber != null">faculty_phone_number = #{facultyPhoneNumber},</if>
+            <if test="facultyRemarks != null">faculty_remarks = #{facultyRemarks},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+        </trim>
+        where faculty_id = #{facultyId}
+    </update>
+
+    <delete id="deleteFacultySummaryById" parameterType="Long">
+        delete from sys_faculty_summary where faculty_id = #{facultyId}
+    </delete>
+
+    <delete id="deleteFacultySummaryByIds" parameterType="String">
+        delete from sys_faculty_summary where faculty_id in 
+        <foreach item="facultyId" collection="array" open="(" separator="," close=")">
+            #{facultyId}
+        </foreach>
+    </delete>
+
+</mapper>
