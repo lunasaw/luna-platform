@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-    <th:block th:include="include :: header('教职工汇总列表')" />
+    <th:block th:include="include :: header('教职工汇总列表')"/>
 </head>
 <body class="gray-bg">
-     <div class="container-div">
+    <div class="container-div">
         <div class="row">
             <div class="col-sm-12 search-collapse">
                 <form id="formId">
@@ -22,7 +22,8 @@
                                 <label>性别：</label>
                                 <select name="facultySex" th:with="type=${@dict.getType('sys_user_sex')}">
                                     <option value="">所有</option>
-                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}"
+                                            th:value="${dict.dictValue}"></option>
                                 </select>
                             </li>
                             <li>
@@ -31,15 +32,19 @@
                             </li>
                             <li class="select-time">
                                 <label>出生年月：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginFacultyBirthday]"/>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间"
+                                       name="params[beginFacultyBirthday]"/>
                                 <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endFacultyBirthday]"/>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间"
+                                       name="params[endFacultyBirthday]"/>
                             </li>
                             <li class="select-time">
                                 <label>入党时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginFacultyTimeJoinPart]"/>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间"
+                                       name="params[beginFacultyTimeJoinPart]"/>
                                 <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endFacultyTimeJoinPart]"/>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间"
+                                       name="params[endFacultyTimeJoinPart]"/>
                             </li>
                             <li>
                                 <label>所在支部：</label>
@@ -66,7 +71,7 @@
                                 <input type="text" name="facultySocialService"/>
                             </li>
                             <li>
-                                <label>学历  学位：</label>
+                                <label>学历 学位：</label>
                                 <input type="text" name="facultyAcademicDegree"/>
                             </li>
                             <li>
@@ -75,9 +80,11 @@
                             </li>
                             <li class="select-time">
                                 <label>参加工作时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginFacultyTimeWork]"/>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间"
+                                       name="params[beginFacultyTimeWork]"/>
                                 <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endFacultyTimeWork]"/>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间"
+                                       name="params[endFacultyTimeWork]"/>
                             </li>
                             <li>
                                 <label>留学开始时间：</label>
@@ -95,7 +102,8 @@
                                 <label>婚姻状况：</label>
                                 <select name="facultyMaritalStatus" th:with="type=${@dict.getType('sys_is_married')}">
                                     <option value="">所有</option>
-                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}"
+                                            th:value="${dict.dictValue}"></option>
                                 </select>
                             </li>
                             <li>
@@ -107,8 +115,10 @@
                                 <input type="text" name="facultyRemarks"/>
                             </li>
                             <li>
-                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
-                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i
+                                        class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i
+                                        class="fa fa-refresh"></i>&nbsp;重置</a>
                             </li>
                         </ul>
                     </div>
@@ -119,16 +129,20 @@
                 <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="admin:facultySummary:add">
                     <i class="fa fa-plus"></i> 添加
                 </a>
-                <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="admin:facultySummary:edit">
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()"
+                   shiro:hasPermission="admin:facultySummary:edit">
                     <i class="fa fa-edit"></i> 修改
                 </a>
-                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="admin:facultySummary:remove">
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()"
+                   shiro:hasPermission="admin:facultySummary:remove">
                     <i class="fa fa-remove"></i> 删除
                 </a>
-                <a class="btn btn-info" onclick="$.table.importExcel()" shiro:hasPermission="admin:facultySummary:import">
+                <a class="btn btn-info" onclick="$.table.importExcel()"
+                   shiro:hasPermission="admin:facultySummary:import">
                     <i class="fa fa-upload"></i> 导入
                 </a>
-                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="admin:facultySummary:export">
+                <a class="btn btn-warning" onclick="$.table.exportExcel()"
+                   shiro:hasPermission="admin:facultySummary:export">
                     <i class="fa fa-download"></i> 导出
                 </a>
             </div>
@@ -137,7 +151,7 @@
             </div>
         </div>
     </div>
-    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: footer"/>
     <script th:inline="javascript">
         var editFlag = [[${@permission.hasPermi('admin:facultySummary:edit')}]];
         var removeFlag = [[${@permission.hasPermi('admin:facultySummary:remove')}]];
@@ -145,7 +159,7 @@
         var facultyMaritalStatusDatas = [[${@dict.getType('sys_is_married')}]];
         var prefix = ctx + "admin/facultySummary";
 
-        $(function() {
+        $(function () {
             var options = {
                 url: prefix + "/list",
                 createUrl: prefix + "/add",
@@ -160,111 +174,111 @@
                 columns: [{
                     checkbox: true
                 },
-                {
-                    field: 'facultyId',
-                    title: '教职工总表id',
-                    visible: false
-                },
-                {
-                    field: 'facultyNum',
-                    title: '序号'
-                },
-                {
-                    field: 'facultyName',
-                    title: '姓名'
-                },
-                {
-                    field: 'facultySex',
-                    title: '性别',
-                    formatter: function(value, row, index) {
-                       return $.table.selectDictLabel(facultySexDatas, value);
-                    }
-                },
-                {
-                    field: 'facultyNation',
-                    title: '民族'
-                },
-                {
-                    field: 'facultyBirthday',
-                    title: '出生年月'
-                },
-                {
-                    field: 'facultyTimeJoinPart',
-                    title: '入党时间'
-                },
-                {
-                    field: 'facultyBranchNumber',
-                    title: '所在支部'
-                },
-                {
-                    field: 'facultyPay',
-                    title: '月交纳党费金额'
-                },
-                {
-                    field: 'facultyNativePlace',
-                    title: '籍贯'
-                },
-                {
-                    field: 'facultyCurrentAdministrativePosition',
-                    title: '现任行政职务'
-                },
-                {
-                    field: 'facultyTitle',
-                    title: '职称'
-                },
-                {
-                    field: 'facultySocialService',
-                    title: '社会任职情况'
-                },
-                {
-                    field: 'facultyAcademicDegree',
-                    title: '学历  学位'
-                },
-                {
-                    field: 'facultyGraduateSchoolAndMajor',
-                    title: '毕业院校及专业'
-                },
-                {
-                    field: 'facultyTimeWork',
-                    title: '参加工作时间'
-                },
-                {
-                    field: 'facultyOverseaStudyBeginAndEnd',
-                    title: '留学开始时间'
-                },
-                {
-                    field: 'facultyIdCard',
-                    title: '身份证'
-                },
-                {
-                    field: 'facultyBranchPosition',
-                    title: '支委会职务'
-                },
-                {
-                    field: 'facultyMaritalStatus',
-                    title: '婚姻状况',
-                    formatter: function(value, row, index) {
-                       return $.table.selectDictLabel(facultyMaritalStatusDatas, value);
-                    }
-                },
-                {
-                    field: 'facultyPhoneNumber',
-                    title: '联系方式'
-                },
-                {
-                    field: 'facultyRemarks',
-                    title: '备注'
-                },
-                {
-                    title: '操作',
-                    align: 'center',
-                    formatter: function(value, row, index) {
-                        var actions = [];
-                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.facultyId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
-                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.facultyId + '\')"><i class="fa fa-remove"></i>删除</a>');
-                        return actions.join('');
-                    }
-                }]
+                    {
+                        field: 'facultyId',
+                        title: '教职工总表id',
+                        visible: false
+                    },
+                    {
+                        field: 'facultyNum',
+                        title: '序号'
+                    },
+                    {
+                        field: 'facultyName',
+                        title: '姓名'
+                    },
+                    {
+                        field: 'facultySex',
+                        title: '性别',
+                        formatter: function (value, row, index) {
+                            return $.table.selectDictLabel(facultySexDatas, value);
+                        }
+                    },
+                    {
+                        field: 'facultyNation',
+                        title: '民族'
+                    },
+                    {
+                        field: 'facultyBirthday',
+                        title: '出生年月'
+                    },
+                    {
+                        field: 'facultyTimeJoinPart',
+                        title: '入党时间'
+                    },
+                    {
+                        field: 'facultyBranchNumber',
+                        title: '所在支部'
+                    },
+                    {
+                        field: 'facultyPay',
+                        title: '月交纳党费金额'
+                    },
+                    {
+                        field: 'facultyNativePlace',
+                        title: '籍贯'
+                    },
+                    {
+                        field: 'facultyCurrentAdministrativePosition',
+                        title: '现任行政职务'
+                    },
+                    {
+                        field: 'facultyTitle',
+                        title: '职称'
+                    },
+                    {
+                        field: 'facultySocialService',
+                        title: '社会任职情况'
+                    },
+                    {
+                        field: 'facultyAcademicDegree',
+                        title: '学历  学位'
+                    },
+                    {
+                        field: 'facultyGraduateSchoolAndMajor',
+                        title: '毕业院校及专业'
+                    },
+                    {
+                        field: 'facultyTimeWork',
+                        title: '参加工作时间'
+                    },
+                    {
+                        field: 'facultyOverseaStudyBeginAndEnd',
+                        title: '留学开始时间'
+                    },
+                    {
+                        field: 'facultyIdCard',
+                        title: '身份证'
+                    },
+                    {
+                        field: 'facultyBranchPosition',
+                        title: '支委会职务'
+                    },
+                    {
+                        field: 'facultyMaritalStatus',
+                        title: '婚姻状况',
+                        formatter: function (value, row, index) {
+                            return $.table.selectDictLabel(facultyMaritalStatusDatas, value);
+                        }
+                    },
+                    {
+                        field: 'facultyPhoneNumber',
+                        title: '联系方式'
+                    },
+                    {
+                        field: 'facultyRemarks',
+                        title: '备注'
+                    },
+                    {
+                        title: '操作',
+                        align: 'center',
+                        formatter: function (value, row, index) {
+                            var actions = [];
+                            actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.facultyId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                            actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.facultyId + '\')"><i class="fa fa-remove"></i>删除</a>');
+                            return actions.join('');
+                        }
+                    }]
             };
             $.table.init(options);
         });
