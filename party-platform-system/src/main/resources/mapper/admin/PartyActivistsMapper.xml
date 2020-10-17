@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.web.platform.activists.mapper.PartyActivistsMapper">
+
+    <resultMap type="PartyActivists" id="PartyActivistsResult">
+        <result property="partyActivistsStuId" column="party_activists_stu_id"/>
+        <result property="partyActivistsStuNum" column="party_activists_stu_num"/>
+        <result property="partyActivistsName" column="party_activists_name"/>
+        <result property="partyActivistsClass" column="party_activists_class"/>
+        <result property="partyActivistsSex" column="party_activists_sex"/>
+        <result property="partyActivistsNation" column="party_activists_nation"/>
+        <result property="partyActivistsBirthday" column="party_activists_birthday"/>
+        <result property="partyActivistsNativePlace" column="party_activists_native_place"/>
+        <result property="partyActivistsApplicationForPartyMembershipTime"
+                column="party_activists_Application_for_Party_membership_time"/>
+        <result property="partyActivistsAutobiography" column="party_activists_autobiography"/>
+        <result property="partyActivistsApprovalForm" column="party_activists_Approval_form"/>
+        <result property="partyActivistsEstablishmentDate" column="party_activists_establishment_date"/>
+        <result property="partyActivistsClosingTime" column="party_activists_closing_time"/>
+        <result property="partyActivistsThoughtReport" column="party_activists_thought_report"/>
+        <result property="partyActivistsSurveyTable" column="party_activists_survey_table"/>
+        <result property="partyActivistsEstablishmentDateDev" column="party_activists_establishment_date_dev"/>
+        <result property="partyActivistsPositionStuCadres" column="party_activists_position_stu_cadres"/>
+        <result property="partyActivistsRewardsPunishments" column="party_activists_rewards_punishments"/>
+        <result property="partyActivistsHeadmaster" column="party_activists_headmaster"/>
+        <result property="partyActivistsContactInformation" column="party_activists_contact_information"/>
+        <result property="partyActivistsRemarks" column="party_activists_remarks"/>
+    </resultMap>
+
+    <sql id="selectPartyActivistsVo">
+        select party_activists_stu_id, party_activists_stu_num, party_activists_name, party_activists_class, party_activists_sex, party_activists_nation, party_activists_birthday, party_activists_native_place, party_activists_Application_for_Party_membership_time, party_activists_autobiography, party_activists_Approval_form, party_activists_establishment_date, party_activists_closing_time, party_activists_thought_report, party_activists_survey_table, party_activists_establishment_date_dev, party_activists_position_stu_cadres, party_activists_rewards_punishments, party_activists_headmaster, party_activists_contact_information, party_activists_remarks from sys_party_activists
+    </sql>
+
+    <select id="selectPartyActivistsList" parameterType="PartyActivists" resultMap="PartyActivistsResult">
+        <include refid="selectPartyActivistsVo"/>
+        <where>
+            <if test="partyActivistsStuNum != null ">and party_activists_stu_num = #{partyActivistsStuNum}</if>
+            <if test="partyActivistsName != null  and partyActivistsName != ''">and party_activists_name like
+                concat('%', #{partyActivistsName}, '%')
+            </if>
+            <if test="partyActivistsClass != null  and partyActivistsClass != ''">and party_activists_class =
+                #{partyActivistsClass}
+            </if>
+            <if test="partyActivistsSex != null  and partyActivistsSex != ''">and party_activists_sex =
+                #{partyActivistsSex}
+            </if>
+            <if test="partyActivistsNation != null  and partyActivistsNation != ''">and party_activists_nation =
+                #{partyActivistsNation}
+            </if>
+            <if test="partyActivistsBirthday != null ">and party_activists_birthday = #{partyActivistsBirthday}</if>
+            <if test="partyActivistsNativePlace != null  and partyActivistsNativePlace != ''">and
+                party_activists_native_place = #{partyActivistsNativePlace}
+            </if>
+            <if test="partyActivistsApplicationForPartyMembershipTime != null ">and
+                party_activists_Application_for_Party_membership_time =
+                #{partyActivistsApplicationForPartyMembershipTime}
+            </if>
+            <if test="partyActivistsAutobiography != null  and partyActivistsAutobiography != ''">and
+                party_activists_autobiography = #{partyActivistsAutobiography}
+            </if>
+            <if test="partyActivistsApprovalForm != null  and partyActivistsApprovalForm != ''">and
+                party_activists_Approval_form = #{partyActivistsApprovalForm}
+            </if>
+            <if test="partyActivistsEstablishmentDate != null ">and party_activists_establishment_date =
+                #{partyActivistsEstablishmentDate}
+            </if>
+            <if test="partyActivistsClosingTime != null ">and party_activists_closing_time =
+                #{partyActivistsClosingTime}
+            </if>
+            <if test="partyActivistsThoughtReport != null  and partyActivistsThoughtReport != ''">and
+                party_activists_thought_report = #{partyActivistsThoughtReport}
+            </if>
+            <if test="partyActivistsSurveyTable != null  and partyActivistsSurveyTable != ''">and
+                party_activists_survey_table = #{partyActivistsSurveyTable}
+            </if>
+            <if test="partyActivistsEstablishmentDateDev != null ">and party_activists_establishment_date_dev =
+                #{partyActivistsEstablishmentDateDev}
+            </if>
+            <if test="partyActivistsPositionStuCadres != null  and partyActivistsPositionStuCadres != ''">and
+                party_activists_position_stu_cadres = #{partyActivistsPositionStuCadres}
+            </if>
+            <if test="partyActivistsRewardsPunishments != null  and partyActivistsRewardsPunishments != ''">and
+                party_activists_rewards_punishments = #{partyActivistsRewardsPunishments}
+            </if>
+            <if test="partyActivistsHeadmaster != null  and partyActivistsHeadmaster != ''">and
+                party_activists_headmaster = #{partyActivistsHeadmaster}
+            </if>
+            <if test="partyActivistsContactInformation != null  and partyActivistsContactInformation != ''">and
+                party_activists_contact_information = #{partyActivistsContactInformation}
+            </if>
+            <if test="partyActivistsRemarks != null  and partyActivistsRemarks != ''">and party_activists_remarks =
+                #{partyActivistsRemarks}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectPartyActivistsById" parameterType="Long" resultMap="PartyActivistsResult">
+        <include refid="selectPartyActivistsVo"/>
+        where party_activists_stu_id = #{partyActivistsStuId}
+    </select>
+
+    <insert id="insertPartyActivists" parameterType="PartyActivists" useGeneratedKeys="true"
+            keyProperty="partyActivistsStuId">
+        insert into sys_party_activists
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="partyActivistsStuNum != null">party_activists_stu_num,</if>
+            <if test="partyActivistsName != null">party_activists_name,</if>
+            <if test="partyActivistsClass != null">party_activists_class,</if>
+            <if test="partyActivistsSex != null">party_activists_sex,</if>
+            <if test="partyActivistsNation != null">party_activists_nation,</if>
+            <if test="partyActivistsBirthday != null">party_activists_birthday,</if>
+            <if test="partyActivistsNativePlace != null">party_activists_native_place,</if>
+            <if test="partyActivistsApplicationForPartyMembershipTime != null">
+                party_activists_Application_for_Party_membership_time,
+            </if>
+            <if test="partyActivistsAutobiography != null">party_activists_autobiography,</if>
+            <if test="partyActivistsApprovalForm != null">party_activists_Approval_form,</if>
+            <if test="partyActivistsEstablishmentDate != null">party_activists_establishment_date,</if>
+            <if test="partyActivistsClosingTime != null">party_activists_closing_time,</if>
+            <if test="partyActivistsThoughtReport != null">party_activists_thought_report,</if>
+            <if test="partyActivistsSurveyTable != null">party_activists_survey_table,</if>
+            <if test="partyActivistsEstablishmentDateDev != null">party_activists_establishment_date_dev,</if>
+            <if test="partyActivistsPositionStuCadres != null">party_activists_position_stu_cadres,</if>
+            <if test="partyActivistsRewardsPunishments != null">party_activists_rewards_punishments,</if>
+            <if test="partyActivistsHeadmaster != null">party_activists_headmaster,</if>
+            <if test="partyActivistsContactInformation != null">party_activists_contact_information,</if>
+            <if test="partyActivistsRemarks != null">party_activists_remarks,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="partyActivistsStuNum != null">#{partyActivistsStuNum},</if>
+            <if test="partyActivistsName != null">#{partyActivistsName},</if>
+            <if test="partyActivistsClass != null">#{partyActivistsClass},</if>
+            <if test="partyActivistsSex != null">#{partyActivistsSex},</if>
+            <if test="partyActivistsNation != null">#{partyActivistsNation},</if>
+            <if test="partyActivistsBirthday != null">#{partyActivistsBirthday},</if>
+            <if test="partyActivistsNativePlace != null">#{partyActivistsNativePlace},</if>
+            <if test="partyActivistsApplicationForPartyMembershipTime != null">
+                #{partyActivistsApplicationForPartyMembershipTime},
+            </if>
+            <if test="partyActivistsAutobiography != null">#{partyActivistsAutobiography},</if>
+            <if test="partyActivistsApprovalForm != null">#{partyActivistsApprovalForm},</if>
+            <if test="partyActivistsEstablishmentDate != null">#{partyActivistsEstablishmentDate},</if>
+            <if test="partyActivistsClosingTime != null">#{partyActivistsClosingTime},</if>
+            <if test="partyActivistsThoughtReport != null">#{partyActivistsThoughtReport},</if>
+            <if test="partyActivistsSurveyTable != null">#{partyActivistsSurveyTable},</if>
+            <if test="partyActivistsEstablishmentDateDev != null">#{partyActivistsEstablishmentDateDev},</if>
+            <if test="partyActivistsPositionStuCadres != null">#{partyActivistsPositionStuCadres},</if>
+            <if test="partyActivistsRewardsPunishments != null">#{partyActivistsRewardsPunishments},</if>
+            <if test="partyActivistsHeadmaster != null">#{partyActivistsHeadmaster},</if>
+            <if test="partyActivistsContactInformation != null">#{partyActivistsContactInformation},</if>
+            <if test="partyActivistsRemarks != null">#{partyActivistsRemarks},</if>
+        </trim>
+    </insert>
+
+    <update id="updatePartyActivists" parameterType="PartyActivists">
+        update sys_party_activists
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="partyActivistsStuNum != null">party_activists_stu_num = #{partyActivistsStuNum},</if>
+            <if test="partyActivistsName != null">party_activists_name = #{partyActivistsName},</if>
+            <if test="partyActivistsClass != null">party_activists_class = #{partyActivistsClass},</if>
+            <if test="partyActivistsSex != null">party_activists_sex = #{partyActivistsSex},</if>
+            <if test="partyActivistsNation != null">party_activists_nation = #{partyActivistsNation},</if>
+            <if test="partyActivistsBirthday != null">party_activists_birthday = #{partyActivistsBirthday},</if>
+            <if test="partyActivistsNativePlace != null">party_activists_native_place = #{partyActivistsNativePlace},
+            </if>
+            <if test="partyActivistsApplicationForPartyMembershipTime != null">
+                party_activists_Application_for_Party_membership_time =
+                #{partyActivistsApplicationForPartyMembershipTime},
+            </if>
+            <if test="partyActivistsAutobiography != null">party_activists_autobiography =
+                #{partyActivistsAutobiography},
+            </if>
+            <if test="partyActivistsApprovalForm != null">party_activists_Approval_form =
+                #{partyActivistsApprovalForm},
+            </if>
+            <if test="partyActivistsEstablishmentDate != null">party_activists_establishment_date =
+                #{partyActivistsEstablishmentDate},
+            </if>
+            <if test="partyActivistsClosingTime != null">party_activists_closing_time = #{partyActivistsClosingTime},
+            </if>
+            <if test="partyActivistsThoughtReport != null">party_activists_thought_report =
+                #{partyActivistsThoughtReport},
+            </if>
+            <if test="partyActivistsSurveyTable != null">party_activists_survey_table = #{partyActivistsSurveyTable},
+            </if>
+            <if test="partyActivistsEstablishmentDateDev != null">party_activists_establishment_date_dev =
+                #{partyActivistsEstablishmentDateDev},
+            </if>
+            <if test="partyActivistsPositionStuCadres != null">party_activists_position_stu_cadres =
+                #{partyActivistsPositionStuCadres},
+            </if>
+            <if test="partyActivistsRewardsPunishments != null">party_activists_rewards_punishments =
+                #{partyActivistsRewardsPunishments},
+            </if>
+            <if test="partyActivistsHeadmaster != null">party_activists_headmaster = #{partyActivistsHeadmaster},</if>
+            <if test="partyActivistsContactInformation != null">party_activists_contact_information =
+                #{partyActivistsContactInformation},
+            </if>
+            <if test="partyActivistsRemarks != null">party_activists_remarks = #{partyActivistsRemarks},</if>
+        </trim>
+        where party_activists_stu_id = #{partyActivistsStuId}
+    </update>
+
+    <delete id="deletePartyActivistsById" parameterType="Long">
+        delete from sys_party_activists where party_activists_stu_id = #{partyActivistsStuId}
+    </delete>
+
+    <delete id="deletePartyActivistsByIds" parameterType="String">
+        delete from sys_party_activists where party_activists_stu_id in
+        <foreach item="partyActivistsStuId" collection="array" open="(" separator="," close=")">
+            #{partyActivistsStuId}
+        </foreach>
+    </delete>
+
+    <select id="selectPartyActivistsByName" parameterType="String" resultMap="PartyActivistsResult">
+        <include refid="selectPartyActivistsVo"/>
+        where party_activists_name = #{name}
+    </select>
+</mapper>
