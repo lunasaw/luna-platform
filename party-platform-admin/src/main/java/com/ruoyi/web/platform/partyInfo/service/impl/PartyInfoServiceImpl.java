@@ -2,16 +2,12 @@ package com.ruoyi.web.platform.partyInfo.service.impl;
 
 import java.util.List;
 
-import com.alibaba.fastjson.JSON;
+import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.exception.BusinessException;
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.common.utils.security.Md5Utils;
-import com.ruoyi.system.domain.SysUser;
-import com.ruoyi.system.mapper.SysUserMapper;
-import com.ruoyi.system.service.impl.SysUserServiceImpl;
+import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.web.platform.partyInfo.PartyInfoConstant;
-import com.sun.org.apache.xpath.internal.operations.Equals;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +53,67 @@ public class PartyInfoServiceImpl implements IPartyInfoService {
     }
 
     /**
+     * 导出数据
+     *
+     * @param partyInfo
+     * @return
+     */
+    @Override
+    public AjaxResult exportPartyInfoList(PartyInfo partyInfo) {
+        List<PartyInfo> list = partyInfoMapper.selectPartyInfoList(partyInfo);
+        for (PartyInfo partyInfoOne : list) {
+            if (StringUtils.equals(partyInfoOne.getPartySex(), PartyInfoConstant.MAN_NUM)) {
+                partyInfoOne.setPartySex(PartyInfoConstant.MAN);
+            } else if (StringUtils.equals(partyInfoOne.getPartySex(), PartyInfoConstant.WOMAN_NUM)) {
+                partyInfoOne.setPartySex(PartyInfoConstant.WOMAN);
+            } else if (StringUtils.equals(partyInfoOne.getPartySex(), PartyInfoConstant.NOT_KNOW_MUM)) {
+                partyInfoOne.setPartySex(PartyInfoConstant.NOT_KNOW);
+            }
+
+            // 入党申请书
+            if (StringUtils.equals(partyInfoOne.getPartyJoinApplication(), PartyInfoConstant.HAS_SUBMIT_NUM)) {
+                partyInfoOne.setPartyJoinApplication(PartyInfoConstant.HAS_SUBMIT);
+            } else if (StringUtils.equals(partyInfoOne.getPartyJoinApplication(),
+                PartyInfoConstant.NOT_HAS_SUBMIT_NUM)) {
+                partyInfoOne.setPartyJoinApplication(PartyInfoConstant.NOT_HAS_SUBMIT);
+            } else {
+                partyInfoOne.setPartyJoinApplication(PartyInfoConstant.NOT_HAS_SUBMIT);
+            }
+
+            // 预备党员考察表
+            if (StringUtils.equals(partyInfoOne.getPartyInspect(), PartyInfoConstant.HAS_SUBMIT_NUM)) {
+                partyInfoOne.setPartyInspect(PartyInfoConstant.HAS_SUBMIT);
+            } else if (StringUtils.equals(partyInfoOne.getPartyInspect(), PartyInfoConstant.NOT_HAS_SUBMIT_NUM)) {
+                partyInfoOne.setPartyInspect(PartyInfoConstant.NOT_HAS_SUBMIT);
+            } else {
+                partyInfoOne.setPartyInspect(PartyInfoConstant.NOT_HAS_SUBMIT);
+            }
+
+            // 转正申请书
+            if (StringUtils.equals(partyInfoOne.getPartyFormalApplication(), PartyInfoConstant.HAS_SUBMIT_NUM)) {
+                partyInfoOne.setPartyFormalApplication(PartyInfoConstant.HAS_SUBMIT);
+            } else if (StringUtils.equals(partyInfoOne.getPartyFormalApplication(),
+                PartyInfoConstant.NOT_HAS_SUBMIT_NUM)) {
+                partyInfoOne.setPartyFormalApplication(PartyInfoConstant.NOT_HAS_SUBMIT);
+            } else {
+                partyInfoOne.setPartyFormalApplication(PartyInfoConstant.NOT_HAS_SUBMIT);
+            }
+
+            // 思想报告
+            if (StringUtils.equals(partyInfoOne.getPartyThoughtReport(), PartyInfoConstant.HAS_SUBMIT_NUM)) {
+                partyInfoOne.setPartyThoughtReport(PartyInfoConstant.HAS_SUBMIT);
+            } else if (StringUtils.equals(partyInfoOne.getPartyThoughtReport(), PartyInfoConstant.NOT_HAS_SUBMIT_NUM)) {
+                partyInfoOne.setPartyThoughtReport(PartyInfoConstant.NOT_HAS_SUBMIT);
+            } else {
+                partyInfoOne.setPartyThoughtReport(PartyInfoConstant.NOT_HAS_SUBMIT);
+            }
+        }
+
+        ExcelUtil<PartyInfo> util = new ExcelUtil<PartyInfo>(PartyInfo.class);
+        return util.exportExcel(list, "partyInfo");
+    }
+
+    /**
      * 导入用户数据
      *
      * @param partyInfoList 用户数据列表
@@ -74,7 +131,7 @@ public class PartyInfoServiceImpl implements IPartyInfoService {
         StringBuilder successMsg = new StringBuilder();
         StringBuilder failureMsg = new StringBuilder();
         for (PartyInfo partyInfo : partyInfoList) {
-            if (StringUtils.equals(partyInfo.getPartySex(), PartyInfoConstant.NAM)) {
+            if (StringUtils.equals(partyInfo.getPartySex(), PartyInfoConstant.MAN)) {
                 partyInfo.setPartySex("0");
             } else if (StringUtils.equals(partyInfo.getPartySex(), PartyInfoConstant.WOMAN)) {
                 partyInfo.setPartySex("1");

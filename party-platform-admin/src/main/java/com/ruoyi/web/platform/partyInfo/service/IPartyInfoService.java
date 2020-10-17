@@ -2,7 +2,7 @@ package com.ruoyi.web.platform.partyInfo.service;
 
 import java.util.List;
 
-import com.ruoyi.system.domain.SysUser;
+import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.web.platform.partyInfo.domain.PartyInfo;
 
 /**
@@ -27,6 +27,14 @@ public interface IPartyInfoService {
      * @return 党员信息集合
      */
     public List<PartyInfo> selectPartyInfoList(PartyInfo partyInfo);
+
+    /**
+     * 导出数据
+     *
+     * @param partyInfo
+     * @return
+     */
+    public AjaxResult exportPartyInfoList(PartyInfo partyInfo);
 
     /**
      * 导入用户数据

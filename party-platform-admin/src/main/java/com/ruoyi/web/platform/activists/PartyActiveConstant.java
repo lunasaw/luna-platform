@@ -1,4 +1,4 @@
-package com.ruoyi.web.platform.partyInfo;
+package com.ruoyi.web.platform.activists;
 
 /**
  * @Package: com.ruoyi.web.platform.partyInfo
@@ -7,7 +7,7 @@ package com.ruoyi.web.platform.partyInfo;
  * @CreateTime: 2020/10/10 14:34
  * @Description:
  */
-public interface PartyInfoConstant {
+public interface PartyActiveConstant {
 
     String HAS_SUBMIT         = "已提交";
 

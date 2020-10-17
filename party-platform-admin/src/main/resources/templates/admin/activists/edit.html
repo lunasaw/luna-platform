@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="include :: header('修改入党积极分子')"/>
+    <th:block th:include="include :: datetimepicker-css"/>
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-activists-edit" th:object="${partyActivists}">
+            <input name="partyActivistsStuId" th:field="*{partyActivistsStuId}" type="hidden">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">学号：</label>
+                <div class="col-sm-8">
+                    <input name="partyActivistsStuNum" th:field="*{partyActivistsStuNum}" class="form-control"
+                           type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">姓名：</label>
+                <div class="col-sm-8">
+                    <input name="partyActivistsName" th:field="*{partyActivistsName}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">班级：</label>
+                <div class="col-sm-8">
+                    <input name="partyActivistsClass" th:field="*{partyActivistsClass}" class="form-control"
+                           type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">性别：</label>
+                <div class="col-sm-8">
+                    <div class="radio-box" th:each="dict : ${@dict.getType('sys_user_sex')}">
+                        <input type="radio" th:id="${'partyActivistsSex_' + dict.dictCode}" name="partyActivistsSex"
+                               th:value="${dict.dictValue}" th:field="*{partyActivistsSex}">
+                        <label th:for="${'partyActivistsSex_' + dict.dictCode}" th:text="${dict.dictLabel}"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">民族：</label>
+                <div class="col-sm-8">
+                    <input name="partyActivistsNation" th:field="*{partyActivistsNation}" class="form-control"
+                           type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">出生年月：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="partyActivistsBirthday"
+                               th:value="${#dates.format(partyActivists.partyActivistsBirthday, 'yyyy-MM-dd')}"
+                               class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">籍贯：</label>
+                <div class="col-sm-8">
+                    <input name="partyActivistsNativePlace" th:field="*{partyActivistsNativePlace}" class="form-control"
+                           type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">入党申请书时间：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="partyActivistsApplicationForPartyMembershipTime"
+                               th:value="${#dates.format(partyActivists.partyActivistsApplicationForPartyMembershipTime, 'yyyy-MM-dd')}"
+                               class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">自传：</label>
+                <div class="col-sm-8">
+                    <div class="radio-box" th:each="dict : ${@dict.getType('sys_party_info_status')}">
+                        <input type="radio" th:id="${'partyActivistsAutobiography_' + dict.dictCode}"
+                               name="partyActivistsAutobiography" th:value="${dict.dictValue}"
+                               th:field="*{partyActivistsAutobiography}">
+                        <label th:for="${'partyActivistsAutobiography_' + dict.dictCode}"
+                               th:text="${dict.dictLabel}"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">《团员推优审批表》：</label>
+                <div class="col-sm-8">
+                    <div class="radio-box" th:each="dict : ${@dict.getType('sys_party_info_status')}">
+                        <input type="radio" th:id="${'partyActivistsApprovalForm_' + dict.dictCode}"
+                               name="partyActivistsApprovalForm" th:value="${dict.dictValue}"
+                               th:field="*{partyActivistsApprovalForm}">
+                        <label th:for="${'partyActivistsApprovalForm_' + dict.dictCode}"
+                               th:text="${dict.dictLabel}"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">确立积极分子日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="partyActivistsEstablishmentDate"
+                               th:value="${#dates.format(partyActivists.partyActivistsEstablishmentDate, 'yyyy-MM-dd')}"
+                               class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">党校结业证书日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="partyActivistsClosingTime"
+                               th:value="${#dates.format(partyActivists.partyActivistsClosingTime, 'yyyy-MM-dd')}"
+                               class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">思想汇报：</label>
+                <div class="col-sm-8">
+                    <div class="radio-box" th:each="dict : ${@dict.getType('sys_party_info_status')}">
+                        <input type="radio" th:id="${'partyActivistsThoughtReport_' + dict.dictCode}"
+                               name="partyActivistsThoughtReport" th:value="${dict.dictValue}"
+                               th:field="*{partyActivistsThoughtReport}">
+                        <label th:for="${'partyActivistsThoughtReport_' + dict.dictCode}"
+                               th:text="${dict.dictLabel}"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">积极分子考察表：</label>
+                <div class="col-sm-8">
+                    <div class="radio-box" th:each="dict : ${@dict.getType('sys_party_info_status')}">
+                        <input type="radio" th:id="${'partyActivistsSurveyTable_' + dict.dictCode}"
+                               name="partyActivistsSurveyTable" th:value="${dict.dictValue}"
+                               th:field="*{partyActivistsSurveyTable}">
+                        <label th:for="${'partyActivistsSurveyTable_' + dict.dictCode}"
+                               th:text="${dict.dictLabel}"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">确立发展对象日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="partyActivistsEstablishmentDateDev"
+                               th:value="${#dates.format(partyActivists.partyActivistsEstablishmentDateDev, 'yyyy-MM-dd')}"
+                               class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">学生干部任职情况：</label>
+                <div class="col-sm-8">
+                    <input name="partyActivistsPositionStuCadres" th:field="*{partyActivistsPositionStuCadres}"
+                           class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">奖惩情况：</label>
+                <div class="col-sm-8">
+                    <input name="partyActivistsRewardsPunishments" th:field="*{partyActivistsRewardsPunishments}"
+                           class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">班主任：</label>
+                <div class="col-sm-8">
+                    <input name="partyActivistsHeadmaster" th:field="*{partyActivistsHeadmaster}" class="form-control"
+                           type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">联系方式：</label>
+                <div class="col-sm-8">
+                    <input name="partyActivistsContactInformation" th:field="*{partyActivistsContactInformation}"
+                           class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">备注：</label>
+                <div class="col-sm-8">
+                    <input name="partyActivistsRemarks" th:field="*{partyActivistsRemarks}" class="form-control"
+                           type="text">
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer"/>
+    <th:block th:include="include :: datetimepicker-js"/>
+    <script th:inline="javascript">
+        var prefix = ctx + "admin/activists";
+        $("#form-activists-edit").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/edit", $('#form-activists-edit').serialize());
+            }
+        }
+
+        $("input[name='partyActivistsBirthday']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='partyActivistsApplicationForPartyMembershipTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='partyActivistsEstablishmentDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='partyActivistsClosingTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='partyActivistsEstablishmentDateDev']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+    </script>
+</body>
+</html>
