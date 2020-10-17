@@ -70,11 +70,17 @@ public class PartyInfoController extends BaseController {
     @PostMapping("/export")
     @ResponseBody
     public AjaxResult export(PartyInfo partyInfo) {
-        List<PartyInfo> list = partyInfoService.selectPartyInfoList(partyInfo);
-        ExcelUtil<PartyInfo> util = new ExcelUtil<PartyInfo>(PartyInfo.class);
-        return util.exportExcel(list, "partyInfo");
+        return partyInfoService.exportPartyInfoList(partyInfo);
     }
 
+    /**
+     * 导入数据
+     * 
+     * @param file
+     * @param updateSupport
+     * @return
+     * @throws Exception
+     */
     @Log(title = "党员信息管理", businessType = BusinessType.IMPORT)
     @RequiresPermissions("admin:partyInfo:import")
     @PostMapping("/importData")
