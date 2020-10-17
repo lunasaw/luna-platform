@@ -9,14 +9,24 @@ package com.ruoyi.web.platform.partyInfo;
  */
 public interface PartyInfoConstant {
 
-    String HAS_SUBMIT     = "已提交";
+    String HAS_SUBMIT         = "已提交";
 
-    String NOT_HAS_SUBMIT = "未提交";
+    String HAS_SUBMIT_NUM     = "1";
 
-    String NAM            = "男";
+    String NOT_HAS_SUBMIT     = "未提交";
 
-    String WOMAN          = "女";
+    String NOT_HAS_SUBMIT_NUM = "0";
 
-    String NOT_KNOW       = "未知";
+    String MAN                = "男";
+
+    String MAN_NUM            = "0";
+
+    String WOMAN              = "女";
+
+    String WOMAN_NUM          = "1";
+
+    String NOT_KNOW           = "未知";
+
+    String NOT_KNOW_MUM       = "2";
 
 }
