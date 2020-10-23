@@ -1,0 +1,183 @@
+/* 客服 */
+
+.cndns-right {
+    position: fixed;
+    right: 1px;
+    top: 100%;
+    margin-top: -100px;
+    z-index: 100
+}
+
+.cndns-right-meau {
+    position: relative;
+}
+
+.cndns-right-btn {
+    width: 56px;
+    height: 56px;
+    text-align: center;
+    display: block;
+    margin-bottom: 6px;
+    position: relative;
+}
+
+.cndns-right-btn span {
+    color: #848484;
+    font-size: 26px;
+}
+
+.cndns-right-btn p {
+    display: none;
+}
+
+.cndns-right-meau:hover .cndns-right-btn span {
+    display: none
+}
+
+.cndns-right-meau:hover .cndns-right-btn p {
+    display: block;
+}
+
+.meau-sev .cndns-right-btn p img {
+    width: 100%;
+}
+
+.meau-sev .cndns-right-btn span {
+    color: #fff
+}
+
+.meau-top .cndns-right-btn span {
+    font-size: 12px;
+    line-height: 12px;
+    padding-top: 10px;
+    display: block
+}
+
+.meau-top .cndns-right-btn span img {
+    width: 100%;
+}
+
+.meau-top.cndns-right-meau:hover .cndns-right-btn span {
+    display: block;
+    color: #fff
+}
+
+.cndns-right-box {
+    position: absolute;
+    top: -68px;
+    right: 60px;
+    display: none;
+}
+
+.cndns-right-box .box-border {
+    border-radius: 8px;
+    padding: 10px;
+    background: url(../images/yk.png) no-repeat center;
+    background-size: 170px 195px;
+    position: relative
+}
+
+.cndns-right-box .box-border .arrow-right {
+    display: block;
+    width: 13px;
+    height: 16px;
+    background: url(../images/arrow.png) no-repeat;
+    position: absolute;
+    right: -13px;
+    top: 26px;
+}
+
+.cndns-right-box .box-border .sev-t span {
+    display: block;
+}
+
+.cndns-right-box .box-border .sev-t span img {
+    width: 124px;
+    height: 124px;
+    margin: 10px 8px 0 8px;
+}
+
+.cndns-right-box .box-border .sev-t p {
+    color: #333333;
+    font-size: 14px;
+    line-height: 28px;
+    margin-left: 14px;
+    margin-top: 2px;
+}
+
+.cndns-right-box-code {
+    top: 0px;
+    right: 56px;
+}
+
+.meau-sev .cndns-right-box-code .box-border {
+    border-radius: 0;
+    height: 56px !important;
+}
+
+.meau-sev .cndns-right-box .box-border {
+    width: 170px;
+    height: 195px;
+}
+
+.cndns-right-meau:hover .cndns-right-box {
+    display: block
+}
+
+.meau-sev .cndns-right-btn .demo-icon {
+    display: block;
+}
+
+.meau-sev .cndns-right-btn .demo-icon img {
+    width: 100%;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+}
+
+.meau-zs .cndns-right-btn {
+    background-color: #ff6800;
+    color: #fff;
+    margin-top: 80px;
+    border-color: #ff6800
+}
+
+.meau-zs .cndns-right-btn span {
+    color: #fff
+}
+
+.meau-zs .cndns-right-btn p {
+    color: #fff
+}
+
+.meau-code .cndns-right-btn p {
+    background: #dc1f00;
+    color: #FFFFFF;
+    width: 56px;
+    height: 56px;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0 auto;
+    padding-top: 8px;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+}
+
+.cndns-right-box-code .box-border {
+    background: #dc1f00;
+    height: 39px;
+}
+
+.cndns-right-box-code .box-border .sev-t p {
+    color: #FFFFFF;
+    line-height: 20px;
+    margin: 0;
+    text-align: center;
+    line-height: 36px;
+    font-size: 16px;
+}
+
+.cndns-right-box-code .box-border::after {
+    background: none !important;
+}

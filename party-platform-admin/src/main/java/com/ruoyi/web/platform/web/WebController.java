@@ -8,6 +8,7 @@ import com.ruoyi.system.service.ISysDeptService;
 import com.ruoyi.system.service.ISysUserService;
 import com.ruoyi.web.platform.documentary.domain.NewsDocumentary;
 import com.ruoyi.web.platform.documentary.mapper.NewsDocumentaryMapper;
+import com.ruoyi.web.platform.news.service.INewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +38,7 @@ public class WebController {
 
     @Autowired
     private NewsDocumentaryMapper newsDocumentaryMapper;
+
 
     @GetMapping("/allTreeData")
     @ResponseBody
@@ -76,5 +78,7 @@ public class WebController {
         ztrees.addAll(deptTree);
         return ztrees;
     }
+
+
 
 }

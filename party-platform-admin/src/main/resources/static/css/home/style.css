@@ -1,0 +1,385 @@
+.full-width-image-team {
+    background-image: url("../../img/pic/htmlcenter.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 130px;
+    margin-bottom: 1em;
+    padding-top: 125px;
+}
+
+.tp_imgbox .prev,
+.tp_imgbox .next {
+    position: absolute;
+    top: 74px;
+    width: 20px;
+    height: 40px;
+    overflow: hidden;
+    cursor: pointer;
+    background: url(../../img/home/leftbtn.png) no-repeat;
+    z-index: 9;
+}
+
+
+
+.tp_imgbox .prev {
+    left: 0;
+}
+
+.tp_imgbox .next {
+    right: 0;
+    background: url("../../img/home/rightbtn.png") no-repeat;
+}
+
+.tp_imgbox .prev {
+    left: 0;
+}
+
+/***底部***/
+.b_footer {
+    width: 100%;
+    height: auto;
+    background: #ececec !important;
+    border-top: #e90000 4px solid !important;
+}
+
+.b_foot {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.linkbox {
+    height: 84px;
+
+    position: relative;
+    background: #fff;
+}
+
+.linkbox .prev,
+.linkbox .next {
+    position: absolute;
+    top: 22px;
+    width: 20px;
+    height: 40px;
+    overflow: hidden;
+    cursor: pointer;
+    background: url("../../img/home/leftbtn.png") no-repeat;
+    z-index: 9;
+}
+
+.linkbox .prev {
+    left: 0;
+}
+
+.linkbox .next {
+    right: 0;
+    background: url("../../img/home/rightbtn.png") no-repeat;
+}
+
+.linklist {
+    position: relative;
+    width: 1160px;
+    height: 84px;
+    margin: auto;
+    overflow: hidden;
+    z-index: 8;
+
+}
+
+.namegou {
+    overflow: hidden;
+}
+
+
+.scroll-body li {
+    display: inline;
+
+    margin: 0 5px;
+    width: 275px;
+}
+
+.linklist ul li {
+    float: left;
+    width: 275px;
+    height: 84px;
+    margin-right: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.linklist ul li img {
+    width: 275px !important;
+    height: 84px !important;
+}
+
+.footnav {
+    text-align: center;
+    font-size: 14px;
+    line-height: 28px;
+    padding: 40px 0px 46px;
+}
+
+.footnav span {
+    color: #999;
+}
+
+.footnav span a {
+    color: #999;
+}
+
+.xw_top {
+    height: 40px;
+    /*background: url(../../img/pic/secbg.png}) bottom repeat-x;*/
+    overflow: hidden;
+}
+
+.xw_top ul li {
+    float: left;
+    height: 40px;
+}
+
+.xw_top ul li a {
+    display: block;
+    float: left;
+    width: auto;
+    white-space: nowrap;
+    height: 38px;
+    line-height: 38px;
+    font-size: 20px;
+    padding: 2px 19px 0;
+}
+
+.xw_top ul li a:hover,
+.xw_top ul li.active a {
+    padding: 0px 18px 0;
+    font-weight: bold;
+    color: #e90000;
+    border-top: #e90000 2px solid;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    background: #fff;
+    height: 38px;
+}
+
+/* 功能速递 */
+.mode {
+    background-color: rgb(201, 5, 5);
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    position: relative;
+    top: 20px;
+    margin: 0px 10px 10px;
+}
+
+.modefont {
+    font-size: large;
+    font-weight: 150px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 50px;
+}
+
+/* 专题 */
+.zhuanti {
+    height: 395px;
+
+    overflow: hidden;
+}
+
+
+
+
+
+.cka {
+    height: 340px;
+    width: auto;
+    overflow: hidden;
+    text-align: center;
+}
+
+.cka ul {
+    text-align: center;
+    list-style-type: none;
+}
+
+
+.zhuanti_mode a {
+
+    display: block;
+    width: 100%;
+    height: 70px;
+    position: relative;
+    top: 10px;
+    margin: 0px 0px 5px 0px;
+}
+
+.zhuanti_mode :nth-child(1) {
+    background-image: url("../../img/pic/zt1.jpg");
+}
+
+.zhuanti_mode :nth-child(2) {
+    background-image: url("../../img/pic/tz2.jpg");
+
+}
+
+.zhuanti_mode :nth-child(3) {
+    background-image: url("../../img/pic/tz3.jpg");
+}
+
+.zhuanti_mode :nth-child(4) {
+    background-image: url("../../img/pic/tz4.jpg");
+}
+
+.zhuanti_mode :nth-child(5) {
+    background-image: url("../../img/pic/tz5.jpg");
+}
+
+
+
+/* 红色 */
+.reddemo {
+    background-image: url("../../img/home/redbg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 750px;
+    margin-bottom: 1em;
+
+}
+
+
+.tab {
+    text-align: center;
+}
+
+.tab ul li {
+    position: relative;
+    padding: 30px 29px 10px;
+    display: inline-block;
+    font-size: 18px;
+    margin: 0 10px;
+    cursor: pointer;
+    color: #666666;
+}
+
+.tab ul li.tabNavList {
+    border-bottom: 4px solid #BF1D14;
+    color: #BF1D14;
+    font-weight: 500;
+}
+
+.tab ul li.tabNavList:after {
+    content: "";
+    position: absolute;
+    background: url(../../img/home/xsj.png) no-repeat;
+    width: 26px;
+    height: 8px;
+    bottom: -10px;
+    left: 40%;
+}
+
+
+.thoughtCon {
+    background: rgba(255, 255, 255, .9);
+    padding: 50px 80px 38px;
+    text-align: center;
+}
+
+.thoughtCon .thoughtCon1:nth-child(1) {
+    margin-left: 0;
+}
+
+.thoughtCon .thoughtCon1:nth-child(4) {
+    margin-left: 0;
+}
+
+.thoughtCon1 {
+    width: 31.79%;
+
+    float: left;
+    margin-left: 25px;
+    text-align: left;
+}
+
+.thoughtCon1 li img {
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.thoughtCon1 ul li {
+    margin-bottom: 31px;
+}
+
+.thoughtCon1 ul li {
+    border-bottom: 1px dashed #dddddd;
+}
+
+.thoughtConBor1 ul li {
+    border: none;
+}
+
+.thoughtCon1 ul li h4 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333333;
+}
+
+.thoughtCon1 ul li p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #6d6d6d;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.thoughtCon1 ul li p:last-child {
+    margin-bottom: 27px;
+}
+
+.thoughtCon1 ul li p span {
+    font-size: 12px;
+    color: #333;
+}
+
+.thoughtCon1 ul li p span:nth-child(2) {
+    color: #bf1d14;
+    margin-left: 20px;
+}
+
+.thoughtCon .more {
+    font-size: 14px;
+    padding: 10px 35px;
+    color: #bf1d14;
+    border: 1px solid #bf1d14;
+    margin-top: 24px;
+    display: inline-block;
+}
+
+
+
+.titlered {
+    text-align: center;
+    background-image: url("../picture/HSXW.jpg");
+    width: 100%;
+    font-size: 30px;
+    color: #ffff;
+    height: 50px;
+    margin-bottom: 5px;
+}
+
+.titlejishi {
+    text-align: center;
+    background-image: url("../picture/DJJS.jpg");
+    width: 100%;
+    font-size: 30px;
+    color: #ffff;
+    height: 50px;
+    margin-bottom: 5px;
+}
