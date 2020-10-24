@@ -73,12 +73,18 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service
     public int insert${ClassName}(${ClassName} ${className})
     {
 #foreach ($column in $columns)
-#if($column.javaField == 'createTime')
+    #if($column.javaField == 'createTime')
         ${className}.setCreateTime(DateUtils.getNowDate());
-#end
-#if($column.javaField == 'create_time')
-    ${className}.setUpdateTime(DateUtils.getNowDate());
-#end
+    #end
+    #if($column.javaField == 'updateTime')
+        ${className}.setUpdateTime(DateUtils.getNowDate());
+    #end
+    #if($column.javaField == 'updateBy')
+        ${className}.setUpdateBy(ShiroUtils.getLoginName());
+    #end
+    #if($column.javaField == 'createBy')
+        ${className}.setCreateBy(ShiroUtils.getLoginName());
+    #end
 #end
 #if($table.sub)
         int rows = ${className}Mapper.insert${ClassName}(${className});
@@ -102,9 +108,12 @@ public class ${ClassName}ServiceImpl implements I${ClassName}Service
     public int update${ClassName}(${ClassName} ${className})
     {
 #foreach ($column in $columns)
-#if($column.javaField == 'updateTime')
+    #if($column.javaField == 'updateTime')
         ${className}.setUpdateTime(DateUtils.getNowDate());
-#end
+    #end
+    #if($column.javaField == 'updateBy')
+        ${className}.setUpdateBy(ShiroUtils.getLoginName());
+    #end
 #end
 #if($table.sub)
         ${className}Mapper.delete${subClassName}By${subTableFkClassName}(${className}.get${pkColumn.capJavaField}());

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="include :: header('修改留学归国人员')"/>
+    <th:block th:include="include :: datetimepicker-css"/>
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-member-edit" th:object="${overseasStudyMember}">
+            <input name="overseasId" th:field="*{overseasId}" type="hidden">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">序号：</label>
+                <div class="col-sm-8">
+                    <input name="overseasNumber" th:field="*{overseasNumber}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">姓名：</label>
+                <div class="col-sm-8">
+                    <input name="overseasCollege" th:field="*{overseasCollege}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">性别：</label>
+                <div class="col-sm-8">
+                    <div class="radio-box" th:each="dict : ${@dict.getType('sys_user_sex')}">
+                        <input type="radio" th:id="${'overseasName_' + dict.dictCode}" name="overseasName"
+                               th:value="${dict.dictValue}" th:field="*{overseasName}">
+                        <label th:for="${'overseasName_' + dict.dictCode}" th:text="${dict.dictLabel}"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">民族：</label>
+                <div class="col-sm-8">
+                    <input name="overseasSex" th:field="*{overseasSex}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">出生年月：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="overseasBirthday"
+                               th:value="${#dates.format(overseasStudyMember.overseasBirthday, 'yyyy-MM-dd')}"
+                               class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">籍贯：</label>
+                <div class="col-sm-8">
+                    <input name="overseasNativePlace" th:field="*{overseasNativePlace}" class="form-control"
+                           type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">政治面貌：</label>
+                <div class="col-sm-8">
+                    <input name="overseasPoliticalOutlook" th:field="*{overseasPoliticalOutlook}" class="form-control"
+                           type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">党派及加入时间：</label>
+                <div class="col-sm-8">
+                    <input name="overseasPartyJoinTime" th:field="*{overseasPartyJoinTime}" class="form-control"
+                           type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">学历学位：</label>
+                <div class="col-sm-8">
+                    <input name="overseasAcademicDegree" th:field="*{overseasAcademicDegree}" class="form-control"
+                           type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">毕业院校及其专业：</label>
+                <div class="col-sm-8">
+                    <input name="overseasGraduateSchoolMajor" th:field="*{overseasGraduateSchoolMajor}"
+                           class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">参加工作时间：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="overseasJobStartTime"
+                               th:value="${#dates.format(overseasStudyMember.overseasJobStartTime, 'yyyy-MM-dd')}"
+                               class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">留学起止时间：</label>
+                <div class="col-sm-8">
+                    <input name="overseasStudyBeginEnd" th:field="*{overseasStudyBeginEnd}" class="form-control"
+                           type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">留学地点：</label>
+                <div class="col-sm-8">
+                    <input name="overseasPlace" th:field="*{overseasPlace}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">备注：</label>
+                <div class="col-sm-8">
+                    <input name="nonPartyRemarks" th:field="*{nonPartyRemarks}" class="form-control" type="text">
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer"/>
+    <th:block th:include="include :: datetimepicker-js"/>
+    <script th:inline="javascript">
+        var prefix = ctx + "admin/member";
+        $("#form-member-edit").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/edit", $('#form-member-edit').serialize());
+            }
+        }
+
+        $("input[name='overseasBirthday']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='overseasJobStartTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+    </script>
+</body>
+</html>

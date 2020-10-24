@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('无党派人士列表')"/>
+</head>
+<body class="gray-bg">
+    <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <form id="formId">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <label>序号：</label>
+                                <input type="text" name="nonPartyNumber"/>
+                            </li>
+                            <li>
+                                <label>学院：</label>
+                                <input type="text" name="nonPartyCollege"/>
+                            </li>
+                            <li>
+                                <label>姓名：</label>
+                                <input type="text" name="nonPartyName"/>
+                            </li>
+                            <li>
+                                <label>籍贯：</label>
+                                <select name="nonPartySex">
+                                    <option value="">所有</option>
+                                    <option value="-1">代码生成请选择字典属性</option>
+                                </select>
+                            </li>
+                            <li>
+                                <label>民族：</label>
+                                <input type="text" name="nonPartyNation"/>
+                            </li>
+                            <li class="select-time">
+                                <label>出生年月：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间"
+                                       name="params[beginNonPartyBirthday]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间"
+                                       name="params[endNonPartyBirthday]"/>
+                            </li>
+                            <li>
+                                <label>现任行政职务：</label>
+                                <input type="text" name="nonPartyCurrentAdministrativePosition"/>
+                            </li>
+                            <li>
+                                <label>职称：</label>
+                                <input type="text" name="nonPartyTitle"/>
+                            </li>
+                            <li>
+                                <label>学历职位：</label>
+                                <input type="text" name="nonPartyAcademicDegree"/>
+                            </li>
+                            <li>
+                                <label>毕业院校：</label>
+                                <input type="text" name="nonPartyGraduateSchoolMajor"/>
+                            </li>
+                            <li>
+                                <label>联系方式：</label>
+                                <input type="text" name="nonPartyContactInformation"/>
+                            </li>
+                            <li>
+                                <label>备注：</label>
+                                <input type="text" name="nonPartyRemarks"/>
+                            </li>
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i
+                                        class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i
+                                        class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="admin:noparty:add">
+                    <i class="fa fa-plus"></i> 添加
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()"
+                   shiro:hasPermission="admin:noparty:edit">
+                    <i class="fa fa-edit"></i> 修改
+                </a>
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()"
+                   shiro:hasPermission="admin:noparty:remove">
+                    <i class="fa fa-remove"></i> 删除
+                </a>
+                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="admin:noparty:export">
+                    <i class="fa fa-download"></i> 导出
+                </a>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="include :: footer"/>
+    <script th:inline="javascript">
+        var editFlag = [[${@permission.hasPermi('admin:noparty:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('admin:noparty:remove')}]];
+        var prefix = ctx + "admin/noparty";
+
+        $(function () {
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",
+                exportUrl: prefix + "/export",
+                modalName: "无党派人士",
+                pagination: true,
+                escape: false,
+                columns: [{
+                    checkbox: true
+                },
+                    {
+                        field: 'nonPartyId',
+                        title: '无党派人士id',
+                        visible: false
+                    },
+                    {
+                        field: 'nonPartyNumber',
+                        title: '序号'
+                    },
+                    {
+                        field: 'nonPartyCollege',
+                        title: '学院'
+                    },
+                    {
+                        field: 'nonPartyName',
+                        title: '姓名'
+                    },
+                    {
+                        field: 'nonPartySex',
+                        title: '籍贯'
+                    },
+                    {
+                        field: 'nonPartyNation',
+                        title: '民族'
+                    },
+                    {
+                        field: 'nonPartyBirthday',
+                        title: '出生年月'
+                    },
+                    {
+                        field: 'nonPartyCurrentAdministrativePosition',
+                        title: '现任行政职务'
+                    },
+                    {
+                        field: 'nonPartyTitle',
+                        title: '职称'
+                    },
+                    {
+                        field: 'nonPartyAcademicDegree',
+                        title: '学历职位'
+                    },
+                    {
+                        field: 'nonPartyGraduateSchoolMajor',
+                        title: '毕业院校'
+                    },
+                    {
+                        field: 'nonPartyContactInformation',
+                        title: '联系方式'
+                    },
+                    {
+                        field: 'nonPartyRemarks',
+                        title: '备注'
+                    },
+                    {
+                        title: '操作',
+                        align: 'center',
+                        formatter: function (value, row, index) {
+                            var actions = [];
+                            actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.nonPartyId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                            actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.nonPartyId + '\')"><i class="fa fa-remove"></i>删除</a>');
+                            return actions.join('');
+                        }
+                    }]
+            };
+            $.table.init(options);
+        });
+    </script>
+</body>
+</html>

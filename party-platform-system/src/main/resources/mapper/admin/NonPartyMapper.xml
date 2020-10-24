@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.web.platform.noparty.mapper.NonPartyMapper">
+
+    <resultMap type="NonParty" id="NonPartyResult">
+        <result property="nonPartyId" column="non_party_id"/>
+        <result property="nonPartyNumber" column="non_party_number"/>
+        <result property="nonPartyCollege" column="non_party_college"/>
+        <result property="nonPartyName" column="non_party_name"/>
+        <result property="nonPartySex" column="non_party_sex"/>
+        <result property="nonPartyNation" column="non_party_nation"/>
+        <result property="nonPartyBirthday" column="non_party_birthday"/>
+        <result property="nonPartyCurrentAdministrativePosition" column="non_party_current_administrative_position"/>
+        <result property="nonPartyTitle" column="non_party_title"/>
+        <result property="nonPartyAcademicDegree" column="non_party_academic_degree"/>
+        <result property="nonPartyGraduateSchoolMajor" column="non_party_graduate_school_major"/>
+        <result property="nonPartyContactInformation" column="non_party_contact_information"/>
+        <result property="nonPartyRemarks" column="non_party_remarks"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateBy" column="update_by"/>
+    </resultMap>
+
+    <sql id="selectNonPartyVo">
+        select non_party_id, non_party_number, non_party_college, non_party_name, non_party_sex, non_party_nation, non_party_birthday, non_party_current_administrative_position, non_party_title, non_party_academic_degree, non_party_graduate_school_major, non_party_contact_information, non_party_remarks, create_time, update_time, create_by, update_by from sys_non_party
+    </sql>
+
+    <select id="selectNonPartyList" parameterType="NonParty" resultMap="NonPartyResult">
+        <include refid="selectNonPartyVo"/>
+        <where>
+            <if test="nonPartyNumber != null ">and non_party_number = #{nonPartyNumber}</if>
+            <if test="nonPartyCollege != null  and nonPartyCollege != ''">and non_party_college = #{nonPartyCollege}
+            </if>
+            <if test="nonPartyName != null  and nonPartyName != ''">and non_party_name like concat('%', #{nonPartyName},
+                '%')
+            </if>
+            <if test="nonPartySex != null  and nonPartySex != ''">and non_party_sex = #{nonPartySex}</if>
+            <if test="nonPartyNation != null  and nonPartyNation != ''">and non_party_nation = #{nonPartyNation}</if>
+            <if test="nonPartyBirthday != null ">and non_party_birthday = #{nonPartyBirthday}</if>
+            <if test="nonPartyCurrentAdministrativePosition != null  and nonPartyCurrentAdministrativePosition != ''">
+                and non_party_current_administrative_position = #{nonPartyCurrentAdministrativePosition}
+            </if>
+            <if test="nonPartyTitle != null  and nonPartyTitle != ''">and non_party_title = #{nonPartyTitle}</if>
+            <if test="nonPartyAcademicDegree != null  and nonPartyAcademicDegree != ''">and non_party_academic_degree =
+                #{nonPartyAcademicDegree}
+            </if>
+            <if test="nonPartyGraduateSchoolMajor != null  and nonPartyGraduateSchoolMajor != ''">and
+                non_party_graduate_school_major = #{nonPartyGraduateSchoolMajor}
+            </if>
+            <if test="nonPartyContactInformation != null  and nonPartyContactInformation != ''">and
+                non_party_contact_information = #{nonPartyContactInformation}
+            </if>
+            <if test="nonPartyRemarks != null  and nonPartyRemarks != ''">and non_party_remarks = #{nonPartyRemarks}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectNonPartyById" parameterType="Long" resultMap="NonPartyResult">
+        <include refid="selectNonPartyVo"/>
+        where non_party_id = #{nonPartyId}
+    </select>
+
+    <insert id="insertNonParty" parameterType="NonParty" useGeneratedKeys="true" keyProperty="nonPartyId">
+        insert into sys_non_party
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="nonPartyNumber != null">non_party_number,</if>
+            <if test="nonPartyCollege != null">non_party_college,</if>
+            <if test="nonPartyName != null">non_party_name,</if>
+            <if test="nonPartySex != null">non_party_sex,</if>
+            <if test="nonPartyNation != null">non_party_nation,</if>
+            <if test="nonPartyBirthday != null">non_party_birthday,</if>
+            <if test="nonPartyCurrentAdministrativePosition != null">non_party_current_administrative_position,</if>
+            <if test="nonPartyTitle != null">non_party_title,</if>
+            <if test="nonPartyAcademicDegree != null">non_party_academic_degree,</if>
+            <if test="nonPartyGraduateSchoolMajor != null">non_party_graduate_school_major,</if>
+            <if test="nonPartyContactInformation != null">non_party_contact_information,</if>
+            <if test="nonPartyRemarks != null">non_party_remarks,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="updateBy != null">update_by,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="nonPartyNumber != null">#{nonPartyNumber},</if>
+            <if test="nonPartyCollege != null">#{nonPartyCollege},</if>
+            <if test="nonPartyName != null">#{nonPartyName},</if>
+            <if test="nonPartySex != null">#{nonPartySex},</if>
+            <if test="nonPartyNation != null">#{nonPartyNation},</if>
+            <if test="nonPartyBirthday != null">#{nonPartyBirthday},</if>
+            <if test="nonPartyCurrentAdministrativePosition != null">#{nonPartyCurrentAdministrativePosition},</if>
+            <if test="nonPartyTitle != null">#{nonPartyTitle},</if>
+            <if test="nonPartyAcademicDegree != null">#{nonPartyAcademicDegree},</if>
+            <if test="nonPartyGraduateSchoolMajor != null">#{nonPartyGraduateSchoolMajor},</if>
+            <if test="nonPartyContactInformation != null">#{nonPartyContactInformation},</if>
+            <if test="nonPartyRemarks != null">#{nonPartyRemarks},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+        </trim>
+    </insert>
+
+    <update id="updateNonParty" parameterType="NonParty">
+        update sys_non_party
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="nonPartyNumber != null">non_party_number = #{nonPartyNumber},</if>
+            <if test="nonPartyCollege != null">non_party_college = #{nonPartyCollege},</if>
+            <if test="nonPartyName != null">non_party_name = #{nonPartyName},</if>
+            <if test="nonPartySex != null">non_party_sex = #{nonPartySex},</if>
+            <if test="nonPartyNation != null">non_party_nation = #{nonPartyNation},</if>
+            <if test="nonPartyBirthday != null">non_party_birthday = #{nonPartyBirthday},</if>
+            <if test="nonPartyCurrentAdministrativePosition != null">non_party_current_administrative_position =
+                #{nonPartyCurrentAdministrativePosition},
+            </if>
+            <if test="nonPartyTitle != null">non_party_title = #{nonPartyTitle},</if>
+            <if test="nonPartyAcademicDegree != null">non_party_academic_degree = #{nonPartyAcademicDegree},</if>
+            <if test="nonPartyGraduateSchoolMajor != null">non_party_graduate_school_major =
+                #{nonPartyGraduateSchoolMajor},
+            </if>
+            <if test="nonPartyContactInformation != null">non_party_contact_information =
+                #{nonPartyContactInformation},
+            </if>
+            <if test="nonPartyRemarks != null">non_party_remarks = #{nonPartyRemarks},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+        </trim>
+        where non_party_id = #{nonPartyId}
+    </update>
+
+    <delete id="deleteNonPartyById" parameterType="Long">
+        delete from sys_non_party where non_party_id = #{nonPartyId}
+    </delete>
+
+    <delete id="deleteNonPartyByIds" parameterType="String">
+        delete from sys_non_party where non_party_id in
+        <foreach item="nonPartyId" collection="array" open="(" separator="," close=")">
+            #{nonPartyId}
+        </foreach>
+    </delete>
+
+</mapper>

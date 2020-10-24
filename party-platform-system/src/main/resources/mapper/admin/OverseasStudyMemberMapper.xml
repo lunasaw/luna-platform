@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.web.platform.member.mapper.OverseasStudyMemberMapper">
+
+    <resultMap type="OverseasStudyMember" id="OverseasStudyMemberResult">
+        <result property="overseasId" column="overseas_id"/>
+        <result property="overseasNumber" column="overseas_number"/>
+        <result property="overseasCollege" column="overseas_college"/>
+        <result property="overseasName" column="overseas_name"/>
+        <result property="overseasSex" column="overseas_sex"/>
+        <result property="overseasBirthday" column="overseas_birthday"/>
+        <result property="overseasNativePlace" column="overseas_native_place"/>
+        <result property="overseasPoliticalOutlook" column="overseas_Political_outlook"/>
+        <result property="overseasPartyJoinTime" column="overseas_party_join_time"/>
+        <result property="overseasAcademicDegree" column="overseas_academic_degree"/>
+        <result property="overseasGraduateSchoolMajor" column="overseas_graduate_school_major"/>
+        <result property="overseasJobStartTime" column="overseas_job_start_time"/>
+        <result property="overseasStudyBeginEnd" column="overseas_Study_begin_end"/>
+        <result property="overseasPlace" column="overseas_place"/>
+        <result property="nonPartyRemarks" column="non_party_remarks"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateBy" column="update_by"/>
+    </resultMap>
+
+    <sql id="selectOverseasStudyMemberVo">
+        select overseas_id, overseas_number, overseas_college, overseas_name, overseas_sex, overseas_birthday, overseas_native_place, overseas_Political_outlook, overseas_party_join_time, overseas_academic_degree, overseas_graduate_school_major, overseas_job_start_time, overseas_Study_begin_end, overseas_place, non_party_remarks, create_time, update_time, create_by, update_by from sys_overseas_study_member
+    </sql>
+
+    <select id="selectOverseasStudyMemberList" parameterType="OverseasStudyMember"
+            resultMap="OverseasStudyMemberResult">
+        <include refid="selectOverseasStudyMemberVo"/>
+        <where>
+            <if test="overseasNumber != null ">and overseas_number = #{overseasNumber}</if>
+            <if test="overseasCollege != null  and overseasCollege != ''">and overseas_college like concat('%',
+                #{overseasCollege}, '%')
+            </if>
+            <if test="overseasName != null  and overseasName != ''">and overseas_name = #{overseasName}</if>
+            <if test="overseasSex != null  and overseasSex != ''">and overseas_sex = #{overseasSex}</if>
+            <if test="overseasBirthday != null ">and overseas_birthday = #{overseasBirthday}</if>
+            <if test="overseasNativePlace != null  and overseasNativePlace != ''">and overseas_native_place =
+                #{overseasNativePlace}
+            </if>
+            <if test="overseasPoliticalOutlook != null  and overseasPoliticalOutlook != ''">and
+                overseas_Political_outlook = #{overseasPoliticalOutlook}
+            </if>
+            <if test="overseasPartyJoinTime != null  and overseasPartyJoinTime != ''">and overseas_party_join_time =
+                #{overseasPartyJoinTime}
+            </if>
+            <if test="overseasAcademicDegree != null  and overseasAcademicDegree != ''">and overseas_academic_degree =
+                #{overseasAcademicDegree}
+            </if>
+            <if test="overseasGraduateSchoolMajor != null  and overseasGraduateSchoolMajor != ''">and
+                overseas_graduate_school_major = #{overseasGraduateSchoolMajor}
+            </if>
+            <if test="overseasJobStartTime != null ">and overseas_job_start_time = #{overseasJobStartTime}</if>
+            <if test="overseasStudyBeginEnd != null  and overseasStudyBeginEnd != ''">and overseas_Study_begin_end =
+                #{overseasStudyBeginEnd}
+            </if>
+            <if test="overseasPlace != null  and overseasPlace != ''">and overseas_place = #{overseasPlace}</if>
+            <if test="nonPartyRemarks != null  and nonPartyRemarks != ''">and non_party_remarks = #{nonPartyRemarks}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectOverseasStudyMemberById" parameterType="Long" resultMap="OverseasStudyMemberResult">
+        <include refid="selectOverseasStudyMemberVo"/>
+        where overseas_id = #{overseasId}
+    </select>
+
+    <insert id="insertOverseasStudyMember" parameterType="OverseasStudyMember" useGeneratedKeys="true"
+            keyProperty="overseasId">
+        insert into sys_overseas_study_member
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="overseasNumber != null">overseas_number,</if>
+            <if test="overseasCollege != null">overseas_college,</if>
+            <if test="overseasName != null">overseas_name,</if>
+            <if test="overseasSex != null">overseas_sex,</if>
+            <if test="overseasBirthday != null">overseas_birthday,</if>
+            <if test="overseasNativePlace != null">overseas_native_place,</if>
+            <if test="overseasPoliticalOutlook != null">overseas_Political_outlook,</if>
+            <if test="overseasPartyJoinTime != null">overseas_party_join_time,</if>
+            <if test="overseasAcademicDegree != null">overseas_academic_degree,</if>
+            <if test="overseasGraduateSchoolMajor != null">overseas_graduate_school_major,</if>
+            <if test="overseasJobStartTime != null">overseas_job_start_time,</if>
+            <if test="overseasStudyBeginEnd != null">overseas_Study_begin_end,</if>
+            <if test="overseasPlace != null">overseas_place,</if>
+            <if test="nonPartyRemarks != null">non_party_remarks,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="updateBy != null">update_by,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="overseasNumber != null">#{overseasNumber},</if>
+            <if test="overseasCollege != null">#{overseasCollege},</if>
+            <if test="overseasName != null">#{overseasName},</if>
+            <if test="overseasSex != null">#{overseasSex},</if>
+            <if test="overseasBirthday != null">#{overseasBirthday},</if>
+            <if test="overseasNativePlace != null">#{overseasNativePlace},</if>
+            <if test="overseasPoliticalOutlook != null">#{overseasPoliticalOutlook},</if>
+            <if test="overseasPartyJoinTime != null">#{overseasPartyJoinTime},</if>
+            <if test="overseasAcademicDegree != null">#{overseasAcademicDegree},</if>
+            <if test="overseasGraduateSchoolMajor != null">#{overseasGraduateSchoolMajor},</if>
+            <if test="overseasJobStartTime != null">#{overseasJobStartTime},</if>
+            <if test="overseasStudyBeginEnd != null">#{overseasStudyBeginEnd},</if>
+            <if test="overseasPlace != null">#{overseasPlace},</if>
+            <if test="nonPartyRemarks != null">#{nonPartyRemarks},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+        </trim>
+    </insert>
+
+    <update id="updateOverseasStudyMember" parameterType="OverseasStudyMember">
+        update sys_overseas_study_member
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="overseasNumber != null">overseas_number = #{overseasNumber},</if>
+            <if test="overseasCollege != null">overseas_college = #{overseasCollege},</if>
+            <if test="overseasName != null">overseas_name = #{overseasName},</if>
+            <if test="overseasSex != null">overseas_sex = #{overseasSex},</if>
+            <if test="overseasBirthday != null">overseas_birthday = #{overseasBirthday},</if>
+            <if test="overseasNativePlace != null">overseas_native_place = #{overseasNativePlace},</if>
+            <if test="overseasPoliticalOutlook != null">overseas_Political_outlook = #{overseasPoliticalOutlook},</if>
+            <if test="overseasPartyJoinTime != null">overseas_party_join_time = #{overseasPartyJoinTime},</if>
+            <if test="overseasAcademicDegree != null">overseas_academic_degree = #{overseasAcademicDegree},</if>
+            <if test="overseasGraduateSchoolMajor != null">overseas_graduate_school_major =
+                #{overseasGraduateSchoolMajor},
+            </if>
+            <if test="overseasJobStartTime != null">overseas_job_start_time = #{overseasJobStartTime},</if>
+            <if test="overseasStudyBeginEnd != null">overseas_Study_begin_end = #{overseasStudyBeginEnd},</if>
+            <if test="overseasPlace != null">overseas_place = #{overseasPlace},</if>
+            <if test="nonPartyRemarks != null">non_party_remarks = #{nonPartyRemarks},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+        </trim>
+        where overseas_id = #{overseasId}
+    </update>
+
+    <delete id="deleteOverseasStudyMemberById" parameterType="Long">
+        delete from sys_overseas_study_member where overseas_id = #{overseasId}
+    </delete>
+
+    <delete id="deleteOverseasStudyMemberByIds" parameterType="String">
+        delete from sys_overseas_study_member where overseas_id in
+        <foreach item="overseasId" collection="array" open="(" separator="," close=")">
+            #{overseasId}
+        </foreach>
+    </delete>
+
+</mapper>
