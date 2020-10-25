@@ -117,32 +117,32 @@
             </span>
         </div>
         <div class="newbody">
-            <h4 class="detTile info-title">习近平：在深圳经济特区建立40周年庆祝大会上的讲话</h4>
-            <p class="detConLy">日期：<span>2020-10-14 13:46</span>来源:<span>新华网</span>
+            <h4 class="detTile info-title" id="newsTi">习近平：在深圳经济特区建立40周年庆祝大会上的讲话</h4>
+            <p class="detConLy">日期：<span id="newsDate">2020-10-14 13:46</span>
             </p>
 
             <div class="detCon info-text">
                 <div class="main-aticle" style="margin: 0px; padding: 0px; color: rgb(64, 64, 64); font-family: ' PingFang
                 SC', 'Lantinghei SC' , 'Helvetica Neue' , Helvetica, Arial, 'Microsoft YaHei' ,
                 STHeitiSC-Light, simsun,  'WenQuanYi Zen Hei' , 'WenQuanYi Micro Hei' , sans-serif; font-size:
-                18px; white-space: normal; background-color: rgb(255, 255, 255);">
-                    <p
-                        style="text-align: center; margin-top: 0px; margin-bottom: 5px; padding: 0px; line-height: 1.75em;">
-                        <span
-                            style="color: navy; font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 16px; font-weight: 600 !important;">在深圳经济特区建立40周年庆祝大会上的讲话</span>
-                    </p>
-                    <p
-                        style="text-align: center; margin-top: 0px; margin-bottom: 5px; padding: 0px; line-height: 1.75em;">
-                        <span style="font-family: 微软雅黑, ' Microsoft YaHei'; font-size: 16px;">（2020年10月14日）</span>
-                    </p>
-                    <p
-                        style="text-align: center; margin-top: 0px; margin-bottom: 5px; padding: 0px; line-height: 1.75em;">
-                        <span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 16px;">习近平</span></p>
-                    <p style="margin-top: 0px; margin-bottom: 5px; padding: 0px; line-height: 1.75em;"><span
-                            style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 16px;">女士们，先生们，同志们：</span></p>
-                    <p style="margin-top: 0px; margin-bottom: 5px; padding: 0px; line-height: 1.75em;"><span
-                            style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 16px;">　　今天，我们在这里隆重集会，庆祝深圳等经济特区建立40周年，总结经济特区建设经验，在更高起点上推进改革开放，动员全党全国全社会为乘势而上开启全面建设社会主义现代化国家新征程、向第二个百年奋斗目标进军而团结奋进。</span>
-                    </p>
+                18px; white-space: normal; background-color: rgb(255, 255, 255);" id="content">
+<!--                    <p-->
+<!--                        style="text-align: center; margin-top: 0px; margin-bottom: 5px; padding: 0px; line-height: 1.75em;">-->
+<!--                        <span-->
+<!--                            style="color: navy; font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 16px; font-weight: 600 !important;">在深圳经济特区建立40周年庆祝大会上的讲话</span>-->
+<!--                    </p>-->
+<!--                    <p-->
+<!--                        style="text-align: center; margin-top: 0px; margin-bottom: 5px; padding: 0px; line-height: 1.75em;">-->
+<!--                        <span style="font-family: 微软雅黑, ' Microsoft YaHei'; font-size: 16px;">（2020年10月14日）</span>-->
+<!--                    </p>-->
+<!--                    <p-->
+<!--                        style="text-align: center; margin-top: 0px; margin-bottom: 5px; padding: 0px; line-height: 1.75em;">-->
+<!--                        <span style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 16px;">习近平</span></p>-->
+<!--                    <p style="margin-top: 0px; margin-bottom: 5px; padding: 0px; line-height: 1.75em;"><span-->
+<!--                            style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 16px;">女士们，先生们，同志们：</span></p>-->
+<!--                    <p style="margin-top: 0px; margin-bottom: 5px; padding: 0px; line-height: 1.75em;"><span-->
+<!--                            style="font-family: 微软雅黑, 'Microsoft YaHei'; font-size: 16px;">　　今天，我们在这里隆重集会，庆祝深圳等经济特区建立40周年，总结经济特区建设经验，在更高起点上推进改革开放，动员全党全国全社会为乘势而上开启全面建设社会主义现代化国家新征程、向第二个百年奋斗目标进军而团结奋进。</span>-->
+<!--                    </p>-->
 
                 </div>
             </div>
@@ -194,6 +194,62 @@
             $(".thoughtCon").eq(index).show().siblings(".thoughtCon").hide();
         })
     });
+</script>
+
+<script>
+    $(document).ready(function () {
+        let url = location.search; //获取url中"?"符后的字串
+        if (url.indexOf("?") != -1) {
+            let str = url.substr(1);
+            let name = str.substr(0,str.indexOf("="));
+            let id = str.substr(str.indexOf("=")+1);
+            console.info(id);
+            console.info(name);
+
+            if (name == "documentaryId"){
+                    $.ajax({
+                        url: "/party-platform/mainPage/getNewsById",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        data:id,
+                        dataType: 'json',
+                        async: true,
+                        success: function (result) {
+                            let item = result;
+                            $("#newsDate").text(item.createTime);
+                            $("#newsTi").text(item.documentaryTitle);
+
+                            let containerwrapper = $("#content");
+                            containerwrapper.append(
+                                '<p>'+ item.documentaryContent +'</p>'
+                            )
+
+                        }
+                    })
+            }else if (name == "newsid"){
+                $.ajax({
+                    url: "/party-platform/mainPage/getDocumentById",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data:id,
+                    dataType: 'json',
+                    async: true,
+                    success: function (result) {
+                        let item = result;
+                        $("#newsDate").text(item.createTime);
+                        $("#newsTi").text(item.newsTitle);
+
+                        let containerwrapper = $("#content");
+                        containerwrapper.append(
+                            '<p>'+ item.newsContent +'</p>'
+                        )
+                    }
+                })
+            }
+
+        }
+
+    })
 </script>
 
 </html>
