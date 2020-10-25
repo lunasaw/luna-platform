@@ -201,47 +201,44 @@
         let url = location.search; //获取url中"?"符后的字串
         if (url.indexOf("?") != -1) {
             let str = url.substr(1);
-            let name = str.substr(0,str.indexOf("="));
-            let id = str.substr(str.indexOf("=")+1);
+            let name = str.substr(0, str.indexOf("="));
+            let id = str.substr(str.indexOf("=") + 1);
             console.info(id);
             console.info(name);
 
-            if (name == "documentaryId"){
-                    $.ajax({
-                        url: "/party-platform/mainPage/getNewsById",
-                        type: "POST",
-                        contentType: "application/json; charset=utf-8",
-                        data:id,
-                        dataType: 'json',
-                        async: true,
-                        success: function (result) {
-                            let item = result;
-                            $("#newsDate").text(item.createTime);
-                            $("#newsTi").text(item.documentaryTitle);
-
-                            let containerwrapper = $("#content");
-                            containerwrapper.append(
-                                '<p>'+ item.documentaryContent +'</p>'
-                            )
-
-                        }
-                    })
-            }else if (name == "newsid"){
+            if (name == "newsid") {
+                console.log("===============" + id)
                 $.ajax({
-                    url: "/party-platform/mainPage/getDocumentById",
-                    type: "POST",
-                    contentType: "application/json; charset=utf-8",
-                    data:id,
-                    dataType: 'json',
+                    url: "/party-platform/mainPage/getNewsById?Newsid=" + id,
+                    type: "GET",
                     async: true,
                     success: function (result) {
                         let item = result;
+                        console.log(item);
                         $("#newsDate").text(item.createTime);
                         $("#newsTi").text(item.newsTitle);
 
                         let containerwrapper = $("#content");
                         containerwrapper.append(
-                            '<p>'+ item.newsContent +'</p>'
+                            '<p>' + item.newsContent + '</p>'
+                        )
+
+                    }
+                })
+            } else if (name == "documentaryId") {
+                $.ajax({
+                    url: "/party-platform/mainPage/getDocumentById?documentId=" + id,
+                    type: "GET",
+                    async: true,
+                    success: function (result) {
+                        console.log(result)
+                        let item = result;
+                        $("#newsDate").text(item.createTime);
+                        $("#newsTi").text(item.documentaryTitle);
+
+                        let containerwrapper = $("#content");
+                        containerwrapper.append(
+                            '<p>' + item.documentaryContent + '</p>'
                         )
                     }
                 })

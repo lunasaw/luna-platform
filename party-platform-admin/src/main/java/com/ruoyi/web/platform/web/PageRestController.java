@@ -5,6 +5,7 @@ import com.ruoyi.web.platform.documentary.service.INewsDocumentaryService;
 import com.ruoyi.web.platform.news.domain.News;
 import com.ruoyi.web.platform.news.service.INewsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,13 +32,13 @@ public class PageRestController {
         return newsDocumentaries;
     }
 
-    @PostMapping("/getNewsById")
+    @GetMapping("/getNewsById")
     public News getNById(Integer Newsid){
         News news = iNewsService.selectNewsById(Newsid);
         return news;
     }
 
-    @PostMapping("/getDocumentById")
+    @GetMapping("/getDocumentById")
     public NewsDocumentary getDById(Long documentId){
         NewsDocumentary newsDocumentary = iNewsDocumentaryService.selectNewsDocumentaryById(documentId);
         return newsDocumentary;
