@@ -37,7 +37,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Api("党员信息Controller")
 @RequestMapping("/admin/partyInfo")
 public class PartyInfoController extends BaseController {
-    private String            prefix = "admin/partyInfo";
+    private String  prefix = "admin/partyInfo";
 
     @Autowired
     private IPartyInfoService partyInfoService;

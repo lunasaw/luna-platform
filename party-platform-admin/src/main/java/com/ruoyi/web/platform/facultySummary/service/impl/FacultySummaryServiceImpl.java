@@ -172,4 +172,17 @@ public class FacultySummaryServiceImpl implements IFacultySummaryService {
     {
         return facultySummaryMapper.deleteFacultySummaryById(facultyId);
     }
+
+    /**
+     * 修改教职工所属支部
+     *
+     * @param facultyId
+     * @param facultyBranchNumber
+     */
+    @Override
+    public void facultyBranchNameEdit(Long facultyId, String facultyBranchNumber) {
+        FacultySummary facultySummary = facultySummaryMapper.selectFacultySummaryById(facultyId);
+        facultySummary.setFacultyBranchNumber(facultyBranchNumber);
+        facultySummaryMapper.updateFacultySummary(facultySummary);
+    }
 }

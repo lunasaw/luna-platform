@@ -36,6 +36,14 @@ public interface SysDeptMapper
     public List<SysDept> selectDeptList(SysDept dept);
 
     /**
+     * 根据角色ID查询菜单
+     *
+     * @param roleId 角色ID
+     * @return 菜单列表
+     */
+    public List<String> selectDeptTree(Long roleId);
+
+    /**
      * 删除部门管理信息
      * 
      * @param deptId 部门ID

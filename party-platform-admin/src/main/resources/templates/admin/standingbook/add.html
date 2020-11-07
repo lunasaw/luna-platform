@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('新增台账')" />
+    <th:block th:include="include :: datetimepicker-css" />
+    <th:block th:include="include :: summernote-css"/>
+    <th:block th:include="include :: select2-css"/>
+    <th:block th:include="include :: ztree-css"/>
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-standingbook-add">
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">序号：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookNumber" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">姓名：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookName" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">性别：</label>
+                <div class="col-sm-8">
+                    <div class="radio-box" th:each="dict : ${@dict.getType('sys_user_sex')}">
+                        <input type="radio" th:id="${'standingbookSex_' + dict.dictCode}" name="standingbookSex" th:value="${dict.dictValue}" th:checked="${dict.default}">
+                        <label th:for="${'standingbookSex_' + dict.dictCode}" th:text="${dict.dictLabel}"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">民族：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookNation" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">出生日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="standingbookBirthday" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">入党时间：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="standingbookTimeJoinPart" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">所在支部：</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input name="standingbookBranchNumber" class="form-control" type="text" id="treeName" onclick="selectDeptTree()" readonly="true">
+                    </div>
+                    <div class="wrapper">
+                        <div id="tree" class="ztree treeselect"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">党员档案管理：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookFilesPartyMembwes" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">奖惩名称：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookRAndPName" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">奖惩说明：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookRAndPExplain" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">奖惩原因：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookRAndPReason" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">批准日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="standingbookApprovalDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">撤销日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="standingbookRevocationDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">流入情况：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookInflowUnit" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">流入单位联系人及联系方式：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookIAndC" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">流出日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="standingbookOutflowDate" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">流出原因：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookOutflowReason" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">出国情况：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookAbroad" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">联系方式：</label>
+                <div class="col-sm-8">
+                    <input name="phoneNumber" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">备注：</label>
+                <div class="col-sm-8">
+                    <input name="remarks" class="form-control" type="text">
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
+    <th:block th:include="include :: summernote-js"/>
+    <th:block th:include="include :: ztree-js"/>
+    <script th:inline="javascript">
+        var deptId = [[${deptId}]];
+        var excludeId = [[${excludeId}]];
+        $(function() {
+            var url = $.common.isEmpty(excludeId) ? ctx+"/system/branch" + "/treeData": ctx+"/system/branch" + "/treeData/" + excludeId;
+            var options = {
+                url: url,
+                expandLevel: 0,
+                onClick : zOnClick
+            };
+            $.tree.init(options);
+        });
+
+        function add() {
+            var standingbookBranchNumber = $("input[name='standingbookBranchNumber']").val()
+            var standingbookId = $("input[name='standingbookId']").val();
+            console.log(standingbookBranchNumber);
+            console.log(standingbookId);
+        }
+
+        function zOnClick(event, treeId, treeNode) {
+            var treeId = treeNode.id;
+            var treeName = treeNode.name;
+            $("#treeId").val(treeId);
+            $("#treeName").val(treeName);
+        }
+
+        var prefix = ctx + "admin/standingbook"
+        $("#form-standingbook-add").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                add();
+                $.operate.save(prefix + "/add", $('#form-standingbook-add').serialize());
+                $.modal.reload();
+            }
+        }
+
+        $("input[name='standingbookBirthday']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='standingbookTimeJoinPart']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='standingbookApprovalDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='standingbookRevocationDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='standingbookOutflowDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+    </script>
+</body>
+</html>

@@ -3,11 +3,14 @@
 <head>
     <th:block th:include="include :: header('修改教职工汇总')" />
     <th:block th:include="include :: datetimepicker-css" />
+    <th:block th:include="include :: summernote-css"/>
+    <th:block th:include="include :: select2-css"/>
+    <th:block th:include="include :: ztree-css"/>
 </head>
 <body class="white-bg">
     <div class="wrapper wrapper-content animated fadeInRight ibox-content">
         <form class="form-horizontal m" id="form-facultySummary-edit" th:object="${facultySummary}">
-            <input name="facultyId" th:field="*{facultyId}" type="hidden">
+            <input name="facultyId" id="facultyId" th:field="*{facultyId}" type="hidden">
             <div class="form-group">    
                 <label class="col-sm-3 control-label">序号：</label>
                 <div class="col-sm-8">
@@ -53,10 +56,16 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">    
+            <div class="form-group">
                 <label class="col-sm-3 control-label">所在支部：</label>
                 <div class="col-sm-8">
-                    <input name="facultyBranchNumber" th:field="*{facultyBranchNumber}" class="form-control" type="text">
+                    <div class="input-group">
+                        <input name="facultyBranchNumber" class="form-control" type="text" id="treeName" onclick="selectDeptTree()" readonly="true" th:field="*{facultyBranchNumber}">
+                        <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                    </div>
+                    <div class="wrapper">
+                        <div id="tree" class="ztree treeselect"></div>
+                    </div>
                 </div>
             </div>
             <div class="form-group">    
@@ -153,7 +162,52 @@
     </div>
     <th:block th:include="include :: footer" />
     <th:block th:include="include :: datetimepicker-js" />
+    <th:block th:include="include :: summernote-js"/>
+    <th:block th:include="include :: ztree-js"/>
     <script th:inline="javascript">
+
+        var deptId = [[${deptId}]];
+        var excludeId = [[${excludeId}]];
+        $(function() {
+            var url = $.common.isEmpty(excludeId) ? ctx+"/system/branch" + "/treeData": ctx+"/system/branch" + "/treeData/" + excludeId;
+            var options = {
+                url: url,
+                expandLevel: 0,
+                onClick : zOnClick
+            };
+            $.tree.init(options);
+        });
+
+        function edit() {
+            var facultyBranchName = $("input[name='facultyBranchName']").val()
+            var facultyId = $("input[name='facultyId']").val();
+            console.log(facultyBranchName);
+            console.log(facultyId);
+            $.ajax({
+                cache: true,
+                type: "POST",
+                url: ctx + "admin/facultySummary/editFacultyBranchNumber",
+                data: {
+                    "facultyId": facultyId,
+                    "facultyBranchName": facultyBranchName
+                },
+                async: false,
+                error: function (request) {
+                    $.modal.alertError("系统错误");
+                },
+                success: function (data) {
+                    $.operate.successCallback(data);
+                }
+            });
+        }
+
+        function zOnClick(event, treeId, treeNode) {
+            var treeId = treeNode.id;
+            var treeName = treeNode.name;
+            $("#treeId").val(treeId);
+            $("#treeName").val(treeName);
+        }
+
         var prefix = ctx + "admin/facultySummary";
         $("#form-facultySummary-edit").validate({
             focusCleanup: true
@@ -161,7 +215,9 @@
 
         function submitHandler() {
             if ($.validate.form()) {
+                edit();
                 $.operate.save(prefix + "/edit", $('#form-facultySummary-edit').serialize());
+                $.modal.reload();
             }
         }
 

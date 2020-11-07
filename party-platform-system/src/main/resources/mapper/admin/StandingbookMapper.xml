@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.web.platform.standingbook.mapper.StandingbookMapper">
+    
+    <resultMap type="Standingbook" id="StandingbookResult">
+        <result property="standingbookId"    column="standingbook_id"    />
+        <result property="standingbookNumber"    column="standingbook_number"    />
+        <result property="standingbookName"    column="standingbook_name"    />
+        <result property="standingbookSex"    column="standingbook_sex"    />
+        <result property="standingbookNation"    column="standingbook_nation"    />
+        <result property="standingbookBirthday"    column="standingbook_birthday"    />
+        <result property="standingbookTimeJoinPart"    column="standingbook_time_join_part"    />
+        <result property="standingbookBranchNumber"    column="standingbook_branch_number"    />
+        <result property="standingbookFilesPartyMembwes"    column="standingbook_files_party_membwes"    />
+        <result property="standingbookRAndPName"    column="standingbook_r_and_p_name"    />
+        <result property="standingbookRAndPExplain"    column="standingbook_r_and_p_explain"    />
+        <result property="standingbookRAndPReason"    column="standingbook_r_and_p_reason"    />
+        <result property="standingbookApprovalDate"    column="standingbook_approval_date"    />
+        <result property="standingbookRevocationDate"    column="standingbook_revocation_date"    />
+        <result property="standingbookInflowUnit"    column="standingbook_Inflow_unit"    />
+        <result property="standingbookIAndC"    column="standingbook_I_and_C"    />
+        <result property="standingbookOutflowDate"    column="standingbook_outflow_date"    />
+        <result property="standingbookOutflowReason"    column="standingbook_outflow_reason"    />
+        <result property="standingbookAbroad"    column="standingbook_abroad"    />
+        <result property="phoneNumber"    column="phone_number"    />
+        <result property="remarks"    column="remarks"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateBy"    column="update_by"    />
+    </resultMap>
+
+    <sql id="selectStandingbookVo">
+        select standingbook_id, standingbook_number, standingbook_name, standingbook_sex, standingbook_nation, standingbook_birthday, standingbook_time_join_part, standingbook_branch_number, standingbook_files_party_membwes, standingbook_r_and_p_name, standingbook_r_and_p_explain, standingbook_r_and_p_reason, standingbook_approval_date, standingbook_revocation_date, standingbook_Inflow_unit, standingbook_I_and_C, standingbook_outflow_date, standingbook_outflow_reason, standingbook_abroad, phone_number, remarks, create_time, update_time, create_by, update_by from sys_standingbook
+    </sql>
+
+    <select id="selectStandingbookList" parameterType="Standingbook" resultMap="StandingbookResult">
+        <include refid="selectStandingbookVo"/>
+        <where>  
+            <if test="standingbookNumber != null "> and standingbook_number = #{standingbookNumber}</if>
+            <if test="standingbookName != null  and standingbookName != ''"> and standingbook_name like concat('%', #{standingbookName}, '%')</if>
+            <if test="standingbookSex != null  and standingbookSex != ''"> and standingbook_sex = #{standingbookSex}</if>
+            <if test="standingbookNation != null  and standingbookNation != ''"> and standingbook_nation = #{standingbookNation}</if>
+            <if test="standingbookBirthday != null "> and standingbook_birthday = #{standingbookBirthday}</if>
+            <if test="standingbookTimeJoinPart != null "> and standingbook_time_join_part = #{standingbookTimeJoinPart}</if>
+            <if test="standingbookBranchNumber != null  and standingbookBranchNumber != ''"> and standingbook_branch_number = #{standingbookBranchNumber}</if>
+            <if test="standingbookFilesPartyMembwes != null  and standingbookFilesPartyMembwes != ''"> and standingbook_files_party_membwes like concat('%', #{standingbookFilesPartyMembwes}, '%')</if>
+            <if test="standingbookRAndPName != null  and standingbookRAndPName != ''"> and standingbook_r_and_p_name like concat('%', #{standingbookRAndPName}, '%')</if>
+            <if test="standingbookRAndPExplain != null  and standingbookRAndPExplain != ''"> and standingbook_r_and_p_explain = #{standingbookRAndPExplain}</if>
+            <if test="standingbookRAndPReason != null  and standingbookRAndPReason != ''"> and standingbook_r_and_p_reason = #{standingbookRAndPReason}</if>
+            <if test="standingbookApprovalDate != null "> and standingbook_approval_date = #{standingbookApprovalDate}</if>
+            <if test="standingbookRevocationDate != null "> and standingbook_revocation_date = #{standingbookRevocationDate}</if>
+            <if test="standingbookInflowUnit != null  and standingbookInflowUnit != ''"> and standingbook_Inflow_unit = #{standingbookInflowUnit}</if>
+            <if test="standingbookIAndC != null  and standingbookIAndC != ''"> and standingbook_I_and_C = #{standingbookIAndC}</if>
+            <if test="standingbookOutflowDate != null "> and standingbook_outflow_date = #{standingbookOutflowDate}</if>
+            <if test="standingbookOutflowReason != null  and standingbookOutflowReason != ''"> and standingbook_outflow_reason = #{standingbookOutflowReason}</if>
+            <if test="standingbookAbroad != null  and standingbookAbroad != ''"> and standingbook_abroad = #{standingbookAbroad}</if>
+            <if test="phoneNumber != null  and phoneNumber != ''"> and phone_number = #{phoneNumber}</if>
+            <if test="remarks != null  and remarks != ''"> and remarks = #{remarks}</if>
+        </where>
+    </select>
+    
+    <select id="selectStandingbookById" parameterType="Long" resultMap="StandingbookResult">
+        <include refid="selectStandingbookVo"/>
+        where standingbook_id = #{standingbookId}
+    </select>
+        
+    <insert id="insertStandingbook" parameterType="Standingbook" useGeneratedKeys="true" keyProperty="standingbookId">
+        insert into sys_standingbook
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="standingbookNumber != null">standingbook_number,</if>
+            <if test="standingbookName != null">standingbook_name,</if>
+            <if test="standingbookSex != null">standingbook_sex,</if>
+            <if test="standingbookNation != null">standingbook_nation,</if>
+            <if test="standingbookBirthday != null">standingbook_birthday,</if>
+            <if test="standingbookTimeJoinPart != null">standingbook_time_join_part,</if>
+            <if test="standingbookBranchNumber != null">standingbook_branch_number,</if>
+            <if test="standingbookFilesPartyMembwes != null">standingbook_files_party_membwes,</if>
+            <if test="standingbookRAndPName != null">standingbook_r_and_p_name,</if>
+            <if test="standingbookRAndPExplain != null">standingbook_r_and_p_explain,</if>
+            <if test="standingbookRAndPReason != null">standingbook_r_and_p_reason,</if>
+            <if test="standingbookApprovalDate != null">standingbook_approval_date,</if>
+            <if test="standingbookRevocationDate != null">standingbook_revocation_date,</if>
+            <if test="standingbookInflowUnit != null">standingbook_Inflow_unit,</if>
+            <if test="standingbookIAndC != null">standingbook_I_and_C,</if>
+            <if test="standingbookOutflowDate != null">standingbook_outflow_date,</if>
+            <if test="standingbookOutflowReason != null">standingbook_outflow_reason,</if>
+            <if test="standingbookAbroad != null">standingbook_abroad,</if>
+            <if test="phoneNumber != null">phone_number,</if>
+            <if test="remarks != null">remarks,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="updateBy != null">update_by,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="standingbookNumber != null">#{standingbookNumber},</if>
+            <if test="standingbookName != null">#{standingbookName},</if>
+            <if test="standingbookSex != null">#{standingbookSex},</if>
+            <if test="standingbookNation != null">#{standingbookNation},</if>
+            <if test="standingbookBirthday != null">#{standingbookBirthday},</if>
+            <if test="standingbookTimeJoinPart != null">#{standingbookTimeJoinPart},</if>
+            <if test="standingbookBranchNumber != null">#{standingbookBranchNumber},</if>
+            <if test="standingbookFilesPartyMembwes != null">#{standingbookFilesPartyMembwes},</if>
+            <if test="standingbookRAndPName != null">#{standingbookRAndPName},</if>
+            <if test="standingbookRAndPExplain != null">#{standingbookRAndPExplain},</if>
+            <if test="standingbookRAndPReason != null">#{standingbookRAndPReason},</if>
+            <if test="standingbookApprovalDate != null">#{standingbookApprovalDate},</if>
+            <if test="standingbookRevocationDate != null">#{standingbookRevocationDate},</if>
+            <if test="standingbookInflowUnit != null">#{standingbookInflowUnit},</if>
+            <if test="standingbookIAndC != null">#{standingbookIAndC},</if>
+            <if test="standingbookOutflowDate != null">#{standingbookOutflowDate},</if>
+            <if test="standingbookOutflowReason != null">#{standingbookOutflowReason},</if>
+            <if test="standingbookAbroad != null">#{standingbookAbroad},</if>
+            <if test="phoneNumber != null">#{phoneNumber},</if>
+            <if test="remarks != null">#{remarks},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+         </trim>
+    </insert>
+
+    <update id="updateStandingbook" parameterType="Standingbook">
+        update sys_standingbook
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="standingbookNumber != null">standingbook_number = #{standingbookNumber},</if>
+            <if test="standingbookName != null">standingbook_name = #{standingbookName},</if>
+            <if test="standingbookSex != null">standingbook_sex = #{standingbookSex},</if>
+            <if test="standingbookNation != null">standingbook_nation = #{standingbookNation},</if>
+            <if test="standingbookBirthday != null">standingbook_birthday = #{standingbookBirthday},</if>
+            <if test="standingbookTimeJoinPart != null">standingbook_time_join_part = #{standingbookTimeJoinPart},</if>
+            <if test="standingbookBranchNumber != null">standingbook_branch_number = #{standingbookBranchNumber},</if>
+            <if test="standingbookFilesPartyMembwes != null">standingbook_files_party_membwes = #{standingbookFilesPartyMembwes},</if>
+            <if test="standingbookRAndPName != null">standingbook_r_and_p_name = #{standingbookRAndPName},</if>
+            <if test="standingbookRAndPExplain != null">standingbook_r_and_p_explain = #{standingbookRAndPExplain},</if>
+            <if test="standingbookRAndPReason != null">standingbook_r_and_p_reason = #{standingbookRAndPReason},</if>
+            <if test="standingbookApprovalDate != null">standingbook_approval_date = #{standingbookApprovalDate},</if>
+            <if test="standingbookRevocationDate != null">standingbook_revocation_date = #{standingbookRevocationDate},</if>
+            <if test="standingbookInflowUnit != null">standingbook_Inflow_unit = #{standingbookInflowUnit},</if>
+            <if test="standingbookIAndC != null">standingbook_I_and_C = #{standingbookIAndC},</if>
+            <if test="standingbookOutflowDate != null">standingbook_outflow_date = #{standingbookOutflowDate},</if>
+            <if test="standingbookOutflowReason != null">standingbook_outflow_reason = #{standingbookOutflowReason},</if>
+            <if test="standingbookAbroad != null">standingbook_abroad = #{standingbookAbroad},</if>
+            <if test="phoneNumber != null">phone_number = #{phoneNumber},</if>
+            <if test="remarks != null">remarks = #{remarks},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+        </trim>
+        where standingbook_id = #{standingbookId}
+    </update>
+
+    <delete id="deleteStandingbookById" parameterType="Long">
+        delete from sys_standingbook where standingbook_id = #{standingbookId}
+    </delete>
+
+    <delete id="deleteStandingbookByIds" parameterType="String">
+        delete from sys_standingbook where standingbook_id in 
+        <foreach item="standingbookId" collection="array" open="(" separator="," close=")">
+            #{standingbookId}
+        </foreach>
+    </delete>
+
+</mapper>

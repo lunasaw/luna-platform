@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('修改台账')" />
+    <th:block th:include="include :: datetimepicker-css" />
+    <th:block th:include="include :: summernote-css"/>
+    <th:block th:include="include :: select2-css"/>
+    <th:block th:include="include :: ztree-css"/>
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-standingbook-edit" th:object="${standingbook}">
+            <input name="standingbookId" id="standingvookId" th:field="*{standingbookId}" type="hidden">
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">序号：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookNumber" th:field="*{standingbookNumber}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">姓名：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookName" th:field="*{standingbookName}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">性别：</label>
+                <div class="col-sm-8">
+                    <div class="radio-box" th:each="dict : ${@dict.getType('sys_user_sex')}">
+                        <input type="radio" th:id="${'standingbookSex_' + dict.dictCode}" name="standingbookSex" th:value="${dict.dictValue}" th:field="*{standingbookSex}">
+                        <label th:for="${'standingbookSex_' + dict.dictCode}" th:text="${dict.dictLabel}"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">民族：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookNation" th:field="*{standingbookNation}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">出生日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="standingbookBirthday" th:value="${#dates.format(standingbook.standingbookBirthday, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">入党时间：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="standingbookTimeJoinPart" th:value="${#dates.format(standingbook.standingbookTimeJoinPart, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">所在支部：</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input name="standingbookBranchNumber" class="form-control" type="text" id="treeName" onclick="selectDeptTree()" readonly="true" th:field="*{standingbookBranchNumber}">
+                    </div>
+                    <div class="wrapper">
+                        <div id="tree" class="ztree treeselect"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">党员档案管理：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookFilesPartyMembwes" th:field="*{standingbookFilesPartyMembwes}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">奖惩名称：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookRAndPName" th:field="*{standingbookRAndPName}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">奖惩说明：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookRAndPExplain" th:field="*{standingbookRAndPExplain}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">奖惩原因：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookRAndPReason" th:field="*{standingbookRAndPReason}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">批准日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="standingbookApprovalDate" th:value="${#dates.format(standingbook.standingbookApprovalDate, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">撤销日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="standingbookRevocationDate" th:value="${#dates.format(standingbook.standingbookRevocationDate, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">流入情况：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookInflowUnit" th:field="*{standingbookInflowUnit}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">流入单位联系人及联系方式：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookIAndC" th:field="*{standingbookIAndC}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">流出日期：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="standingbookOutflowDate" th:value="${#dates.format(standingbook.standingbookOutflowDate, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">流出原因：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookOutflowReason" th:field="*{standingbookOutflowReason}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">出国情况：</label>
+                <div class="col-sm-8">
+                    <input name="standingbookAbroad" th:field="*{standingbookAbroad}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">联系方式：</label>
+                <div class="col-sm-8">
+                    <input name="phoneNumber" th:field="*{phoneNumber}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">备注：</label>
+                <div class="col-sm-8">
+                    <input name="remarks" th:field="*{remarks}" class="form-control" type="text">
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
+    <th:block th:include="include :: summernote-js"/>
+    <th:block th:include="include :: ztree-js"/>
+    <script th:inline="javascript">
+
+        var deptId = [[${deptId}]];
+        var excludeId = [[${excludeId}]];
+        $(function() {
+            var url = $.common.isEmpty(excludeId) ? ctx+"/system/branch" + "/treeData": ctx+"/system/branch" + "/treeData/" + excludeId;
+            var options = {
+                url: url,
+                expandLevel: 0,
+                onClick : zOnClick
+            };
+            $.tree.init(options);
+        });
+
+        function edit() {
+            var standingbookBranchNumber = $("input[name='standingbookBranchNumber']").val()
+            var standingbookId = $("input[name='standingbookId']").val();
+            console.log(standingbookBranchNumber);
+            console.log(standingbookId);
+            $.ajax({
+                cache: true,
+                type: "POST",
+                url: ctx + "admin/facultySummary/editStandingbookBranchNumber",
+                data: {
+                    "standingbookId": standingbookId,
+                    "standingbookBranchNumber": standingbookBranchNumber
+                },
+                async: false,
+                error: function (request) {
+                    $.modal.alertError("系统错误");
+                },
+                success: function (data) {
+                    $.operate.successCallback(data);
+                }
+            });
+        }
+
+        function zOnClick(event, treeId, treeNode) {
+            var treeId = treeNode.id;
+            var treeName = treeNode.name;
+            $("#treeId").val(treeId);
+            $("#treeName").val(treeName);
+        }
+
+        var prefix = ctx + "admin/standingbook";
+        $("#form-standingbook-edit").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                edit();
+                $.operate.save(prefix + "/edit", $('#form-standingbook-edit').serialize());
+                $.modal.reload();
+            }
+        }
+
+        $("input[name='standingbookBirthday']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='standingbookTimeJoinPart']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='standingbookApprovalDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='standingbookRevocationDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='standingbookOutflowDate']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+    </script>
+</body>
+</html>

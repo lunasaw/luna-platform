@@ -139,6 +139,20 @@ public class FacultySummaryController extends BaseController
     /**
      * 修改保存教职工汇总
      */
+    @ApiOperation(value = "修改教职工所属支部", notes = "修改保存教职工汇总详情", tags = {"教职工汇总Controller"})
+    @RequiresPermissions("admin:facultySummary:edit")
+    @Log(title = "教职工汇总", businessType = BusinessType.UPDATE)
+    @PostMapping("/editFacultyBranchNumber")
+    @ResponseBody
+    public AjaxResult editFacultyBranchNumber(Long facultyId,String facultyBranchNumber)
+    {
+       facultySummaryService.facultyBranchNameEdit(facultyId,facultyBranchNumber);
+       return AjaxResult.success();
+    }
+
+    /**
+     * 修改保存教职工汇总
+     */
     @ApiOperation(value = "修改保存教职工汇总", notes = "修改保存教职工汇总详情", tags = {"教职工汇总Controller"})
     @RequiresPermissions("admin:facultySummary:edit")
     @Log(title = "教职工汇总", businessType = BusinessType.UPDATE)

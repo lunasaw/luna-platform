@@ -68,4 +68,12 @@ public interface IFacultySummaryService
      * @return 结果
      */
     public int deleteFacultySummaryById(Long facultyId);
+
+    /**
+     * 通过教职工id修改所属支部
+     *
+     * @param facultyId
+     * @param facultyBranchNumber
+     */
+    void facultyBranchNameEdit(Long facultyId,String facultyBranchNumber);
 }

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('台账列表')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <form id="formId">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <label>序号：</label>
+                                <input type="text" name="standingbookNumber"/>
+                            </li>
+                            <li>
+                                <label>姓名：</label>
+                                <input type="text" name="standingbookName"/>
+                            </li>
+                            <li>
+                                <label>性别：</label>
+                                <select name="standingbookSex" th:with="type=${@dict.getType('sys_user_sex')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <label>民族：</label>
+                                <input type="text" name="standingbookNation"/>
+                            </li>
+                            <li class="select-time">
+                                <label>出生日期：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginStandingbookBirthday]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endStandingbookBirthday]"/>
+                            </li>
+                            <li class="select-time">
+                                <label>入党时间：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginStandingbookTimeJoinPart]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endStandingbookTimeJoinPart]"/>
+                            </li>
+                            <li>
+                                <label>所在支部：</label>
+                                <input type="text" name="standingbookBranchNumber"/>
+                            </li>
+                            <li>
+                                <label>党员档案管理：</label>
+                                <input type="text" name="standingbookFilesPartyMembwes"/>
+                            </li>
+                            <li>
+                                <label>奖惩名称：</label>
+                                <input type="text" name="standingbookRAndPName"/>
+                            </li>
+                            <li>
+                                <label>奖惩说明：</label>
+                                <input type="text" name="standingbookRAndPExplain"/>
+                            </li>
+                            <li>
+                                <label>奖惩原因：</label>
+                                <input type="text" name="standingbookRAndPReason"/>
+                            </li>
+                            <li class="select-time">
+                                <label>批准日期：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginStandingbookApprovalDate]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endStandingbookApprovalDate]"/>
+                            </li>
+                            <li class="select-time">
+                                <label>撤销日期：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginStandingbookRevocationDate]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endStandingbookRevocationDate]"/>
+                            </li>
+                            <li>
+                                <label>流入情况：</label>
+                                <input type="text" name="standingbookInflowUnit"/>
+                            </li>
+                            <li>
+                                <label>流入单位联系人及联系方式：</label>
+                                <input type="text" name="standingbookIAndC"/>
+                            </li>
+                            <li class="select-time">
+                                <label>流出日期：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginStandingbookOutflowDate]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endStandingbookOutflowDate]"/>
+                            </li>
+                            <li>
+                                <label>流出原因：</label>
+                                <input type="text" name="standingbookOutflowReason"/>
+                            </li>
+                            <li>
+                                <label>出国情况：</label>
+                                <input type="text" name="standingbookAbroad"/>
+                            </li>
+                            <li>
+                                <label>联系方式：</label>
+                                <input type="text" name="phoneNumber"/>
+                            </li>
+                            <li>
+                                <label>备注：</label>
+                                <input type="text" name="remarks"/>
+                            </li>
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="admin:standingbook:add">
+                    <i class="fa fa-plus"></i> 添加
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="admin:standingbook:edit">
+                    <i class="fa fa-edit"></i> 修改
+                </a>
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="admin:standingbook:remove">
+                    <i class="fa fa-remove"></i> 删除
+                </a>
+                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="admin:standingbook:export">
+                    <i class="fa fa-download"></i> 导出
+                </a>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        var editFlag = [[${@permission.hasPermi('admin:standingbook:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('admin:standingbook:remove')}]];
+        var standingbookSexDatas = [[${@dict.getType('sys_user_sex')}]];
+        var prefix = ctx + "admin/standingbook";
+
+        $(function() {
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",
+                exportUrl: prefix + "/export",
+                modalName: "台账",
+                pagination: true,
+                escape: false,
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field: 'standingbookId',
+                    title: '台账id',
+                    visible: false
+                },
+                {
+                    field: 'standingbookNumber',
+                    title: '序号'
+                },
+                {
+                    field: 'standingbookName',
+                    title: '姓名'
+                },
+                {
+                    field: 'standingbookSex',
+                    title: '性别',
+                    formatter: function(value, row, index) {
+                       return $.table.selectDictLabel(standingbookSexDatas, value);
+                    }
+                },
+                {
+                    field: 'standingbookNation',
+                    title: '民族'
+                },
+                {
+                    field: 'standingbookBirthday',
+                    title: '出生日期'
+                },
+                {
+                    field: 'standingbookTimeJoinPart',
+                    title: '入党时间'
+                },
+                {
+                    field: 'standingbookBranchNumber',
+                    title: '所在支部'
+                },
+                {
+                    field: 'standingbookFilesPartyMembwes',
+                    title: '党员档案管理'
+                },
+                {
+                    field: 'standingbookRAndPName',
+                    title: '奖惩名称'
+                },
+                {
+                    field: 'standingbookRAndPExplain',
+                    title: '奖惩说明'
+                },
+                {
+                    field: 'standingbookRAndPReason',
+                    title: '奖惩原因'
+                },
+                {
+                    field: 'standingbookApprovalDate',
+                    title: '批准日期'
+                },
+                {
+                    field: 'standingbookRevocationDate',
+                    title: '撤销日期'
+                },
+                {
+                    field: 'standingbookInflowUnit',
+                    title: '流入情况'
+                },
+                {
+                    field: 'standingbookIAndC',
+                    title: '流入单位联系人及联系方式'
+                },
+                {
+                    field: 'standingbookOutflowDate',
+                    title: '流出日期'
+                },
+                {
+                    field: 'standingbookOutflowReason',
+                    title: '流出原因'
+                },
+                {
+                    field: 'standingbookAbroad',
+                    title: '出国情况'
+                },
+                {
+                    field: 'phoneNumber',
+                    title: '联系方式'
+                },
+                {
+                    field: 'remarks',
+                    title: '备注'
+                },
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.standingbookId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.standingbookId + '\')"><i class="fa fa-remove"></i>删除</a>');
+                        return actions.join('');
+                    }
+                }]
+            };
+            $.table.init(options);
+        });
+    </script>
+</body>
+</html>
