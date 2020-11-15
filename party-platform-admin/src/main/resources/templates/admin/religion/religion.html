@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('留学人员列表')"/>
+</head>
+<body class="gray-bg">
+    <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <form id="formId">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <label>序号：</label>
+                                <input type="text" name="religionNumber"/>
+                            </li>
+                            <li>
+                                <label>学院：</label>
+                                <input type="text" name="religionCollege"/>
+                            </li>
+                            <li>
+                                <label>姓名：</label>
+                                <input type="text" name="religionName"/>
+                            </li>
+                            <li>
+                                <label>性别：</label>
+                                <select name="religionSex" th:with="type=${@dict.getType('sys_user_sex')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}"
+                                            th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <label>民族：</label>
+                                <input type="text" name="religionNation"/>
+                            </li>
+                            <li class="select-time">
+                                <label>出生年月：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间"
+                                       name="params[beginReligionBirthday]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间"
+                                       name="params[endReligionBirthday]"/>
+                            </li>
+                            <li>
+                                <label>籍贯：</label>
+                                <input type="text" name="religionNativePlace"/>
+                            </li>
+                            <li class="select-time">
+                                <label>入党时间：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间"
+                                       name="params[beginReligionPartyJoinTime]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间"
+                                       name="params[endReligionPartyJoinTime]"/>
+                            </li>
+                            <li>
+                                <label>宗教类型：</label>
+                                <input type="text" name="religionType"/>
+                            </li>
+                            <li>
+                                <label>宗教活动场所：</label>
+                                <input type="text" name="religiousServicesFacilities"/>
+                            </li>
+                            <li class="select-time">
+                                <label>信教时间：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间"
+                                       name="params[beginReligionJoin]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间"
+                                       name="params[endReligionJoin]"/>
+                            </li>
+                            <li>
+                                <label>联系方式：</label>
+                                <input type="text" name="religionContactInformation"/>
+                            </li>
+                            <li>
+                                <label>备注：</label>
+                                <input type="text" name="religionRemarks"/>
+                            </li>
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i
+                                        class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i
+                                        class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="admin:religion:add">
+                    <i class="fa fa-plus"></i> 添加
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()"
+                   shiro:hasPermission="admin:religion:edit">
+                    <i class="fa fa-edit"></i> 修改
+                </a>
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()"
+                   shiro:hasPermission="admin:religion:remove">
+                    <i class="fa fa-remove"></i> 删除
+                </a>
+                <a class="btn btn-info" onclick="$.table.importExcel()" shiro:hasPermission="admin:religion:import">
+                    <i class="fa fa-upload"></i> 导入
+                </a>
+                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="admin:religion:export">
+                    <i class="fa fa-download"></i> 导出
+                </a>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="include :: footer"/>
+    <script th:inline="javascript">
+        var editFlag = [[${@permission.hasPermi('admin:religion:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('admin:religion:remove')}]];
+        var religionSexDatas = [[${@dict.getType('sys_user_sex')}]];
+        var prefix = ctx + "admin/religion";
+
+        $(function () {
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",
+                exportUrl: prefix + "/export",
+                importUrl: prefix + "/importData",
+                importTemplateUrl: prefix + "/importTemplate",
+                modalName: "留学人员",
+                pagination: true,
+                escape: false,
+                columns: [{
+                    checkbox: true
+                },
+                    {
+                        field: 'religionId',
+                        title: '留学人员id',
+                        visible: false
+                    },
+                    {
+                        field: 'religionNumber',
+                        title: '序号'
+                    },
+                    {
+                        field: 'religionCollege',
+                        title: '学院'
+                    },
+                    {
+                        field: 'religionName',
+                        title: '姓名'
+                    },
+                    {
+                        field: 'religionSex',
+                        title: '性别',
+                        formatter: function (value, row, index) {
+                            return $.table.selectDictLabel(religionSexDatas, value);
+                        }
+                    },
+                    {
+                        field: 'religionNation',
+                        title: '民族'
+                    },
+                    {
+                        field: 'religionBirthday',
+                        title: '出生年月'
+                    },
+                    {
+                        field: 'religionNativePlace',
+                        title: '籍贯'
+                    },
+                    {
+                        field: 'religionPartyJoinTime',
+                        title: '入党时间'
+                    },
+                    {
+                        field: 'religionType',
+                        title: '宗教类型'
+                    },
+                    {
+                        field: 'religiousServicesFacilities',
+                        title: '宗教活动场所'
+                    },
+                    {
+                        field: 'religionJoin',
+                        title: '信教时间'
+                    },
+                    {
+                        field: 'religionContactInformation',
+                        title: '联系方式'
+                    },
+                    {
+                        field: 'religionRemarks',
+                        title: '备注'
+                    },
+                    {
+                        title: '操作',
+                        align: 'center',
+                        formatter: function (value, row, index) {
+                            var actions = [];
+                            actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.religionId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                            actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.religionId + '\')"><i class="fa fa-remove"></i>删除</a>');
+                            return actions.join('');
+                        }
+                    }]
+            };
+            $.table.init(options);
+        });
+    </script>
+</body>
+
+<!-- 导入区域 -->
+<script id="importTpl" type="text/template">
+    <form enctype="multipart/form-data" class="mt20 mb10">
+        <div class="col-xs-offset-1">
+            <input type="file" id="file" name="file"/>
+            <div class="mt10 pt5">
+                <input type="checkbox" id="updateSupport" name="updateSupport" title="如果登录账户已经存在，更新这条数据。"> 是否更新已经存在的用户数据
+                &nbsp; <a onclick="$.table.importTemplate()" class="btn btn-default btn-xs"><i
+                    class="fa fa-file-excel-o"></i> 下载模板</a>
+            </div>
+            <font color="red" class="pull-left mt10">
+                提示：仅允许导入“xls”或“xlsx”格式文件！
+            </font>
+        </div>
+    </form>
+</script>
+</html>

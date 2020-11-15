@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="include :: header('修改留学人员')"/>
+    <th:block th:include="include :: datetimepicker-css"/>
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-religion-edit" th:object="${religion}">
+            <input name="religionId" th:field="*{religionId}" type="hidden">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">序号：</label>
+                <div class="col-sm-8">
+                    <input name="religionNumber" th:field="*{religionNumber}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">学院：</label>
+                <div class="col-sm-8">
+                    <input name="religionCollege" th:field="*{religionCollege}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">姓名：</label>
+                <div class="col-sm-8">
+                    <input name="religionName" th:field="*{religionName}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">性别：</label>
+                <div class="col-sm-8">
+                    <div class="radio-box" th:each="dict : ${@dict.getType('sys_user_sex')}">
+                        <input type="radio" th:id="${'religionSex_' + dict.dictCode}" name="religionSex"
+                               th:value="${dict.dictValue}" th:field="*{religionSex}">
+                        <label th:for="${'religionSex_' + dict.dictCode}" th:text="${dict.dictLabel}"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">民族：</label>
+                <div class="col-sm-8">
+                    <input name="religionNation" th:field="*{religionNation}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">出生年月：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="religionBirthday"
+                               th:value="${#dates.format(religion.religionBirthday, 'yyyy-MM-dd')}" class="form-control"
+                               placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">籍贯：</label>
+                <div class="col-sm-8">
+                    <input name="religionNativePlace" th:field="*{religionNativePlace}" class="form-control"
+                           type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">入党时间：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="religionPartyJoinTime"
+                               th:value="${#dates.format(religion.religionPartyJoinTime, 'yyyy-MM-dd')}"
+                               class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">宗教类型：</label>
+                <div class="col-sm-8">
+                    <input name="religionType" th:field="*{religionType}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">宗教活动场所：</label>
+                <div class="col-sm-8">
+                    <input name="religiousServicesFacilities" th:field="*{religiousServicesFacilities}"
+                           class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">信教时间：</label>
+                <div class="col-sm-8">
+                    <div class="input-group date">
+                        <input name="religionJoin" th:value="${#dates.format(religion.religionJoin, 'yyyy-MM-dd')}"
+                               class="form-control" placeholder="yyyy-MM-dd" type="text">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">联系方式：</label>
+                <div class="col-sm-8">
+                    <input name="religionContactInformation" th:field="*{religionContactInformation}"
+                           class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">备注：</label>
+                <div class="col-sm-8">
+                    <input name="religionRemarks" th:field="*{religionRemarks}" class="form-control" type="text">
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer"/>
+    <th:block th:include="include :: datetimepicker-js"/>
+    <script th:inline="javascript">
+        var prefix = ctx + "admin/religion";
+        $("#form-religion-edit").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/edit", $('#form-religion-edit').serialize());
+            }
+        }
+
+        $("input[name='religionBirthday']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='religionPartyJoinTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='religionJoin']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+    </script>
+</body>
+</html>
