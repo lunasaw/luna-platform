@@ -2,9 +2,6 @@ package com.ruoyi.web.platform.news.controller;
 
 import java.util.List;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,117 +18,114 @@ import com.ruoyi.web.platform.news.service.INewsService;
 import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.utils.poi.ExcelUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
- * 新闻展示Controller
- * 
+ * 新闻发布Controller
+ *
  * @author party-platform
- * @date 2020-09-25
+ * @date 2020-11-19
  */
 @Controller
-@Api("新闻展示Controller")
+@Api("新闻发布Controller")
 @RequestMapping("/admin/news")
-public class NewsController extends BaseController
-{
+public class NewsController extends BaseController {
     private String prefix = "admin/news";
 
     @Autowired
     private INewsService newsService;
 
+    @RequiresPermissions("admin:news:view")
     @GetMapping()
-    public String news()
-    {
+    public String news() {
         return prefix + "/news";
     }
 
     /**
-     * 查询新闻展示列表
+     * 查询新闻发布列表
      */
-    @ApiOperation(value = "查询新闻展示列表", notes = "查询新闻展示列表详情", tags = {"新闻展示Controller"})
+    @ApiOperation(value = "查询新闻发布列表", notes = "查询新闻发布列表详情", tags = {"新闻发布Controller"})
+    @RequiresPermissions("admin:news:list")
     @PostMapping("/list")
     @ResponseBody
-    public TableDataInfo list(News news)
-    {
+    public TableDataInfo list(News news) {
         startPage();
         List<News> list = newsService.selectNewsList(news);
         return getDataTable(list);
     }
 
     /**
-     * 导出新闻展示列表
+     * 导出新闻发布列表
      */
-    @ApiOperation(value = "导出新闻展示列表", notes = "导出新闻展示列表详情", tags = {"新闻展示Controller"})
+    @ApiOperation(value = "导出新闻发布列表", notes = "导出新闻发布列表详情", tags = {"新闻发布Controller"})
     @RequiresPermissions("admin:news:export")
-    @Log(title = "新闻展示", businessType = BusinessType.EXPORT)
+    @Log(title = "新闻发布", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     @ResponseBody
-    public AjaxResult export(News news)
-    {
+    public AjaxResult export(News news) {
         List<News> list = newsService.selectNewsList(news);
         ExcelUtil<News> util = new ExcelUtil<News>(News.class);
         return util.exportExcel(list, "news");
     }
 
     /**
-     * 新增新闻展示
+     * 新增新闻发布
      */
     @GetMapping("/add")
-    public String add()
-    {
+    public String add() {
         return prefix + "/add";
     }
 
     /**
-     * 新增保存新闻展示
+     * 新增保存新闻发布
      */
-    @ApiOperation(value = "新增保存新闻展示", notes = "新增保存新闻展示详情", tags = {"新闻展示Controller"})
+    @ApiOperation(value = "新增保存新闻发布", notes = "新增保存新闻发布详情", tags = {"新闻发布Controller"})
     @RequiresPermissions("admin:news:add")
-    @Log(title = "新闻展示", businessType = BusinessType.INSERT)
+    @Log(title = "新闻发布", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
-    public AjaxResult addSave(News news)
-    {
+    public AjaxResult addSave(News news) {
         return toAjax(newsService.insertNews(news));
     }
 
     /**
-     * 修改新闻展示
+     * 修改新闻发布
      */
-    @ApiOperation(value = "修改新闻展示", notes = "修改新闻展示详情", tags = {"新闻展示Controller"})
+    @ApiOperation(value = "修改新闻发布", notes = "修改新闻发布详情", tags = {"新闻发布Controller"})
     @ApiImplicitParam(name = "newsId", value = "主键ID", dataType = "Integer", paramType = "path")
     @GetMapping("/edit/{newsId}")
-    public String edit(@PathVariable("newsId") Integer newsId, ModelMap mmap)
-    {
+    public String edit(@PathVariable("newsId") Integer newsId, ModelMap mmap) {
         News news = newsService.selectNewsById(newsId);
         mmap.put("news", news);
         return prefix + "/edit";
     }
 
     /**
-     * 修改保存新闻展示
+     * 修改保存新闻发布
      */
-    @ApiOperation(value = "修改保存新闻展示", notes = "修改保存新闻展示详情", tags = {"新闻展示Controller"})
+    @ApiOperation(value = "修改保存新闻发布", notes = "修改保存新闻发布详情", tags = {"新闻发布Controller"})
     @RequiresPermissions("admin:news:edit")
-    @Log(title = "新闻展示", businessType = BusinessType.UPDATE)
+    @Log(title = "新闻发布", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
     @ResponseBody
-    public AjaxResult editSave(News news)
-    {
+    public AjaxResult editSave(News news) {
         return toAjax(newsService.updateNews(news));
     }
 
     /**
-     * 删除新闻展示
-     @ApiOperation("删除新闻展示")
+     * 删除新闻发布
+     *
+     * @ApiOperation("删除新闻发布")
      */
-    @ApiOperation(value = "删除新闻展示", notes = "删除新闻展示详情", tags = {"新闻展示Controller"})
+    @ApiOperation(value = "删除新闻发布", notes = "删除新闻发布详情", tags = {"新闻发布Controller"})
     @RequiresPermissions("admin:news:remove")
-    @Log(title = "新闻展示", businessType = BusinessType.DELETE)
-    @PostMapping( "/remove")
+    @Log(title = "新闻发布", businessType = BusinessType.DELETE)
+    @PostMapping("/remove")
     @ResponseBody
-    public AjaxResult remove(String ids)
-    {
+    public AjaxResult remove(String ids) {
         return toAjax(newsService.deleteNewsByIds(ids));
     }
 }

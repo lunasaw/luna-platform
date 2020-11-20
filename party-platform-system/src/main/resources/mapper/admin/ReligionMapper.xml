@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.web.platform.religion.mapper.ReligionMapper">
+
+    <resultMap type="Religion" id="ReligionResult">
+        <result property="religionId" column="religion_id"/>
+        <result property="religionNumber" column="religion_number"/>
+        <result property="religionCollege" column="religion_college"/>
+        <result property="religionName" column="religion_name"/>
+        <result property="religionSex" column="religion_sex"/>
+        <result property="religionNation" column="religion_nation"/>
+        <result property="religionBirthday" column="religion_birthday"/>
+        <result property="religionNativePlace" column="religion_native_place"/>
+        <result property="religionPartyJoinTime" column="religion_party_join_time"/>
+        <result property="religionType" column="religion_type"/>
+        <result property="religiousServicesFacilities" column="religious_services_facilities"/>
+        <result property="religionJoin" column="religion_join"/>
+        <result property="religionContactInformation" column="religion_contact_information"/>
+        <result property="religionRemarks" column="religion_remarks"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateBy" column="update_by"/>
+    </resultMap>
+
+    <sql id="selectReligionVo">
+        select religion_id, religion_number, religion_college, religion_name, religion_sex, religion_nation, religion_birthday, religion_native_place, religion_party_join_time, religion_type, religious_services_facilities, religion_join, religion_contact_information, religion_remarks, create_time, update_time, create_by, update_by from sys_religion
+    </sql>
+
+    <select id="selectReligionList" parameterType="Religion" resultMap="ReligionResult">
+        <include refid="selectReligionVo"/>
+        <where>
+            <if test="religionNumber != null ">and religion_number = #{religionNumber}</if>
+            <if test="religionCollege != null  and religionCollege != ''">and religion_college = #{religionCollege}</if>
+            <if test="religionName != null  and religionName != ''">and religion_name like concat('%', #{religionName},
+                '%')
+            </if>
+            <if test="religionSex != null  and religionSex != ''">and religion_sex = #{religionSex}</if>
+            <if test="religionNation != null  and religionNation != ''">and religion_nation = #{religionNation}</if>
+            <if test="religionBirthday != null ">and religion_birthday = #{religionBirthday}</if>
+            <if test="religionNativePlace != null  and religionNativePlace != ''">and religion_native_place =
+                #{religionNativePlace}
+            </if>
+            <if test="religionPartyJoinTime != null ">and religion_party_join_time = #{religionPartyJoinTime}</if>
+            <if test="religionType != null  and religionType != ''">and religion_type = #{religionType}</if>
+            <if test="religiousServicesFacilities != null  and religiousServicesFacilities != ''">and
+                religious_services_facilities like concat('%', #{religiousServicesFacilities}, '%')
+            </if>
+            <if test="religionJoin != null ">and religion_join = #{religionJoin}</if>
+            <if test="religionContactInformation != null  and religionContactInformation != ''">and
+                religion_contact_information = #{religionContactInformation}
+            </if>
+            <if test="religionRemarks != null  and religionRemarks != ''">and religion_remarks = #{religionRemarks}</if>
+        </where>
+    </select>
+
+    <select id="selectReligionById" parameterType="Long" resultMap="ReligionResult">
+        <include refid="selectReligionVo"/>
+        where religion_id = #{religionId}
+    </select>
+
+    <select id="selectReligionByName" parameterType="String" resultMap="ReligionResult">
+        <include refid="selectReligionVo"/>
+        where religion_name = #{religionName}
+    </select>
+
+    <insert id="insertReligion" parameterType="Religion" useGeneratedKeys="true" keyProperty="religionId">
+        insert into sys_religion
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="religionNumber != null">religion_number,</if>
+            <if test="religionCollege != null">religion_college,</if>
+            <if test="religionName != null">religion_name,</if>
+            <if test="religionSex != null">religion_sex,</if>
+            <if test="religionNation != null">religion_nation,</if>
+            <if test="religionBirthday != null">religion_birthday,</if>
+            <if test="religionNativePlace != null">religion_native_place,</if>
+            <if test="religionPartyJoinTime != null">religion_party_join_time,</if>
+            <if test="religionType != null">religion_type,</if>
+            <if test="religiousServicesFacilities != null">religious_services_facilities,</if>
+            <if test="religionJoin != null">religion_join,</if>
+            <if test="religionContactInformation != null">religion_contact_information,</if>
+            <if test="religionRemarks != null">religion_remarks,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="updateBy != null">update_by,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="religionNumber != null">#{religionNumber},</if>
+            <if test="religionCollege != null">#{religionCollege},</if>
+            <if test="religionName != null">#{religionName},</if>
+            <if test="religionSex != null">#{religionSex},</if>
+            <if test="religionNation != null">#{religionNation},</if>
+            <if test="religionBirthday != null">#{religionBirthday},</if>
+            <if test="religionNativePlace != null">#{religionNativePlace},</if>
+            <if test="religionPartyJoinTime != null">#{religionPartyJoinTime},</if>
+            <if test="religionType != null">#{religionType},</if>
+            <if test="religiousServicesFacilities != null">#{religiousServicesFacilities},</if>
+            <if test="religionJoin != null">#{religionJoin},</if>
+            <if test="religionContactInformation != null">#{religionContactInformation},</if>
+            <if test="religionRemarks != null">#{religionRemarks},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+        </trim>
+    </insert>
+
+    <update id="updateReligion" parameterType="Religion">
+        update sys_religion
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="religionNumber != null">religion_number = #{religionNumber},</if>
+            <if test="religionCollege != null">religion_college = #{religionCollege},</if>
+            <if test="religionName != null">religion_name = #{religionName},</if>
+            <if test="religionSex != null">religion_sex = #{religionSex},</if>
+            <if test="religionNation != null">religion_nation = #{religionNation},</if>
+            <if test="religionBirthday != null">religion_birthday = #{religionBirthday},</if>
+            <if test="religionNativePlace != null">religion_native_place = #{religionNativePlace},</if>
+            <if test="religionPartyJoinTime != null">religion_party_join_time = #{religionPartyJoinTime},</if>
+            <if test="religionType != null">religion_type = #{religionType},</if>
+            <if test="religiousServicesFacilities != null">religious_services_facilities =
+                #{religiousServicesFacilities},
+            </if>
+            <if test="religionJoin != null">religion_join = #{religionJoin},</if>
+            <if test="religionContactInformation != null">religion_contact_information =
+                #{religionContactInformation},
+            </if>
+            <if test="religionRemarks != null">religion_remarks = #{religionRemarks},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+        </trim>
+        where religion_id = #{religionId}
+    </update>
+
+    <delete id="deleteReligionById" parameterType="Long">
+        delete from sys_religion where religion_id = #{religionId}
+    </delete>
+
+    <delete id="deleteReligionByIds" parameterType="String">
+        delete from sys_religion where religion_id in
+        <foreach item="religionId" collection="array" open="(" separator="," close=")">
+            #{religionId}
+        </foreach>
+    </delete>
+
+</mapper>

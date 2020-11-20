@@ -7,9 +7,9 @@ ruoyi:
   # 版权年份
   copyrightYear: 2020
   # 实例演示开关
-  demoEnabled: true
+  demoEnabled: false
   # 文件路径 示例（ Windows配置D:/ruoyi/uploadPath，Linux配置 /home/ruoyi/uploadPath）
-  profile: /Users/luna-mac/Documents/party-platform/uploadPath
+  profile: /Users/luna_mac/Documents/party-platform/uploadPath
   # 获取ip地址开关
   addressEnabled: false
 

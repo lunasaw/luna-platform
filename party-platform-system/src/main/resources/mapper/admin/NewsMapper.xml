@@ -9,7 +9,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="newsTitle"    column="news_title"    />
         <result property="newsType"    column="news_type"    />
         <result property="newsContent"    column="news_content"    />
+        <result property="newsUrl" column="news_url"/>
         <result property="status"    column="status"    />
+        <result property="newsTime" column="news_time"/>
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
         <result property="updateBy"    column="update_by"    />
@@ -18,16 +20,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectNewsVo">
-        select news_id, news_title, news_type, news_content, status, create_by, create_time, update_by, update_time, remark from sys_news
+        select news_id, news_title, news_type, news_content, news_url, status, news_time, create_by, create_time, update_by, update_time, remark from sys_news
     </sql>
 
     <select id="selectNewsList" parameterType="News" resultMap="NewsResult">
         <include refid="selectNewsVo"/>
-        <where>  
-            <if test="newsTitle != null  and newsTitle != ''"> and news_title = #{newsTitle}</if>
-            <if test="newsType != null  and newsType != ''"> and news_type = #{newsType}</if>
-            <if test="newsContent != null  and newsContent != ''"> and news_content like concat('%', #{newsContent}, '%')</if>
-            <if test="status != null  and status != ''"> and status = #{status}</if>
+        <where>
+            <if test="newsTitle != null  and newsTitle != ''">and news_title = #{newsTitle}</if>
+            <if test="newsType != null  and newsType != ''">and news_type = #{newsType}</if>
+            <if test="newsContent != null  and newsContent != ''">and news_content = #{newsContent}</if>
+            <if test="newsUrl != null  and newsUrl != ''">and news_url = #{newsUrl}</if>
+            <if test="status != null  and status != ''">and status = #{status}</if>
+            <if test="newsTime != null ">and news_time = #{newsTime}</if>
         </where>
     </select>
     
@@ -42,7 +46,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="newsTitle != null and newsTitle != ''">news_title,</if>
             <if test="newsType != null and newsType != ''">news_type,</if>
             <if test="newsContent != null">news_content,</if>
+            <if test="newsUrl != null">news_url,</if>
             <if test="status != null">status,</if>
+            <if test="newsTime != null">news_time,</if>
             <if test="createBy != null">create_by,</if>
             <if test="createTime != null">create_time,</if>
             <if test="updateBy != null">update_by,</if>
@@ -53,7 +59,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="newsTitle != null and newsTitle != ''">#{newsTitle},</if>
             <if test="newsType != null and newsType != ''">#{newsType},</if>
             <if test="newsContent != null">#{newsContent},</if>
+            <if test="newsUrl != null">#{newsUrl},</if>
             <if test="status != null">#{status},</if>
+            <if test="newsTime != null">#{newsTime},</if>
             <if test="createBy != null">#{createBy},</if>
             <if test="createTime != null">#{createTime},</if>
             <if test="updateBy != null">#{updateBy},</if>
@@ -68,7 +76,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="newsTitle != null and newsTitle != ''">news_title = #{newsTitle},</if>
             <if test="newsType != null and newsType != ''">news_type = #{newsType},</if>
             <if test="newsContent != null">news_content = #{newsContent},</if>
+            <if test="newsUrl != null">news_url = #{newsUrl},</if>
             <if test="status != null">status = #{status},</if>
+            <if test="newsTime != null">news_time = #{newsTime},</if>
             <if test="createBy != null">create_by = #{createBy},</if>
             <if test="createTime != null">create_time = #{createTime},</if>
             <if test="updateBy != null">update_by = #{updateBy},</if>
