@@ -48,7 +48,6 @@ public class NewsController extends BaseController {
      * 查询新闻发布列表
      */
     @ApiOperation(value = "查询新闻发布列表", notes = "查询新闻发布列表详情", tags = {"新闻发布Controller"})
-    @RequiresPermissions("admin:news:list")
     @PostMapping("/list")
     @ResponseBody
     public TableDataInfo list(News news) {
