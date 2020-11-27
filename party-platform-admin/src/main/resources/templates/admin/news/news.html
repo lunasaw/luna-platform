@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-	<th:block th:include="include :: header('新闻发布列表')"/>
+    <th:block th:include="include :: header('新闻发布列表')"/>
 </head>
 <body class="gray-bg">
 	<div class="container-div">
@@ -28,7 +28,7 @@
 							</li>
 							<li>
 								<label>新闻状态：</label>
-								<select name="status" th:with="type=${@dict.getType('sys_notice_status')}">
+								<select name="status" th:with="type=${@dict.getType('sys_news_status')}">
 									<option value="">所有</option>
 									<option th:each="dict : ${type}" th:text="${dict.dictLabel}"
 									        th:value="${dict.dictValue}"></option>
@@ -79,7 +79,7 @@
 		var editFlag = [[${@permission.hasPermi('admin:news:edit')}]];
 		var removeFlag = [[${@permission.hasPermi('admin:news:remove')}]];
 		var newsTypeDatas = [[${@dict.getType('sys_news_type')}]];
-		var statusDatas = [[${@dict.getType('sys_notice_status')}]];
+		var statusDatas = [[${@dict.getType('sys_news_status')}]];
 		var prefix = ctx + "admin/news";
 
 		$(function () {
@@ -114,6 +114,11 @@
 					{
 						field: 'newsContent',
 						title: '新闻内容'
+					},
+					{
+						field: 'newsPicture',
+						title: '新闻封面',
+						visible: false
 					},
 					{
 						field: 'newsUrl',

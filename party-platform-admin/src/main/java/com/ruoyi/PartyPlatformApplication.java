@@ -16,6 +16,3 @@ public class PartyPlatformApplication {
         SpringApplication.run(PartyPlatformApplication.class, args);
     }
 }
-
-
-

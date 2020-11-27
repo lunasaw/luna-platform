@@ -1,16 +1,16 @@
 package com.ruoyi.web.platform.news.mapper;
 
 import java.util.List;
+
 import com.ruoyi.web.platform.news.domain.News;
 
 /**
  * 新闻发布Mapper接口
  *
  * @author party-platform
- * @date 2020-11-19
+ * @date 2020-11-27
  */
-public interface NewsMapper 
-{
+public interface NewsMapper {
     /**
      * 查询新闻发布
      *

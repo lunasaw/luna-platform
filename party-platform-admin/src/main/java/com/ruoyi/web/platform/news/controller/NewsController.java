@@ -27,7 +27,7 @@ import com.ruoyi.common.core.page.TableDataInfo;
  * 新闻发布Controller
  *
  * @author party-platform
- * @date 2020-11-19
+ * @date 2020-11-27
  */
 @Controller
 @Api("新闻发布Controller")

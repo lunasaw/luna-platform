@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ruoyi.web.platform.news.mapper.NewsMapper">
-    
+
     <resultMap type="News" id="NewsResult">
-        <result property="newsId"    column="news_id"    />
-        <result property="newsTitle"    column="news_title"    />
-        <result property="newsType"    column="news_type"    />
-        <result property="newsContent"    column="news_content"    />
+        <result property="newsId" column="news_id"/>
+        <result property="newsTitle" column="news_title"/>
+        <result property="newsType" column="news_type"/>
+        <result property="newsContent" column="news_content"/>
+        <result property="newsPicture" column="news_picture"/>
         <result property="newsUrl" column="news_url"/>
-        <result property="status"    column="status"    />
+        <result property="status" column="status"/>
         <result property="newsTime" column="news_time"/>
-        <result property="createBy"    column="create_by"    />
-        <result property="createTime"    column="create_time"    />
-        <result property="updateBy"    column="update_by"    />
-        <result property="updateTime"    column="update_time"    />
-        <result property="remark"    column="remark"    />
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="remark" column="remark"/>
     </resultMap>
 
     <sql id="selectNewsVo">
-        select news_id, news_title, news_type, news_content, news_url, status, news_time, create_by, create_time, update_by, update_time, remark from sys_news
+        select news_id, news_title, news_type, news_content, news_picture, news_url, status, news_time, create_by, create_time, update_by, update_time, remark from sys_news
     </sql>
 
     <select id="selectNewsList" parameterType="News" resultMap="NewsResult">
@@ -29,23 +30,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="newsTitle != null  and newsTitle != ''">and news_title = #{newsTitle}</if>
             <if test="newsType != null  and newsType != ''">and news_type = #{newsType}</if>
             <if test="newsContent != null  and newsContent != ''">and news_content = #{newsContent}</if>
+            <if test="newsPicture != null  and newsPicture != ''">and news_picture = #{newsPicture}</if>
             <if test="newsUrl != null  and newsUrl != ''">and news_url = #{newsUrl}</if>
             <if test="status != null  and status != ''">and status = #{status}</if>
             <if test="newsTime != null ">and news_time = #{newsTime}</if>
         </where>
     </select>
-    
+
     <select id="selectNewsById" parameterType="Integer" resultMap="NewsResult">
         <include refid="selectNewsVo"/>
         where news_id = #{newsId}
     </select>
-        
+
     <insert id="insertNews" parameterType="News" useGeneratedKeys="true" keyProperty="newsId">
         insert into sys_news
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="newsTitle != null and newsTitle != ''">news_title,</if>
             <if test="newsType != null and newsType != ''">news_type,</if>
             <if test="newsContent != null">news_content,</if>
+            <if test="newsPicture != null">news_picture,</if>
             <if test="newsUrl != null">news_url,</if>
             <if test="status != null">status,</if>
             <if test="newsTime != null">news_time,</if>
@@ -54,11 +57,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="updateBy != null">update_by,</if>
             <if test="updateTime != null">update_time,</if>
             <if test="remark != null">remark,</if>
-         </trim>
+        </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="newsTitle != null and newsTitle != ''">#{newsTitle},</if>
             <if test="newsType != null and newsType != ''">#{newsType},</if>
             <if test="newsContent != null">#{newsContent},</if>
+            <if test="newsPicture != null">#{newsPicture},</if>
             <if test="newsUrl != null">#{newsUrl},</if>
             <if test="status != null">#{status},</if>
             <if test="newsTime != null">#{newsTime},</if>
@@ -67,7 +71,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="updateBy != null">#{updateBy},</if>
             <if test="updateTime != null">#{updateTime},</if>
             <if test="remark != null">#{remark},</if>
-         </trim>
+        </trim>
     </insert>
 
     <update id="updateNews" parameterType="News">
@@ -76,6 +80,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="newsTitle != null and newsTitle != ''">news_title = #{newsTitle},</if>
             <if test="newsType != null and newsType != ''">news_type = #{newsType},</if>
             <if test="newsContent != null">news_content = #{newsContent},</if>
+            <if test="newsPicture != null">news_picture = #{newsPicture},</if>
             <if test="newsUrl != null">news_url = #{newsUrl},</if>
             <if test="status != null">status = #{status},</if>
             <if test="newsTime != null">news_time = #{newsTime},</if>
@@ -93,7 +98,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </delete>
 
     <delete id="deleteNewsByIds" parameterType="String">
-        delete from sys_news where news_id in 
+        delete from sys_news where news_id in
         <foreach item="newsId" collection="array" open="(" separator="," close=")">
             #{newsId}
         </foreach>

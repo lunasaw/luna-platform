@@ -15,7 +15,7 @@ import com.ruoyi.common.core.text.Convert;
  * 新闻发布Service业务层处理
  *
  * @author party-platform
- * @date 2020-11-19
+ * @date 2020-11-27
  */
 @Service
 public class NewsServiceImpl implements INewsService {

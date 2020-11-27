@@ -13,7 +13,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 新闻发布对象 sys_news
  *
  * @author party-platform
- * @date 2020-11-19
+ * @date 2020-11-27
  */
 @ApiModel("News")
 public class News extends BaseEntity {
@@ -45,6 +45,13 @@ public class News extends BaseEntity {
     @ApiModelProperty("新闻内容")
     @Excel(name = "新闻内容")
     private String newsContent;
+
+    /**
+     * 新闻封面
+     */
+    @ApiModelProperty("新闻封面")
+    @Excel(name = "新闻封面")
+    private String newsPicture;
 
     /**
      * 新闻外链
@@ -99,6 +106,14 @@ public class News extends BaseEntity {
         return newsContent;
     }
 
+    public void setNewsPicture(String newsPicture) {
+        this.newsPicture = newsPicture;
+    }
+
+    public String getNewsPicture() {
+        return newsPicture;
+    }
+
     public void setNewsUrl(String newsUrl) {
         this.newsUrl = newsUrl;
     }
@@ -130,14 +145,15 @@ public class News extends BaseEntity {
                 .append("newsTitle", getNewsTitle())
                 .append("newsType", getNewsType())
                 .append("newsContent", getNewsContent())
+                .append("newsPicture", getNewsPicture())
                 .append("newsUrl", getNewsUrl())
                 .append("status", getStatus())
                 .append("newsTime", getNewsTime())
                 .append("createBy", getCreateBy())
                 .append("createTime", getCreateTime())
                 .append("updateBy", getUpdateBy())
-            .append("updateTime", getUpdateTime())
-            .append("remark", getRemark())
-            .toString();
+                .append("updateTime", getUpdateTime())
+                .append("remark", getRemark())
+                .toString();
     }
 }

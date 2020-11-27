@@ -7,7 +7,7 @@ import com.ruoyi.web.platform.news.domain.News;
  * 新闻发布Service接口
  *
  * @author party-platform
- * @date 2020-11-19
+ * @date 2020-11-27
  */
 public interface INewsService 
 {
