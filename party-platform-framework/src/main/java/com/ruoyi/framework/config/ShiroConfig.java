@@ -271,6 +271,8 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/login", "anon,captchaValidate");
         // 新闻列表
         filterChainDefinitionMap.put("/admin/news/list", "newsFilter");
+        // 新闻类型
+        filterChainDefinitionMap.put("/admin/news/types", "newsFilter");
         filterChainDefinitionMap.put("/system/user/allTreeData", "newsFilter");
         filterChainDefinitionMap.put("/mainPage/**", "newsFilter");
         filterChainDefinitionMap.put("/admin/page/**", "newsFilter");

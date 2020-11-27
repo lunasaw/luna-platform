@@ -1,7 +1,11 @@
 package com.ruoyi.web.platform.news.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.ruoyi.framework.web.service.DictService;
+import com.ruoyi.system.domain.SysDictData;
+import com.ruoyi.system.service.ISysDictDataService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,6 +42,9 @@ public class NewsController extends BaseController {
     @Autowired
     private INewsService newsService;
 
+    @Autowired
+    private DictService dictService;
+
     @RequiresPermissions("admin:news:view")
     @GetMapping()
     public String news() {
@@ -54,6 +61,18 @@ public class NewsController extends BaseController {
         startPage();
         List<News> list = newsService.selectNewsList(news);
         return getDataTable(list);
+    }
+
+    /**
+     * 获取所有类别集合
+     *
+     * @return
+     */
+    @ApiOperation(value = "查询新闻发布类型", notes = "查询新闻发布类型详情", tags = {"新闻发布Controller"})
+    @GetMapping("/types")
+    @ResponseBody
+    public AjaxResult getTypes() {
+        return AjaxResult.success(dictService.getType("sys_news_type"));
     }
 
     /**
