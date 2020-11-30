@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>信息工程学院智慧党建云平台</title>
+    <link rel="stylesheet" th:href="@{/css/newhome/common.css}">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+
+
+
+
+    <link rel="stylesheet" th:href="@{/css/newhome/index.css}">
+
+
+    <link rel="stylesheet" th:href="@{/css/newhome/layui.css}">
+
+    <link rel="stylesheet" th:href="@{/css/newhome/news.css}">
+    <link rel="stylesheet" th:href="@{/css/newhome/newslist.css}">
+    <link rel="stylesheet" th:href="@{/css/newhome/djgl.css}">
+
+</head>
+
+<body>
+    <!-- 头部 -->
+
+
+    <div class="header content clearfix">
+        <a target="_blank" href="#">
+            <img th:src="@{/img/images/picture/logo.png}">
+        </a>
+        <div class="navbt   maB25 navstyle">
+            <ul class="">
+
+                <li><a target="_blank" href="/party-platform/admin/page/main">平台首页</a></li>
+                <li><a target="_blank" href="/party-platform/admin/page/newslist">新闻中心</a></li>
+                <li><a target="_blank" href="/party-platform/admin/page/study">宣传教育</a></li>
+                <li><a target="_blank" href="/party-platform/login">党建管理</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 头部 end-->
+
+    <!-- banner -->
+
+    <div id="demo" class="carousel slide content" data-ride="carousel">
+
+        <!-- 指示符 -->
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
+        <!-- 轮播图片 -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img th:src="@{/img/images/picture/banner.jpg}">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{/img/images/picture/banner1.jpg}">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{/img/images/picture/banner.jpg}">
+            </div>
+        </div>
+
+        <!-- 左右切换按钮 -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+
+    </div>
+    <!-- 新闻 -->
+
+    <div class=" content-area">
+        <!-- 第一行 -->
+        <div class="crumbs">
+            <span>您的位置：</span>
+            <span class="layui-breadcrumb crumbsDet" lay-separator=">">
+                <a href="#">平台首页</a>
+                <a href="#">党建管理</a>
+            </span>
+        </div>
+
+    </div>
+    <div class=" content-area ">
+        <div class="row maruit ">
+            <div class=" col-lg-3 col-md-3">
+                <div class="boxdimgone"></div>
+            </div>
+            <div class=" col-lg-3 col-md-3">
+                <a href="/party-platform/login" class="boxdm">
+
+                    <div class="boxdimg1"></div>
+                    <div class="boxdfont">党建管理</div>
+
+                </a>
+            </div>
+            <div class=" col-lg-6 col-md-6 boxd">
+                <h3>党建管理</h3>
+                <p>欢迎来到盐城师范学院信息工程学院智慧党建系统</p>
+            </div>
+        </div>
+        <div class="row marui">
+            <div class=" col-lg-3 col-md-3">
+                <a href="/party-platform/login" class="boxdm">
+
+                    <div class="boxdimg1"></div>
+                    <div class="boxdfont">日常管理</div>
+
+                </a>
+            </div>
+            <div class=" col-lg-3 col-md-3">
+                <a href="/party-platform/login" class="boxdimgone2">
+
+
+                </a>
+            </div>
+            <div class=" col-lg-3 col-md-3">
+                <a href="/party-platform/login" class="boxdm">
+
+                    <div class="boxdimg2"></div>
+                    <div class="boxdfont">宣传教育</div>
+
+                </a>
+            </div>
+            <div class=" col-lg-3 col-md-3">
+                <a href="/party-platform/login" class="boxdimgone4">
+
+
+                </a>
+            </div>
+
+        </div>
+        <div class="row marui mb10">
+            <div class=" col-lg-3 col-md-3">
+                <a href="/party-platform/login" class="boxdimgone1">
+
+
+                </a>
+            </div>
+            <div class=" col-lg-3 col-md-3">
+                <a href="/party-platform/login" class="boxdm">
+
+                    <div class="boxdimg3"></div>
+                    <div class="boxdfont">党群互动</div>
+
+                </a>
+            </div>
+            <div class=" col-lg-3 col-md-3">
+                <a href="/party-platform/login" class="boxdimgone3">
+
+
+                </a>
+            </div>
+            <div class=" col-lg-3 col-md-3">
+                <a href="/party-platform/login" class="boxdm">
+
+                    <div class="boxdimg4"></div>
+                    <div class="boxdfont">监督保证</div>
+
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+    <!--底部-->
+    <div class="b_footer">
+        <div class="b_foot">
+            <div class="footnav">
+                单位：盐城师范学院信息工程学院
+
+            </div>
+        </div>
+    </div>
+    <!--底部end-->
+
+
+
+</body>
+
+
+<script type="text/javascript" th:src="@{/js/newhome/layui.all.js}"></script>
+<script type="text/javascript" th:src="@{/js/newhome/layui.js}"></script>
+<script type="text/javascript" th:src="@{/js/newhome/core.min.js}"></script>
+
+
+</html>

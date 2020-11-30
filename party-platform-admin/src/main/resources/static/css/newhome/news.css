@@ -1,0 +1,114 @@
+/* 面包屑 */
+.layui-breadcrumb a {
+    color: #dc1f00 !important;
+    margin-right: 5px;
+}
+
+.layui-breadcrumb {
+    font-size: 18px;
+}
+
+.layui-breadcrumb>* {
+    font-size: 18px;
+}
+
+.layui-breadcrumb span[lay-separator] {
+    margin: 0;
+    color: #dc1f00;
+}
+
+.layui-breadcrumb a:hover {
+    color: #dc1f00 !important;
+}
+
+/* 分页 */
+.layui-laypage a,
+.layui-laypage span {
+    height: 26px;
+    line-height: 26px;
+    padding: 0 8px;
+    margin: 0 3px;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    color: #004176;
+    font-size: 13px;
+}
+
+.layui-laypage .layui-laypage-curr .layui-laypage-em {
+    background: #FFFFFF;
+    border: 1px solid #ff6600;
+    padding: 0;
+}
+
+.layui-laypage .layui-laypage-curr em {
+    color: #004176;
+}
+
+.layui-laypage a:hover {
+    color: #004176;
+}
+
+/* 详情 */
+.whitedet {
+    background: #FFFFFF;
+}
+
+.crumbs {
+    padding: 10px 5px;
+    border-bottom: 2px solid #c40000;
+    ;
+}
+
+.crumbs span {
+    font-size: 12px;
+}
+
+.crumbsDet a {
+    font-size: 12px;
+}
+
+.detTile {
+    color: #000000;
+    padding: 20px 20px;
+    line-height: 1.5;
+    font-size: 26px;
+    text-align: center;
+}
+
+.detConLy {
+    border-bottom: 1px dotted #458fce;
+    text-align: center;
+    padding: 0 20px 20px 20px;
+    color: #666;
+    font-size: 12px;
+}
+
+.detConLy span {
+    margin-right: 10px;
+}
+
+.detConLy span:last-child {
+    margin: 0;
+}
+
+.detCon {
+    font-size: 16px;
+    line-height: 30px;
+    padding: 0px 60px 0px 60px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.detCon p {
+    margin-bottom: 15px;
+    white-space: normal;
+}
+
+.detCon p img {
+    display: block;
+    margin: 0 auto;
+}
+
+.newbody {
+    background-color: #FFFFFF
+}

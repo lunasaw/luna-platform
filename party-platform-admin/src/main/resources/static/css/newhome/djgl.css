@@ -1,0 +1,168 @@
+.marui {
+    padding: 10px 150px;
+}
+
+.maruit {
+    padding: 0px 150px;
+    padding-top: 20px;
+}
+
+.boxdimgone {
+
+    background-image: url(../../img/images/lainatu_a02cff52.png);
+    background-repeat: no-repeat;
+    background-size: 80%;
+
+    background-position: center center;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.boxdimgone1 {
+    background-image: url(../../img/images/1.png);
+    background-repeat: no-repeat;
+    float: left;
+
+
+    border-radius: 10px;
+    margin: 10px 10px;
+
+
+    background-position: center center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.boxdimgone2 {
+
+    background-image: url(../../img/images/2.png);
+    background-repeat: no-repeat;
+    float: left;
+
+
+    border-radius: 10px;
+    margin: 10px 10px;
+
+
+    background-position: center center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.boxdimgone3 {
+
+    background-image: url(../../img/images/3.png);
+    background-repeat: no-repeat;
+    float: left;
+
+
+    border-radius: 10px;
+    margin: 10px 10px;
+
+
+    background-position: center center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.boxdimgone4 {
+
+    background-image: url(../../img/images/4.png);
+    background-repeat: no-repeat;
+    float: left;
+
+
+    border-radius: 10px;
+    margin: 10px 10px;
+
+
+    background-position: center center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.boxdui {
+
+
+
+
+    height: 100%;
+
+
+
+
+}
+
+.boxd {
+    padding: 10px 10px;
+    padding-top: 20px;
+}
+
+.boxd p {
+
+    padding-top: 10px;
+}
+
+
+.boxdm {
+    float: left;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    margin: 10px 10px;
+    background-color: #bf1d14;
+}
+
+.boxdimg1 {
+    background-image: url(../../img/images/rcgl.png);
+    background-repeat: no-repeat;
+    background-size: 80px 70px;
+    background-position: center center;
+    margin: auto;
+    width: 130px;
+    height: 90px;
+}
+
+.boxdimg2 {
+    background-image: url(../../img/images/xcjy.png);
+    background-repeat: no-repeat;
+    background-size: 80px 70px;
+    background-position: center center;
+    margin: auto;
+    width: 130px;
+    height: 90px;
+}
+
+.boxdimg3 {
+    background-image: url(../../img/images/dqhd.png);
+    background-repeat: no-repeat;
+    background-size: 80px 70px;
+    background-position: center center;
+    margin: auto;
+    width: 130px;
+    height: 90px;
+}
+
+.boxdimg4 {
+    background-image: url(../../img/images/jdbz.png);
+    background-repeat: no-repeat;
+    background-size: 80px 70px;
+    background-position: center center;
+    margin: auto;
+    width: 130px;
+    height: 90px;
+}
+
+.boxdfont {
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 22px;
+    font-size: 22px;
+    margin-top: 10px;
+}

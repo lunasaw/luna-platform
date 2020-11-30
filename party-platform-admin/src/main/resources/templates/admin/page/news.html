@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>信息工程学院智慧党建云平台</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+
+
+
+    <link rel="stylesheet" th:href="@{/css/newhome/index.css}">
+
+    <link rel="stylesheet" th:href="@{/css/newhome/common.css}">
+
+    <link rel="stylesheet" th:href="@{/css/newhome/layui.css}">
+
+    <link rel="stylesheet" th:href="@{/css/newhome/news.css}">
+
+</head>
+
+<body>
+    <!-- 头部 -->
+    bo
+
+    <div class="header content clearfix">
+        <a target="_blank" href="#">
+            <img th:src="@{/img/images/picture/logo.png}">
+        </a>
+        <div class="navbt   maB25 navstyle">
+            <ul class="">
+                <li><a target="_blank" href="/party-platform/admin/page/main">平台首页</a></li>
+                <li><a target="_blank" href="/party-platform/admin/page/newslist">新闻中心</a></li>
+                <li><a target="_blank" href="/party-platform/admin/page/study">宣传教育</a></li>
+                <li><a target="_blank" href="/party-platform/login">党建管理</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 头部 end-->
+
+    <!-- banner -->
+
+    <div id="demo" class="carousel slide content" data-ride="carousel">
+
+        <!-- 指示符 -->
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
+        <!-- 轮播图片 -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img th:src="@{/img/images/picture/banner.jpg}">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{/img/images/picture/banner1.jpg}">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{/img/images/picture/banner.jpg}">
+            </div>
+        </div>
+
+        <!-- 左右切换按钮 -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+
+    </div>
+    <!-- 新闻 -->
+    <!-- 右侧top star -->
+
+    <div class=" content-area">
+        <!-- 第一行 -->
+        <div class="crumbs">
+            <span>您的位置：</span>
+            <span class="layui-breadcrumb crumbsDet" lay-separator=">">
+                <a href="#">平台首页</a>
+                <a href="#">新闻中心</a> > 正文
+            </span>
+        </div>
+        <div class="newbody">
+            <h4 class="detTile info-title" id="newsTi"></h4>
+            <p class="detConLy" >日期：<span id="newsDate"></span>
+            </p>
+
+            <div class="detCon info-text">
+                <div class="main-aticle" style="margin: 0px; padding: 0px; color: rgb(64, 64, 64); font-family: ' PingFang
+                SC', 'Lantinghei SC' , 'Helvetica Neue' , Helvetica, Arial, 'Microsoft YaHei' ,
+                STHeitiSC-Light, simsun,  'WenQuanYi Zen Hei' , 'WenQuanYi Micro Hei' , sans-serif; font-size:
+                18px; white-space: normal; background-color: rgb(255, 255, 255);" id="content">
+
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <!--底部-->
+    <div class="b_footer">
+        <div class="b_foot">
+            <div class="footnav">
+                单位：盐城师范学院信息工程学院
+
+            </div>
+        </div>
+    </div>
+    <!--底部end-->
+
+
+
+</body>
+
+
+<script type="text/javascript" th:src="@{/js/newhome/layui.all.js}"></script>
+<script type="text/javascript" th:src="@{/js/newhome/layui.js}"></script>
+<script type="text/javascript" th:src="@{/js/newhome/core.min.js}"></script>
+
+
+<script>
+    $(document).ready(function () {
+        let url = location.search; //获取url中"?"符后的字串
+        if (url.indexOf("?") != -1) {
+            let str = url.substr(1);
+            let name = str.substr(0, str.indexOf("="));
+            let id = str.substr(str.indexOf("=") + 1);
+            console.info(id);
+            console.info(name);
+
+            if (name == "newsid") {
+                console.log("===============" + id)
+                $.ajax({
+                    url: "/party-platform/mainPage/getNewsById?Newsid=" + id,
+                    type: "GET",
+                    async: true,
+                    success: function (result) {
+                        let item = result;
+                        console.log(item);
+                        $("#newsDate").text(item.newsTime);
+                        $("#newsTi").text(item.newsTitle);
+
+                        let containerwrapper = $("#content");
+                        containerwrapper.append(
+                            '<p>' + item.newsContent + '</p>'
+                        )
+
+                    }
+                })
+            } else if (name == "documentaryId") {
+                $.ajax({
+                    url: "/party-platform/mainPage/getDocumentById?documentId=" + id,
+                    type: "GET",
+                    async: true,
+                    success: function (result) {
+                        console.log(result)
+                        let item = result;
+                        $("#newsDate").text(item.createTime);
+                        $("#newsTi").text(item.documentaryTitle);
+
+                        let containerwrapper = $("#content");
+                        containerwrapper.append(
+                            '<p>' + item.documentaryContent + '</p>'
+                        )
+                    }
+                })
+            }
+
+        }
+
+    })
+</script>
+
+</html>

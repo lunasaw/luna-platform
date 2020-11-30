@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>信息工程学院智慧党建云平台</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://apps.bdimg.com/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <link rel="stylesheet" th:href="@{/css/home/idangerous.swiper.min.css}">
+    <link rel="stylesheet" th:href="@{/static/css/home/index.css}">
+    <link rel="stylesheet" th:href="@{/static/css/home/freeexp.css}">
+    <link rel="stylesheet" th:href="@{/static/css/home/common.css}">
+    <link rel="stylesheet" th:href="@{/static/css/home/layer.css}">
+    <link rel="stylesheet" th:href="@{/static/css/home/layui.css}">
+    <link rel="stylesheet" th:href="@{/static/css/home/swiper.min.css}">
+    <link rel="stylesheet" th:href="@{/static/css/home/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{/static/css/home/style.css}">
+    <link rel="stylesheet" th:href="@{/static/css/home/service.css}">
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- 头部 -->
+
+
+    <div class="header content clearfix">
+        <a target="_blank" href="#">
+            <img th:src="@{/static/img/pic/logo.png}">
+        </a>
+        <div class="nav   maB25 navstyle">
+            <ul class="">
+
+                <li><a target="_blank" href="#">平台首页</a></li>
+                <li><a target="_blank" href="#">新闻中心</a></li>
+                <li><a target="_blank" href="#">学习教育</a></li>
+                <li><a target="_blank" href="/party-platform/login">党建管理</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 头部 end-->
+
+    <!-- banner -->
+
+    <div id="demo" class="carousel slide content" data-ride="carousel">
+
+        <!-- 指示符 -->
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
+        <!-- 轮播图片 -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img th:src="@{/static/img/pic/banner.jpg}">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{/static/img/pic/banner1.jpg}">
+            </div>
+            <div class="carousel-item">
+                <img th:src="@{/static/img/pic/banner.jpg}">
+            </div>
+        </div>
+
+        <!-- 左右切换按钮 -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+
+    </div>
+    <!-- 新闻 -->
+    <!-- 右侧top star -->
+    <div class="cndns-right">
+
+        <div class="cndns-right-meau meau-sev meau-code" id="top-back">
+            <a href="javascript:" class="cndns-right-btn" onclick="topBack()">
+                <span class="demo-icon"><img th:src="@{/static/img/pic/db.png}"></span>
+                <p>
+                    返回<br /> 顶部
+                </p>
+            </a>
+        </div>
+    </div>
+    <div class=" content-area">
+        <!-- 第一行 -->
+        <div class="row row-deck justify-content-center maB10">
+            <!-- 左侧banner -->
+            <div class=" col-lg-6 col-md-12">
+                <div id="demo1" class="carousel slide content" data-ride="carousel">
+
+                    <!-- 指示符 -->
+                    <ul class="carousel-indicators">
+                        <li data-target="#demo1" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo1" data-slide-to="1"></li>
+                        <li data-target="#demo1" data-slide-to="2"></li>
+                    </ul>
+
+                    <!-- 轮播图片 -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img th:src="@{/static/img/pic/800.jpg}">
+                        </div>
+                        <div class="carousel-item">
+                            <img th:src="@{/static/img/pic/800.jpg}">
+                        </div>
+                        <div class="carousel-item">
+                            <img th:src="@{/static/img/pic/800.jpg}">
+                        </div>
+                    </div>
+
+                    <!-- 左右切换按钮 -->
+                    <a class="carousel-control-prev" href="#demo1" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo1" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <!-- 红色新闻 -->
+            <div class=" col-lg-6 col-md-12">
+                <div class="card">
+                    <div class="card-header border-bottom">
+                        <h5 class="card-title cardtitles">红色新闻</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="layui-row bottomV1">
+                            <div class="layui-col-xs5 imgW">
+                                <a href="#" target="_blank">
+                                    <img th:src="@{/static/img/pic/800.jpg}" width="250" height="155" alt="">
+                                </a>
+                            </div>
+                            <div class="layui-col-xs7 textW">
+                                <div class="sMore"><a target="_blank" href="/party-platform/admin/page/news"><span>【党建动态】</span>总队组织全体党员集中观看全国抗疫先进表彰大会
+                                    </a></div>
+                                <div class="colorMore lineMore  ml10 "><a target="_blank"
+                                        href="#">会总队组织全体党员集中观看全国抗疫先进表彰大会总队组织全体党员集中观看全国抗疫先进表彰大会</a>
+                                </div>
+                                <div class="layui-row colorMore bottomV">
+                                    <div class="layui-col-xs4 ml10">2020-09-09</div>
+                                    <div class="layui-col-xs6 textRight">会委员会</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-row">
+                            <div class="layui-col-xs12" id="news">
+<!--                                <div class="layui-row textHei">-->
+<!--                                    <a href="/party-platform/admin/page/news" target="_blank">-->
+<!--                                        <div class=" widthLi">-->
+<!--                                            <span class="circle"></span>【党建动态】-->
+<!--                                        </div>-->
+<!--                                        <div class=" overHid colorBig  bigBox">2020年7月份总队党委理论中心组学习</div>-->
+<!--                                        <div class=" colorMore textRight widthTwo">2020-08-05</div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+
+
+
+<!--                                <div class="layui-row textHei">-->
+<!--                                    <a href="/party-platform/admin/page/news" target="_blank">-->
+<!--                                        <div class=" widthLi">-->
+<!--                                            <span class="circle"></span>【党建动态】-->
+<!--                                        </div>-->
+<!--                                        <div class=" overHid colorBig  bigBox">做廉洁奉公执法尖兵 树武汉城管品牌形象</div>-->
+<!--                                        <div class=" colorMore textRight widthTwo">2020-08-05</div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+
+
+
+<!--                                <div class="layui-row textHei">-->
+<!--                                    <a href="/party-platform/admin/page/news" target="_blank">-->
+<!--                                        <div class=" widthLi">-->
+<!--                                            <span class="circle"></span>【学习强国】-->
+<!--                                        </div>-->
+<!--                                        <div class=" overHid colorBig  bigBox">总队党员个人2020年上半年学习积分公布</div>-->
+<!--                                        <div class=" colorMore textRight widthTwo">2020-07-28</div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+
+
+
+<!--                                <div class="layui-row textHei">-->
+<!--                                    <a href="/party-platform/admin/page/news" target="_blank">-->
+<!--                                        <div class=" widthLi">-->
+<!--                                            <span class="circle"></span>【学习强国】-->
+<!--                                        </div>-->
+<!--                                        <div class=" overHid colorBig  bigBox">惠企为民给党旗争辉添彩</div>-->
+<!--                                        <div class=" colorMore textRight widthTwo">2020-07-27</div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+
+<!--                                <div class="layui-row textHei">-->
+<!--                                    <a href="/party-platform/admin/page/news" target="_blank">-->
+<!--                                        <div class=" widthLi">-->
+<!--                                            <span class="circle"></span>【学习强国】-->
+<!--                                        </div>-->
+<!--                                        <div class=" overHid colorBig  bigBox">惠企为民给党旗争辉添彩</div>-->
+<!--                                        <div class=" colorMore textRight widthTwo">2020-07-27</div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+
+<!--                                <div class="layui-row textHei">-->
+<!--                                    <a href="/party-platform/admin/page/news" target="_blank">-->
+<!--                                        <div class=" widthLi">-->
+<!--                                            <span class="circle"></span>【学习强国】-->
+<!--                                        </div>-->
+<!--                                        <div class=" overHid colorBig  bigBox">惠企为民给党旗争辉添彩</div>-->
+<!--                                        <div class=" colorMore textRight widthTwo">2020-07-27</div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+
+<!--                                <div class="layui-row textHei">-->
+<!--                                    <a href="/party-platform/admin/page/news" target="_blank">-->
+<!--                                        <div class=" widthLi">-->
+<!--                                            <span class="circle"></span>【学习强国】-->
+<!--                                        </div>-->
+<!--                                        <div class=" overHid colorBig  bigBox">惠企为民给党旗争辉添彩</div>-->
+<!--                                        <div class=" colorMore textRight widthTwo">2020-07-27</div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- 第二行 -->
+        <div class="row row-deck justify-content-center maB10">
+
+
+
+
+            <!-- 党建纪实 -->
+            <div class=" col-lg-6 col-md-12">
+                <div class="card">
+                    <div class="card-header border-bottom">
+                        <h5 class="card-title cardtitles">党建纪实</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="layui-row bottomV1" id="report">
+                            <div class="layui-col-xs5 imgW">
+                                <a href="#" target="_blank">
+                                    <img th:src="@{/static/img/pic/800.jpg}" width="250" height="155" alt="">
+                                </a>
+                            </div>
+                            <div class="layui-col-xs7 textW">
+                                <div class="sMore"><a target="_blank" href="#"><span>【党建动态】</span>总队组织全体党员集中观看全国抗疫先进表彰大会
+                                    </a></div>
+                                <div class="colorMore lineMore"><a target="_blank" href="#">总队组织全体党员集中观看全国抗疫先进表彰大会</a>
+                                </div>
+                                <div class="layui-row colorMore bottomV">
+                                    <div class="layui-col-xs6">2020-09-09</div>
+                                    <div class="layui-col-xs6 textRight">委员会</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-row">
+                            <div class="layui-col-xs12" id="newsDocument">
+<!--                                <div class="layui-row textHei">-->
+<!--                                    <a href="/party-platform/admin/page/news" target="_blank">-->
+<!--                                        <div class=" widthLi">-->
+<!--                                            <span class="circle"></span>【党建动态】-->
+<!--                                        </div>-->
+<!--                                        <div class=" overHid colorBig  bigBox">2020年7月份总队党委理论中心组学习</div>-->
+<!--                                        <div class=" colorMore textRight widthTwo">2020-08-05</div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+
+
+
+<!--                                <div class="layui-row textHei">-->
+<!--                                    <a href="/party-platform/admin/page/news" target="_blank">-->
+<!--                                        <div class=" widthLi">-->
+<!--                                            <span class="circle"></span>【党建动态】-->
+<!--                                        </div>-->
+<!--                                        <div class=" overHid colorBig  bigBox">做廉洁奉公执法尖兵 树武汉城管品牌形象</div>-->
+<!--                                        <div class=" colorMore textRight widthTwo">2020-08-05</div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+
+
+
+<!--                                <div class="layui-row textHei">-->
+<!--                                    <a href="/party-platform/admin/page/news" target="_blank">-->
+<!--                                        <div class=" widthLi">-->
+<!--                                            <span class="circle"></span>【学习强国】-->
+<!--                                        </div>-->
+<!--                                        <div class=" overHid colorBig  bigBox">总队党员个人2020年上半年学习积分公布</div>-->
+<!--                                        <div class=" colorMore textRight widthTwo">2020-07-28</div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+
+
+
+<!--                                <div class="layui-row textHei">-->
+<!--                                    <a href="/party-platform/admin/page/news" target="_blank">-->
+<!--                                        <div class=" widthLi">-->
+<!--                                            <span class="circle"></span>【学习强国】-->
+<!--                                        </div>-->
+<!--                                        <div class=" overHid colorBig  bigBox">惠企为民给党旗争辉添彩</div>-->
+<!--                                        <div class=" colorMore textRight widthTwo">2020-07-27</div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+
+<!--                                <div class="layui-row textHei">-->
+<!--                                    <a href="/party-platform/admin/page/news" target="_blank">-->
+<!--                                        <div class=" widthLi">-->
+<!--                                            <span class="circle"></span>【学习强国】-->
+<!--                                        </div>-->
+<!--                                        <div class=" overHid colorBig  bigBox">惠企为民给党旗争辉添彩</div>-->
+<!--                                        <div class=" colorMore textRight widthTwo">2020-07-27</div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                                <div class="layui-row textHei">-->
+<!--                                    <a href="/party-platform/admin/page/news" target="_blank">-->
+<!--                                        <div class=" widthLi">-->
+<!--                                            <span class="circle"></span>【学习强国】-->
+<!--                                        </div>-->
+<!--                                        <div class=" overHid colorBig  bigBox">惠企为民给党旗争辉添彩</div>-->
+<!--                                        <div class=" colorMore textRight widthTwo">2020-07-27</div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 功能速递 -->
+            <div class=" col-lg-4 col-md-12">
+                <div class="card">
+                    <div class="card-header border-bottom">
+                        <h5 class="card-title cardtitles">功能速递</h5>
+                    </div>
+                    <div class="card-body cka">
+                        <ui>
+
+                            <div class="mode modefont">学校官网</div>
+
+                            <div class="mode modefont">智慧党建管理</div>
+
+                            <div class="mode modefont">功能模块</div>
+                            <div class="mode modefont">功能模块</div>
+                        </ui>
+                    </div>
+                </div>
+            </div>
+            <!-- 专题荟萃 -->
+            <div class=" col-lg-2 col-md-12">
+                <div class="zhuanti">
+
+                    <ui class="zhuanti_mode modefont">
+
+                        <a class=""></a>
+                        <a class=""></a>
+                        <a class=""></a>
+                        <a class=""></a>
+                        <a class=""></a>
+
+                    </ui>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- 重大活动专题 star -->
+        <div id="myCarousel" class="carousel slide">
+            <div class="full-width-image-team">
+
+            </div>
+        </div>
+        <!-- 专题 end -->
+        <!-- 红色新闻专题 -->
+        <div class="titlered"><strong></strong></div>
+        <div class=" col-lg-12 col-md-12 reddemo">
+
+            <div class="">
+
+                <div class="tab">
+                    <ul>
+
+                        <li class="tabNavList">分区1</li>
+
+                        <li>分区1</li>
+
+                        <li>分区1</li>
+
+                    </ul>
+                </div>
+
+                <div class="thoughtCon clearfix">
+                    <div class="thoughtCon1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <img th:src="@{/static/img/pic/zt5.jpg}">
+                                    <h4>习近平：在深圳经济特区建立40周年庆祝大...</h4>
+                                    <p>在深圳经济特区建立40周年庆祝大会上的讲话（2020年10月14日）习近平女士们，先生们，同志们：　　今天，我们在这里隆重集会，庆祝深圳...</p>
+                                    <p><span>2020-10-15</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <img th:src="@{/static/img/pic/zt5.jpg}">
+                                    <h4>图解：习近平要求年轻干部提高7种能力</h4>
+                                    <p>图解：习近平要求年轻干部提高7种能力</p>
+                                    <p><span>2020-10-12</span><span>人民网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <img th:src="@{/static/img/pic/zt5.jpg}">
+                                    <h4>习近平在联合国大会纪念北京世界妇女大会...</h4>
+                                    <p>在联合国大会纪念北京世界妇女大会25周年高级别会议上的讲话　　（2020年10月1日，北京）　　中华人民共和国主席　习近平　　10月1日，...</p>
+                                    <p><span>2020-10-09</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1 thoughtConBor1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <h4>习近平在联合国生物多样性峰会上的讲话</h4>
+                                    <p>新华社北京9月30日电在联合国生物多样性峰会上的讲话（2020年9月30日，北京）中华人民共和国主席　习近平主席先生，各位同事：　　在联...</p>
+                                    <p><span>2020-10-01</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1 thoughtConBor1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <h4>李克强在庆祝中华人民共和国成立七十一周...</h4>
+                                    <p>新华社北京9月30日电在庆祝中华人民共和国成立七十一周年招待会上的致辞中华人民共和国国务院总理　李克强（2020年9月30日）　　9月30...</p>
+                                    <p><span>2020-10-01</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1 thoughtConBor1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <h4>习近平：在教育文化卫生体育领域专家代表...</h4>
+                                    <p>新华社北京9月22日电在教育文化卫生体育领域专家代表座谈会上的讲话（2020年9月22日）习近平　　今天，我们召开教育文化卫生体育领域专...</p>
+                                    <p><span>2020-09-23</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a target="_blank" href="#" class="more">查看更多 ></a>
+
+
+                </div>
+
+                <div class="thoughtCon clearfix" style="display:none">
+                    <div class="thoughtCon1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <img th:src="@{/static/img/pic/zt5.jpg}">
+                                    <h4>习近平：在深圳经济特区建立40周年庆祝大...</h4>
+                                    <p>在深圳经济特区建立40周年庆祝大会上的讲话（2020年10月14日）习近平女士们，先生们，同志们：　　今天，我们在这里隆重集会，庆祝深圳...</p>
+                                    <p><span>2020-10-15</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <img th:src="@{/static/img/pic/zt5.jpg}">
+                                    <h4>图解：习近平要求年轻干部提高7种能力</h4>
+                                    <p>图解：习近平要求年轻干部提高7种能力</p>
+                                    <p><span>2020-10-12</span><span>人民网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <img th:src="@{/static/img/pic/zt5.jpg}">
+                                    <h4>习近平在联合国大会纪念北京世界妇女大会...</h4>
+                                    <p>在联合国大会纪念北京世界妇女大会25周年高级别会议上的讲话　　（2020年10月1日，北京）　　中华人民共和国主席　习近平　　10月1日，...</p>
+                                    <p><span>2020-10-09</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1 thoughtConBor1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <h4>习近平在联合国生物多样性峰会上的讲话</h4>
+                                    <p>新华社北京9月30日电在联合国生物多样性峰会上的讲话（2020年9月30日，北京）中华人民共和国主席　习近平主席先生，各位同事：　　在联...</p>
+                                    <p><span>2020-10-01</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1 thoughtConBor1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <h4>李克强在庆祝中华人民共和国成立七十一周...</h4>
+                                    <p>新华社北京9月30日电在庆祝中华人民共和国成立七十一周年招待会上的致辞中华人民共和国国务院总理　李克强（2020年9月30日）　　9月30...</p>
+                                    <p><span>2020-10-01</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1 thoughtConBor1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <h4>习近平：在教育文化卫生体育领域专家代表...</h4>
+                                    <p>新华社北京9月22日电在教育文化卫生体育领域专家代表座谈会上的讲话（2020年9月22日）习近平　　今天，我们召开教育文化卫生体育领域专...</p>
+                                    <p><span>2020-09-23</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a target="_blank" href="#" class="more">查看更多 ></a>
+
+                </div>
+
+                <div class="thoughtCon clearfix" style="display:none">
+                    <div class="thoughtCon1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <img th:src="@{/static/img/pic/zt5.jpg}">
+                                    <h4>习近平：在深圳经济特区建立40周年庆祝大...</h4>
+                                    <p>在深圳经济特区建立40周年庆祝大会上的讲话（2020年10月14日）习近平女士们，先生们，同志们：　　今天，我们在这里隆重集会，庆祝深圳...</p>
+                                    <p><span>2020-10-15</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <img th:src="@{/static/img/pic/zt5.jpg}">
+                                    <h4>图解：习近平要求年轻干部提高7种能力</h4>
+                                    <p>图解：习近平要求年轻干部提高7种能力</p>
+                                    <p><span>2020-10-12</span><span>人民网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <img th:src="@{/static/img/pic/zt5.jpg}">
+                                    <h4>习近平在联合国大会纪念北京世界妇女大会...</h4>
+                                    <p>在联合国大会纪念北京世界妇女大会25周年高级别会议上的讲话　　（2020年10月1日，北京）　　中华人民共和国主席　习近平　　10月1日，...</p>
+                                    <p><span>2020-10-09</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1 thoughtConBor1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <h4>习近平在联合国生物多样性峰会上的讲话</h4>
+                                    <p>新华社北京9月30日电在联合国生物多样性峰会上的讲话（2020年9月30日，北京）中华人民共和国主席　习近平主席先生，各位同事：　　在联...</p>
+                                    <p><span>2020-10-01</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1 thoughtConBor1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <h4>李克强在庆祝中华人民共和国成立七十一周...</h4>
+                                    <p>新华社北京9月30日电在庆祝中华人民共和国成立七十一周年招待会上的致辞中华人民共和国国务院总理　李克强（2020年9月30日）　　9月30...</p>
+                                    <p><span>2020-10-01</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1 thoughtConBor1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <h4>习近平：在教育文化卫生体育领域专家代表...</h4>
+                                    <p>新华社北京9月22日电在教育文化卫生体育领域专家代表座谈会上的讲话（2020年9月22日）习近平　　今天，我们召开教育文化卫生体育领域专...</p>
+                                    <p><span>2020-09-23</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a target="_blank" href="#" class="more">查看更多 ></a>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 党建纪实专题 -->
+        <div class="titlejishi"><strong></strong></div>
+        <div class=" col-lg-12 col-md-12 reddemo">
+
+            <div class="">
+
+                <div class="tab">
+                    <ul>
+
+                        <li class="tabNavList">分区1</li>
+
+                        <li>分区1</li>
+
+                        <li>分区1</li>
+
+                    </ul>
+                </div>
+
+                <div class="thoughtCon clearfix">
+                    <div class="thoughtCon1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <img th:src="@{/static/img/pic/zt5.jpg}">
+                                    <h4>习近平：在深圳经济特区建立40周年庆祝大...</h4>
+                                    <p>在深圳经济特区建立40周年庆祝大会上的讲话（2020年10月14日）习近平女士们，先生们，同志们：　　今天，我们在这里隆重集会，庆祝深圳...</p>
+                                    <p><span>2020-10-15</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <img th:src="@{/static/img/pic/zt5.jpg}">
+                                    <h4>图解：习近平要求年轻干部提高7种能力</h4>
+                                    <p>图解：习近平要求年轻干部提高7种能力</p>
+                                    <p><span>2020-10-12</span><span>人民网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <img th:src="@{/static/img/pic/zt5.jpg}">
+                                    <h4>习近平在联合国大会纪念北京世界妇女大会...</h4>
+                                    <p>在联合国大会纪念北京世界妇女大会25周年高级别会议上的讲话　　（2020年10月1日，北京）　　中华人民共和国主席　习近平　　10月1日，...</p>
+                                    <p><span>2020-10-09</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1 thoughtConBor1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <h4>习近平在联合国生物多样性峰会上的讲话</h4>
+                                    <p>新华社北京9月30日电在联合国生物多样性峰会上的讲话（2020年9月30日，北京）中华人民共和国主席　习近平主席先生，各位同事：　　在联...</p>
+                                    <p><span>2020-10-01</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1 thoughtConBor1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <h4>李克强在庆祝中华人民共和国成立七十一周...</h4>
+                                    <p>新华社北京9月30日电在庆祝中华人民共和国成立七十一周年招待会上的致辞中华人民共和国国务院总理　李克强（2020年9月30日）　　9月30...</p>
+                                    <p><span>2020-10-01</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1 thoughtConBor1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <h4>习近平：在教育文化卫生体育领域专家代表...</h4>
+                                    <p>新华社北京9月22日电在教育文化卫生体育领域专家代表座谈会上的讲话（2020年9月22日）习近平　　今天，我们召开教育文化卫生体育领域专...</p>
+                                    <p><span>2020-09-23</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a target="_blank" href="#" class="more">查看更多 ></a>
+
+
+                </div>
+
+                <div class="thoughtCon clearfix" style="display:none">
+                    <div class="thoughtCon1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <img th:src="@{/static/img/pic/zt5.jpg}">
+                                    <h4>习近平：在深圳经济特区建立40周年庆祝大...</h4>
+                                    <p>在深圳经济特区建立40周年庆祝大会上的讲话（2020年10月14日）习近平女士们，先生们，同志们：　　今天，我们在这里隆重集会，庆祝深圳...</p>
+                                    <p><span>2020-10-15</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <img th:src="@{/static/img/pic/zt5.jpg}">
+                                    <h4>图解：习近平要求年轻干部提高7种能力</h4>
+                                    <p>图解：习近平要求年轻干部提高7种能力</p>
+                                    <p><span>2020-10-12</span><span>人民网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <img th:src="@{/static/img/pic/zt5.jpg}">
+                                    <h4>习近平在联合国大会纪念北京世界妇女大会...</h4>
+                                    <p>在联合国大会纪念北京世界妇女大会25周年高级别会议上的讲话　　（2020年10月1日，北京）　　中华人民共和国主席　习近平　　10月1日，...</p>
+                                    <p><span>2020-10-09</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1 thoughtConBor1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <h4>习近平在联合国生物多样性峰会上的讲话</h4>
+                                    <p>新华社北京9月30日电在联合国生物多样性峰会上的讲话（2020年9月30日，北京）中华人民共和国主席　习近平主席先生，各位同事：　　在联...</p>
+                                    <p><span>2020-10-01</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1 thoughtConBor1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <h4>李克强在庆祝中华人民共和国成立七十一周...</h4>
+                                    <p>新华社北京9月30日电在庆祝中华人民共和国成立七十一周年招待会上的致辞中华人民共和国国务院总理　李克强（2020年9月30日）　　9月30...</p>
+                                    <p><span>2020-10-01</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1 thoughtConBor1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <h4>习近平：在教育文化卫生体育领域专家代表...</h4>
+                                    <p>新华社北京9月22日电在教育文化卫生体育领域专家代表座谈会上的讲话（2020年9月22日）习近平　　今天，我们召开教育文化卫生体育领域专...</p>
+                                    <p><span>2020-09-23</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a target="_blank" href="#" class="more">查看更多 ></a>
+
+                </div>
+
+                <div class="thoughtCon clearfix" style="display:none">
+                    <div class="thoughtCon1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <img th:src="@{/static/img/pic/zt5.jpg}">
+                                    <h4>习近平：在深圳经济特区建立40周年庆祝大...</h4>
+                                    <p>在深圳经济特区建立40周年庆祝大会上的讲话（2020年10月14日）习近平女士们，先生们，同志们：　　今天，我们在这里隆重集会，庆祝深圳...</p>
+                                    <p><span>2020-10-15</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <img th:src="@{/static/img/pic/zt5.jpg}">
+                                    <h4>图解：习近平要求年轻干部提高7种能力</h4>
+                                    <p>图解：习近平要求年轻干部提高7种能力</p>
+                                    <p><span>2020-10-12</span><span>人民网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <img th:src="@{/static/img/pic/zt5.jpg}">
+                                    <h4>习近平在联合国大会纪念北京世界妇女大会...</h4>
+                                    <p>在联合国大会纪念北京世界妇女大会25周年高级别会议上的讲话　　（2020年10月1日，北京）　　中华人民共和国主席　习近平　　10月1日，...</p>
+                                    <p><span>2020-10-09</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1 thoughtConBor1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <h4>习近平在联合国生物多样性峰会上的讲话</h4>
+                                    <p>新华社北京9月30日电在联合国生物多样性峰会上的讲话（2020年9月30日，北京）中华人民共和国主席　习近平主席先生，各位同事：　　在联...</p>
+                                    <p><span>2020-10-01</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1 thoughtConBor1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <h4>李克强在庆祝中华人民共和国成立七十一周...</h4>
+                                    <p>新华社北京9月30日电在庆祝中华人民共和国成立七十一周年招待会上的致辞中华人民共和国国务院总理　李克强（2020年9月30日）　　9月30...</p>
+                                    <p><span>2020-10-01</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="thoughtCon1 thoughtConBor1">
+                        <ul>
+                            <li>
+                                <a target="_blank" href="#">
+                                    <h4>习近平：在教育文化卫生体育领域专家代表...</h4>
+                                    <p>新华社北京9月22日电在教育文化卫生体育领域专家代表座谈会上的讲话（2020年9月22日）习近平　　今天，我们召开教育文化卫生体育领域专...</p>
+                                    <p><span>2020-09-23</span><span>新华网</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a target="_blank" href="#" class="more">查看更多 ></a>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 友情链接 -->
+        <div id="myCarousel" class="carousel slide">
+            <div class="xw_top">
+                <ul>
+                    <li class="active"><a href="javascript:void(0)" style="cursor:default;">友情链接</a></li>
+                </ul>
+            </div>
+            <div class="linkbox ls-scroll">
+                <span class="prev"></span><span class="next"></span>
+                <div class="namegou">
+                    <ul class="scroll-body">
+                        <li><a href="http://www.ahxf.gov.cn/" target="_blank"><img th:src="@{/static/img/pic/link1.png}"></a>
+                        </li>
+                        <li><a href="http://www.hbxfw.gov.cn/" target="_blank"><img th:src="@{/static/img/pic/link2.png}"></a>
+                        </li>
+                        <li><a href="http://sxx.ahxf.gov.cn/" target="_blank"><img th:src="@{/static/img/pic/link3.png}"></a>
+                        </li>
+                        <li><a href="http://www.sxx.gov.cn/" target="_blank"><img th:src="@{/static/img/pic/link4.png}"></a>
+                        </li>
+                        <li><a href="http://www.sxx.gov.cn/" target="_blank"><img th:src="@{/static/img/pic/link5.png}"></a>
+                        </li>
+                        <li><a href="http://www.sxx.gov.cn/" target="_blank"><img th:src="@{/static/img/pic/link6.png}"></a>
+                        </li>
+                        <li><a href="http://www.sxx.gov.cn/" target="_blank"><img th:src="@{/static/img/pic/link7.png}"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    </div>
+
+    <!--底部-->
+    <div class="b_footer">
+        <div class="b_foot">
+            <div class="footnav">
+                单位：盐城师范学院信息工程学院
+
+            </div>
+        </div>
+    </div>
+    <!--底部end-->
+
+
+
+</body>
+
+
+<script type="text/javascript" th:src="@{/static/js/home/layui.all.js}"></script>
+<script type="text/javascript" th:src="@{/static/js/home/layui.js}"></script>
+<script type="text/javascript" th:src="@{/static/js/home/core.min.js}"></script>
+<script>
+    //置顶图标显示
+    $(function () {
+        $('#top-back').hide()
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 350) {
+                $("#top-back").fadeIn();
+            } else {
+                $("#top-back").fadeOut();
+            }
+        })
+    })
+    //置顶事件
+    function topBack() {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 300);
+    }
+    //tab切换
+    $(".tab li").each(function (index) {
+        $(this).mouseover(function (e) {
+            $(this).addClass("tabNavList").siblings().removeClass("tabNavList");
+            $(".thoughtCon").eq(main).show().siblings(".thoughtCon").hide();
+        })
+    });
+</script>
+
+<script>
+    //获取新闻列表
+    $(document).ready(function () {
+        $.ajax({
+            url: "/party-platform/mainPage/allNews",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                let containerwrapper = $("#news");
+
+                let item = result;
+                console.info(item);
+
+                let maxsize;
+                if (item.length < 7){
+                    maxsize = item.length;
+                }else {
+                    maxsize = 7;
+                }
+                for (let i = 0; i < maxsize; i++){
+                    containerwrapper.append(
+                    '<div class="layui-row textHei">'+
+                        '<a href="/party-platform/admin/page/news?newsid=' + item[i].newsId + '" target="_blank">'+
+                        '<div class=" widthLi">'+
+                        '<span class="circle">'+'</span>'+'【党建动态】'+
+                        '</div>'+
+                        '<div class=" overHid colorBig  bigBox">'+item[i].newsTitle+'</div>'+
+                    '<div class=" colorMore textRight widthTwo">'+item[i].createTime+'</div>'+
+                    '</a>'+
+                    '</div>'
+                    )
+                }
+            }
+        })
+    })
+
+    //获取党建纪实列表
+    $(document).ready(function () {
+        $.ajax({
+            url: "/party-platform/mainPage/allDocuments",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                let containerwrapper = $("#newsDocument");
+
+                let item = result;
+                console.info(item);
+
+                let maxsize;
+                if (item.length < 6){
+                    maxsize = item.length;
+                }else {
+                    maxsize = 6;
+                }
+                for (let i = 0; i < maxsize; i++){
+                    containerwrapper.append(
+                        '<div class="layui-row textHei">'+
+                        '<a href="/party-platform/admin/page/news?documentaryId=' + item[i].documentaryId + '" target="_blank">'+
+                        '<div class=" widthLi">'+
+                        '<span class="circle">'+'</span>'+'【学习强国】'+
+                        '</div>'+
+                        '<div class=" overHid colorBig  bigBox">'+item[i].documentaryTitle+'</div>'+
+                        '<div class=" colorMore textRight widthTwo">'+item[i].createTime+'</div>'+
+                        '</a>'+
+                        '</div>'
+
+                    )
+                }
+            }
+        })
+    })
+
+</script>
+
+</html>

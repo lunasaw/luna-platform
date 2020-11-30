@@ -17,7 +17,22 @@ public class PageController {
 
     @GetMapping("/news")
     public String toNews(){
-        return PREFIX + "/newsPage";
+        return PREFIX + "/news";
+    }
+
+    @GetMapping("/newslist")
+    public String toNewsList(){
+        return PREFIX + "/newslist";
+    }
+
+    @GetMapping("/study")
+    public String toStudy(){
+        return PREFIX + "/study";
+    }
+
+    @GetMapping("/build")
+    public String toBuild(){
+        return PREFIX + "/partBuild";
     }
 
 }
