@@ -11,7 +11,7 @@
  Target Server Version : 50718
  File Encoding         : 65001
 
- Date: 28/11/2020 18:07:51
+ Date: 14/12/2020 10:10:13
 */
 
 SET NAMES utf8mb4;
@@ -180,7 +180,7 @@ CREATE TABLE `QRTZ_SCHEDULER_STATE` (
 -- Records of QRTZ_SCHEDULER_STATE
 -- ----------------------------
 BEGIN;
-INSERT INTO `QRTZ_SCHEDULER_STATE` VALUES ('RuoyiScheduler', 'luna1604641138134', 1604641175006, 15000);
+INSERT INTO `QRTZ_SCHEDULER_STATE` VALUES ('RuoyiScheduler', 'luna1607911442258', 1607911660880, 15000);
 COMMIT;
 
 -- ----------------------------
@@ -263,9 +263,9 @@ CREATE TABLE `QRTZ_TRIGGERS` (
 -- Records of QRTZ_TRIGGERS
 -- ----------------------------
 BEGIN;
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', NULL, 1604641140000, -1, 5, 'PAUSED', 'CRON', 1604641138000, 0, NULL, 2, '');
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', NULL, 1604641140000, -1, 5, 'PAUSED', 'CRON', 1604641139000, 0, NULL, 2, '');
-INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', NULL, 1604641140000, -1, 5, 'PAUSED', 'CRON', 1604641140000, 0, NULL, 2, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', NULL, 1607911450000, -1, 5, 'PAUSED', 'CRON', 1607911444000, 0, NULL, 2, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', NULL, 1607911455000, -1, 5, 'PAUSED', 'CRON', 1607911445000, 0, NULL, 2, '');
+INSERT INTO `QRTZ_TRIGGERS` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', NULL, 1607911460000, -1, 5, 'PAUSED', 'CRON', 1607911446000, 0, NULL, 2, '');
 COMMIT;
 
 -- ----------------------------
@@ -774,7 +774,7 @@ CREATE TABLE `sys_logininfor` (
   `msg` varchar(255) DEFAULT '' COMMENT '提示消息',
   `login_time` datetime DEFAULT NULL COMMENT '访问时间',
   PRIMARY KEY (`info_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=220 DEFAULT CHARSET=utf8mb4 COMMENT='系统访问记录';
+) ENGINE=InnoDB AUTO_INCREMENT=221 DEFAULT CHARSET=utf8mb4 COMMENT='系统访问记录';
 
 -- ----------------------------
 -- Records of sys_logininfor
@@ -900,6 +900,7 @@ INSERT INTO `sys_logininfor` VALUES (216, 'admin', '127.0.0.1', '内网IP', 'Chr
 INSERT INTO `sys_logininfor` VALUES (217, 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-11-06 10:36:57');
 INSERT INTO `sys_logininfor` VALUES (218, 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-11-06 10:49:08');
 INSERT INTO `sys_logininfor` VALUES (219, 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Windows 10', '0', '登录成功', '2020-11-06 11:28:27');
+INSERT INTO `sys_logininfor` VALUES (220, 'admin', '127.0.0.1', '内网IP', 'Chrome 8', 'Mac OS X', '0', '登录成功', '2020-12-14 09:58:29');
 COMMIT;
 
 -- ----------------------------
@@ -1604,7 +1605,7 @@ CREATE TABLE `sys_user` (
 -- Records of sys_user
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_user` VALUES (1, 103, 'admin', 'admin', '00', 'luna_nov@163.com', '15888888888', '1', '', '29c67a30398638269fe600f73a054934', '111111', '0', '0', '127.0.0.1', '2020-11-06 11:28:28', 'admin', '2018-03-16 11:33:00', 'ry', '2020-11-06 11:28:27', '管理员');
+INSERT INTO `sys_user` VALUES (1, 103, 'admin', 'admin', '00', 'luna_nov@163.com', '15888888888', '1', '', '29c67a30398638269fe600f73a054934', '111111', '0', '0', '127.0.0.1', '2020-12-14 09:58:25', 'admin', '2018-03-16 11:33:00', 'ry', '2020-12-14 09:58:29', '管理员');
 INSERT INTO `sys_user` VALUES (2, 105, 'ry', '测试人员', '00', 'ry@qq.com', '15666666666', '1', '', '8e6d98b90472783cc73c17047ddccf36', '222222', '0', '0', '127.0.0.1', '2018-03-16 11:33:00', 'admin', '2018-03-16 11:33:00', 'admin', '2020-09-26 13:55:48', '测试员');
 INSERT INTO `sys_user` VALUES (100, 106, 'luna', 'luna', '01', 'Iszychen@gmail.com', '15696756582', '0', '', '908a9c13bed1733af5f87cc85b0cba0c', 'e72ef5', '0', '0', '127.0.0.1', '2020-09-25 10:27:03', '', '2020-09-24 20:38:57', 'admin', '2020-09-26 13:52:53', '');
 COMMIT;
@@ -1632,6 +1633,7 @@ CREATE TABLE `sys_user_online` (
 -- Records of sys_user_online
 -- ----------------------------
 BEGIN;
+INSERT INTO `sys_user_online` VALUES ('70f87787-9b9c-4e9f-951c-685344cdc172', 'admin', '电视频道', '127.0.0.1', '内网IP', 'Chrome 8', 'Mac OS X', 'on_line', '2020-12-14 09:58:16', '2020-12-14 10:07:16', 1800000);
 COMMIT;
 
 -- ----------------------------
