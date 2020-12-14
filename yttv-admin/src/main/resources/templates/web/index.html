@@ -211,15 +211,15 @@
                                     <img src="images/t4.jpg" th:src="${{item.blogPicture}}" class="img-responsive"
                                          alt=""></a>
                             </div>
-                            <h3><a href="singlepage.html">
-                                <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
-                                            <font style="vertical-align: inherit;" th:text="${{item.blogTitle}}">Lorem
-                                                ipsum就是</font>
-                                        </font>
-                                    </font>
-                                </font>
+                            <h3><a href="singlepage.html" th:href="@{'/web/singlepage?blogId='+${{item.blogId}}}">
+	                            <font style="vertical-align: inherit;">
+		                            <font style="vertical-align: inherit;">
+			                            <font style="vertical-align: inherit;">
+				                            <font style="vertical-align: inherit;" th:text="${{item.blogTitle}}">Lorem
+					                            ipsum就是</font>
+			                            </font>
+		                            </font>
+	                            </font>
                             </a></h3>
                             <h6>
                                 <font style="vertical-align: inherit;">

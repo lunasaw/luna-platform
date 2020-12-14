@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.yttv</groupId>
@@ -8,9 +8,9 @@
     <version>4.4.0</version>
 
     <name>yttv</name>
-    <url>http://www.yttv.vip</url>
-    <description>若依管理系统</description>
-    
+    <url>http://lunayttv.vaiwan.com</url>
+    <description>yttv-platform</description>
+
     <properties>
         <yttv.version>4.4.0</yttv.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

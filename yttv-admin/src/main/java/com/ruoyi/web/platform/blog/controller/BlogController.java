@@ -48,6 +48,9 @@ public class BlogController extends BaseController {
 
     /**
      * 查询博客展示列表
+     *
+     * @param blog
+     * @return TableDataInfo
      */
     @ApiOperation(value = "查询博客展示列表", notes = "查询博客展示列表详情", tags = {"Blog-Controller"})
     @PostMapping("/list")
@@ -61,6 +64,8 @@ public class BlogController extends BaseController {
 
     /**
      * 导出博客展示列表
+     * @param blog
+     * @return AjaxResult
      */
     @ApiOperation(value = "导出博客展示列表", notes = "导出博客展示列表详情", tags = {"Blog-Controller"})
     @RequiresPermissions("admin:blog:export")
