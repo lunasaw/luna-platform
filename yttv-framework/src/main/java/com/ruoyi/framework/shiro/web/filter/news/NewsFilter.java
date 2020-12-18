@@ -7,8 +7,8 @@ import org.apache.shiro.web.filter.AccessControlFilter;
 
 /**
  * 验证码过滤器
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class NewsFilter extends AccessControlFilter
 {

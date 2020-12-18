@@ -25,8 +25,8 @@ import com.ruoyi.system.domain.SysUser;
 
 /**
  * 登录帐号控制过滤器
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class KickoutSessionFilter extends AccessControlFilter
 {

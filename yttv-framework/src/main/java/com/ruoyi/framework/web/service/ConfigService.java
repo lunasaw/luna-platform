@@ -6,8 +6,8 @@ import com.ruoyi.system.service.ISysConfigService;
 
 /**
  * RuoYi首创 html调用 thymeleaf 实现参数管理
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 @Service("config")
 public class ConfigService

@@ -20,8 +20,8 @@ import com.ruoyi.system.utils.DictUtils;
 
 /**
  * 字典 业务层处理
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 @Service
 public class SysDictTypeServiceImpl implements ISysDictTypeService

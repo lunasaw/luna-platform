@@ -2,8 +2,8 @@ package com.ruoyi.common.constant;
 
 /**
  * Shiro通用常量
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class ShiroConstants
 {

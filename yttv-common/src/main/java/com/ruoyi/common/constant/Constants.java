@@ -2,8 +2,8 @@ package com.ruoyi.common.constant;
 
 /**
  * 通用常量信息
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class Constants
 {

@@ -9,8 +9,8 @@ import com.ruoyi.common.utils.http.HttpUtils;
 
 /**
  * 获取地址类
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class AddressUtils
 {

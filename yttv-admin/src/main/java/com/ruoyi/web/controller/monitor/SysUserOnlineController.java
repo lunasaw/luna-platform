@@ -24,8 +24,8 @@ import com.ruoyi.system.service.ISysUserOnlineService;
 
 /**
  * 在线用户监控
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 @Controller
 @RequestMapping("/monitor/online")

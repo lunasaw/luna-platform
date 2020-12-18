@@ -14,8 +14,8 @@ import com.ruoyi.framework.shiro.service.SysShiroService;
 
 /**
  * 针对自定义的ShiroSession的db操作
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class OnlineSessionDAO extends EnterpriseCacheSessionDAO
 {

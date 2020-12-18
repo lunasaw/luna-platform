@@ -6,8 +6,8 @@ import com.ruoyi.system.domain.SysUserOnline;
 
 /**
  * 在线用户 服务层
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public interface ISysUserOnlineService
 {

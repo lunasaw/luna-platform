@@ -6,8 +6,8 @@ import com.ruoyi.system.domain.SysUserRole;
 
 /**
  * 用户 业务层
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public interface ISysUserService
 {

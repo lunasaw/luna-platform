@@ -2,8 +2,8 @@ package com.ruoyi.common.utils.uuid;
 
 /**
  * ID生成器工具类
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class IdUtils
 {

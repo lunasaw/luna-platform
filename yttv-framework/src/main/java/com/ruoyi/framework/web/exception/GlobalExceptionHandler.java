@@ -17,8 +17,8 @@ import com.ruoyi.common.utils.security.PermissionUtils;
 
 /**
  * 全局异常处理器
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler

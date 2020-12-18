@@ -19,8 +19,8 @@ import com.ruoyi.system.domain.SysUser;
 
 /**
  * 登录密码方法
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 @Component
 public class SysPasswordService

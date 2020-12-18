@@ -4,8 +4,8 @@ import com.ruoyi.common.exception.base.BaseException;
 
 /**
  * 文件信息异常类
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class FileException extends BaseException
 {

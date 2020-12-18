@@ -2,8 +2,8 @@ package com.ruoyi.common.enums;
 
 /**
  * 业务操作类型
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public enum BusinessType
 {

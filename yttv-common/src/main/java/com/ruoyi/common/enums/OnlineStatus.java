@@ -2,8 +2,8 @@ package com.ruoyi.common.enums;
 
 /**
  * 用户会话
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public enum OnlineStatus
 {

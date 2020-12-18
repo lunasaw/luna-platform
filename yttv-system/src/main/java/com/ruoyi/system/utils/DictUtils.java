@@ -9,8 +9,8 @@ import com.ruoyi.system.domain.SysDictData;
 
 /**
  * 字典工具类
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 @Component
 public class DictUtils

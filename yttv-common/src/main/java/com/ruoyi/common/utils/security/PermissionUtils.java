@@ -13,8 +13,8 @@ import com.ruoyi.common.utils.MessageUtils;
 
 /**
  * permission 工具类
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class PermissionUtils
 {

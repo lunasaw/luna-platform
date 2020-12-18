@@ -21,8 +21,8 @@ import com.ruoyi.system.service.ISysOperLogService;
 
 /**
  * 操作日志记录
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 @Controller
 @RequestMapping("/monitor/operlog")

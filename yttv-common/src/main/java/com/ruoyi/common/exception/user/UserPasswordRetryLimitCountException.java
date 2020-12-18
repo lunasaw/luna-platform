@@ -2,8 +2,8 @@ package com.ruoyi.common.exception.user;
 
 /**
  * 用户错误记数异常类
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class UserPasswordRetryLimitCountException extends UserException
 {

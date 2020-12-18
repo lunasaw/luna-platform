@@ -22,8 +22,8 @@ import com.ruoyi.common.constant.Constants;
 
 /**
  * 通用http发送方法
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class HttpUtils
 {

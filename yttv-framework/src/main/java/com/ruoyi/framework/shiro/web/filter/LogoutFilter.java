@@ -18,8 +18,8 @@ import com.ruoyi.system.service.ISysUserOnlineService;
 
 /**
  * 退出过滤器
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class LogoutFilter extends org.apache.shiro.web.filter.authc.LogoutFilter
 {

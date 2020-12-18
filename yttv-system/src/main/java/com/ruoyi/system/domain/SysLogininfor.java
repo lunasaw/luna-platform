@@ -9,8 +9,8 @@ import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
  * 系统访问记录表 sys_logininfor
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class SysLogininfor extends BaseEntity
 {

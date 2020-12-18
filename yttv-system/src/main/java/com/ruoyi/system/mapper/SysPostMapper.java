@@ -5,8 +5,8 @@ import com.ruoyi.system.domain.SysPost;
 
 /**
  * 岗位信息 数据层
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public interface SysPostMapper
 {

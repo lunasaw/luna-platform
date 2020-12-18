@@ -13,8 +13,8 @@ import com.ruoyi.common.utils.ServletUtils;
 
 /**
  * 防止重复提交拦截器
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 @Component
 public abstract class RepeatSubmitInterceptor extends HandlerInterceptorAdapter

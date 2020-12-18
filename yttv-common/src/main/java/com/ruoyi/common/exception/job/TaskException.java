@@ -2,8 +2,8 @@ package com.ruoyi.common.exception.job;
 
 /**
  * 计划策略异常
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class TaskException extends Exception
 {

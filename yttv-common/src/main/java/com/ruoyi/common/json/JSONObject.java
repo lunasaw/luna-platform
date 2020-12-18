@@ -13,8 +13,8 @@ import com.ruoyi.common.utils.StringUtils;
 
 /**
  * 通用消息对象，基于Map实现的可嵌套数据结构。 支持JSON数据结构。
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class JSONObject extends LinkedHashMap<String, Object>
 {

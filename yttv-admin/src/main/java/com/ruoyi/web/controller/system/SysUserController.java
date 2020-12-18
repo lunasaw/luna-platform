@@ -30,8 +30,8 @@ import com.ruoyi.system.service.ISysUserService;
 
 /**
  * 用户信息
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 @Controller
 @RequestMapping("/system/user")

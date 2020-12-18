@@ -5,8 +5,8 @@ import java.util.List;
 
 /**
  * 调度任务日志信息 数据层
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public interface SysJobLogMapper
 {

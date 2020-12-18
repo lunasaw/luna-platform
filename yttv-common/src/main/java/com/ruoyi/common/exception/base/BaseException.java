@@ -5,8 +5,8 @@ import com.ruoyi.common.utils.StringUtils;
 
 /**
  * 基础异常
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class BaseException extends RuntimeException
 {

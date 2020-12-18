@@ -7,8 +7,8 @@ import com.ruoyi.common.config.datasource.DynamicDataSourceContextHolder;
 
 /**
  * 动态数据源
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class DynamicDataSource extends AbstractRoutingDataSource
 {

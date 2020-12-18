@@ -27,8 +27,8 @@ import com.ruoyi.system.domain.SysUser;
 
 /**
  * 操作日志记录处理
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 @Aspect
 @Component

@@ -4,8 +4,8 @@ import com.ruoyi.common.utils.StringUtils;
 
 /**
  * 字符串格式化
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class StrFormatter
 {

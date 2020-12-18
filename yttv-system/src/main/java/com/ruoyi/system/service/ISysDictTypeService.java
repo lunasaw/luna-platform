@@ -7,8 +7,8 @@ import com.ruoyi.system.domain.SysDictType;
 
 /**
  * 字典 业务层
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public interface ISysDictTypeService
 {

@@ -5,8 +5,8 @@ import com.ruoyi.system.domain.SysPost;
 
 /**
  * 岗位信息 服务层
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public interface ISysPostService
 {

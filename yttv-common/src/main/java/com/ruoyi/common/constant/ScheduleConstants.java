@@ -2,8 +2,8 @@ package com.ruoyi.common.constant;
 
 /**
  * 任务调度通用常量
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 public class ScheduleConstants
 {

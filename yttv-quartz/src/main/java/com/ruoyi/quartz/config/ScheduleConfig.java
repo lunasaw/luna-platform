@@ -8,8 +8,8 @@ import java.util.Properties;
 
 /**
  * 定时任务配置
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 @Configuration
 public class ScheduleConfig

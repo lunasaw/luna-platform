@@ -25,8 +25,8 @@ import com.ruoyi.quartz.service.ISysJobService;
 
 /**
  * 调度日志操作处理
- * 
- * @author ruoyi
+ *
+ * @author luna
  */
 @Controller
 @RequestMapping("/monitor/jobLog")

@@ -6,9 +6,8 @@ import com.ruoyi.quartz.domain.SysJob;
 
 /**
  * 定时任务处理（禁止并发执行）
- * 
- * @author ruoyi
  *
+ * @author luna
  */
 @DisallowConcurrentExecution
 public class QuartzDisallowConcurrentExecution extends AbstractQuartzJob
