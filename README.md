@@ -21,9 +21,9 @@ party-platform
     <img src="https://tva1.sinaimg.cn/large/0081Kckwgy1glt8cw6atpj30fa0faaa1.jpg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">沿途之声</h3>
+  <h3 align="center">党建平台</h3>
   <p align="center">
-    一个记录你生活的博客平台
+    盐城师范学院信息工程学院党建平台
     <br />
     <a href="https://czy1024.github.io/party-platform"><strong>探索本项目的文档 »</strong></a>
     <br />
