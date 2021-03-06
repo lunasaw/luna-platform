@@ -7,7 +7,7 @@ ruoyi:
   # 版权年份
   copyrightYear: 2020
   # 实例演示开关
-  demoEnabled: true
+  demoEnabled: false
   # 文件路径 示例（ Windows配置D:/ruoyi/uploadPath，Linux配置 /home/ruoyi/uploadPath）
   profile: /Users/luna_mac/rouyi/uploadPath
   # 获取ip地址开关
@@ -96,7 +96,7 @@ shiro:
     # 首页地址
     indexUrl: /index
     # 验证码开关
-    captchaEnabled: false
+    captchaEnabled: true
     # 验证码类型 math 数组计算 char 字符
     captchaType: math
   cookie:

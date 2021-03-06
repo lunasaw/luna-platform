@@ -1,6 +1,7 @@
 package com.ruoyi.web.platform.comments.service;
 
 import java.util.List;
+
 import com.ruoyi.web.platform.comments.domain.Comments;
 
 /**
@@ -57,4 +58,6 @@ public interface ICommentsService {
      * @return 结果
      */
     public int deleteCommentsById(Long commentsId);
+
+    public int reply(Comments comments);
 }

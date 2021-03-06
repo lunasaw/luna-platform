@@ -122,100 +122,98 @@
 <body class="gray-bg">
 	<div class="container-div">
 		<div class="row">
-			<!--			<div class="btn-group-sm" id="toolbar" role="group">-->
-			<!--				<a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="admin:comments:add">-->
-			<!--					<i class="fa fa-plus"></i> 添加-->
-			<!--				</a>-->
-			<!--				<a class="btn btn-primary single disabled" onclick="$.operate.edit()"-->
-			<!--				   shiro:hasPermission="admin:comments:edit">-->
-			<!--					<i class="fa fa-edit"></i> 修改-->
-			<!--				</a>-->
-			<!--				<a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()"-->
-			<!--				   shiro:hasPermission="admin:comments:remove">-->
-			<!--					<i class="fa fa-remove"></i> 删除-->
-			<!--				</a>-->
-			<!--				<a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="admin:comments:export">-->
-			<!--					<i class="fa fa-download"></i> 导出-->
-			<!--				</a>-->
+			<!--			<div class="col-sm-10 search-collapse">-->
+			<!--				<form id="search-active" class="search-active">-->
+			<!--					<div class="select-list">-->
+			<!--						<ul>-->
+			<!--							<li>-->
+			<!--								<label>评论标题：</label>-->
+			<!--								<input type="text" name="commentsTitle"/>-->
+			<!--							</li>-->
+			<!--							<li>-->
+			<!--								<label>评论类型：</label>-->
+			<!--								<select name="commentsType" th:with="type=${@dict.getType('sys_comments_type')}">-->
+			<!--									<option value="">所有</option>-->
+			<!--									<option th:each="dict : ${type}" th:text="${dict.dictLabel}"-->
+			<!--									        th:value="${dict.dictValue}"></option>-->
+			<!--								</select>-->
+			<!--							</li>-->
+			<!--							<li>-->
+			<!--								<label>评论内容：</label>-->
+			<!--								<input type="text" name="commentsContent"/>-->
+			<!--							</li>-->
+			<!--							<li>-->
+			<!--								<label>评论状态：</label>-->
+			<!--								<select name="status" th:with="type=${@dict.getType('sys_news_status')}">-->
+			<!--									<option value="">所有</option>-->
+			<!--									<option th:each="dict : ${type}" th:text="${dict.dictLabel}"-->
+			<!--									        th:value="${dict.dictValue}"></option>-->
+			<!--								</select>-->
+			<!--							</li>-->
+			<!--							<li>-->
+			<!--								<button onclick="startSearch()"><a class="btn btn-primary btn-rounded btn-sm"><i-->
+			<!--									class="fa fa-search"></i>&nbsp;搜索</a></button>-->
+
+			<!--								<button><a class="btn btn-warning btn-rounded btn-sm"-->
+			<!--								           href="/party-platform/admin/comments/start"><i-->
+			<!--									class="fa fa-refresh"></i>&nbsp;重置</a></button>-->
+			<!--							</li>-->
+			<!--						</ul>-->
+			<!--					</div>-->
+			<!--				</form>-->
 			<!--			</div>-->
 
-			<div class="comments">
-
-				<div class="comment-wrap">
-					<div class="photo">
-						<div class="avatar" style="background-image: url('/assets/coolboy.jpg')"></div>
-					</div>
+			<div class="col-sm-12 select-table table-striped">
+				<div class="comment-wrap active">
 					<div class="comment-block">
 						<form action="">
 							<textarea name="" id="" cols="30" rows="3" placeholder="Say somthing..."></textarea>
 						</form>
-						<button>发表评论</button>
+						<h4><a class="btn btn-success" onclick="$.operate.add()"
+						       shiro:hasPermission="admin:comments:add">
+							<i class="fa fa-plus"></i> 发表评论
+						</a></h4>
 					</div>
 				</div>
 
 				<div th:each="item,iterStat : ${comments}">
 					<div class="comment-wrap">
-						<div class="photo">
-							<div class="avatar" style="background-image: url('/assets/coolgirl.jpg')"></div>
-						</div>
 						<div class="comment-block">
-							<p class="comment-text" th:text="${{item.updateBy}}"></p>
+							<h5 class="comment-text" th:text="'创建者：'+${{item.updateBy}}"></h5>
+							<option class="form-control m-b" th:text="${{item.commentsTitle}}"></option>
 							<p class="comment-text" th:text="${{item.commentsContent}}">Lorem ipsum dolor sit amet,
-								consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae
-								incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo
-								veniam fuga corporis totam reprehenderit
-								quasi sapiente modi tempora at perspiciatis mollitia, dolores voluptate. Cumque,
-								corrupti?</p>
+							</p>
+							<h5 th:if="${item.toName} eq 'true'" class="comment-text"
+							    th:text="${{item.fromName}}+ '回复：'+${{item.toName}}"></h5>
+							<form class="form-group reply-active" id="reply-active"
+							      action="party-platform/admin/comments/reply"
+							      method="post">
+								<input name="commentsTitle" class="form-control" type="hidden"
+								       th:value="${{item.commentsTitle}}">
+								<input name="commentsId" class="form-control" type="hidden"
+								       th:value="${{item.commentsId}}">
+								<input name="commentsContent" class="form-control" type="text" required>
+								<input name="commentsToId" type="hidden" th:value="${{item.commentsFromId}}">
+								<h6>
+									<button class="btn btn-success" onclick="" type="submit"
+									        shiro:hasPermission="admin:comments:add">
+										<i class="fa fa-plus"></i> 回复
+									</button>
+								</h6>
+							</form>
 							<div class="bottom-comment">
 								<div class="comment-date" th:text="${{item.createTime}}">23.5 2014</div>
 								<ul class="comment-actions">
-									<li class="complain">Complain</li>
-									<button class="reply">回复</button>
+
 								</ul>
 							</div>
 						</div>
 					</div>
-
-				</div>
-				<div class="comment-wrap">
-					<div class="photo">
-						<div class="avatar" style="background-image: url('/assets/coolgirl.jpg')"></div>
-					</div>
-					<div class="comment-block">
-						<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto
-							temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum
-							ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam reprehenderit
-							quasi sapiente modi tempora at perspiciatis mollitia, dolores voluptate. Cumque,
-							corrupti?</p>
-						<div class="bottom-comment">
-							<div class="comment-date">23.5 2014</div>
-							<ul class="comment-actions">
-								<li class="complain">Complain</li>
-								<li class="reply">Reply</li>
-							</ul>
-						</div>
-					</div>
 				</div>
 
-				<div class="comment-wrap">
-					<div class="photo">
-						<div class="avatar" style="background-image: url('/assets/coolboy.jpg')"></div>
-					</div>
-					<div class="comment-block">
-						<p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto
-							temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum
-							ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam.</p>
-						<div class="bottom-comment">
-							<div class="comment-date">22.2 2014</div>
-							<ul class="comment-actions">
-								<li class="complain">Complain</li>
-								<li class="reply">Reply</li>
-							</ul>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 	<th:block th:include="include :: footer"/>
 	<script th:inline="javascript">
@@ -225,79 +223,53 @@
 		var statusDatas = [[${@dict.getType('sys_news_status')}]];
 		var prefix = ctx + "admin/comments";
 
-		$(function () {
-			var options = {
-				url: prefix + "/list",
-				createUrl: prefix + "/add",
-				updateUrl: prefix + "/edit/{id}",
-				removeUrl: prefix + "/remove",
-				exportUrl: prefix + "/export",
-				modalName: "留言板评论互动",
-				pagination: true,
-				escape: false,
-				columns: [{
-					checkbox: true
-				},
-					{
-						field: 'commentsId',
-						title: '评论内容主键',
-						visible: false
-					},
-					{
-						field: 'commentsTitle',
-						title: '评论标题'
-					},
-					{
-						field: 'commentsType',
-						title: '评论类型',
-						formatter: function (value, row, index) {
-							return $.table.selectDictLabel(commentsTypeDatas, value);
-						}
-					},
-					{
-						field: 'commentsContent',
-						title: '评论内容'
-					},
-					{
-						field: 'commentsToId',
-						title: '评论目标用户编号'
-					},
-					{
-						field: 'commentsFromId',
-						title: '评论用户编号'
-					},
-					{
-						field: 'fromName',
-						title: '回复用户名称'
-					},
-					{
-						field: 'toName',
-						title: '评论用户名称'
-					},
-					{
-						field: 'status',
-						title: '评论状态',
-						formatter: function (value, row, index) {
-							return $.table.selectDictLabel(statusDatas, value);
-						}
-					},
-					{
-						field: 'remark',
-						title: '备注'
-					},
-					{
-						title: '操作',
-						align: 'center',
-						formatter: function (value, row, index) {
-							var actions = [];
-							actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.commentsId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
-							actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.commentsId + '\')"><i class="fa fa-remove"></i>删除</a>');
-							return actions.join('');
-						}
-					}]
-			};
-			$.table.init(options);
+		//serialize form data
+		function serializeFormData($form) {
+			let unindexed_array = $form.serializeArray();
+			let indexed_array = {};
+
+			$.map(unindexed_array, function (n, i) {
+				indexed_array[n['name']] = n['value'];
+			});
+
+			return JSON.stringify(indexed_array);
+		}
+
+		$(document).ready(function () {
+
+			$('.reply-active').submit(function (e) {
+				// 阻止默认提交
+				e.preventDefault();
+				$.operate.save(prefix + "/reply", $('#reply-active').serialize());
+			});
+
+			$('.search-active').submit(function (e) {
+				// 阻止默认提交
+				e.preventDefault();
+				$.operate.post(prefix + "/startSearch", $('#search-active').serialize());
+			});
+
+
 		});
+
+		function startSearch() {
+			$.ajax({
+				url: prefix + "/startSearch",
+				type: 'POST',
+				contentType: 'application/json;charset=UTF-8',
+				data: serializeFormData($('#formId')),
+				success: function (result) {
+					//location.reload();
+				},
+				error: function (xhr, resp, text) {
+					console.log(xhr, resp, text)
+				}
+			});
+		}
+
+		function reset() {
+			$.operate.get(prefix + "/start", "成功");
+		}
 	</script>
 </body>
 </html>

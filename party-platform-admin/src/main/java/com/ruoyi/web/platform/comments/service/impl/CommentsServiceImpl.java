@@ -4,7 +4,10 @@ import java.util.List;
 
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.framework.util.ShiroUtils;
+import com.ruoyi.framework.web.service.DictService;
+import com.ruoyi.system.domain.SysDictData;
 import com.ruoyi.system.mapper.SysUserMapper;
+import com.ruoyi.system.utils.DictUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.web.platform.comments.mapper.CommentsMapper;
@@ -108,4 +111,23 @@ public class CommentsServiceImpl implements ICommentsService {
     public int deleteCommentsById(Long commentsId) {
         return commentsMapper.deleteCommentsById(commentsId);
     }
+
+    @Autowired
+    private DictService dictService;
+
+    @Override
+    public int reply(Comments comments) {
+        comments.setFromName(ShiroUtils.getLoginName());
+        comments.setCommentsFromId(ShiroUtils.getUserId());
+        comments.setStatus("0");
+        Comments byId = commentsMapper.selectCommentsById(comments.getCommentsId());
+        comments.setCommentsType(byId.getCommentsType());
+        comments.setCreateBy(ShiroUtils.getLoginName());
+        comments.setCreateTime(DateUtils.getNowDate());
+        comments.setUpdateBy(ShiroUtils.getLoginName());
+        comments.setUpdateTime(DateUtils.getNowDate());
+        return commentsMapper.insertComments(comments);
+    }
+
+
 }

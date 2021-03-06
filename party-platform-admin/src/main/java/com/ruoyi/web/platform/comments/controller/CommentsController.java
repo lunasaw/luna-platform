@@ -2,6 +2,7 @@ package com.ruoyi.web.platform.comments.controller;
 
 import java.util.List;
 
+import com.alibaba.fastjson.JSON;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,9 +48,20 @@ public class CommentsController extends BaseController {
     @RequiresPermissions("admin:comments:view")
     @GetMapping("/start")
     public String getComments(ModelMap modelMap) {
-        List<Comments> comments = commentsService.selectCommentsList(new Comments());
+        Comments comments1 = new Comments();
+        comments1.setStatus("1");
+        List<Comments> comments = commentsService.selectCommentsList(comments1);
         modelMap.put("comments", comments);
         return prefix + "/commentsList";
+    }
+
+    @RequiresPermissions("admin:comments:view")
+    @PostMapping("/startSearch")
+    public AjaxResult getCommentsSearch(Comments comments, ModelMap modelMap) {
+        List<Comments> commentes = commentsService.selectCommentsList(comments);
+        modelMap.put("comments", commentes);
+        System.out.println(JSON.toJSONString(comments));
+        return toAjax(0);
     }
 
     /**
@@ -83,8 +95,26 @@ public class CommentsController extends BaseController {
      * 新增留言板评论互动
      */
     @GetMapping("/add")
+    @RequiresPermissions("admin:comments:add")
     public String add() {
         return prefix + "/add";
+    }
+
+    /**
+     * 新增留言板评论互动
+     */
+    @GetMapping("/addBasePage")
+    @RequiresPermissions("admin:comments:add")
+    public String addBasePage() {
+        return prefix + "/addBasePage";
+    }
+
+    @PostMapping("/reply")
+    @RequiresPermissions("admin:comments:add")
+    @ResponseBody
+    public AjaxResult reply(Comments comments) {
+        System.out.println(JSON.toJSONString(comments));
+        return toAjax(commentsService.reply(comments));
     }
 
     /**

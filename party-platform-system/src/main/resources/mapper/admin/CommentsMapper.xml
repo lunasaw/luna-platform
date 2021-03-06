@@ -28,7 +28,9 @@
         <where>
             <if test="commentsTitle != null  and commentsTitle != ''">and comments_title = #{commentsTitle}</if>
             <if test="commentsType != null  and commentsType != ''">and comments_type = #{commentsType}</if>
-            <if test="commentsContent != null  and commentsContent != ''">and comments_content = #{commentsContent}</if>
+            <if test="commentsContent != null  and commentsContent != ''">and comments_content like concat('%',
+                #{commentsContent}, '%')
+            </if>
             <if test="commentsToId != null ">and comments_to_id = #{commentsToId}</if>
             <if test="commentsFromId != null ">and comments_from_id = #{commentsFromId}</if>
             <if test="status != null  and status != ''">and status = #{status}</if>
