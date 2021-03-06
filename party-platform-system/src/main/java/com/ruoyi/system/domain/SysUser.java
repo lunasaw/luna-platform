@@ -2,6 +2,7 @@ package com.ruoyi.system.domain;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import javax.validation.constraints.*;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -353,14 +354,29 @@ public class SysUser extends BaseEntity
             .append("status", getStatus())
             .append("delFlag", getDelFlag())
             .append("loginIp", getLoginIp())
-            .append("loginDate", getLoginDate())
-            .append("createBy", getCreateBy())
-            .append("createTime", getCreateTime())
-            .append("updateBy", getUpdateBy())
-            .append("updateTime", getUpdateTime())
-            .append("remark", getRemark())
-            .append("dept", getDept())
-			.append("roles", getRoles())
-            .toString();
+                .append("loginDate", getLoginDate())
+                .append("createBy", getCreateBy())
+                .append("createTime", getCreateTime())
+                .append("updateBy", getUpdateBy())
+                .append("updateTime", getUpdateTime())
+                .append("remark", getRemark())
+                .append("dept", getDept())
+                .append("roles", getRoles())
+                .toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SysUser)) return false;
+        SysUser sysUser = (SysUser) o;
+        return userId.equals(sysUser.userId) &&
+                loginName.equals(sysUser.loginName) &&
+                userName.equals(sysUser.userName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userId, loginName, userName);
     }
 }

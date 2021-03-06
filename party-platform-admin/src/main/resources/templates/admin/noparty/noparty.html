@@ -139,8 +139,11 @@
                         title: '民族'
                     },
                     {
-                        field: 'nonPartyBirthday',
-                        title: '出生年月'
+	                    field: 'nonPartyBirthday',
+	                    title: '出生年月',
+	                    formatter: function (value, row, index) {
+		                    return changeDateFormat("yyyy-mm-dd", value);
+	                    }
                     },
                     {
                         field: 'nonPartyCurrentAdministrativePosition',

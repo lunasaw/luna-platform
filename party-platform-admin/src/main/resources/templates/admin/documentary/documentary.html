@@ -1,166 +1,199 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-    <th:block th:include="include :: header('党建纪实列表')"/>
+	<th:block th:include="include :: header('党建纪实列表')"/>
+	<th:block th:include="include :: datetimepicker-css"/>
+
 </head>
 <body class="gray-bg">
-    <div class="container-div">
-        <div class="row">
-            <div class="col-sm-12 search-collapse">
-                <form id="formId">
-                    <div class="select-list">
-                        <ul>
-                            <li>
-                                <label>纪实主题：</label>
-                                <input type="text" name="documentaryTitle"/>
-                            </li>
-                            <li>
-                                <label>活动地点：</label>
-                                <input type="text" name="documentaryActiveAddress"/>
-                            </li>
-                            <li class="select-time">
-                                <label>起始时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间"
-                                       name="params[beginDocumentaryStartTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间"
-                                       name="params[endDocumentaryStartTime]"/>
-                            </li>
-                            <li class="select-time">
-                                <label>截至时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间"
-                                       name="params[beginDocumentaryEndTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间"
-                                       name="params[endDocumentaryEndTime]"/>
-                            </li>
-                            <li>
-                                <label>参与人员：</label>
-                                <input type="text" name="documentaryJionPeople"/>
-                            </li>
-                            <li>
-                                <label>其他人员：</label>
-                                <input type="text" name="documentaryOtherPeople"/>
-                            </li>
-                            <li>
-                                <label>纪实状态：</label>
-                                <select name="documentaryStatus" th:with="type=${@dict.getType('sys_news_status')}">
-                                    <option value="">所有</option>
-                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}"
-                                            th:value="${dict.dictValue}"></option>
-                                </select>
-                            </li>
-                            <li>
-                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i
-                                        class="fa fa-search"></i>&nbsp;搜索</a>
-                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i
-                                        class="fa fa-refresh"></i>&nbsp;重置</a>
-                            </li>
-                        </ul>
-                    </div>
-                </form>
-            </div>
+	<div class="container-div">
+		<div class="row">
+			<div class="col-sm-12 search-collapse">
+				<form id="formId">
+					<div class="select-list">
+						<ul>
+							<li>
+								<label>纪实主题：</label>
+								<input type="text" name="documentaryTitle"/>
+							</li>
+							<li>
+								<label>活动地点：</label>
+								<input type="text" name="documentaryActiveAddress"/>
+							</li>
+							<li class="select-time">
+								<label>起始时间：</label>
+								<input type="text" class="form-control" id="startTime1" placeholder="开始时间"
+								       name="params[beginDocumentaryStartTime]"/>
+								<span>-</span>
+								<input type="text" class="time-input" id="endTime1" placeholder="结束时间"
+								       name="params[endDocumentaryStartTime]"/>
+							</li>
+							<li class="select-time">
+								<label>截至时间：</label>
+								<input type="text" class="form-control" id="startTime2" placeholder="开始时间"
+								       name="params[beginDocumentaryEndTime]"/>
+								<span>-</span>
+								<input type="text" class="time-input" id="endTime2" placeholder="结束时间"
+								       name="params[endDocumentaryEndTime]"/>
+							</li>
+							<li>
+								<label>参与人员：</label>
+								<input type="text" name="documentaryJionPeople"/>
+							</li>
+							<li>
+								<label>其他人员：</label>
+								<input type="text" name="documentaryOtherPeople"/>
+							</li>
+							<li>
+								<label>纪实状态：</label>
+								<select name="documentaryStatus" th:with="type=${@dict.getType('sys_news_status')}">
+									<option value="">所有</option>
+									<option th:each="dict : ${type}" th:text="${dict.dictLabel}"
+									        th:value="${dict.dictValue}"></option>
+								</select>
+							</li>
+							<li>
+								<a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i
+									class="fa fa-search"></i>&nbsp;搜索</a>
+								<a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i
+									class="fa fa-refresh"></i>&nbsp;重置</a>
+							</li>
+						</ul>
+					</div>
+				</form>
+			</div>
 
-            <div class="btn-group-sm" id="toolbar" role="group">
-                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="admin:documentary:add">
-                    <i class="fa fa-plus"></i> 添加
-                </a>
-                <a class="btn btn-primary single disabled" onclick="$.operate.edit()"
-                   shiro:hasPermission="admin:documentary:edit">
-                    <i class="fa fa-edit"></i> 修改
-                </a>
-                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()"
-                   shiro:hasPermission="admin:documentary:remove">
-                    <i class="fa fa-remove"></i> 删除
-                </a>
-                <a class="btn btn-warning" onclick="$.table.exportExcel()"
-                   shiro:hasPermission="admin:documentary:export">
-                    <i class="fa fa-download"></i> 导出
-                </a>
-            </div>
-            <div class="col-sm-12 select-table table-striped">
-                <table id="bootstrap-table"></table>
-            </div>
-        </div>
-    </div>
-    <th:block th:include="include :: footer"/>
-    <script th:inline="javascript">
-        var editFlag = [[${@permission.hasPermi('admin:documentary:edit')}]];
-        var removeFlag = [[${@permission.hasPermi('admin:documentary:remove')}]];
-        var documentaryStatusDatas = [[${@dict.getType('sys_news_status')}]];
-        var prefix = ctx + "admin/documentary";
+			<div class="btn-group-sm" id="toolbar" role="group">
+				<a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="admin:documentary:add">
+					<i class="fa fa-plus"></i> 添加
+				</a>
+				<a class="btn btn-primary single disabled" onclick="$.operate.edit()"
+				   shiro:hasPermission="admin:documentary:edit">
+					<i class="fa fa-edit"></i> 修改
+				</a>
+				<a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()"
+				   shiro:hasPermission="admin:documentary:remove">
+					<i class="fa fa-remove"></i> 删除
+				</a>
+				<a class="btn btn-warning" onclick="$.table.exportExcel()"
+				   shiro:hasPermission="admin:documentary:export">
+					<i class="fa fa-download"></i> 导出
+				</a>
+			</div>
+			<div class="col-sm-12 select-table table-striped">
+				<table id="bootstrap-table"></table>
+			</div>
+		</div>
+	</div>
+	<th:block th:include="include :: footer"/>
+	<th:block th:include="include :: datetimepicker-js"/>
+	<script th:inline="javascript">
+		var editFlag = [[${@permission.hasPermi('admin:documentary:edit')}]];
+		var removeFlag = [[${@permission.hasPermi('admin:documentary:remove')}]];
+		var documentaryStatusDatas = [[${@dict.getType('sys_news_status')}]];
+		var prefix = ctx + "admin/documentary";
 
-        $(function () {
-            var options = {
-                url: prefix + "/list",
-                createUrl: prefix + "/add",
-                updateUrl: prefix + "/edit/{id}",
-                removeUrl: prefix + "/remove",
-                exportUrl: prefix + "/export",
-                modalName: "党建纪实",
-                pagination: true,
-                escape: false,
-                columns: [{
-                    checkbox: true
-                },
-                    {
-                        field: 'documentaryId',
-                        title: '纪实Id',
-                        visible: false
-                    },
-                    {
-                        field: 'documentaryTitle',
-                        title: '纪实主题'
-                    },
-                    {
-	                    field: 'documentaryContent',
-	                    title: '纪实详情',
-	                    visible: false
-                    },
-                    {
-                        field: 'documentaryActiveAddress',
-                        title: '活动地点'
-                    },
-                    {
-                        field: 'documentaryStartTime',
-                        title: '起始时间'
-                    },
-                    {
-                        field: 'documentaryEndTime',
-                        title: '截至时间'
-                    },
-                    {
-                        field: 'documentaryJionPeople',
-                        title: '参与人员'
-                    },
-                    {
-                        field: 'documentaryOtherPeople',
-                        title: '其他人员'
-                    },
-                    {
-                        field: 'documentaryStatus',
-                        title: '纪实状态',
-                        formatter: function (value, row, index) {
-                            return $.table.selectDictLabel(documentaryStatusDatas, value);
-                        }
-                    },
-                    {
-                        field: 'remark',
-                        title: '备注'
-                    },
-                    {
-                        title: '操作',
-                        align: 'center',
-                        formatter: function (value, row, index) {
-                            var actions = [];
-                            actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.documentaryId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
-                            actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.documentaryId + '\')"><i class="fa fa-remove"></i>删除</a>');
-                            return actions.join('');
-                        }
-                    }]
-            };
-            $.table.init(options);
-        });
-    </script>
+		$(function () {
+			var options = {
+				url: prefix + "/list",
+				createUrl: prefix + "/add",
+				updateUrl: prefix + "/edit/{id}",
+				removeUrl: prefix + "/remove",
+				exportUrl: prefix + "/export",
+				modalName: "党建纪实",
+				pagination: true,
+				escape: false,
+				columns: [{
+					checkbox: true
+				},
+					{
+						field: 'documentaryId',
+						title: '纪实Id',
+						visible: false
+					},
+					{
+						field: 'documentaryTitle',
+						title: '纪实主题',
+						width: '270px'
+					},
+					{
+						field: 'documentaryContent',
+						title: '纪实详情',
+						visible: false
+					},
+					{
+						field: 'documentaryActiveAddress',
+						title: '活动地点'
+					},
+					{
+						field: 'documentaryStartTime',
+						title: '起始时间',
+						formatter: function (value, row, index) {
+							return changeDateFormat("yyyy-mm-dd", value);
+						}
+					},
+					{
+						field: 'documentaryEndTime',
+						title: '截至时间',
+						formatter: function (value, row, index) {
+							return changeDateFormat("yyyy-mm-dd", value);
+						}
+					},
+					{
+						field: 'documentaryJionPeople',
+						title: '参与人员',
+					},
+					{
+						field: 'documentaryOtherPeople',
+						title: '其他人员'
+					},
+					{
+						field: 'documentaryStatus',
+						title: '纪实状态',
+						formatter: function (value, row, index) {
+							return $.table.selectDictLabel(documentaryStatusDatas, value);
+						}
+					},
+					{
+						field: 'remark',
+						title: '备注'
+					},
+					{
+						title: '操作',
+						align: 'center',
+						formatter: function (value, row, index) {
+							var actions = [];
+							actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.documentaryId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+							actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.documentaryId + '\')"><i class="fa fa-remove"></i>删除</a>');
+							return actions.join('');
+						}
+					}]
+			};
+			$.table.init(options);
+		});
+
+
+	</script>
+	<script type="text/javascript">
+		$(function () {
+			$("#startTime1").datetimepicker();
+
+			$("#endTime1").datetimepicker({
+				format: "yyyy-mm-dd hh:ii:ss",
+				autoclose: true
+			});
+
+			$("#startTime2").datetimepicker({
+				format: "yyyy-mm-dd hh:ii:ss",
+				autoclose: true
+			});
+
+			$("#endTime2").datetimepicker({
+				format: "yyyy-mm-dd hh:ii:ss",
+				autoclose: true
+			});
+
+		})
+	</script>
 </body>
 </html>

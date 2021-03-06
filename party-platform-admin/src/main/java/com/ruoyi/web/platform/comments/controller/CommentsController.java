@@ -27,7 +27,7 @@ import com.ruoyi.common.core.page.TableDataInfo;
  * 留言板评论互动Controller
  *
  * @author party-platform
- * @date 2020-11-07
+ * @date 2021-03-06
  */
 @Controller
 @Api("留言板评论互动Controller")

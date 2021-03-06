@@ -164,29 +164,39 @@
                         title: '民族'
                     },
                     {
-                        field: 'religionBirthday',
-                        title: '出生年月'
+	                    field: 'religionBirthday',
+	                    title: '出生年月',
+	                    formatter: function (value, row, index) {
+		                    return changeDateFormat("yyyy-mm-dd", value);
+	                    }
                     },
                     {
                         field: 'religionNativePlace',
                         title: '籍贯'
                     },
-                    {
-                        field: 'religionPartyJoinTime',
-                        title: '入党时间'
-                    },
+	                {
+		                field: 'religionPartyJoinTime',
+		                title: '入党时间',
+		                formatter: function (value, row, index) {
+			                return changeDateFormat("yyyy-mm-dd", value);
+		                }
+	                },
                     {
                         field: 'religionType',
                         title: '宗教类型'
                     },
-                    {
-                        field: 'religiousServicesFacilities',
-                        title: '宗教活动场所'
-                    },
-                    {
-                        field: 'religionJoin',
-                        title: '信教时间'
-                    },
+	                {
+		                field: 'religiousServicesFacilities',
+		                title: '宗教活动场所',
+		                visible: false
+	                },
+	                {
+		                field: 'religionJoin',
+		                title: '信教时间',
+		                formatter: function (value, row, index) {
+			                return changeDateFormat("yyyy-mm-dd", value);
+		                }
+	                },
                     {
                         field: 'religionContactInformation',
                         title: '联系方式'

@@ -225,17 +225,23 @@
                         title: '民族'
                     },
                     {
-                        field: 'partyActivistsBirthday',
-                        title: '出生年月'
+	                    field: 'partyActivistsBirthday',
+	                    title: '出生年月',
+	                    formatter: function (value, row, index) {
+		                    return changeDateFormat("yyyy-mm-dd", value);
+	                    }
                     },
                     {
                         field: 'partyActivistsNativePlace',
                         title: '籍贯'
                     },
-                    {
-                        field: 'partyActivistsApplicationForPartyMembershipTime',
-                        title: '入党申请书时间'
-                    },
+	                {
+		                field: 'partyActivistsApplicationForPartyMembershipTime',
+		                title: '入党申请书时间',
+		                formatter: function (value, row, index) {
+			                return changeDateFormat("yyyy-mm-dd", value);
+		                }
+	                },
                     {
                         field: 'partyActivistsAutobiography',
                         title: '自传',
@@ -250,14 +256,20 @@
                             return $.table.selectDictLabel(partyActivistsApprovalFormDatas, value);
                         }
                     },
-                    {
-                        field: 'partyActivistsEstablishmentDate',
-                        title: '确立积极分子日期'
-                    },
-                    {
-                        field: 'partyActivistsClosingTime',
-                        title: '党校结业证书日期'
-                    },
+	                {
+		                field: 'partyActivistsEstablishmentDate',
+		                title: '确立积极分子日期',
+		                formatter: function (value, row, index) {
+			                return changeDateFormat("yyyy-mm-dd", value);
+		                }
+	                },
+	                {
+		                field: 'partyActivistsClosingTime',
+		                title: '党校结业证书日期',
+		                formatter: function (value, row, index) {
+			                return changeDateFormat("yyyy-mm-dd", value);
+		                }
+	                },
                     {
                         field: 'partyActivistsThoughtReport',
                         title: '思想汇报',
@@ -272,18 +284,23 @@
                             return $.table.selectDictLabel(partyActivistsSurveyTableDatas, value);
                         }
                     },
-                    {
-                        field: 'partyActivistsEstablishmentDateDev',
-                        title: '确立发展对象日期'
-                    },
-                    {
-                        field: 'partyActivistsPositionStuCadres',
-                        title: '学生干部任职情况'
-                    },
-                    {
-                        field: 'partyActivistsRewardsPunishments',
-                        title: '奖惩情况'
-                    },
+	                {
+		                field: 'partyActivistsEstablishmentDateDev',
+		                title: '确立发展对象日期',
+		                formatter: function (value, row, index) {
+			                return changeDateFormat("yyyy-mm-dd", value);
+		                }
+	                },
+	                {
+		                field: 'partyActivistsPositionStuCadres',
+		                title: '学生干部任职情况',
+		                visible: false
+	                },
+	                {
+		                field: 'partyActivistsRewardsPunishments',
+		                title: '奖惩情况',
+		                visible: false
+	                },
                     {
                         field: 'partyActivistsHeadmaster',
                         title: '班主任'

@@ -198,8 +198,12 @@
                         }
                     },
                     {
-                        field: 'partyBirthday',
-                        title: '生日'
+	                    field: 'partyBirthday',
+	                    title: '生日',
+	                    visible: false,
+	                    formatter: function (value, row, index) {
+		                    return changeDateFormat("yyyy-mm-dd", value);
+	                    }
                     },
                     {
                         field: 'partyNativePlace',
@@ -209,10 +213,13 @@
                         field: 'partyIdcard',
                         title: '身份证'
                     },
-                    {
-                        field: 'partyJoinTime',
-                        title: '入党日期'
-                    },
+	                {
+		                field: 'partyJoinTime',
+		                title: '入党日期',
+		                formatter: function (value, row, index) {
+			                return changeDateFormat("yyyy-mm-dd", value);
+		                }
+	                },
                     {
                         field: 'partyJoinApplication',
                         title: '入党志愿书',
@@ -241,18 +248,20 @@
                             return $.table.selectDictLabel(partyThoughtReportDatas, value);
                         }
                     },
-                    {
-                        field: 'partyStudentPost',
-                        title: '学生干部任职情况'
-                    },
+	                {
+		                field: 'partyStudentPost',
+		                title: '学生干部任职情况',
+		                visible: false
+	                },
                     {
                         field: 'partyRewardsPunishments',
                         title: '奖惩情况'
                     },
-                    {
-                        field: 'partyOtherInfo',
-                        title: '其他'
-                    },
+	                {
+		                field: 'partyOtherInfo',
+		                title: '其他',
+		                visible: false
+	                },
                     {
                         field: 'partyHeadMaster',
                         title: '班主任'

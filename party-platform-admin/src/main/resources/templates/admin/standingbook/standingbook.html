@@ -176,13 +176,19 @@
                     title: '民族'
                 },
                 {
-                    field: 'standingbookBirthday',
-                    title: '出生日期'
+	                field: 'standingbookBirthday',
+	                title: '出生日期',
+	                formatter: function (value, row, index) {
+		                return changeDateFormat("yyyy-mm-dd", value);
+	                }
                 },
-                {
-                    field: 'standingbookTimeJoinPart',
-                    title: '入党时间'
-                },
+	                {
+		                field: 'standingbookTimeJoinPart',
+		                title: '入党时间',
+		                formatter: function (value, row, index) {
+			                return changeDateFormat("yyyy-mm-dd", value);
+		                }
+	                },
                 {
                     field: 'standingbookBranchNumber',
                     title: '所在支部'
@@ -203,26 +209,37 @@
                     field: 'standingbookRAndPReason',
                     title: '奖惩原因'
                 },
-                {
-                    field: 'standingbookApprovalDate',
-                    title: '批准日期'
-                },
-                {
-                    field: 'standingbookRevocationDate',
-                    title: '撤销日期'
-                },
-                {
-                    field: 'standingbookInflowUnit',
-                    title: '流入情况'
-                },
-                {
-                    field: 'standingbookIAndC',
-                    title: '流入单位联系人及联系方式'
-                },
-                {
-                    field: 'standingbookOutflowDate',
-                    title: '流出日期'
-                },
+	                {
+		                field: 'standingbookApprovalDate',
+		                title: '批准日期',
+		                formatter: function (value, row, index) {
+			                return changeDateFormat("yyyy-mm-dd", value);
+		                }
+	                },
+	                {
+		                field: 'standingbookRevocationDate',
+		                title: '撤销日期',
+		                formatter: function (value, row, index) {
+			                return changeDateFormat("yyyy-mm-dd", value);
+		                }
+	                },
+	                {
+		                field: 'standingbookInflowUnit',
+		                title: '流入情况',
+		                visible: false
+	                },
+	                {
+		                field: 'standingbookIAndC',
+		                title: '流入单位联系人及联系方式',
+		                visible: false
+	                },
+	                {
+		                field: 'standingbookOutflowDate',
+		                title: '流出日期',
+		                formatter: function (value, row, index) {
+			                return changeDateFormat("yyyy-mm-dd", value);
+		                }
+	                },
                 {
                     field: 'standingbookOutflowReason',
                     title: '流出原因'

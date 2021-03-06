@@ -277,6 +277,7 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/mainPage/**", "newsFilter");
         filterChainDefinitionMap.put("/admin/page/**", "newsFilter");
         filterChainDefinitionMap.put("/page/**", "newsFilter");
+        filterChainDefinitionMap.put("/profile/upload/**", "newsFilter");
         // 注册相关
         filterChainDefinitionMap.put("/register", "anon,captchaValidate");
         // 系统权限列表

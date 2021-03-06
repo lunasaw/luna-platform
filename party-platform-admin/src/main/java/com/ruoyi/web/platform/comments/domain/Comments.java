@@ -11,7 +11,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 留言板评论互动对象 sys_comments
  *
  * @author party-platform
- * @date 2020-11-07
+ * @date 2021-03-06
  */
 @ApiModel("Comments")
 public class Comments extends BaseEntity {
@@ -45,18 +45,18 @@ public class Comments extends BaseEntity {
     private String commentsContent;
 
     /**
-     * 回复评论内容
+     * 评论目标用户id
      */
-    @ApiModelProperty("回复评论内容")
-    @Excel(name = "回复评论内容")
-    private String commentsContentReturn;
+    @ApiModelProperty("评论目标用户id")
+    @Excel(name = "评论目标用户id")
+    private Long commentsToId;
 
     /**
-     * 回复评论内容主键
+     * 评论用户id
      */
-    @ApiModelProperty("回复评论内容主键")
-    @Excel(name = "回复评论内容主键")
-    private Long commentsReturnId;
+    @ApiModelProperty("评论用户id")
+    @Excel(name = "评论用户id")
+    private Long commentsFromId;
 
     /**
      * 评论状态（0正常 1关闭）
@@ -64,6 +64,28 @@ public class Comments extends BaseEntity {
     @ApiModelProperty("评论状态（0正常 1关闭）")
     @Excel(name = "评论状态", readConverterExp = "0=正常,1=关闭")
     private String status;
+
+    private String fromName;
+
+    private String toName;
+
+    public String getFromName() {
+        return fromName;
+    }
+
+    public Comments setFromName(String fromName) {
+        this.fromName = fromName;
+        return this;
+    }
+
+    public String getToName() {
+        return toName;
+    }
+
+    public Comments setToName(String toName) {
+        this.toName = toName;
+        return this;
+    }
 
     public void setCommentsId(Long commentsId) {
         this.commentsId = commentsId;
@@ -97,20 +119,20 @@ public class Comments extends BaseEntity {
         return commentsContent;
     }
 
-    public void setCommentsContentReturn(String commentsContentReturn) {
-        this.commentsContentReturn = commentsContentReturn;
+    public void setCommentsToId(Long commentsToId) {
+        this.commentsToId = commentsToId;
     }
 
-    public String getCommentsContentReturn() {
-        return commentsContentReturn;
+    public Long getCommentsToId() {
+        return commentsToId;
     }
 
-    public void setCommentsReturnId(Long commentsReturnId) {
-        this.commentsReturnId = commentsReturnId;
+    public void setCommentsFromId(Long commentsFromId) {
+        this.commentsFromId = commentsFromId;
     }
 
-    public Long getCommentsReturnId() {
-        return commentsReturnId;
+    public Long getCommentsFromId() {
+        return commentsFromId;
     }
 
     public void setStatus(String status) {
@@ -128,8 +150,8 @@ public class Comments extends BaseEntity {
                 .append("commentsTitle", getCommentsTitle())
                 .append("commentsType", getCommentsType())
                 .append("commentsContent", getCommentsContent())
-                .append("commentsContentReturn", getCommentsContentReturn())
-                .append("commentsReturnId", getCommentsReturnId())
+                .append("commentsToId", getCommentsToId())
+                .append("commentsFromId", getCommentsFromId())
                 .append("status", getStatus())
                 .append("createBy", getCreateBy())
                 .append("createTime", getCreateTime())

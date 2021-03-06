@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-    <th:block th:include="include :: header('新闻发布列表')"/>
+	<th:block th:include="include :: header('新闻发布列表')"/>
 </head>
 <body class="gray-bg">
 	<div class="container-div">
@@ -113,12 +113,21 @@
 					},
 					{
 						field: 'newsContent',
-						title: '新闻内容'
+						title: '新闻内容',
+						visible: false
 					},
 					{
 						field: 'newsPicture',
 						title: '新闻封面',
-						visible: false
+						formatter: function (value, row, index) {
+							// 图片预览（注意：如存储在本地直接获取数据库路径，如有配置context-path需要使用ctx+路径）
+							// 如：/profile/upload/2019/08/08/3b7a839aced67397bac694d77611ce72.png
+							if (index % 2 == 0) {
+								return $.table.imageView(value, "400", "400");
+							} else {
+								return $.table.imageView(value, "400", "400");
+							}
+						}
 					},
 					{
 						field: 'newsUrl',

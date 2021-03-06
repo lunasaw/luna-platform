@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.framework.util.ShiroUtils;
+import com.ruoyi.system.mapper.SysUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.web.platform.comments.mapper.CommentsMapper;
@@ -15,12 +16,15 @@ import com.ruoyi.common.core.text.Convert;
  * 留言板评论互动Service业务层处理
  *
  * @author party-platform
- * @date 2020-11-07
+ * @date 2021-03-06
  */
 @Service
 public class CommentsServiceImpl implements ICommentsService {
     @Autowired
     private CommentsMapper commentsMapper;
+
+    @Autowired
+    private SysUserMapper sysUserMapper;
 
     /**
      * 查询留言板评论互动
@@ -41,7 +45,17 @@ public class CommentsServiceImpl implements ICommentsService {
      */
     @Override
     public List<Comments> selectCommentsList(Comments comments) {
-        return commentsMapper.selectCommentsList(comments);
+
+        List<Comments> commentes = commentsMapper.selectCommentsList(comments);
+        commentes.forEach(comments1 -> {
+            if (comments1.getCommentsFromId() != null) {
+                comments1.setFromName(sysUserMapper.selectUserById(comments1.getCommentsFromId()).getLoginName());
+            }
+            if (comments1.getCommentsToId() != null) {
+                comments1.setToName(sysUserMapper.selectUserById(comments1.getCommentsToId()).getLoginName());
+            }
+        });
+        return commentes;
     }
 
     /**
@@ -56,6 +70,7 @@ public class CommentsServiceImpl implements ICommentsService {
         comments.setCreateTime(DateUtils.getNowDate());
         comments.setUpdateBy(ShiroUtils.getLoginName());
         comments.setUpdateTime(DateUtils.getNowDate());
+        comments.setCommentsFromId(ShiroUtils.getUserId());
         return commentsMapper.insertComments(comments);
     }
 

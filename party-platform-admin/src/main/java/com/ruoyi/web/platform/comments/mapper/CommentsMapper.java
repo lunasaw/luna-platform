@@ -1,14 +1,13 @@
 package com.ruoyi.web.platform.comments.mapper;
 
 import java.util.List;
-
 import com.ruoyi.web.platform.comments.domain.Comments;
 
 /**
  * 留言板评论互动Mapper接口
  *
  * @author party-platform
- * @date 2020-11-07
+ * @date 2021-03-06
  */
 public interface CommentsMapper {
     /**

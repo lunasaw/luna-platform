@@ -1,12 +1,16 @@
 package com.ruoyi.web.platform.documentary.service.impl;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.framework.util.ShiroUtils;
+import com.ruoyi.system.domain.SysDept;
+import com.ruoyi.system.domain.SysRole;
 import com.ruoyi.system.domain.SysUser;
+import com.ruoyi.system.mapper.SysDeptMapper;
+import com.ruoyi.system.mapper.SysRoleMapper;
 import com.ruoyi.system.mapper.SysUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +21,7 @@ import com.ruoyi.common.core.text.Convert;
 
 /**
  * 党建纪实Service业务层处理
- * 
+ *
  * @author party-platform
  * @date 2020-10-14
  */
@@ -28,11 +32,17 @@ public class NewsDocumentaryServiceImpl implements INewsDocumentaryService {
     private NewsDocumentaryMapper newsDocumentaryMapper;
 
     @Autowired
-    private SysUserMapper         sysUserMapper;
+    private SysUserMapper sysUserMapper;
+
+    @Autowired
+    private SysDeptMapper sysDeptMapper;
+
+    @Autowired
+    private SysRoleMapper sysRoleMapper;
 
     /**
      * 查询党建纪实
-     * 
+     *
      * @param documentaryId 党建纪实ID
      * @return 党建纪实
      */
@@ -43,7 +53,7 @@ public class NewsDocumentaryServiceImpl implements INewsDocumentaryService {
 
     /**
      * 查询党建纪实列表
-     * 
+     *
      * @param newsDocumentary 党建纪实
      * @return 党建纪实
      */
@@ -65,31 +75,33 @@ public class NewsDocumentaryServiceImpl implements INewsDocumentaryService {
 
     /**
      * 新增党建纪实
-     * 
+     *
      * @param newsDocumentary 党建纪实
      * @return 结果
      */
     @Override
     public int insertNewsDocumentary(NewsDocumentary newsDocumentary) {
         newsDocumentary.setCreateTime(DateUtils.getNowDate());
+        newsDocumentary.setCreateBy(String.valueOf(ShiroUtils.getUserId()));
         return newsDocumentaryMapper.insertNewsDocumentary(newsDocumentary);
     }
 
     /**
      * 修改党建纪实
-     * 
+     *
      * @param newsDocumentary 党建纪实
      * @return 结果
      */
     @Override
     public int updateNewsDocumentary(NewsDocumentary newsDocumentary) {
         newsDocumentary.setUpdateTime(DateUtils.getNowDate());
+        newsDocumentary.setCreateBy(ShiroUtils.getLoginName());
         return newsDocumentaryMapper.updateNewsDocumentary(newsDocumentary);
     }
 
     /**
      * 删除党建纪实对象
-     * 
+     *
      * @param ids 需要删除的数据ID
      * @return 结果
      */
@@ -100,7 +112,7 @@ public class NewsDocumentaryServiceImpl implements INewsDocumentaryService {
 
     /**
      * 删除党建纪实信息
-     * 
+     *
      * @param documentaryId 党建纪实ID
      * @return 结果
      */

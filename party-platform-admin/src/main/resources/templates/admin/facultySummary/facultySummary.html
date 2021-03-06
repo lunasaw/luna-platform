@@ -199,8 +199,11 @@
                         title: '民族'
                     },
                     {
-                        field: 'facultyBirthday',
-                        title: '出生年月'
+	                    field: 'facultyBirthday',
+	                    title: '出生年月',
+	                    formatter: function (value, row, index) {
+		                    return changeDateFormat("yyyy-mm-dd", value);
+	                    }
                     },
                     {
                         field: 'facultyTimeJoinPart',
@@ -238,14 +241,20 @@
                         field: 'facultyGraduateSchoolAndMajor',
                         title: '毕业院校及专业'
                     },
-                    {
-                        field: 'facultyTimeWork',
-                        title: '参加工作时间'
-                    },
-                    {
-                        field: 'facultyOverseaStudyBeginAndEnd',
-                        title: '留学开始时间'
-                    },
+	                {
+		                field: 'facultyTimeWork',
+		                title: '参加工作时间',
+		                formatter: function (value, row, index) {
+			                return changeDateFormat("yyyy-mm-dd", value);
+		                }
+	                },
+	                {
+		                field: 'facultyOverseaStudyBeginAndEnd',
+		                title: '留学开始时间',
+		                formatter: function (value, row, index) {
+			                return changeDateFormat("yyyy-mm-dd", value);
+		                }
+	                },
                     {
                         field: 'facultyIdCard',
                         title: '身份证'
