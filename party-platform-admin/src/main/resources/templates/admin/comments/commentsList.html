@@ -270,6 +270,80 @@
 		function reset() {
 			$.operate.get(prefix + "/start", "成功");
 		}
+
+		$(function () {
+			var options = {
+				url: prefix + "/list",
+				createUrl: prefix + "/addBasePage",
+				updateUrl: prefix + "/edit/{id}",
+				removeUrl: prefix + "/remove",
+				exportUrl: prefix + "/export",
+				modalName: "留言板评论互动",
+				pagination: true,
+				escape: false,
+				columns: [{
+					checkbox: true
+				},
+					{
+						field: 'commentsId',
+						title: '评论内容主键',
+						visible: false
+					},
+					{
+						field: 'commentsTitle',
+						title: '评论标题'
+					},
+					{
+						field: 'commentsType',
+						title: '评论类型',
+						formatter: function (value, row, index) {
+							return $.table.selectDictLabel(commentsTypeDatas, value);
+						}
+					},
+					{
+						field: 'commentsContent',
+						title: '评论内容'
+					},
+					{
+						field: 'commentsToId',
+						title: '评论目标用户编号'
+					},
+					{
+						field: 'commentsFromId',
+						title: '评论用户编号'
+					},
+					{
+						field: 'fromName',
+						title: '回复用户名称'
+					},
+					{
+						field: 'toName',
+						title: '评论用户名称'
+					},
+					{
+						field: 'status',
+						title: '评论状态',
+						formatter: function (value, row, index) {
+							return $.table.selectDictLabel(statusDatas, value);
+						}
+					},
+					{
+						field: 'remark',
+						title: '备注'
+					},
+					{
+						title: '操作',
+						align: 'center',
+						formatter: function (value, row, index) {
+							var actions = [];
+							actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.commentsId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+							actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.commentsId + '\')"><i class="fa fa-remove"></i>删除</a>');
+							return actions.join('');
+						}
+					}]
+			};
+			$.table.init(options);
+		});
 	</script>
 </body>
 </html>
