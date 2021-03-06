@@ -44,6 +44,14 @@ public class CommentsController extends BaseController {
         return prefix + "/comments";
     }
 
+    @RequiresPermissions("admin:comments:view")
+    @GetMapping("/start")
+    public String getComments(ModelMap modelMap) {
+        List<Comments> comments = commentsService.selectCommentsList(new Comments());
+        modelMap.put("comments", comments);
+        return prefix + "/commentsList";
+    }
+
     /**
      * 查询留言板评论互动列表
      */
