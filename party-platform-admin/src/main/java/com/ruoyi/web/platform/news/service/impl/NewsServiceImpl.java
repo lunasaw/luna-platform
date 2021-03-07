@@ -52,6 +52,7 @@ public class NewsServiceImpl implements INewsService {
      */
     @Override
     public int insertNews(News news) {
+        news.setNewsTime(DateUtils.getNowDate());
         news.setCreateBy(ShiroUtils.getLoginName());
         news.setCreateTime(DateUtils.getNowDate());
         news.setUpdateBy(ShiroUtils.getLoginName());

@@ -185,28 +185,37 @@
 							</p>
 							<h5 th:if="${not #strings.isEmpty(item.toName)}" class="comment-text"
 							    th:text="${{item.fromName}}+ '回复：'+${{item.toName}}"></h5>
-							<form class="form-group reply-active" id="reply-active"
-							      action="party-platform/admin/comments/reply"
-							      method="post">
-								<input name="commentsTitle" class="form-control" type="hidden"
-								       th:value="${{item.commentsTitle}}">
-								<input name="commentsId" class="form-control" type="hidden"
-								       th:value="${{item.commentsId}}">
-								<input name="commentsContent" class="form-control" type="text" required>
-								<input name="commentsToId" type="hidden" th:value="${{item.commentsFromId}}">
-								<h6>
-									<button class="btn btn-success" onclick="" type="submit"
-									        shiro:hasPermission="admin:comments:add">
-										<i class="fa fa-plus"></i> 回复
-									</button>
-								</h6>
-							</form>
 							<div class="bottom-comment">
 								<div class="comment-date" th:text="${{item.createTime}}">23.5 2014</div>
 								<ul class="comment-actions">
 
 								</ul>
 							</div>
+							<form class="form-group reply-active" id="reply-active" th:id="${{item.commentsId}}"
+							      th:classappend="${{item.commentsId}}+'reply-active'"
+							      action="party-platform/admin/comments/reply"
+							      method="post">
+								<div class="form-group">
+									<input name="commentsContent" class="form-control" type="text"
+									       th:id="${{item.commentsId}}+ 'commentsContent'"
+									       required>
+									<input name="test" type="text" id="test">
+								</div>
+								<input name="commentsTitle" class="form-control" type="hidden"
+								       th:value="${{item.commentsTitle}}">
+								<input name="commentsId" class="form-control" type="hidden"
+								       th:value="${{item.commentsId}}">
+								<input name="commentsToId" type="hidden" th:value="${{item.commentsFromId}}">
+
+								<h6>
+									<button class="btn btn-success" th:onclick="|reply('${item.commentsId}')|"
+									        type="submit"
+									        shiro:hasPermission="admin:comments:add">
+										<i class="fa fa-plus"></i> 回复
+									</button>
+									<!-- 按钮触发模态框 -->
+								</h6>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -214,6 +223,8 @@
 			</div>
 		</div>
 	</div>
+
+
 	</div>
 	<th:block th:include="include :: footer"/>
 	<script th:inline="javascript">
@@ -240,7 +251,8 @@
 			$('.reply-active').submit(function (e) {
 				// 阻止默认提交
 				e.preventDefault();
-				$.operate.save(prefix + "/reply", $('#reply-active').serialize());
+				// $.operate.save(prefix + "/reply", $('#reply-active').serialize());
+				// reply(commentsFromId);
 			});
 
 			$('.search-active').submit(function (e) {
@@ -252,19 +264,24 @@
 
 		});
 
-		function startSearch() {
-			$.ajax({
-				url: prefix + "/startSearch",
-				type: 'POST',
-				contentType: 'application/json;charset=UTF-8',
-				data: serializeFormData($('#formId')),
-				success: function (result) {
-					//location.reload();
-				},
-				error: function (xhr, resp, text) {
-					console.log(xhr, resp, text)
-				}
-			});
+		function reply(commentsFromId) {
+			// console.log($('.' + commentsFromId + 'reply-active').serialize())
+			// $.operate.save(prefix + "/reply", $().serialize());
+			let data = serializeFormData($('.' + commentsFromId + 'reply-active'));
+			$.operate.post(prefix + "/reply", $('.' + commentsFromId + 'reply-active').serialize());
+			// console.log(data);
+			// $.ajax({
+			// 	url: prefix + "/reply",
+			// 	type: 'POST',
+			// 	contentType: 'application/json;charset=UTF-8',
+			// 	data: data,
+			// 	success: function (result) {
+			// 		//location.reload();
+			// 	},
+			// 	error: function (xhr, resp, text) {
+			// 		console.log(xhr, resp, text)
+			// 	}
+			// });
 		}
 
 		function reset() {

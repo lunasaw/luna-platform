@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Swiper全屏自适应图片轮播代码 - 站长素材</title>
+
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+	<section class="pc-banner">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide swiper-slide-center none-effect">
+					<a href="#">
+						<img src="img/banner001.jpg">
+					</a>
+					<div class="layer-mask"></div>
+				</div>
+				<div class="swiper-slide">
+					<a href="#">
+						<img src="img/banner002.jpg">
+					</a>
+					<div class="layer-mask"></div>
+				</div>
+				<div class="swiper-slide">
+					<a href="#">
+						<img src="img/banner003.jpg">
+					</a>
+					<div class="layer-mask"></div>
+				</div>
+				<div class="swiper-slide">
+					<a href="#">
+						<img src="img/banner004.jpg">
+					</a>
+					<div class="layer-mask"></div>
+				</div>
+				<div class="swiper-slide">
+					<a href="#">
+						<img src="img/banner005.jpg">
+					</a>
+					<div class="layer-mask"></div>
+				</div>
+			</div>
+			<div class="button">
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript" src="js/swiper.min.js"></script>
+	<script type="text/javascript">
+
+		window.onload = function () {
+			var swiper = new Swiper('.swiper-container', {
+				autoplay: false,
+				speed: 1000,
+				autoplayDisableOnInteraction: false,
+				loop: true,
+				centeredSlides: true,
+				slidesPerView: 2,
+				pagination: '.swiper-pagination',
+				paginationClickable: true,
+				prevButton: '.swiper-button-prev',
+				nextButton: '.swiper-button-next',
+				onInit: function (swiper) {
+					swiper.slides[2].className = "swiper-slide swiper-slide-active";
+				},
+				breakpoints: {
+					668: {
+						slidesPerView: 1,
+					}
+				}
+			});
+		}
+
+
+	</script>
+	<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+		<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+		<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+	</div>
+</body>
+</html>

@@ -13,7 +13,7 @@
 	      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
 
-
+	<link type="text/css" rel="stylesheet" href="css/style.css" th:href="@{/css/buttom/style.css}">
 	<link rel="stylesheet" th:href="@{/css/newhome/index.css}">
 	<link rel="stylesheet" th:href="@{/css/newhome/common.css}">
 	<link rel="stylesheet" th:href="@{/css/newhome/layui.css}">
@@ -223,38 +223,62 @@
 		<!-- 3 -->
 		<div class="row mb10">
 			<div class=" col-lg-12 col-md-12 reddemo">
+				<section class="pc-banner">
+					<div class="swiper-container">
+						<div class="swiper-wrapper" id="wrapper-pic">
+							<!--							<div class="swiper-slide swiper-slide-center none-effect">-->
+							<!--								<a href="#">-->
+							<!--									<img src="img/banner001.jpg" th:src="@{/img/buttom/banner001.jpg}">-->
+							<!--								</a>-->
+							<!--								<div class="layer-mask"></div>-->
+							<!--							</div>-->
+							<!--							<div class="swiper-slide">-->
+							<!--								<a href="#">-->
+							<!--									<img src="img/banner002.jpg" th:src="@{/img/buttom/banner002.jpg}">-->
+							<!--								</a>-->
+							<!--								<div class="layer-mask"></div>-->
+							<!--							</div>-->
+							<!--							<div class="swiper-slide">-->
+							<!--								<a href="#">-->
+							<!--									<img src="img/banner003.jpg" th:src="@{/img/buttom/banner003.jpg}">-->
+							<!--								</a>-->
+							<!--								<div class="layer-mask"></div>-->
+							<!--							</div>-->
+							<!--							<div class="swiper-slide">-->
+							<!--								<a href="#">-->
+							<!--									<img src="img/banner004.jpg" th:src="@{/img/buttom/banner004.jpg}">-->
+							<!--								</a>-->
+							<!--								<div class="layer-mask"></div>-->
+							<!--							</div>-->
+							<!--							<div class="swiper-slide">-->
+							<!--								<a href="#">-->
+							<!--									<img src="img/banner005.jpg" th:src="@{/img/buttom/banner005.jpg}" style="height: 700;width: 1200">-->
+							<!--								</a>-->
+							<!--								<div class="layer-mask"></div>-->
+							<!--							</div>-->
+						</div>
+						<div class="button">
+							<div class="swiper-button-prev"></div>
+							<div class="swiper-button-next"></div>
+						</div>
+					</div>
+				</section>
+
 
 				<div class="">
 
 					<div class="tab">
 						<ul class="xcjyhead">
-
-
 						</ul>
 					</div>
-
 					<div class="thoughtCon clearfix">
-						<!--						底部活动图-->
-						<!--						<div class="newser" id="getPicLive">-->
-						<!--							<a href="">外部链接</a>-->
-						<!--							&lt;!&ndash;动态添加&ndash;&gt;-->
-						<!--						</div>-->
 						<div class="newser" id="outNews">
-
 							<!--动态添加-->
 						</div>
-
-
 						<a target="_blank" href="/party-platform/admin/page/study" class="more">查看更多 ></a>
-
-
 					</div>
-
-
 				</div>
 			</div>
-
-
 		</div>
 
 	</div>
@@ -430,16 +454,16 @@
 		$(document).ready(function () {
 			$.ajax({
 				url: "/party-platform/mainPage/getPicLive",
-				type: "POST",
+				type: "GET",
 				contentType: "application/json; charset=utf-8",
 				dataType: 'json',
 				async: true,
 				success: function (result) {
-					let containerwrapper = $("#outNews");
+					let containerwrapper = $("#wrapper-pic");
 
 					let item = result;
 					// console.info(item);
-					item.reverse();
+					// item.reverse();
 					console.info(item);
 					let maxsize;
 					if (item.length < 9) {
@@ -448,18 +472,13 @@
 						maxsize = 9;
 					}
 					for (let i = 0; i < maxsize; i++) {
-						if (item[i].newsType == "5") {
+						if (item[i].newsType == "1") {
 							containerwrapper.append(
-								'<div class="thoughtCon1 thoughtConBor1 ">'
-								+ '<ul>'
-								+ '<li>'
-								+ '<a target="_blank" href="' + item[i].newsUrl + '">'
-								+ '<h4>' + item[i].newsTitle + '</h4>'
-								+ '<p>' + item[i].newsContent + '</p>'
-								+ '<p>' + '<span>' + changeDateFormat("yyyy-mm-dd", item[i].newsTime) + '</span>' + '<span>' + '</span>' + '</p>'
-								+ '</a>'
-								+ '</li>'
-								+ '</ul>' +
+								'<div class="swiper-slide swiper-slide-center none-effect">' +
+								'	<a href="#">' +
+								'	<img src="' + item[i].newsPicture + '" >' +
+								'	</a>' +
+								'	<div class="layer-mask"></div>' +
 								'</div>'
 							)
 						}
@@ -467,6 +486,35 @@
 				}
 			})
 		})
+
+	</script>
+
+	<script type="text/javascript" src="js/swiper.min.js" th:src="@{/js/buttom/swiper.min.js}"></script>
+	<script type="text/javascript">
+
+		window.onload = function () {
+			var swiper = new Swiper('.swiper-container', {
+				autoplay: false,
+				speed: 1000,
+				autoplayDisableOnInteraction: false,
+				loop: true,
+				centeredSlides: true,
+				slidesPerView: 2,
+				pagination: '.swiper-pagination',
+				paginationClickable: true,
+				prevButton: '.swiper-button-prev',
+				nextButton: '.swiper-button-next',
+				onInit: function (swiper) {
+					swiper.slides[2].className = "swiper-slide swiper-slide-active";
+				},
+				breakpoints: {
+					668: {
+						slidesPerView: 1,
+					}
+				}
+			});
+		}
+
 
 	</script>
 </body>

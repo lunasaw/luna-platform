@@ -36,7 +36,7 @@ public class PageRestController {
 
         HashMap<String, String> map = Maps.newHashMap();
         for (SysDictData sysDictData : newsType) {
-            if (!sysDictData.getDictValue().equals("6")) {
+            if (!sysDictData.getDictValue().equals("6") && !sysDictData.getDictValue().equals("1")) {
                 News news = new News();
                 news.setNewsType(sysDictData.getDictValue());
                 news.setStatus("1");
@@ -56,6 +56,15 @@ public class PageRestController {
         }
 
         return lists;
+    }
+
+    @GetMapping("/getPicLive")
+    public List<News> getPicLive() {
+        News news = new News();
+        news.setStatus("1");
+        news.setNewsType("1");
+        List<News> newsList = iNewsService.selectNewsList(news);
+        return newsList;
     }
 
     @PostMapping("/allNewsList")
@@ -85,9 +94,6 @@ public class PageRestController {
         NewsDocumentary newsDocumentary = new NewsDocumentary();
         newsDocumentary.setDocumentaryStatus("1");
         List<NewsDocumentary> newsDocumentaries = iNewsDocumentaryService.selectNewsDocumentaryList(newsDocumentary);
-        for (NewsDocumentary documentary : newsDocumentaries) {
-
-        }
         return newsDocumentaries;
     }
 
