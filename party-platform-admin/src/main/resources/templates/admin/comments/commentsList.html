@@ -183,7 +183,7 @@
 							<option class="form-control m-b" th:text="${{item.commentsTitle}}"></option>
 							<p class="comment-text" th:text="${{item.commentsContent}}">Lorem ipsum dolor sit amet,
 							</p>
-							<h5 th:if="${item.toName} eq 'true'" class="comment-text"
+							<h5 th:if="${not #strings.isEmpty(item.toName)}" class="comment-text"
 							    th:text="${{item.fromName}}+ '回复：'+${{item.toName}}"></h5>
 							<form class="form-group reply-active" id="reply-active"
 							      action="party-platform/admin/comments/reply"

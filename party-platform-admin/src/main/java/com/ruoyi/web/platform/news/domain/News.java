@@ -1,7 +1,9 @@
 package com.ruoyi.web.platform.news.domain;
 
 import java.util.Date;
+import java.util.Objects;
 
+import com.ruoyi.common.utils.DateUtils;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -16,7 +18,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * @date 2020-11-27
  */
 @ApiModel("News")
-public class News extends BaseEntity {
+public class News extends BaseEntity implements Comparable<News> {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -155,5 +157,16 @@ public class News extends BaseEntity {
                 .append("updateTime", getUpdateTime())
                 .append("remark", getRemark())
                 .toString();
+    }
+
+    @Override
+    public int compareTo(News o) {
+        if (this.getNewsTime().getTime() >= o.getNewsTime().getTime()) {
+            return 1;
+        } else if (this.getNewsTime().getTime() < o.getNewsTime().getTime()) {
+            return -1;
+        } else {
+            return -1;
+        }
     }
 }

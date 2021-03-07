@@ -2,23 +2,22 @@
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>信息工程学院智慧党建云平台</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<title>信息工程学院智慧党建云平台</title>
+	<link rel="shortcut icon" href="favicon.ico" th:href="@{/favicon.ico}">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+	      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
 
+	<link rel="stylesheet" th:href="@{/css/newhome/index.css}">
 
-
-    <link rel="stylesheet" th:href="@{/css/newhome/index.css}">
-
-    <link rel="stylesheet" th:href="@{/css/newhome/common.css}">
+	<link rel="stylesheet" th:href="@{/css/newhome/common.css}">
 
     <link rel="stylesheet" th:href="@{/css/newhome/layui.css}">
 
@@ -85,9 +84,9 @@
         <!-- 第一行 -->
         <div class="crumbs">
             <span>您的位置：</span>
-            <span class="layui-breadcrumb crumbsDet" lay-separator=">">
-                <a href="#">平台首页</a>
-                <a href="#">新闻中心</a> > 正文
+	        <span class="layui-breadcrumb crumbsDet" lay-separator=">">
+                <a href="#" th:href="@{/admin/page/main}">平台首页</a>
+                <a href="#" th:href="@{/admin/page/newslist}">新闻中心</a> > 正文
             </span>
         </div>
         <div class="newbody">

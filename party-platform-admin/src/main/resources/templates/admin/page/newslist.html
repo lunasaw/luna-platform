@@ -2,138 +2,148 @@
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0"/>
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>信息工程学院智慧党建云平台</title>
-    <link rel="stylesheet" th:href="@{/css/newhome/common.css}">
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
-
-
-<!--    <script src="https://cdn.bootcss.com/jquery/2.1.0/jquery.js"></script>-->
-<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"-->
-<!--          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>-->
-
-    <link rel="stylesheet" th:href="@{/css/newhome/layui.css}">
-    <link rel="stylesheet" th:href="@{/css/newhome/index.css}">
-
-    <link rel="stylesheet" th:href="@{/css/newhome/news.css}">
-    <link rel="stylesheet" th:href="@{/css/newhome/newslist.css}">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0"/>
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<title>信息工程学院智慧党建云平台</title>
+	<link rel="stylesheet" th:href="@{/css/newhome/common.css}">
+	<link rel="shortcut icon" href="favicon.ico" th:href="@{/favicon.ico}">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+	      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
 
 
-    <style>
-        * {margin: 0;padding: 0;}
-        .list li{display: block;}
-        .list li img{display: block;width:100px;}
-    </style>
+	<!--    <script src="https://cdn.bootcss.com/jquery/2.1.0/jquery.js"></script>-->
+	<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"-->
+	<!--          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>-->
+
+	<link rel="stylesheet" th:href="@{/css/newhome/layui.css}">
+	<link rel="stylesheet" th:href="@{/css/newhome/index.css}">
+
+	<link rel="stylesheet" th:href="@{/css/newhome/news.css}">
+	<link rel="stylesheet" th:href="@{/css/newhome/newslist.css}">
+
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.list li {
+			display: block;
+		}
+
+		.list li img {
+			display: block;
+			width: 100px;
+		}
+	</style>
 </head>
 
 <body>
-    <!-- 头部 -->
+	<!-- 头部 -->
 
 
-    <div class="header content clearfix">
-        <a target="_blank" href="#">
-            <img th:src="@{/img/images/picture/logo.png}">
-        </a>
-        <div class="navbt   maB25 navstyle">
-            <ul class="">
+	<div class="header content clearfix">
+		<a target="_blank" href="#">
+			<img th:src="@{/img/images/picture/logo.png}">
+		</a>
+		<div class="navbt   maB25 navstyle">
+			<ul class="">
 
-                <li><a target="_blank" href="/party-platform/admin/page/main">平台首页</a></li>
-                <li><a target="_blank" href="/party-platform/admin/page/newslist">新闻中心</a></li>
-                <li><a target="_blank" href="/party-platform/admin/page/study">宣传教育</a></li>
-                <li><a target="_blank" href="/party-platform/login">党建管理</a></li>
-            </ul>
-        </div>
-    </div>
-    <!-- 头部 end-->
+				<li><a target="_blank" href="/party-platform/admin/page/main">平台首页</a></li>
+				<li><a target="_blank" href="/party-platform/admin/page/newslist">新闻中心</a></li>
+				<li><a target="_blank" href="/party-platform/admin/page/study">宣传教育</a></li>
+				<li><a target="_blank" href="/party-platform/login">党建管理</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- 头部 end-->
 
-    <!-- banner -->
+	<!-- banner -->
 
-    <div id="demo" class="carousel slide content" data-ride="carousel">
+	<div id="demo" class="carousel slide content" data-ride="carousel">
 
-        <!-- 指示符 -->
-        <ul class="carousel-indicators">
-            <li data-target="#demo" data-slide-to="0" class="active"></li>
-            <li data-target="#demo" data-slide-to="1"></li>
-            <li data-target="#demo" data-slide-to="2"></li>
-        </ul>
+		<!-- 指示符 -->
+		<ul class="carousel-indicators">
+			<li data-target="#demo" data-slide-to="0" class="active"></li>
+			<li data-target="#demo" data-slide-to="1"></li>
+			<li data-target="#demo" data-slide-to="2"></li>
+		</ul>
 
-        <!-- 轮播图片 -->
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img th:src="@{/img/images/picture/banner.jpg}">
-            </div>
-            <div class="carousel-item">
-                <img th:src="@{/img/images/picture/banner1.jpg}">
-            </div>
-            <div class="carousel-item">
-                <img th:src="@{/img/images/picture/banner.jpg}">
-            </div>
-        </div>
+		<!-- 轮播图片 -->
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img th:src="@{/img/images/picture/banner.jpg}">
+			</div>
+			<div class="carousel-item">
+				<img th:src="@{/img/images/picture/banner1.jpg}">
+			</div>
+			<div class="carousel-item">
+				<img th:src="@{/img/images/picture/banner.jpg}">
+			</div>
+		</div>
 
-        <!-- 左右切换按钮 -->
-        <a class="carousel-control-prev" href="#demo" data-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </a>
-        <a class="carousel-control-next" href="#demo" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </a>
+		<!-- 左右切换按钮 -->
+		<a class="carousel-control-prev" href="#demo" data-slide="prev">
+			<span class="carousel-control-prev-icon"></span>
+		</a>
+		<a class="carousel-control-next" href="#demo" data-slide="next">
+			<span class="carousel-control-next-icon"></span>
+		</a>
 
-    </div>
-    <!-- 新闻 -->
+	</div>
+	<!-- 新闻 -->
 
-    <div class=" content-area">
-        <!-- 第一行 -->
-        <div class="crumbs">
-            <span>您的位置：</span>
-            <span class="layui-breadcrumb crumbsDet" lay-separator=">">
-                <a href="#">平台首页</a>
-                <a href="#">新闻中心</a>
+	<div class=" content-area">
+		<!-- 第一行 -->
+		<div class="crumbs">
+			<span>您的位置：</span>
+			<span class="layui-breadcrumb crumbsDet" lay-separator=">">
+                <a href="#" th:href="@{/admin/page/main}">平台首页</a>
+                <a href="#" th:href="@{/admin/page/newslist}">新闻中心</a>
             </span>
-        </div>
+		</div>
 
-        <div class="list card">
-            <table style="width: 100%;" id="listContent">
-                <!--动态添加-->
-            </table>
-        </div>
+		<div class="list card">
+			<table style="width: 100%;" id="listContent">
+				<!--动态添加-->
+			</table>
+		</div>
 
-        <div class="newbody">
-            <div class="row">
+		<div class="newbody">
+			<div class="row">
 
-                <div class=" col-lg-12 col-md-12">
-                    <div class="card mediacard">
+				<div class=" col-lg-12 col-md-12">
+					<div class="card mediacard">
 
-                        <div id="pagination" style="display: none">
-                            <ul class="pagination"></ul>
-                        </div>
+						<div id="pagination" style="display: none">
+							<ul class="pagination"></ul>
+						</div>
 
-                    </div>
-                </div>
-            </div>
+					</div>
+				</div>
+			</div>
 
-        </div>
-    </div>
-    <!--底部-->
+		</div>
+	</div>
+	<!--底部-->
 
 
-    <div class="b_footer">
-        <div class="b_foot">
-            <div class="footnav">
-                单位：盐城师范学院信息工程学院
+	<div class="b_footer">
+		<div class="b_foot">
+			<div class="footnav">
+				单位：盐城师范学院信息工程学院
 
-            </div>
-        </div>
-    </div>
-    <!--底部end-->
+			</div>
+		</div>
+	</div>
+	<!--底部end-->
 
 </body>
 
@@ -144,166 +154,177 @@
 
 
 <script type="text/javascript">
-    var List = {
-        contentId: "listContent", //渲染列表id
-        pageId: "pagination",  //渲染分页id
-        pageIndex: 1, //第几页开始渲染
-        pageSize: 5,//每页渲染多少条数据
-        pageSum:0,//共多少条数据
-        refreshId: null
-    };
-    //data.count为总的数据条数，即共多少条数据
-    List.loadList = function (pageIndex) {
-        var ajaxRequest = function () {
-            $.ajax({
-                url: "/party-platform/mainPage/allNews",
-                type: "POST",
-                // data: data,
-                error: function () {
-                    // console.log(error);
-                },
-                success: function (result) {
-                    console.log(result);
-                    let arr = result
-                    let data = [];
-                    let j = 0;
-                    for (let i = 0;i < arr.length; i++){
-                        if (arr[i].newsType != "5"){
-                            data[j] = arr[i];
-                            j++;
-                        }
-                    }
-                    console.log(data.length);
-                    if (arr.length == 0) {
-                        console.log('当前没有数据记录');
-                    }
-                    else {
-                        if(pageIndex == 1){
-                            List.initPaginator(data.length, data);
-                            $('#' + List.pageId).show();
-                            $('.pagination li[data-page="1"]').addClass('active');
-                            $('.pagination li.page-first').removeClass('active').addClass('disabled');
-                        }
-                        List.bindList(pageIndex,data.length,data);
-                    }
-                }
-            });
-        }
-        ajaxRequest();
-    };
+	var List = {
+		contentId: "listContent", //渲染列表id
+		pageId: "pagination",  //渲染分页id
+		pageIndex: 1, //第几页开始渲染
+		pageSize: 5,//每页渲染多少条数据
+		pageSum: 0,//共多少条数据
+		refreshId: null
+	};
+	//data.count为总的数据条数，即共多少条数据
+	List.loadList = function (pageIndex) {
+		var ajaxRequest = function () {
+			$.ajax({
+				url: "/party-platform/mainPage/allNewsList",
+				type: "POST",
+				// data: data,
+				error: function () {
+					// console.log(error);
+				},
+				success: function (result) {
+					console.log(result);
+					let arr = result
+					let data = [];
+					let j = 0;
+					for (let i = 0; i < arr.length; i++) {
+						if (arr[i].newsType != "6") {
+							data[j] = arr[i];
+							j++;
+						}
+					}
+					console.log(data.length);
+					if (arr.length == 0) {
+						console.log('当前没有数据记录');
+					} else {
+						if (pageIndex == 1) {
+							List.initPaginator(data.length, data);
+							$('#' + List.pageId).show();
+							$('.pagination li[data-page="1"]').addClass('active');
+							$('.pagination li.page-first').removeClass('active').addClass('disabled');
+						}
+						List.bindList(pageIndex, data.length, data);
+					}
+				}
+			});
+		}
+		ajaxRequest();
+	};
 
-    //数据遍历
-    List.bindList = function (pageIndex,count,data) {
-        var start = (pageIndex - 1) * List.pageSize; // 数据开始点
-        var content = '';
-        for (var index = start; index < pageIndex*List.pageSize && index < data.length; index++) { //遍历第几页内容，pageIndex也页面顺序
-            console.log(data[index]);
-            content += List.getListItem(data[index]);
-        }
-        $('#' + List.contentId).html('');
-        $('#' + List.contentId).append(content);
-    };
+	//数据遍历
+	List.bindList = function (pageIndex, count, data) {
+		var start = (pageIndex - 1) * List.pageSize; // 数据开始点
+		var content = '';
+		for (var index = start; index < pageIndex * List.pageSize && index < data.length; index++) { //遍历第几页内容，pageIndex也页面顺序
+			console.log(data[index]);
+			content += List.getListItem(data[index]);
+		}
+		$('#' + List.contentId).html('');
+		$('#' + List.contentId).append(content);
+	};
 
-    List.getListItem = function (item) {
+	List.getListItem = function (item) {
 
-        var content = '<tr>'
-            +'<td>'
-            +'<div class="media mediapa">'
-            +'<div class="media-left media-middle">'
-            +'<a href="#">'
-            +'<img class="media-object" src="'+item.newsPicture+'" alt="" style="width:200px">'
-            +'</a>'
-            +'</div>'
-            +'<div class="media-body mediafont">'
+		var content = '<tr>'
+			+ '<td>'
+			+ '<div class="media mediapa">'
+			+ '<div class="media-left media-middle">'
+			+ '<a href="#">'
+			+ '<img class="media-object" src="' + item.newsPicture + '" alt="" style="width:200px">'
+			+ '</a>'
+			+ '</div>'
+			+ '<div class="media-body mediafont">'
 
-            +'<a href="/party-platform/admin/page/news?newsid='+item.newsId+'" target="_blank">'+item.newsTitle+'</a>'
-            +'<p>'+item.newsContent+'</p>'
-            +'<p class="listname">'+ item.createBy+'<span>'+item.newsTime +'</span>'+'</p>'
-            +'</div>'
-            +'</div>'
+			+ '<a href="/party-platform/admin/page/news?newsid=' + item.newsId + '" target="_blank">' + item.newsTitle + '</a>'
+			+ '<p>' + item.newsContent + '</p>'
+			+ '<p class="listname">' + item.createBy + '<span>' + changeDateFormat("yyyy-mm-dd", item.newsTime) + '</span>' + '</p>'
+			+ '</div>'
+			+ '</div>'
 
-            +'</td>'
+			+ '</td>'
 
-            +'</tr>';
+			+ '</tr>';
 
-        return content;
-    };
-    //分页
-    List.initPaginator = function (count, data) {
-        var pageSize = List.pageSize;
-        var pageTotal = Math.ceil(count / pageSize);
-        var pageIndex = List.pageIndex;
-        List.pageSum = pageTotal;
-        console.log(pageTotal);
-        var html = "";
-        for (var i = pageIndex; i <= pageTotal; i++) {
-            html += '<li class="page" data-page="' + i + '"><a href="javascript:;">' + i + '</a></li>';
-        }
-        html = '<li data-page="1" class="page-first"><a href="javascript:;">首页</a></li>'
-            + '<li data-page="" class="page-prev disabled"><a href="javascript:;" >上一页</a></li>'
-            + html
-            + '<li data-page="2" class="page-next"><a href="javascript:;">下一页</a></li>'
-            + '<li data-page="' + pageTotal + '" class="page-last"><a href="javascript:;">末页</a></li>';
-        $('#' + List.pageId).find('ul').html(html);
-    };
+		return content;
+	};
 
-    //点击页码刷新跳数据
-    $('#' + List.pageId).on('click','li',function (e) {
-        var pageIndex=parseInt($(this).attr('data-page'));
-        var activeIndex=parseInt($('.pagination li.active').attr('data-page'));//当前active状态页码
-        $('.pagination li').removeClass('active');
-        if($(this).hasClass('page-prev')) {
-            List.loadList(activeIndex-1);
-            var cur=activeIndex-1;
-            $('.page-next,.page-last').removeClass('disabled');
-            $('.pagination li.page[data-page=' + cur + ']').addClass('active');
-            if(cur == 1){
-                $('.page-prev,.page-first').addClass('disabled');
-                $('.page-prev').attr('data-page','');
-            }else{
-                $('.page-prev').attr('data-page',activeIndex-2);
-                $('.page-next').attr('data-page',activeIndex);
-            }
+	function changeDateFormat(format, cellval) {
+		let s = cellval.toString();
+		if (format === ("yyyy-mm-dd")) {
+			return s.slice(0, 10);
+		} else if (format === ("yyyy-mm-dd hh-mm-ii")) {
+			return s;
+		} else {
+			return cellval
+		}
+	}
 
-        }else if($(this).hasClass('page-next')){
-            List.loadList(activeIndex+1);
-            var cur=activeIndex+1;
-            $('.page-prev,.page-first').removeClass('disabled');
-            $('.pagination li.page[data-page=' + cur + ']').addClass('active');
-            if(cur == List.pageSum){
-                $('.page-next,.page-last').addClass('disabled');
-                $('.page-next').attr('data-page','');
-            }else{
-                $('.page-prev').attr('data-page',activeIndex);
-                $('.page-next').attr('data-page',activeIndex+2);
-            }
+	//分页
+	List.initPaginator = function (count, data) {
+		var pageSize = List.pageSize;
+		var pageTotal = Math.ceil(count / pageSize);
+		var pageIndex = List.pageIndex;
+		List.pageSum = pageTotal;
+		console.log(pageTotal);
+		var html = "";
+		for (var i = pageIndex; i <= pageTotal; i++) {
+			html += '<li class="page" data-page="' + i + '"><a href="javascript:;">' + i + '</a></li>';
+		}
+		html = '<li data-page="1" class="page-first"><a href="javascript:;">首页</a></li>'
+			+ '<li data-page="" class="page-prev disabled"><a href="javascript:;" >上一页</a></li>'
+			+ html
+			+ '<li data-page="2" class="page-next"><a href="javascript:;">下一页</a></li>'
+			+ '<li data-page="' + pageTotal + '" class="page-last"><a href="javascript:;">末页</a></li>';
+		$('#' + List.pageId).find('ul').html(html);
+	};
 
-        }else if((!$(this).hasClass('page-prev')) &&(!$(this).hasClass('page-next'))){
-            $(this).addClass('active');
-            List.loadList($(this).attr('data-page'));
-        }
-        if(!($(this).hasClass('page-first')) && !($(this).hasClass('page-prev'))&& !($(this).hasClass('page-last')) && !($(this).hasClass('page-next'))){
-            if(pageIndex == 1){
-                $('.page-prev,.page-first').addClass('disabled');
-                $('.page-next,.page-last').removeClass('disabled');
-                $('.page-next').attr('data-page','2');
-            }else if(pageIndex == List.pageSum){
-                $('.page-prev,.page-first').removeClass('disabled');
-                $('.page-next,.page-last').addClass('disabled');
-                $('.page-prev').attr('data-page',List.pageSum-1);
-                $('.page-next').attr('data-page','');
-            }else{
-                $('.page-prev,.page-first').removeClass('disabled');
-                $('.page-next,.page-last').removeClass('disabled');
-                $('.page-prev').attr('data-page',pageIndex-1);
-                $('.page-next').attr('data-page',pageIndex+1);
-            }
-        }
-    });
-    //页面初始化
-    $(function () {
-        List.loadList(List.pageIndex);
-    });
+	//点击页码刷新跳数据
+	$('#' + List.pageId).on('click', 'li', function (e) {
+		var pageIndex = parseInt($(this).attr('data-page'));
+		var activeIndex = parseInt($('.pagination li.active').attr('data-page'));//当前active状态页码
+		$('.pagination li').removeClass('active');
+		if ($(this).hasClass('page-prev')) {
+			List.loadList(activeIndex - 1);
+			var cur = activeIndex - 1;
+			$('.page-next,.page-last').removeClass('disabled');
+			$('.pagination li.page[data-page=' + cur + ']').addClass('active');
+			if (cur == 1) {
+				$('.page-prev,.page-first').addClass('disabled');
+				$('.page-prev').attr('data-page', '');
+			} else {
+				$('.page-prev').attr('data-page', activeIndex - 2);
+				$('.page-next').attr('data-page', activeIndex);
+			}
+
+		} else if ($(this).hasClass('page-next')) {
+			List.loadList(activeIndex + 1);
+			var cur = activeIndex + 1;
+			$('.page-prev,.page-first').removeClass('disabled');
+			$('.pagination li.page[data-page=' + cur + ']').addClass('active');
+			if (cur == List.pageSum) {
+				$('.page-next,.page-last').addClass('disabled');
+				$('.page-next').attr('data-page', '');
+			} else {
+				$('.page-prev').attr('data-page', activeIndex);
+				$('.page-next').attr('data-page', activeIndex + 2);
+			}
+
+		} else if ((!$(this).hasClass('page-prev')) && (!$(this).hasClass('page-next'))) {
+			$(this).addClass('active');
+			List.loadList($(this).attr('data-page'));
+		}
+		if (!($(this).hasClass('page-first')) && !($(this).hasClass('page-prev')) && !($(this).hasClass('page-last')) && !($(this).hasClass('page-next'))) {
+			if (pageIndex == 1) {
+				$('.page-prev,.page-first').addClass('disabled');
+				$('.page-next,.page-last').removeClass('disabled');
+				$('.page-next').attr('data-page', '2');
+			} else if (pageIndex == List.pageSum) {
+				$('.page-prev,.page-first').removeClass('disabled');
+				$('.page-next,.page-last').addClass('disabled');
+				$('.page-prev').attr('data-page', List.pageSum - 1);
+				$('.page-next').attr('data-page', '');
+			} else {
+				$('.page-prev,.page-first').removeClass('disabled');
+				$('.page-next,.page-last').removeClass('disabled');
+				$('.page-prev').attr('data-page', pageIndex - 1);
+				$('.page-next').attr('data-page', pageIndex + 1);
+			}
+		}
+	});
+	//页面初始化
+	$(function () {
+		List.loadList(List.pageIndex);
+	});
 
 </script>
 
