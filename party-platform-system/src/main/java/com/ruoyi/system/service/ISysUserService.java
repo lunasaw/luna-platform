@@ -3,6 +3,7 @@ package com.ruoyi.system.service;
 import java.util.List;
 import com.ruoyi.system.domain.SysUser;
 import com.ruoyi.system.domain.SysUserRole;
+import com.ruoyi.system.domain.TemplateHumNum;
 
 /**
  * 用户 业务层
@@ -212,4 +213,11 @@ public interface ISysUserService
      * @return 结果
      */
     public int changeStatus(SysUser user);
+
+    /**
+     * 报表收集人数和部门
+     *
+     * @return 结果
+     */
+    public List<TemplateHumNum> report();
 }

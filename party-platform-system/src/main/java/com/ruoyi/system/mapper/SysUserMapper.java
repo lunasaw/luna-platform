@@ -2,6 +2,7 @@ package com.ruoyi.system.mapper;
 
 import java.util.List;
 import com.ruoyi.system.domain.SysUser;
+import com.ruoyi.system.domain.TemplateHumNum;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -130,4 +131,11 @@ public interface SysUserMapper
      * @return 结果
      */
     public SysUser checkEmailUnique(String email);
+
+    /**
+     * 通过此表检索部门所属人员数量
+     *
+     *
+     */
+    public List<TemplateHumNum> getSysuserDept();
 }

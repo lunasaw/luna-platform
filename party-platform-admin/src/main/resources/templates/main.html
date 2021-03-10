@@ -10,218 +10,228 @@
     <link href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}" rel="stylesheet"/>
     <link href="../static/css/main/animate.min.css" th:href="@{/css/main/animate.min.css}" rel="stylesheet"/>
     <link href="../static/css/main/style.min862f.css" th:href="@{/css/main/style.min862f.css}" rel="stylesheet"/>
-
-    <style>
-        /* Custom Styles */
-        ul.nav-tabs{
-            width: 140px;
-            margin-top: 20px;
-            border-radius: 4px;
-            border: 1px solid #ddd;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
-        }
-        ul.nav-tabs li{
-            margin: 0;
-            border-top: 1px solid #ddd;
-        }
-        ul.nav-tabs li:first-child{
-            border-top: none;
-        }
-        ul.nav-tabs li a{
-            margin: 0;
-            padding: 8px 16px;
-            border-radius: 0;
-        }
-        ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
-            color: #fff;
-            background: #0088cc;
-            border: 1px solid #0088cc;
-        }
-        ul.nav-tabs li:first-child a{
-            border-radius: 4px 4px 0 0;
-        }
-        ul.nav-tabs li:last-child a{
-            border-radius: 0 0 4px 4px;
-        }
-        ul.nav-tabs.affix{
-            top: 30px; /* Set the top position of pinned element */
-        }
-    </style>
-
-
 </head>
 
-<body class="gray-bg" data-spy="scroll" data-target="#myScrollspy">
-    <div id="myCarousel" class="carousel slide" align="center">
-        <!-- 轮播（Carousel）指标 -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-        <!-- 轮播（Carousel）项目 -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <img src="../static/img/dang01.jpg" th:src="@{/img/dang01.jpg}" alt="First slide">
-                <div class="carousel-caption"></div>
-            </div>
-            <div class="item">
-                <img src="../static/img/dang02.jpg" th:src="@{/img/dang02.jpg}" alt="Second slide">
-                <div class="carousel-caption"></div>
-            </div>
-            <div class="item">
-                <img src="../static/img/dang03.jpg" th:src="@{/img/dang03.jpg}" alt="Third slide">
-                <div class="carousel-caption"></div>
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>登录次数监控图</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="echarts" id="echarts-line-chart"></div>
+                </div>
             </div>
         </div>
-        <!-- 轮播（Carousel）导航 -->
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+
+        <div class="col-sm-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>情况汇总饼状图</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="echarts" id="echarts-pie-chart"></div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
-
-    <div class="container">
-        <div class="jumbotron">
-            <h1>党的文化历史</h1>
-        </div>
-        <div class="row">
-            <div class="col-xs-3" id="myScrollspy">
-                <ul class="nav nav-tabs nav-stacked" id="myNav">
-                    <li class="active"><a href="#section-1">两会一课</a></li>
-                    <li><a href="#section-2">两会一课</a></li>
-                    <li><a href="#section-3">两会一课</a></li>
-                    <li><a href="#section-4">两会一课</a></li>
-                </ul>
-            </div>
-            <div class="col-xs-9">
-                <h2 id="section-1">两会一课</h2>
-                <p>两会一课”是党内生活的主要形式。“两会”是指支部党员大会、支部委员会，“一课”是指党课。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，
-                    凝聚力的重要保证。为使“两会一课”更具规范化、制度化，特制定本制度。</p>
-                <p>两会一课是什么？两会一课和三会一课区别是什么？我们来看看。
-                    “两会一课”是党内生活的主要形式。“两会”是指支部党员大会、支部委员会，“一课”是指党课。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，
-                    提高党支部战斗力，凝聚力的重要保证。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-
-                </p>
-                <hr>
-                <h2 id="section-2">两会一课</h2>
-                <p>两会一课”是党内生活的主要形式。“两会”是指支部党员大会、支部委员会，“一课”是指党课。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，
-                    凝聚力的重要保证。为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                </p>
-                <p>两会一课是什么？两会一课和三会一课区别是什么？我们来看看。
-                    “两会一课”是党内生活的主要形式。“两会”是指支部党员大会、支部委员会，“一课”是指党课。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。 “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                </p>
-                <hr>
-                <h2 id="section-3">两会一课</h2>
-                <p>两会一课”是党内生活的主要形式。“两会”是指支部党员大会、支部委员会，“一课”是指党课。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”是党内生活的主要形式。“两会”是指支部党员大会、支部委员会，“一课”是指党课。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-
-                </p>
-                <p>两会一课是什么？两会一课和三会一课区别是什么？我们来看看。
-                    “两会一课”是党内生活的主要形式。“两会”是指支部党员大会、支部委员会，“一课”是指党课。
-                    “两会一课”是党内生活的主要形式。“两会”是指支部党员大会、支部委员会，“一课”是指党课。
-                    “两会一课”是党内生活的主要形式。“两会”是指支部党员大会、支部委员会，“一课”是指党课。
-                    “两会一课”是党内生活的主要形式。“两会”是指支部党员大会、支部委员会，“一课”是指党课。
-                    “两会一课”是党内生活的主要形式。“两会”是指支部党员大会、支部委员会，“一课”是指党课。
-                    “两会一课”是党内生活的主要形式。“两会”是指支部党员大会、支部委员会，“一课”是指党课。
-                    “两会一课”是党内生活的主要形式。“两会”是指支部党员大会、支部委员会，“一课”是指党课。
-                    “两会一课”是党内生活的主要形式。“两会”是指支部党员大会、支部委员会，“一课”是指党课。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。</p>
-                <hr>
-                <h2 id="section-4">两会一课</h2>
-                <p>两会一课”是党内生活的主要形式。“两会”是指支部党员大会、支部委员会，“一课”是指党课。“两会一课”制度是健全党的组织生活，
-                    严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。为使“两会一课”更具规范化、
-                    制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                </p>
-                <p>两会一课是什么？两会一课和三会一课区别是什么？我们来看看。
-                    “两会一课”是党内生活的主要形式。“两会”是指支部党员大会、支部委员会，“一课”是指党课。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                    “两会一课”制度是健全党的组织生活，严格党员管理，加强党员教育的重要方式，是加强支部建设，提高党支部战斗力，凝聚力的重要保证。
-                    为使“两会一课”更具规范化、制度化，特制定本制度。
-                </p>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>各部门组织人数柱状图</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="echarts" id="echarts-bar-chart"></div>
+                </div>
             </div>
         </div>
+
     </div>
+</div>
 
-    <script th:src="@{/js/jquery.min.js}"></script>
-    <script th:src="@{/js/bootstrap.min.js}"></script>
-    <script th:src="@{/ajax/libs/layer/layer.min.js}"></script>
-    <script>
-        $(document).ready(function(){
-            $("#myNav").affix({
-                offset: {
-                    top: 125
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/ajax/libs/layer/layer.min.js}"></script>
+<th:block th:include="include :: footer" />
+<th:block th:include="include :: echarts-js" />
+<script type="text/javascript">
+    $(function () {
+        var lineChart = echarts.init(document.getElementById("echarts-line-chart"));
+        var lineoption = {
+            title : {
+                text: '近7天访问量'
+            },
+            tooltip : {
+                trigger: 'axis'
+            },
+            legend: {
+                data:['最高访问量','最低访问量']
+            },
+            grid:{
+                x:40,
+                x2:40,
+                y2:24
+            },
+            calculable : true,
+            xAxis : [
+                {
+                    type : 'category',
+                    boundaryGap : false,
+                    data : []
                 }
-            });
+            ],
+            yAxis : [
+                {
+                    type : 'value'
+                }
+            ],
+            series : [
+                {
+                    name:'最高访问量',
+                    type:'line',
+                    data:[],
+                    markPoint : {
+                        data : [
+                            {type : 'max', name: '最大值'},
+                            {type : 'min', name: '最小值'}
+                        ]
+                    },
+                    markLine : {
+                        data : [
+                            {type : 'average', name: '平均值'}
+                        ]
+                    }
+                }
+            ]
+        };
+        lineChart.setOption(lineoption);
+        $(window).resize(lineChart.resize);
+
+        $.ajax({
+            url:"/party-platform/monitor/logininfor/sevenCountNumReport",
+            async: false,
+            cache: false,
+            success:function (data) {
+                lineChart.setOption({
+                    xAxis: {data: data.dates},
+                    series: [{data: data.countNum}]
+                })
+            }
         });
-    </script>
-    <script type="text/javascript">
-	    $('#pay-qrcode').click(function(){
-	        var html=$(this).html();
-	        parent.layer.open({
-	            title: false,
-	            type: 1,
-	            closeBtn:false,
-	            shadeClose:true,
-	            area: ['600px', 'auto'],
-	            content: html
-	        });
-	    });
-    </script>
+
+        var barChart = echarts.init(document.getElementById("echarts-bar-chart"));
+        var baroption = {
+            title : {
+                text: '各组织人数汇总'
+            },
+            tooltip : {
+                trigger: 'axis'
+            },
+            legend: {
+                data:['人数']
+            },
+            grid:{
+                x:30,
+                x2:40,
+                y2:24
+            },
+            calculable : true,
+            xAxis : {data : []},
+            yAxis : [
+                {
+                    type : 'value'
+                }
+            ],
+            series : [
+                {
+                    name:'人数',
+                    type:'bar',
+                    data:[],
+                    markPoint : {
+                        data : [
+                            {type : 'max', name: '最大值'},
+                            {type : 'min', name: '最小值'}
+                        ]
+                    },
+                    markLine : {
+                        data : [
+                            {type : 'average', name: '平均值'}
+                        ]
+                    }
+                }
+            ]
+        };
+
+        barChart.setOption(baroption);
+
+        window.onresize = barChart.resize;
+        $.ajax({
+            url:"/party-platform/monitor/logininfor/sysUserReport",
+            async: false,
+            cache: false,
+            success:function (data) {
+                barChart.setOption({
+                    xAxis: {data: data.dept},
+                    series: [{data: data.data}]
+                })
+            }
+        });
+
+        var pieChart = echarts.init(document.getElementById("echarts-pie-chart"));
+        var pieoption = {
+            title : {
+                text: '评论饼状图',
+                x:'center'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient : 'vertical',
+                x : 'left',
+                data:[]
+            },
+            calculable : true,
+            series : [
+                {
+                    name:'访问来源',
+                    type:'pie',
+                    radius : '70%',
+                    center: ['50%', '60%'],
+                    data:[]
+                }
+            ]
+        };
+        pieChart.setOption(pieoption);
+        $(window).resize(pieChart.resize);
+
+        $.ajax({
+            url:"/party-platform/monitor/logininfor/getCommentsReport",
+            async: false,
+            cache: false,
+            success:function (data) {
+                var names=[];
+                var nums=[];
+                $.each(data,function (key,values) {
+                    names.push(values);
+                    var obj = new Object();
+                    obj.name = values;
+                    obj.value = key;
+                    nums.push(obj);
+                });
+                pieChart.setOption({
+                    legend: {data: names},
+                    series: [{data: nums}]
+                })
+            }
+        });
+    });
+</script>
 </body>
 </html>

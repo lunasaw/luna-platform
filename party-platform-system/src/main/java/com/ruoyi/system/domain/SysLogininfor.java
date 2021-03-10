@@ -52,6 +52,28 @@ public class SysLogininfor extends BaseEntity
     @Excel(name = "访问时间", width = 30, dateFormat = "yyyy-MM-dd HH:mm:ss")
     private Date loginTime;
 
+    /** 访问次数 **/
+    private int countNum;
+
+    /** 7此时间 **/
+    private String sevenTime;
+
+    public String getSevenTime() {
+        return sevenTime;
+    }
+
+    public void setSevenTime(String sevenTime) {
+        this.sevenTime = sevenTime;
+    }
+
+    public int getCountNum() {
+        return countNum;
+    }
+
+    public void setCountNum(int countNum) {
+        this.countNum = countNum;
+    }
+
     public Long getInfoId()
     {
         return infoId;

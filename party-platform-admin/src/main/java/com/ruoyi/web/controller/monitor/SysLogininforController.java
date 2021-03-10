@@ -1,7 +1,16 @@
 package com.ruoyi.web.controller.monitor;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import com.ruoyi.framework.shiro.service.SysPasswordService;
+import com.ruoyi.system.domain.SysUser;
+import com.ruoyi.system.domain.TemplateHumNum;
+import com.ruoyi.system.service.ISysUserService;
+import com.ruoyi.web.platform.comments.domain.Comments;
+import com.ruoyi.web.platform.comments.service.ICommentsService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,6 +44,12 @@ public class SysLogininforController extends BaseController
     @Autowired
     private SysPasswordService passwordService;
 
+    @Autowired
+    private ICommentsService commentsService;
+
+    @Autowired
+    private ISysUserService userService;
+
     @RequiresPermissions("monitor:logininfor:view")
     @GetMapping()
     public String logininfor()
@@ -50,6 +65,53 @@ public class SysLogininforController extends BaseController
         startPage();
         List<SysLogininfor> list = logininforService.selectLogininforList(logininfor);
         return getDataTable(list);
+    }
+
+    @RequiresPermissions("monitor:logininfor:getReport")
+    @GetMapping("/sevenCountNumReport")
+    @ResponseBody
+    public Map<String,Object> getSevenCountNum()
+    {
+        List<SysLogininfor> sevenCountNum = logininforService.getSevenCountNum();
+        List<String> dates = sevenCountNum.stream().map(SysLogininfor -> SysLogininfor.getSevenTime()).collect(Collectors.toList());
+        String[] dates1 = new String[dates.size()];
+        dates.toArray(dates1);
+
+        List<Integer> countNum = sevenCountNum.stream().map(SysLogininfor -> SysLogininfor.getCountNum()).collect(Collectors.toList());
+        int[] arr1 = countNum.stream().mapToInt(Integer::valueOf).toArray();
+        Map<String,Object> map = new HashMap<>();
+        map.put("dates",dates1);
+        map.put("countNum",arr1);
+        return map;
+    }
+
+    @RequiresPermissions("monitor:logininfor:getReport")
+    @GetMapping("/getCommentsReport")
+    @ResponseBody
+    public Map<Integer,String> getCommentsReport()
+    {
+        List<Comments> commentsReport = commentsService.getCommentsReport();
+        Map<Integer, String> maps = commentsReport.stream().collect(Collectors.toMap(Comments::getCountNum,Comments::getDictLabel, (key1, key2) -> key2));
+        System.out.println(maps);
+        return maps;
+    }
+
+
+    @RequiresPermissions("monitor:logininfor:getReport")
+    @GetMapping("/sysUserReport")
+    @ResponseBody
+    public Map<String,Object> report(SysUser user)
+    {
+        List<TemplateHumNum> report = userService.report();
+        List<String> nameList = report.stream().map(TemplateHumNum -> TemplateHumNum.getParentDeptName() +TemplateHumNum.getDeptName()).collect(Collectors.toList());
+        String[] dept = new String[nameList.size()];
+        nameList.toArray(dept);
+        List<Integer> humNum = report.stream().map(TemplateHumNum::getCountNum).collect(Collectors.toList());
+        int[] arr1 = humNum.stream().mapToInt(Integer::valueOf).toArray();
+        Map<String,Object> map = new HashMap<>();
+        map.put("dept",dept);
+        map.put("data",arr1);
+        return map;
     }
 
     @Log(title = "登陆日志", businessType = BusinessType.EXPORT)

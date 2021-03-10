@@ -57,4 +57,11 @@ public interface CommentsMapper {
      * @return 结果
      */
     public int deleteCommentsByIds(String[] commentsIds);
+
+    /**
+     * 评论汇总
+     *
+     * @return 结果
+     */
+    public List<Comments> getCommentsReport();
 }

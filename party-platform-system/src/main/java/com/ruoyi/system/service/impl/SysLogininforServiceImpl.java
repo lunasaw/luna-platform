@@ -63,4 +63,12 @@ public class SysLogininforServiceImpl implements ISysLogininforService
     {
         logininforMapper.cleanLogininfor();
     }
+
+    /**
+     * 获取近7天浏览次数
+     * @return
+     */
+    public List<SysLogininfor> getSevenCountNum(){
+        return logininforMapper.getSevenCountNum();
+    }
 }

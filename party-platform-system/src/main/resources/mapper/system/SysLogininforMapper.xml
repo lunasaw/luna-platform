@@ -14,6 +14,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="os"            column="os"                />
 		<result property="msg"           column="msg"               />
 		<result property="loginTime"     column="login_time"        />
+		<result property="countNum"		 column="num"				/>
+		<result property="sevenTime"	 column="date"				/>
 	</resultMap>
 
 	<insert id="insertLogininfor" parameterType="SysLogininfor">
@@ -52,5 +54,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <update id="cleanLogininfor">
         truncate table sys_logininfor
     </update>
-    
+
+	<select id="getSevenCountNum" resultMap="SysLogininforResult">
+		SELECT
+		count(*) `num`,
+		DATE_FORMAT(login_time,'%Y-%m-%d') AS `date`
+		FROM
+		sys_logininfor
+		WHERE
+		datediff(now(), login_time) &lt;= 6
+		AND `status` = 0
+		GROUP BY
+		DAY (login_time)
+	</select>
 </mapper> 

@@ -280,6 +280,8 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/profile/upload/**", "newsFilter");
         // 注册相关
         filterChainDefinitionMap.put("/register", "anon,captchaValidate");
+        // 报表数据
+        filterChainDefinitionMap.put("/monitor/logininfor/**", "newsFilter");
         // 系统权限列表
 //         filterChainDefinitionMap.putAll(SpringUtils.getBean(ISysMenuService.class).selectPermsAll(ShiroUtils.getUserId()));
 

@@ -60,4 +60,6 @@ public interface ICommentsService {
     public int deleteCommentsById(Long commentsId);
 
     public int reply(Comments comments);
+
+    public List<Comments> getCommentsReport();
 }

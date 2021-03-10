@@ -39,4 +39,9 @@ public interface SysLogininforMapper
      * @return 结果
      */
     public int cleanLogininfor();
+
+    /**
+     * 查询最近7天访问量
+     */
+    public List<SysLogininfor> getSevenCountNum();
 }

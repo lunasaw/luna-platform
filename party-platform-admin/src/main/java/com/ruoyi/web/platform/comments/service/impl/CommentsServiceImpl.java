@@ -129,5 +129,10 @@ public class CommentsServiceImpl implements ICommentsService {
         return commentsMapper.insertComments(comments);
     }
 
+    @Override
+    public List<Comments> getCommentsReport() {
+        return commentsMapper.getCommentsReport();
+    }
+
 
 }

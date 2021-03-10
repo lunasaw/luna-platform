@@ -69,6 +69,26 @@ public class Comments extends BaseEntity {
 
     private String toName;
 
+    private int countNum;
+
+    private String dictLabel;
+
+    public int getCountNum() {
+        return countNum;
+    }
+
+    public void setCountNum(int countNum) {
+        this.countNum = countNum;
+    }
+
+    public String getDictLabel() {
+        return dictLabel;
+    }
+
+    public void setDictLabel(String dictLabel) {
+        this.dictLabel = dictLabel;
+    }
+
     public String getFromName() {
         return fromName;
     }

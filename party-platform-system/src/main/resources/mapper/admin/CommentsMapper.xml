@@ -17,6 +17,8 @@
         <result property="updateBy" column="update_by"/>
         <result property="updateTime" column="update_time"/>
         <result property="remark" column="remark"/>
+        <result property="countNum" column="countNum"/>
+        <result property="dictLabel" column="dict_label"/>
     </resultMap>
 
     <sql id="selectCommentsVo">
@@ -100,5 +102,18 @@
             #{commentsId}
         </foreach>
     </delete>
+
+    <select id="getCommentsReport" resultMap="CommentsResult">
+        SELECT
+	        COUNT(*) `countNum`,
+            a.dict_label
+        FROM
+            sys_comments
+        LEFT JOIN sys_dict_data a ON dict_value = comments_type
+        WHERE
+            a.dict_type = 'sys_comments_type'
+        GROUP BY
+	        comments_type
+    </select>
 
 </mapper>

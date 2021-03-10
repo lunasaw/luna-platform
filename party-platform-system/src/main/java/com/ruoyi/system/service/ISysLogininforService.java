@@ -37,4 +37,10 @@ public interface ISysLogininforService
      * 清空系统登录日志
      */
     public void cleanLogininfor();
+
+    /**
+     * 获取近7天的数据
+     *
+     */
+    public List<SysLogininfor> getSevenCountNum();
 }
