@@ -26,9 +26,7 @@
 		<div class="row">
 			<!-- 头部 -->
 			<div class="header  .w">
-
-				<img th:src="@{/img/images/picture/logo1.png}">
-
+				<img th:src="@{/img/images/picture/logo1.png}" style="width: 400px">
 				<div class="navbt">
 					<ul>
 						<li><a target="_blank" href="/party-platform/admin/page/main">平台首页</a></li>
@@ -97,7 +95,11 @@
 							<div class="carousel-inner">
 								<div class="carousel-item" th:classappend="${{iterStat.index == 0}} ? 'active' : '' "
 								     th:each="item,iterStat : ${mainPic}">
-									<img th:src="${{item.newsPicture}}">
+									<a href="/party-platform/admin/page/news?newsid=' + item[j][i].newsId + '"
+									   th:href="'/party-platform/admin/page/news?newsid='+${{item.newsId}}"
+									   target="_blank">
+										<img th:src="${{item.newsPicture}}">
+									</a>
 									<div class="carousel-caption">
 										<p th:text="${{item.newsTitle}}">一些描述一些描述一些描述一些描述</p>
 									</div>
@@ -153,50 +155,67 @@
 					</div>
 				</div>
 			</div>
-
-
-			<!-- 功能速递 -->
 			<div class=" col-lg-4 col-md-4">
-				<div class="card">
+				<div class="card" th:each="item,iterStat : ${prePerson}">
 					<div class="card-header border-bottom">
-						<h5 class="card-title cardtitles">功能速递</h5>
+						<h5 class="card-title cardtitles">先进个人</h5>
 					</div>
-					<div class="card-body ">
-						<div class=" col-lg-12 col-md-12 boxui">
-
-							<a href="/party-platform/admin/page/build" class="boxm">
-
-								<div class="boximg1"></div>
-								<div class="boxfont">日常管理</div>
-
-							</a>
-							<a href="/party-platform/admin/page/build" class="boxm">
-
-								<div class="boximg2"></div>
-								<div class="boxfont">宣传教育</div>
-
-							</a>
+					<a href="/party-platform/admin/page/news?newsid=' + item[j][i].newsId + '"
+					   th:href="'/party-platform/admin/page/news?newsid='+${{item.newsId}}" target="_blank">
+						<div class="card-body" style="text-align: center; height: 300px;">
+							<div style="display: block; ">
+								<img src="./static/images/1.png" th:src="${{item.newsPicture}}" alt=""
+								     style="width:280px; height: 230px; border-radius: 10px; box-shadow: 5px 5px 5px rgb(231, 231, 231);">
+								<p style="text-align:left;margin-top: 10px; font-size: 15px; font-weight: 200spx; color: #000000; font-family: 微软雅黑; overflow: hidden; height: 60px;"
+								   th:text="${{item.newsTitle}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介一些简介</p>
+							</div>
 						</div>
-						<div class=" col-lg-12 col-md-12 boxui">
-
-							<a href="/party-platform/admin/page/build" class="boxm">
-
-								<div class="boximg3"></div>
-								<div class="boxfont">党群互动</div>
-
-							</a>
-							<a href="/party-platform/admin/page/build" class="boxm">
-
-								<div class="boximg4"></div>
-								<div class="boxfont">监督保证</div>
-
-							</a>
-						</div>
-
-					</div>
+					</a>
 				</div>
-
 			</div>
+
+			<!--			&lt;!&ndash; 功能速递 &ndash;&gt;-->
+			<!--			<div class=" col-lg-4 col-md-4">-->
+			<!--				<div class="card">-->
+			<!--					<div class="card-header border-bottom">-->
+			<!--						<h5 class="card-title cardtitles">功能速递</h5>-->
+			<!--					</div>-->
+			<!--					<div class="card-body ">-->
+			<!--						<div class=" col-lg-12 col-md-12 boxui">-->
+
+			<!--							<a href="/party-platform/admin/page/build" class="boxm">-->
+
+			<!--								<div class="boximg1"></div>-->
+			<!--								<div class="boxfont">日常管理</div>-->
+
+			<!--							</a>-->
+			<!--							<a href="/party-platform/admin/page/build" class="boxm">-->
+
+			<!--								<div class="boximg2"></div>-->
+			<!--								<div class="boxfont">宣传教育</div>-->
+
+			<!--							</a>-->
+			<!--						</div>-->
+			<!--						<div class=" col-lg-12 col-md-12 boxui">-->
+
+			<!--							<a href="/party-platform/admin/page/build" class="boxm">-->
+
+			<!--								<div class="boximg3"></div>-->
+			<!--								<div class="boxfont">党群互动</div>-->
+
+			<!--							</a>-->
+			<!--							<a href="/party-platform/admin/page/build" class="boxm">-->
+
+			<!--								<div class="boximg4"></div>-->
+			<!--								<div class="boxfont">监督保证</div>-->
+
+			<!--							</a>-->
+			<!--						</div>-->
+
+			<!--					</div>-->
+			<!--				</div>-->
+
+			<!--			</div>-->
 			<!-- 专题荟萃 -->
 			<div class=" col-lg-2 col-md-2">
 				<div class="">

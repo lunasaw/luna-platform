@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -43,9 +44,19 @@ public class PageController {
         modelMap.put("newsDocumentaries", newsDocumentaries);
         News news2 = new News();
         news2.setStatus("1");
-        List<News> news3 = newsService.selectNewsList(news2);
-        List<News> newsList = news3.stream().filter(news4 -> !news4.equals("6")).collect(Collectors.toList());
+        List<News> news2List = newsService.selectNewsList(news2);
+        List<News> newsList =
+            news2List.stream().filter(news3 -> !news3.getNewsType().equals("6")).collect(Collectors.toList());
         modelMap.put("newsList", newsList);
+
+        News news4 = new News();
+        news4.setStatus("1");
+        news4.setNewsType("4");
+        List<News> newsList4 = newsService.selectNewsList(news4);
+        // List<News> prePersonnewsList = newsList4.stream().filter(news5 ->
+        // !news5.getNewsType().equals("4")).collect(Collectors.toList());
+        System.out.println(newsList4);
+        modelMap.put("prePerson", newsList4);
         return PREFIX + "/main";
     }
 
@@ -70,11 +81,12 @@ public class PageController {
 
     @GetMapping("/build")
     public String toBuild(ModelMap modelMap) {
-//        News news = new News();
-//        news.setNewsType("6");
-//        List<News> news1 = newsService.selectNewsList(news);
-//        modelMap.put("newsPic", news);
         return PREFIX + "/partBuild";
+    }
+
+    @GetMapping("/newslistpreperson")
+    public String newslistpreperson(ModelMap modelMap) {
+        return PREFIX + "/newslistpreperson";
     }
 
 }

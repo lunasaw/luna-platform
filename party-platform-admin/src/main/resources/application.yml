@@ -9,7 +9,7 @@ ruoyi:
   # 实例演示开关
   demoEnabled: false
   # 文件路径 示例（ Windows配置D:/ruoyi/uploadPath，Linux配置 /home/ruoyi/uploadPath）
-  profile: /Users/luna_mac/rouyi/uploadPath
+  profile: D:/party-platform/upload
   # 获取ip地址开关
   addressEnabled: true
 

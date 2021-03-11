@@ -67,7 +67,6 @@ public class SysLogininforController extends BaseController
         return getDataTable(list);
     }
 
-    @RequiresPermissions("monitor:logininfor:getReport")
     @GetMapping("/sevenCountNumReport")
     @ResponseBody
     public Map<String,Object> getSevenCountNum()
@@ -85,19 +84,15 @@ public class SysLogininforController extends BaseController
         return map;
     }
 
-    @RequiresPermissions("monitor:logininfor:getReport")
     @GetMapping("/getCommentsReport")
     @ResponseBody
     public Map<Integer,String> getCommentsReport()
     {
         List<Comments> commentsReport = commentsService.getCommentsReport();
         Map<Integer, String> maps = commentsReport.stream().collect(Collectors.toMap(Comments::getCountNum,Comments::getDictLabel, (key1, key2) -> key2));
-        System.out.println(maps);
         return maps;
     }
 
-
-    @RequiresPermissions("monitor:logininfor:getReport")
     @GetMapping("/sysUserReport")
     @ResponseBody
     public Map<String,Object> report(SysUser user)
