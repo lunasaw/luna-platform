@@ -25,56 +25,56 @@ public class News extends BaseEntity implements Comparable<News> {
      * 新闻ID
      */
     @ApiModelProperty("新闻ID")
-    private Integer newsId;
+    private Integer           newsId;
 
     /**
      * 新闻标题
      */
     @ApiModelProperty("新闻标题")
     @Excel(name = "新闻标题")
-    private String newsTitle;
+    private String            newsTitle;
 
     /**
      * 新闻类型（1通知 2公告）
      */
     @ApiModelProperty("新闻类型（1通知 2公告）")
     @Excel(name = "新闻类型", readConverterExp = "1=通知,2=公告")
-    private String newsType;
+    private String            newsType;
 
     /**
      * 新闻内容
      */
     @ApiModelProperty("新闻内容")
     @Excel(name = "新闻内容")
-    private String newsContent;
+    private String            newsContent;
 
     /**
      * 新闻封面
      */
     @ApiModelProperty("新闻封面")
     @Excel(name = "新闻封面")
-    private String newsPicture;
+    private String            newsPicture;
 
     /**
      * 新闻外链
      */
     @ApiModelProperty("新闻外链")
     @Excel(name = "新闻外链")
-    private String newsUrl;
+    private String            newsUrl;
 
     /**
      * 新闻状态（0正常 1关闭）
      */
     @ApiModelProperty("新闻状态（0正常 1关闭）")
     @Excel(name = "新闻状态", readConverterExp = "0=正常,1=关闭")
-    private String status;
+    private String            status;
 
     /**
      * 新闻时间
      */
     @ApiModelProperty("新闻时间")
     @Excel(name = "新闻时间", width = 30, dateFormat = "yyyy-MM-dd")
-    private Date newsTime;
+    private Date              newsTime;
 
     public void setNewsId(Integer newsId) {
         this.newsId = newsId;
@@ -143,20 +143,20 @@ public class News extends BaseEntity implements Comparable<News> {
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
-                .append("newsId", getNewsId())
-                .append("newsTitle", getNewsTitle())
-                .append("newsType", getNewsType())
-                .append("newsContent", getNewsContent())
-                .append("newsPicture", getNewsPicture())
-                .append("newsUrl", getNewsUrl())
-                .append("status", getStatus())
-                .append("newsTime", getNewsTime())
-                .append("createBy", getCreateBy())
-                .append("createTime", getCreateTime())
-                .append("updateBy", getUpdateBy())
-                .append("updateTime", getUpdateTime())
-                .append("remark", getRemark())
-                .toString();
+            .append("newsId", getNewsId())
+            .append("newsTitle", getNewsTitle())
+            .append("newsType", getNewsType())
+            .append("newsContent", getNewsContent())
+            .append("newsPicture", getNewsPicture())
+            .append("newsUrl", getNewsUrl())
+            .append("status", getStatus())
+            .append("newsTime", getNewsTime())
+            .append("createBy", getCreateBy())
+            .append("createTime", getCreateTime())
+            .append("updateBy", getUpdateBy())
+            .append("updateTime", getUpdateTime())
+            .append("remark", getRemark())
+            .toString();
     }
 
     @Override
