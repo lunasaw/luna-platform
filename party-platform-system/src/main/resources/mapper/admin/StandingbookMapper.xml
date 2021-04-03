@@ -66,6 +66,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="selectStandingbookVo"/>
         where standingbook_id = #{standingbookId}
     </select>
+
+    <select id="selectStandingbookByName" parameterType="String" resultMap="StandingbookResult">
+        <include refid="selectStandingbookVo"/>
+        where standingbook_name = #{standingbookName}
+    </select>
         
     <insert id="insertStandingbook" parameterType="Standingbook" useGeneratedKeys="true" keyProperty="standingbookId">
         insert into sys_standingbook

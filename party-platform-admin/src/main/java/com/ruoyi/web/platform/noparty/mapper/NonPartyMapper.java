@@ -28,6 +28,14 @@ public interface NonPartyMapper {
     public List<NonParty> selectNonPartyList(NonParty nonParty);
 
     /**
+     * 通过无党派人士名查询无党派人士
+     *
+     * @param nonPartyName 无党派人士名
+     * @return 用户对象信息
+     */
+    public NonParty selectNonPartyByName(String nonPartyName);
+
+    /**
      * 新增无党派人士
      *
      * @param nonParty 无党派人士

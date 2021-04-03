@@ -28,6 +28,16 @@ public interface INonPartyService {
     public List<NonParty> selectNonPartyList(NonParty nonParty);
 
     /**
+     * 导入无党派人士数据
+     *
+     * @param nonPartyList 无党派人士数据列表
+     * @param isUpdateSupport 是否更新支持，如果已存在，则进行更新数据
+     * @param operName 操作用户
+     * @return 结果
+     */
+    public String importNonParty(List<NonParty> nonPartyList, Boolean isUpdateSupport, String operName);
+
+    /**
      * 新增无党派人士
      *
      * @param nonParty 无党派人士

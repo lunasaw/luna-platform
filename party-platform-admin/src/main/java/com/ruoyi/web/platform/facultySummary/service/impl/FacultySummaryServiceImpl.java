@@ -2,9 +2,11 @@ package com.ruoyi.web.platform.facultySummary.service.impl;
 
 import java.util.List;
 
+import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.exception.BusinessException;
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.StringUtils;
+import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.web.platform.facultySummary.FacultySummaryConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -120,6 +122,38 @@ public class FacultySummaryServiceImpl implements IFacultySummaryService {
             successMsg.insert(0, "恭喜您，数据已全部导入成功！共 " + successNum + " 条，数据如下：");
         }
         return successMsg.toString();
+    }
+
+    /**
+     * 导出数据
+     *
+     * @param facultySummarys
+     * @return
+     */
+    @Override
+    public AjaxResult exportFacultySummarys(FacultySummary facultySummarys) {
+        List<FacultySummary> list = facultySummaryMapper.selectFacultySummaryList(facultySummarys);
+        for (FacultySummary partyFacultySummary : list) {
+            if (StringUtils.equals(partyFacultySummary.getFacultySex(), FacultySummaryConstant.MAN_NUM)) {
+                partyFacultySummary.setFacultySex(FacultySummaryConstant.MAN);
+            } else if (StringUtils.equals(partyFacultySummary.getFacultySex(), FacultySummaryConstant.WOMAN_NUM)) {
+                partyFacultySummary.setFacultySex(FacultySummaryConstant.WOMAN);
+            } else if (StringUtils.equals(partyFacultySummary.getFacultySex(), FacultySummaryConstant.NOT_KNOW_MUM)) {
+                partyFacultySummary.setFacultySex(FacultySummaryConstant.NOT_KNOW);
+            }
+
+            if (StringUtils.equals(partyFacultySummary.getFacultyMaritalStatus(), FacultySummaryConstant.MARRIED_NUM)) {
+                partyFacultySummary.setFacultyMaritalStatus(FacultySummaryConstant.MARRIED);
+            } else if (StringUtils.equals(partyFacultySummary.getFacultySex(), FacultySummaryConstant.UNMARRIED_NUM)) {
+                partyFacultySummary.setFacultyMaritalStatus(FacultySummaryConstant.UNMARRIED);
+            } else if (StringUtils.equals(partyFacultySummary.getFacultySex(), FacultySummaryConstant.NOT_KNOW_MUM)) {
+                partyFacultySummary.setFacultyMaritalStatus(FacultySummaryConstant.NOT_KNOW);
+            }
+
+        }
+
+        ExcelUtil<FacultySummary> util = new ExcelUtil<FacultySummary>(FacultySummary.class);
+        return util.exportExcel(list, "facultySummary");
     }
 
 

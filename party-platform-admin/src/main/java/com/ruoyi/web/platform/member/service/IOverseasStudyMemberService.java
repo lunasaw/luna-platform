@@ -2,6 +2,7 @@ package com.ruoyi.web.platform.member.service;
 
 import java.util.List;
 
+import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.web.platform.member.domain.OverseasStudyMember;
 
 /**
@@ -26,6 +27,25 @@ public interface IOverseasStudyMemberService {
      * @return 留学归国人员集合
      */
     public List<OverseasStudyMember> selectOverseasStudyMemberList(OverseasStudyMember overseasStudyMember);
+
+    /**
+     * 导入留学归国人员数据
+     *
+     * @param overseasStudyMemberList 留学归国人员数据列表
+     * @param isUpdateSupport 是否更新支持，如果已存在，则进行更新数据
+     * @param operName 操作用户
+     * @return 结果
+     */
+    public String importOverseasStudyMember(List<OverseasStudyMember> overseasStudyMemberList, Boolean isUpdateSupport, String operName);
+
+    /**
+     * 导出留学归国人员数据
+     *
+     * @param overseasStudyMembers
+     * @return
+     */
+    public AjaxResult exportOverseasStudyMembers(OverseasStudyMember overseasStudyMembers);
+
 
     /**
      * 新增留学归国人员

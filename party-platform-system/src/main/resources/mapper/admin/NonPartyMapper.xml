@@ -28,6 +28,11 @@
         select non_party_id, non_party_number, non_party_college, non_party_name, non_party_sex, non_party_nation, non_party_birthday, non_party_current_administrative_position, non_party_title, non_party_academic_degree, non_party_graduate_school_major, non_party_contact_information, non_party_remarks, create_time, update_time, create_by, update_by from sys_non_party
     </sql>
 
+    <select id="selectNonPartyByName" parameterType="String" resultMap="NonPartyResult">
+        <include refid="selectNonPartyVo"/>
+        where non_party_name = #{nonPartyName}
+    </select>
+
     <select id="selectNonPartyList" parameterType="NonParty" resultMap="NonPartyResult">
         <include refid="selectNonPartyVo"/>
         <where>

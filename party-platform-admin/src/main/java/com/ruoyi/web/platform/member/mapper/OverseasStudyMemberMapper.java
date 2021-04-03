@@ -28,6 +28,14 @@ public interface OverseasStudyMemberMapper {
     public List<OverseasStudyMember> selectOverseasStudyMemberList(OverseasStudyMember overseasStudyMember);
 
     /**
+     * 通过留学归国人员名查询台账
+     *
+     * @param overseasStudyMemberName 留学归国人员名
+     * @return 用户对象信息
+     */
+    public OverseasStudyMember selectOverseasStudyMemberByName(String overseasStudyMemberName);
+
+    /**
      * 新增留学归国人员
      *
      * @param overseasStudyMember 留学归国人员

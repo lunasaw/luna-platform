@@ -1,6 +1,8 @@
 package com.ruoyi.web.platform.facultySummary.service;
 
 import java.util.List;
+
+import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.web.platform.facultySummary.domain.FacultySummary;
 
 /**
@@ -36,6 +38,15 @@ public interface IFacultySummaryService
      * @return 结果
      */
     public String importFacultySummary(List<FacultySummary> userList, Boolean isUpdateSupport, String operName);
+
+    /**
+     * 导出用户数据
+     *
+     * @param facultySummarys
+     * @return
+     */
+    public AjaxResult exportFacultySummarys(FacultySummary facultySummarys);
+
 
     /**
      * 新增教职工汇总

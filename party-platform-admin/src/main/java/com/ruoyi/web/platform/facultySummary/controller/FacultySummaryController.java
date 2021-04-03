@@ -70,11 +70,9 @@ public class FacultySummaryController extends BaseController
     @Log(title = "教职工汇总", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     @ResponseBody
-    public AjaxResult export(FacultySummary facultySummary)
+    public AjaxResult export(FacultySummary facultySummarys)
     {
-        List<FacultySummary> list = facultySummaryService.selectFacultySummaryList(facultySummary);
-        ExcelUtil<FacultySummary> util = new ExcelUtil<FacultySummary>(FacultySummary.class);
-        return util.exportExcel(list, "facultySummary");
+        return facultySummaryService.exportFacultySummarys(facultySummarys);
     }
 
     /**

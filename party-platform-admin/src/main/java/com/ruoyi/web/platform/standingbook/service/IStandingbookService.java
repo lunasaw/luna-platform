@@ -1,6 +1,8 @@
 package com.ruoyi.web.platform.standingbook.service;
 
 import java.util.List;
+
+import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.web.platform.standingbook.domain.Standingbook;
 
 /**
@@ -26,6 +28,25 @@ public interface IStandingbookService
      * @return 台账集合
      */
     public List<Standingbook> selectStandingbookList(Standingbook standingbook);
+
+    /**
+     * 导入台账数据
+     *
+     * @param standingbookList 党员数据列表
+     * @param isUpdateSupport 是否更新支持，如果已存在，则进行更新数据
+     * @param operName 操作用户
+     * @return 结果
+     */
+    public String importStandingbook(List<Standingbook> standingbookList, Boolean isUpdateSupport, String operName);
+
+    /**
+     * 导出台账数据
+     *
+     * @param standingbooks
+     * @return
+     */
+    public AjaxResult exportStandingbooks(Standingbook standingbooks);
+
 
     /**
      * 新增台账

@@ -1,6 +1,8 @@
 package com.ruoyi.web.platform.standingbook.controller;
 
 import java.util.List;
+
+import com.ruoyi.framework.util.ShiroUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import com.ruoyi.common.core.page.TableDataInfo;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 台账Controller
@@ -60,6 +63,30 @@ public class StandingbookController extends BaseController
     }
 
     /**
+     * 导入教职工汇总列表
+     */
+    @ApiOperation(value = "导入台账列表", notes = "导入台账列表详情", tags = {"台账Controller"})
+    @RequiresPermissions("admin:standingbook:import")
+    @Log(title = "台账", businessType = BusinessType.IMPORT)
+    @PostMapping("/importData")
+    @ResponseBody
+    public AjaxResult importData(MultipartFile file, boolean updateSupport) throws Exception{
+        ExcelUtil<Standingbook> util = new ExcelUtil<Standingbook>(Standingbook.class);
+        List<Standingbook> StandingbookList = util.importExcel(file.getInputStream());
+        String operName = ShiroUtils.getSysUser().getLoginName();
+        String message = standingbookService.importStandingbook(StandingbookList, updateSupport, operName);
+        return AjaxResult.success(message);
+    }
+
+    @RequiresPermissions("admin:standingbook:view")
+    @GetMapping("/importTemplate")
+    @ResponseBody
+    public AjaxResult importTemplate() {
+        ExcelUtil<Standingbook> util = new ExcelUtil<Standingbook>(Standingbook.class);
+        return util.importTemplateExcel("台账数据");
+    }
+
+    /**
      * 导出台账列表
      */
     @ApiOperation(value = "导出台账列表", notes = "导出台账列表详情", tags = {"台账Controller"})
@@ -67,11 +94,9 @@ public class StandingbookController extends BaseController
     @Log(title = "台账", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     @ResponseBody
-    public AjaxResult export(Standingbook standingbook)
+    public AjaxResult export(Standingbook standingbooks)
     {
-        List<Standingbook> list = standingbookService.selectStandingbookList(standingbook);
-        ExcelUtil<Standingbook> util = new ExcelUtil<Standingbook>(Standingbook.class);
-        return util.exportExcel(list, "standingbook");
+        return standingbookService.exportStandingbooks(standingbooks);
     }
 
     /**

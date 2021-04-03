@@ -2,6 +2,7 @@ package com.ruoyi.web.platform.member.controller;
 
 import java.util.List;
 
+import com.ruoyi.framework.util.ShiroUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import com.ruoyi.common.core.page.TableDataInfo;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 留学归国人员Controller
@@ -58,6 +60,30 @@ public class OverseasStudyMemberController extends BaseController {
     }
 
     /**
+     * 导入留学归国人员列表
+     */
+    @ApiOperation(value = "导入留学归国人员列表", notes = "导入留学归国人员列表详情", tags = {"留学归国人员Controller"})
+    @RequiresPermissions("admin:member:import")
+    @Log(title = "留学归国人员", businessType = BusinessType.IMPORT)
+    @PostMapping("/importData")
+    @ResponseBody
+    public AjaxResult importData(MultipartFile file, boolean updateSupport) throws Exception{
+        ExcelUtil<OverseasStudyMember> util = new ExcelUtil<OverseasStudyMember>(OverseasStudyMember.class);
+        List<OverseasStudyMember> OverseasStudyMemberList = util.importExcel(file.getInputStream());
+        String operName = ShiroUtils.getSysUser().getLoginName();
+        String message = overseasStudyMemberService.importOverseasStudyMember(OverseasStudyMemberList, updateSupport, operName);
+        return AjaxResult.success(message);
+    }
+
+    @RequiresPermissions("admin:member:view")
+    @GetMapping("/importTemplate")
+    @ResponseBody
+    public AjaxResult importTemplate() {
+        ExcelUtil<OverseasStudyMember> util = new ExcelUtil<OverseasStudyMember>(OverseasStudyMember.class);
+        return util.importTemplateExcel("留学归国人员数据");
+    }
+
+    /**
      * 导出留学归国人员列表
      */
     @ApiOperation(value = "导出留学归国人员列表", notes = "导出留学归国人员列表详情", tags = {"留学归国人员Controller"})
@@ -66,9 +92,7 @@ public class OverseasStudyMemberController extends BaseController {
     @PostMapping("/export")
     @ResponseBody
     public AjaxResult export(OverseasStudyMember overseasStudyMember) {
-        List<OverseasStudyMember> list = overseasStudyMemberService.selectOverseasStudyMemberList(overseasStudyMember);
-        ExcelUtil<OverseasStudyMember> util = new ExcelUtil<OverseasStudyMember>(OverseasStudyMember.class);
-        return util.exportExcel(list, "member");
+        return overseasStudyMemberService.exportOverseasStudyMembers(overseasStudyMember);
     }
 
     /**

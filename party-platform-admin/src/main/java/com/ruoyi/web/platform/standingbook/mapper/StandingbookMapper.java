@@ -36,6 +36,14 @@ public interface StandingbookMapper
     public int insertStandingbook(Standingbook standingbook);
 
     /**
+     * 通过台账名查询台账
+     *
+     * @param standingbookName 用户名
+     * @return 用户对象信息
+     */
+    public Standingbook selectStandingbookByName(String standingbookName);
+
+    /**
      * 修改台账
      * 
      * @param standingbook 台账

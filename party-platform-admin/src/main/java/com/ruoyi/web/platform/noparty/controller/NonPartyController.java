@@ -2,6 +2,7 @@ package com.ruoyi.web.platform.noparty.controller;
 
 import java.util.List;
 
+import com.ruoyi.framework.util.ShiroUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import com.ruoyi.common.core.page.TableDataInfo;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 无党派人士Controller
@@ -69,6 +71,30 @@ public class NonPartyController extends BaseController {
         List<NonParty> list = nonPartyService.selectNonPartyList(nonParty);
         ExcelUtil<NonParty> util = new ExcelUtil<NonParty>(NonParty.class);
         return util.exportExcel(list, "noparty");
+    }
+
+    /**
+     * 导入无党派人士列表
+     */
+    @ApiOperation(value = "导入无党派人士列表", notes = "导入无党派人士列表详情", tags = {"无党派人士Controller"})
+    @RequiresPermissions("admin:noparty:import")
+    @Log(title = "无党派人士", businessType = BusinessType.IMPORT)
+    @PostMapping("/importData")
+    @ResponseBody
+    public AjaxResult importData(MultipartFile file, boolean updateSupport) throws Exception{
+        ExcelUtil<NonParty> util = new ExcelUtil<NonParty>(NonParty.class);
+        List<NonParty> nonPartyList = util.importExcel(file.getInputStream());
+        String operName = ShiroUtils.getSysUser().getLoginName();
+        String message = nonPartyService.importNonParty(nonPartyList, updateSupport, operName);
+        return AjaxResult.success(message);
+    }
+
+    @RequiresPermissions("admin:noparty:view")
+    @GetMapping("/importTemplate")
+    @ResponseBody
+    public AjaxResult importTemplate() {
+        ExcelUtil<NonParty> util = new ExcelUtil<NonParty>(NonParty.class);
+        return util.importTemplateExcel("无党派人士数据");
     }
 
     /**

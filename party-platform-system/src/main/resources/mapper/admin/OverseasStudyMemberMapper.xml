@@ -30,6 +30,11 @@
         select overseas_id, overseas_number, overseas_college, overseas_name, overseas_sex, overseas_birthday, overseas_native_place, overseas_Political_outlook, overseas_party_join_time, overseas_academic_degree, overseas_graduate_school_major, overseas_job_start_time, overseas_Study_begin_end, overseas_place, non_party_remarks, create_time, update_time, create_by, update_by from sys_overseas_study_member
     </sql>
 
+    <select id="selectOverseasStudyMemberByName" parameterType="String" resultMap="OverseasStudyMemberResult">
+        <include refid="selectOverseasStudyMemberVo"/>
+        where overseas_college = #{overseasCollege}
+    </select>
+
     <select id="selectOverseasStudyMemberList" parameterType="OverseasStudyMember"
             resultMap="OverseasStudyMemberResult">
         <include refid="selectOverseasStudyMemberVo"/>

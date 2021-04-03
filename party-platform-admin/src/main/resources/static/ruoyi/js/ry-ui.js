@@ -28,14 +28,19 @@ var table = {
 };
 
 function changeDateFormat(format, cellval) {
-    let s = cellval.toString();
-    if (format === ("yyyy-mm-dd")) {
-        return s.slice(0, 10);
-    } else if (format === ("yyyy-mm-dd hh-mm-ii")) {
-        return s;
-    } else {
-        return cellval
+    if (cellval == null){
+        return '';
+    }else {
+        let s = cellval.toString();
+        if (format === ("yyyy-mm-dd")) {
+            return s.slice(0, 10);
+        } else if (format === ("yyyy-mm-dd hh-mm-ii")) {
+            return s;
+        } else {
+            return cellval
+        }
     }
+
 }
 
 (function ($) {
