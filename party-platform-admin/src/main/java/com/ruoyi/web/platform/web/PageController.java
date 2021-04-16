@@ -1,6 +1,7 @@
 package com.ruoyi.web.platform.web;
 
 import com.google.common.collect.Lists;
+import com.ruoyi.system.service.ISysUserService;
 import com.ruoyi.system.utils.DictUtils;
 import com.ruoyi.web.platform.documentary.domain.NewsDocumentary;
 import com.ruoyi.web.platform.documentary.service.INewsDocumentaryService;
@@ -27,6 +28,15 @@ public class PageController {
     @Autowired
     private INewsDocumentaryService iNewsDocumentaryService;
 
+    @Autowired
+    private ISysUserService         service;
+
+    @GetMapping("/insert")
+    public void insert() {
+        for (int i = 0; i < 20; i++) {
+
+        }
+    }
 
     static String PREFIX = "admin/page";
 

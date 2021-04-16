@@ -206,25 +206,30 @@
 	                    }
                     },
                     {
-                        field: 'facultyTimeJoinPart',
-                        title: '入党时间'
+	                    field: 'facultyTimeJoinPart',
+	                    title: '入党时间',
+	                    formatter: function (value, row, index) {
+		                    return changeDateFormat("yyyy-mm-dd", value);
+	                    }
                     },
                     {
                         field: 'facultyBranchNumber',
                         title: '所在支部'
                     },
-                    {
-                        field: 'facultyPay',
-                        title: '月交纳党费金额'
-                    },
+	                {
+		                field: 'facultyPay',
+		                title: '月交纳党费金额',
+		                visible: false
+	                },
                     {
                         field: 'facultyNativePlace',
                         title: '籍贯'
                     },
-                    {
-                        field: 'facultyCurrentAdministrativePosition',
-                        title: '现任行政职务'
-                    },
+	                {
+		                field: 'facultyCurrentAdministrativePosition',
+		                title: '现任行政职务',
+		                visible: false
+	                },
                     {
                         field: 'facultyTitle',
                         title: '职称'
@@ -255,10 +260,11 @@
 			                return changeDateFormat("yyyy-mm-dd", value);
 		                }
 	                },
-                    {
-                        field: 'facultyIdCard',
-                        title: '身份证'
-                    },
+	                {
+		                field: 'facultyIdCard',
+		                title: '身份证',
+		                visible: false
+	                },
                     {
                         field: 'facultyBranchPosition',
                         title: '支委会职务'

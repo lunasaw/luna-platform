@@ -13,7 +13,7 @@
 					<div class="select-list">
 						<ul>
 							<li>
-								<label>纪实主题：</label>
+								<label>活动主题：</label>
 								<input type="text" name="documentaryTitle"/>
 							</li>
 							<li>
@@ -45,7 +45,7 @@
 								<input type="text" name="documentaryOtherPeople"/>
 							</li>
 							<li>
-								<label>纪实状态：</label>
+								<label>活动状态：</label>
 								<select name="documentaryStatus" th:with="type=${@dict.getType('sys_news_status')}">
 									<option value="">所有</option>
 									<option th:each="dict : ${type}" th:text="${dict.dictLabel}"
@@ -100,7 +100,7 @@
 				updateUrl: prefix + "/edit/{id}",
 				removeUrl: prefix + "/remove",
 				exportUrl: prefix + "/export",
-				modalName: "党建纪实",
+				modalName: "组织生活",
 				pagination: true,
 				escape: false,
 				columns: [{
@@ -108,17 +108,17 @@
 				},
 					{
 						field: 'documentaryId',
-						title: '纪实Id',
+						title: '活动编号',
 						visible: false
 					},
 					{
 						field: 'documentaryTitle',
-						title: '纪实主题',
+						title: '活动主题',
 						width: '270px'
 					},
 					{
 						field: 'documentaryContent',
-						title: '纪实详情',
+						title: '活动详情',
 						visible: false
 					},
 					{
@@ -142,6 +142,7 @@
 					{
 						field: 'documentaryJionPeople',
 						title: '参与人员',
+						width: 300,
 					},
 					{
 						field: 'documentaryOtherPeople',
@@ -149,7 +150,7 @@
 					},
 					{
 						field: 'documentaryStatus',
-						title: '纪实状态',
+						title: '活动状态',
 						formatter: function (value, row, index) {
 							return $.table.selectDictLabel(documentaryStatusDatas, value);
 						}

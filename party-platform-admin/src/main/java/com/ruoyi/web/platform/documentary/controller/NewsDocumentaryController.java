@@ -23,13 +23,13 @@ import io.swagger.annotations.ApiOperation;
 import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
- * 党建纪实Controller
+ * 活动纪实Controller
  *
  * @author party-platform
  * @date 2020-10-14
  */
 @Controller
-@Api("党建纪实Controller")
+@Api("活动纪实Controller")
 @RequestMapping("/admin/documentary")
 public class NewsDocumentaryController extends BaseController {
     private String                  prefix = "admin/documentary";
@@ -44,9 +44,9 @@ public class NewsDocumentaryController extends BaseController {
     }
 
     /**
-     * 查询党建纪实列表
+     * 查询活动纪实列表
      */
-    @ApiOperation(value = "查询党建纪实列表", notes = "查询党建纪实列表详情", tags = {"党建纪实Controller"})
+    @ApiOperation(value = "查询活动纪实列表", notes = "查询活动纪实列表详情", tags = {"活动纪实Controller"})
     @RequiresPermissions("admin:documentary:list")
     @PostMapping("/list")
     @ResponseBody
@@ -57,11 +57,11 @@ public class NewsDocumentaryController extends BaseController {
     }
 
     /**
-     * 导出党建纪实列表
+     * 导出活动纪实列表
      */
-    @ApiOperation(value = "导出党建纪实列表", notes = "导出党建纪实列表详情", tags = {"党建纪实Controller"})
+    @ApiOperation(value = "导出活动纪实列表", notes = "导出活动纪实列表详情", tags = {"活动纪实Controller"})
     @RequiresPermissions("admin:documentary:export")
-    @Log(title = "党建纪实", businessType = BusinessType.EXPORT)
+    @Log(title = "活动纪实", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     @ResponseBody
     public AjaxResult export(NewsDocumentary newsDocumentary) {
@@ -71,7 +71,7 @@ public class NewsDocumentaryController extends BaseController {
     }
 
     /**
-     * 新增党建纪实
+     * 新增活动纪实
      */
     @GetMapping("/add")
     public String add() {
@@ -79,11 +79,11 @@ public class NewsDocumentaryController extends BaseController {
     }
 
     /**
-     * 新增保存党建纪实
+     * 新增保存活动纪实
      */
-    @ApiOperation(value = "新增保存党建纪实", notes = "新增保存党建纪实详情", tags = {"党建纪实Controller"})
+    @ApiOperation(value = "新增保存活动纪实", notes = "新增保存活动纪实详情", tags = {"活动纪实Controller"})
     @RequiresPermissions("admin:documentary:add")
-    @Log(title = "党建纪实", businessType = BusinessType.INSERT)
+    @Log(title = "活动纪实", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
     public AjaxResult addSave(NewsDocumentary newsDocumentary) {
@@ -91,9 +91,9 @@ public class NewsDocumentaryController extends BaseController {
     }
 
     /**
-     * 修改党建纪实
+     * 修改活动纪实
      */
-    @ApiOperation(value = "修改党建纪实", notes = "修改党建纪实详情", tags = {"党建纪实Controller"})
+    @ApiOperation(value = "修改活动纪实", notes = "修改活动纪实详情", tags = {"活动纪实Controller"})
     @ApiImplicitParam(name = "documentaryId", value = "主键ID", dataType = "Long", paramType = "path")
     @GetMapping("/edit/{documentaryId}")
     public String edit(@PathVariable("documentaryId") Long documentaryId, ModelMap mmap) {
@@ -103,9 +103,9 @@ public class NewsDocumentaryController extends BaseController {
     }
 
     /**
-     * 修改党建纪实参加人员
+     * 修改活动纪实参加人员
      */
-    @ApiOperation(value = "修改党建纪实参加人员", notes = "修改党建纪实参加人员详情", tags = {"党建纪实Controller"})
+    @ApiOperation(value = "修改活动纪实参加人员", notes = "修改活动纪实参加人员详情", tags = {"活动纪实Controller"})
     @RequiresPermissions("admin:documentary:edit")
     @ResponseBody
     @PostMapping("/joinPeopleEdit")
@@ -115,11 +115,11 @@ public class NewsDocumentaryController extends BaseController {
     }
 
     /**
-     * 修改保存党建纪实
+     * 修改保存活动纪实
      */
-    @ApiOperation(value = "修改保存党建纪实", notes = "修改保存党建纪实详情", tags = {"党建纪实Controller"})
+    @ApiOperation(value = "修改保存活动纪实", notes = "修改保存活动纪实详情", tags = {"活动纪实Controller"})
     @RequiresPermissions("admin:documentary:edit")
-    @Log(title = "党建纪实", businessType = BusinessType.UPDATE)
+    @Log(title = "活动纪实", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
     @ResponseBody
     public AjaxResult editSave(NewsDocumentary newsDocumentary) {
@@ -127,12 +127,12 @@ public class NewsDocumentaryController extends BaseController {
     }
 
     /**
-     * 删除党建纪实
-     * @ApiOperation("删除党建纪实")
+     * 删除活动纪实
+     * @ApiOperation("删除活动纪实")
      */
-    @ApiOperation(value = "删除党建纪实", notes = "删除党建纪实详情", tags = {"党建纪实Controller"})
+    @ApiOperation(value = "删除活动纪实", notes = "删除活动纪实详情", tags = {"活动纪实Controller"})
     @RequiresPermissions("admin:documentary:remove")
-    @Log(title = "党建纪实", businessType = BusinessType.DELETE)
+    @Log(title = "活动纪实", businessType = BusinessType.DELETE)
     @PostMapping("/remove")
     @ResponseBody
     public AjaxResult remove(String ids) {

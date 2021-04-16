@@ -2,6 +2,7 @@ package com.ruoyi.web.platform.web;
 
 import com.ruoyi.common.constant.UserConstants;
 import com.ruoyi.common.core.domain.Ztree;
+import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.system.domain.SysDept;
 import com.ruoyi.system.domain.SysUser;
 import com.ruoyi.system.service.ISysDeptService;
@@ -39,27 +40,33 @@ public class WebController {
     @Autowired
     private NewsDocumentaryMapper newsDocumentaryMapper;
 
-
     @GetMapping("/allTreeData")
     @ResponseBody
     public List<Ztree> getUserTree(Long documentaryId) {
-        NewsDocumentary newsDocumentary = newsDocumentaryMapper.selectNewsDocumentaryById(documentaryId);
-        List<String> list = Arrays.asList(newsDocumentary.getDocumentaryJionPeople().split(","));
-        List<SysUser> sysUsers = userService.selectByIds(list);
+        List<Ztree> deptTree = deptService.selectDeptTree(new SysDept());
         List<Ztree> ztrees = new ArrayList<>();
-        for (SysUser user : sysUsers) {
+        List<SysUser> sysAllUsers = userService.selectUserList(new SysUser());
+        for (SysUser user : sysAllUsers) {
             if (UserConstants.NORMAL.equals(user.getStatus())) {
                 Ztree ztree = new Ztree();
                 ztree.setId(user.getUserId());
                 ztree.setpId(user.getDeptId());
                 ztree.setName(user.getUserName());
                 ztree.setTitle(user.getUserName());
-                ztree.setChecked(true);
+                ztree.setChecked(false);
                 ztrees.add(ztree);
             }
         }
-
-        List<SysUser> sysAllUsers = userService.selectUserList(new SysUser());
+        ztrees.addAll(deptTree);
+        if (documentaryId == null) {
+            return ztrees;
+        }
+        NewsDocumentary newsDocumentary = newsDocumentaryMapper.selectNewsDocumentaryById(documentaryId);
+        if (StringUtils.isEmpty(newsDocumentary.getDocumentaryJionPeople())) {
+            return ztrees;
+        }
+        ztrees = new ArrayList<>();
+        List<String> list = Arrays.asList(newsDocumentary.getDocumentaryJionPeople().split(","));
         for (SysUser user : sysAllUsers) {
             if (!list.contains(user.getUserId().toString())) {
                 if (UserConstants.NORMAL.equals(user.getStatus())) {
@@ -74,11 +81,8 @@ public class WebController {
             }
         }
 
-        List<Ztree> deptTree = deptService.selectDeptTree(new SysDept());
         ztrees.addAll(deptTree);
         return ztrees;
     }
-
-
 
 }

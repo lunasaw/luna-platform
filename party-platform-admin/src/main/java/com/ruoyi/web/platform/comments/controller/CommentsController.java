@@ -3,6 +3,7 @@ package com.ruoyi.web.platform.comments.controller;
 import java.util.List;
 
 import com.alibaba.fastjson.JSON;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,7 +31,7 @@ import com.ruoyi.common.core.page.TableDataInfo;
 @Api("留言板评论互动Controller")
 @RequestMapping("/admin/comments")
 public class CommentsController extends BaseController {
-    private String prefix = "admin/comments";
+    private String           prefix = "admin/comments";
 
     @Autowired
     private ICommentsService commentsService;
@@ -109,7 +110,9 @@ public class CommentsController extends BaseController {
     @RequiresPermissions("admin:comments:add")
     @ResponseBody
     public AjaxResult reply(Comments comments) {
-        System.out.println(JSON.toJSONString(comments));
+        if (StringUtils.isEmpty(comments.getCommentsContent())) {
+            return AjaxResult.warn("评论内容不能为空");
+        }
         return toAjax(commentsService.reply(comments));
     }
 

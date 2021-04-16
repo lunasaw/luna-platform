@@ -5,6 +5,7 @@ import java.util.*;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.framework.util.ShiroUtils;
 import com.ruoyi.system.domain.SysDept;
 import com.ruoyi.system.domain.SysRole;
@@ -32,13 +33,13 @@ public class NewsDocumentaryServiceImpl implements INewsDocumentaryService {
     private NewsDocumentaryMapper newsDocumentaryMapper;
 
     @Autowired
-    private SysUserMapper sysUserMapper;
+    private SysUserMapper         sysUserMapper;
 
     @Autowired
-    private SysDeptMapper sysDeptMapper;
+    private SysDeptMapper         sysDeptMapper;
 
     @Autowired
-    private SysRoleMapper sysRoleMapper;
+    private SysRoleMapper         sysRoleMapper;
 
     /**
      * 查询党建纪实
@@ -60,14 +61,19 @@ public class NewsDocumentaryServiceImpl implements INewsDocumentaryService {
     @Override
     public List<NewsDocumentary> selectNewsDocumentaryList(NewsDocumentary newsDocumentary) {
         List<NewsDocumentary> newsDocumentaries = newsDocumentaryMapper.selectNewsDocumentaryList(newsDocumentary);
+        if (newsDocumentaries.size() == 0) {
+            return newsDocumentaries;
+        }
         newsDocumentaries.forEach(documentary -> {
-            List<String> list = Arrays.asList(documentary.getDocumentaryJionPeople().split(","));
-            List<SysUser> sysUsers = sysUserMapper.selectByIds(list);
-            ArrayList<String> userNames = Lists.newArrayList();
-            for (SysUser sysUser : sysUsers) {
-                userNames.add(sysUser.getUserName());
+            if (StringUtils.isNotEmpty(documentary.getDocumentaryJionPeople())) {
+                List<String> list = Arrays.asList(documentary.getDocumentaryJionPeople().split(","));
+                List<SysUser> sysUsers = sysUserMapper.selectByIds(list);
+                ArrayList<String> userNames = Lists.newArrayList();
+                for (SysUser sysUser : sysUsers) {
+                    userNames.add(sysUser.getUserName());
+                }
+                documentary.setDocumentaryJionPeople(userNames.toString());
             }
-            documentary.setDocumentaryJionPeople(userNames.toString());
         });
 
         return newsDocumentaries;
@@ -127,6 +133,9 @@ public class NewsDocumentaryServiceImpl implements INewsDocumentaryService {
         ArrayList<Long> userId = Lists.newArrayList();
         if (newsDocumentary != null) {
             List<String> list = Arrays.asList(menuIds.split(","));
+            if (list.size() == 0) {
+                userId.add(Long.valueOf((menuIds)));
+            }
             list.forEach(id -> {
                 long l = Long.parseLong(id);
                 if (l < 1000) {

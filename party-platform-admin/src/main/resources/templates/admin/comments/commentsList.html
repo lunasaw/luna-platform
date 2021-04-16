@@ -265,23 +265,13 @@
 		});
 
 		function reply(commentsFromId) {
-			// console.log($('.' + commentsFromId + 'reply-active').serialize())
-			// $.operate.save(prefix + "/reply", $().serialize());
 			let data = serializeFormData($('.' + commentsFromId + 'reply-active'));
+			console.log(data);
+			if (data === "") {
+				$.modal.alertWarning("评论内容不能为空");
+				return;
+			}
 			$.operate.post(prefix + "/reply", $('.' + commentsFromId + 'reply-active').serialize());
-			// console.log(data);
-			// $.ajax({
-			// 	url: prefix + "/reply",
-			// 	type: 'POST',
-			// 	contentType: 'application/json;charset=UTF-8',
-			// 	data: data,
-			// 	success: function (result) {
-			// 		//location.reload();
-			// 	},
-			// 	error: function (xhr, resp, text) {
-			// 		console.log(xhr, resp, text)
-			// 	}
-			// });
 		}
 
 		function reset() {

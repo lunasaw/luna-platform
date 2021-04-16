@@ -7,6 +7,8 @@ import com.ruoyi.common.exception.BusinessException;
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.poi.ExcelUtil;
+import com.ruoyi.framework.util.ShiroUtils;
+import com.ruoyi.system.service.ISysDeptService;
 import com.ruoyi.web.platform.facultySummary.FacultySummaryConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,8 +27,7 @@ import com.ruoyi.common.core.text.Convert;
  */
 @Service
 public class FacultySummaryServiceImpl implements IFacultySummaryService {
-    private static final Logger log = LoggerFactory.getLogger(FacultySummaryServiceImpl.class);
-
+    private static final Logger  log = LoggerFactory.getLogger(FacultySummaryServiceImpl.class);
 
     @Autowired
     private FacultySummaryMapper facultySummaryMapper;
@@ -38,8 +39,7 @@ public class FacultySummaryServiceImpl implements IFacultySummaryService {
      * @return 教职工汇总
      */
     @Override
-    public FacultySummary selectFacultySummaryById(Long facultyId)
-    {
+    public FacultySummary selectFacultySummaryById(Long facultyId) {
         return facultySummaryMapper.selectFacultySummaryById(facultyId);
     }
 
@@ -50,11 +50,9 @@ public class FacultySummaryServiceImpl implements IFacultySummaryService {
      * @return 教职工汇总
      */
     @Override
-    public List<FacultySummary> selectFacultySummaryList(FacultySummary facultySummary)
-    {
+    public List<FacultySummary> selectFacultySummaryList(FacultySummary facultySummary) {
         return facultySummaryMapper.selectFacultySummaryList(facultySummary);
     }
-
 
     /**
      * 导入用户数据
@@ -65,7 +63,8 @@ public class FacultySummaryServiceImpl implements IFacultySummaryService {
      * @return 结果
      */
     @Override
-    public String importFacultySummary(List<FacultySummary> facultySummaryList, Boolean isUpdateSupport, String operName) {
+    public String importFacultySummary(List<FacultySummary> facultySummaryList, Boolean isUpdateSupport,
+        String operName) {
         if (StringUtils.isNull(facultySummaryList) || facultySummaryList.size() == 0) {
             throw new BusinessException("导入用户数据不能为空！");
         }
@@ -74,7 +73,7 @@ public class FacultySummaryServiceImpl implements IFacultySummaryService {
         StringBuilder successMsg = new StringBuilder();
         StringBuilder failureMsg = new StringBuilder();
         for (FacultySummary facultySummary : facultySummaryList) {
-            //性别
+            // 性别
             if (StringUtils.equals(facultySummary.getFacultySex(), FacultySummaryConstant.MAN)) {
                 facultySummary.setFacultySex("0");
             } else if (StringUtils.equals(facultySummary.getFacultySex(), FacultySummaryConstant.WOMAN)) {
@@ -83,18 +82,19 @@ public class FacultySummaryServiceImpl implements IFacultySummaryService {
                 facultySummary.setFacultySex("2");
             }
 
-            //婚姻情况
-            if (StringUtils.equals(facultySummary.getFacultyMaritalStatus(),FacultySummaryConstant.MARRIED)){
+            // 婚姻情况
+            if (StringUtils.equals(facultySummary.getFacultyMaritalStatus(), FacultySummaryConstant.MARRIED)) {
                 facultySummary.setFacultyMaritalStatus("0");
-            }else if(StringUtils.equals(facultySummary.getFacultyMaritalStatus(),FacultySummaryConstant.UNMARRIED)){
+            } else if (StringUtils.equals(facultySummary.getFacultyMaritalStatus(), FacultySummaryConstant.UNMARRIED)) {
                 facultySummary.setFacultyMaritalStatus("1");
-            }else if (StringUtils.equals(facultySummary.getFacultyMaritalStatus(),FacultySummaryConstant.NOT_KNOW)){
+            } else if (StringUtils.equals(facultySummary.getFacultyMaritalStatus(), FacultySummaryConstant.NOT_KNOW)) {
                 facultySummary.setFacultyMaritalStatus("2");
             }
 
             try {
                 // 验证是否存在这个用户
-                FacultySummary facultySummary1ByName = facultySummaryMapper.selectFacultySummaryByName(facultySummary.getFacultyName());
+                FacultySummary facultySummary1ByName =
+                    facultySummaryMapper.selectFacultySummaryByName(facultySummary.getFacultyName());
                 if (StringUtils.isNull(facultySummary1ByName)) {
                     insertFacultySummary(facultySummary);
                     successNum++;
@@ -156,6 +156,8 @@ public class FacultySummaryServiceImpl implements IFacultySummaryService {
         return util.exportExcel(list, "facultySummary");
     }
 
+    @Autowired
+    private ISysDeptService service;
 
     /**
      * 新增教职工汇总
@@ -164,8 +166,10 @@ public class FacultySummaryServiceImpl implements IFacultySummaryService {
      * @return 结果
      */
     @Override
-    public int insertFacultySummary(FacultySummary facultySummary)
-    {
+    public int insertFacultySummary(FacultySummary facultySummary) {
+        facultySummary.setFacultyNum(Long.valueOf(DateUtils.dateTimeNow(DateUtils.YYYYMMDDHHMMSS)));
+        String deptName = service.selectDeptById(ShiroUtils.getSysUser().getDeptId()).getDeptName();
+        facultySummary.setFacultyBranchNumber(deptName);
         facultySummary.setCreateTime(DateUtils.getNowDate());
         return facultySummaryMapper.insertFacultySummary(facultySummary);
     }
@@ -177,8 +181,7 @@ public class FacultySummaryServiceImpl implements IFacultySummaryService {
      * @return 结果
      */
     @Override
-    public int updateFacultySummary(FacultySummary facultySummary)
-    {
+    public int updateFacultySummary(FacultySummary facultySummary) {
         facultySummary.setUpdateTime(DateUtils.getNowDate());
         return facultySummaryMapper.updateFacultySummary(facultySummary);
     }
@@ -190,8 +193,7 @@ public class FacultySummaryServiceImpl implements IFacultySummaryService {
      * @return 结果
      */
     @Override
-    public int deleteFacultySummaryByIds(String ids)
-    {
+    public int deleteFacultySummaryByIds(String ids) {
         return facultySummaryMapper.deleteFacultySummaryByIds(Convert.toStrArray(ids));
     }
 
@@ -202,8 +204,7 @@ public class FacultySummaryServiceImpl implements IFacultySummaryService {
      * @return 结果
      */
     @Override
-    public int deleteFacultySummaryById(Long facultyId)
-    {
+    public int deleteFacultySummaryById(Long facultyId) {
         return facultySummaryMapper.deleteFacultySummaryById(facultyId);
     }
 
