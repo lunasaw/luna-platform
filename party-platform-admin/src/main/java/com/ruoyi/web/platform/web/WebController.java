@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Package: com.ruoyi.web.platform.partyInfo
@@ -65,10 +66,20 @@ public class WebController {
         if (StringUtils.isEmpty(newsDocumentary.getDocumentaryJionPeople())) {
             return ztrees;
         }
-        ztrees = new ArrayList<>();
+        ztrees.clear();
         List<String> list = Arrays.asList(newsDocumentary.getDocumentaryJionPeople().split(","));
         for (SysUser user : sysAllUsers) {
             if (!list.contains(user.getUserId().toString())) {
+                if (UserConstants.NORMAL.equals(user.getStatus())) {
+                    Ztree ztree = new Ztree();
+                    ztree.setId(user.getUserId());
+                    ztree.setpId(user.getDeptId());
+                    ztree.setName(user.getUserName());
+                    ztree.setTitle(user.getUserName());
+                    ztree.setChecked(false);
+                    ztrees.add(ztree);
+                }
+            } else {
                 if (UserConstants.NORMAL.equals(user.getStatus())) {
                     Ztree ztree = new Ztree();
                     ztree.setId(user.getUserId());
@@ -80,7 +91,6 @@ public class WebController {
                 }
             }
         }
-
         ztrees.addAll(deptTree);
         return ztrees;
     }

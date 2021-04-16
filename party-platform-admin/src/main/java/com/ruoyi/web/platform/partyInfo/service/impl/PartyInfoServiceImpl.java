@@ -7,6 +7,10 @@ import com.ruoyi.common.exception.BusinessException;
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.poi.ExcelUtil;
+import com.ruoyi.framework.config.ShiroConfig;
+import com.ruoyi.framework.util.ShiroUtils;
+import com.ruoyi.system.domain.SysDept;
+import com.ruoyi.system.domain.SysUser;
 import com.ruoyi.web.platform.partyInfo.PartyInfoConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,6 +53,7 @@ public class PartyInfoServiceImpl implements IPartyInfoService {
      */
     @Override
     public List<PartyInfo> selectPartyInfoList(PartyInfo partyInfo) {
+        SysUser sysUser = ShiroUtils.getSysUser();
         return partyInfoMapper.selectPartyInfoList(partyInfo);
     }
 

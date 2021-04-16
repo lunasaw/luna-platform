@@ -67,12 +67,18 @@ public class NewsDocumentaryServiceImpl implements INewsDocumentaryService {
         newsDocumentaries.forEach(documentary -> {
             if (StringUtils.isNotEmpty(documentary.getDocumentaryJionPeople())) {
                 List<String> list = Arrays.asList(documentary.getDocumentaryJionPeople().split(","));
-                List<SysUser> sysUsers = sysUserMapper.selectByIds(list);
-                ArrayList<String> userNames = Lists.newArrayList();
-                for (SysUser sysUser : sysUsers) {
-                    userNames.add(sysUser.getUserName());
+                List<SysUser> sysUsers = null;
+                if (list.size() > 1) {
+                    sysUsers = sysUserMapper.selectByIds(list);
+                    ArrayList<String> userNames = Lists.newArrayList();
+                    for (SysUser sysUser : sysUsers) {
+                        userNames.add(sysUser.getUserName());
+                    }
+                    documentary.setDocumentaryJionPeople(userNames.toString());
+                } else {
+                    SysUser sysUser = sysUserMapper.selectUserById(Long.valueOf(list.get(0)));
+                    documentary.setDocumentaryJionPeople(sysUser.getUserName());
                 }
-                documentary.setDocumentaryJionPeople(userNames.toString());
             }
         });
 
@@ -131,18 +137,19 @@ public class NewsDocumentaryServiceImpl implements INewsDocumentaryService {
     public void editJoinPeople(Long documentaryId, String menuIds) {
         NewsDocumentary newsDocumentary = newsDocumentaryMapper.selectNewsDocumentaryById(documentaryId);
         ArrayList<Long> userId = Lists.newArrayList();
+        List<String> list = Arrays.asList(menuIds.split(","));
         if (newsDocumentary != null) {
-            List<String> list = Arrays.asList(menuIds.split(","));
-            if (list.size() == 0) {
-                userId.add(Long.valueOf((menuIds)));
-            }
             list.forEach(id -> {
                 long l = Long.parseLong(id);
                 if (l < 1000) {
                     userId.add(l);
                 }
             });
-            newsDocumentary.setDocumentaryJionPeople(userId.toString());
+            if (userId.size() == 1) {
+                newsDocumentary.setDocumentaryJionPeople(list.get(0));
+            } else {
+                newsDocumentary.setDocumentaryJionPeople(userId.toString());
+            }
         }
         newsDocumentaryMapper.updateNewsDocumentary(newsDocumentary);
     }

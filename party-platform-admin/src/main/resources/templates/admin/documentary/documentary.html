@@ -142,7 +142,20 @@
 					{
 						field: 'documentaryJionPeople',
 						title: '参与人员',
-						width: 300,
+						cellStyle: function (value, row, index) {
+							return {
+								css: {
+									"min-width": "100px",
+									"white-space": "nowrap",
+									"text-overflow": "ellipsis",
+									"overflow": "hidden",
+									"max-width": "200px"
+								}
+							}
+						},
+						formatter: function (value, row, index) {
+							return "" + value + "";
+						}
 					},
 					{
 						field: 'documentaryOtherPeople',
