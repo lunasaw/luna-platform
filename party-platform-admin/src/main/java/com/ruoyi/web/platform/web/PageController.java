@@ -44,9 +44,14 @@ public class PageController {
     public String main(ModelMap modelMap) {
         News news = new News();
         news.setStatus("1");
+        // 左侧轮播图
         news.setNewsType("6");
         List<News> news1 = newsService.selectNewsList(news);
         modelMap.put("mainPic", news1);
+        // 顶部主图
+        news.setNewsType("7");
+        news1 = newsService.selectNewsList(news);
+        modelMap.put("mainTopPic", news1);
 
         NewsDocumentary newsDocumentary = new NewsDocumentary();
         newsDocumentary.setDocumentaryStatus("1");
@@ -63,20 +68,29 @@ public class PageController {
         news4.setStatus("1");
         news4.setNewsType("4");
         List<News> newsList4 = newsService.selectNewsList(news4);
-        // List<News> prePersonnewsList = newsList4.stream().filter(news5 ->
-        // !news5.getNewsType().equals("4")).collect(Collectors.toList());
-        System.out.println(newsList4);
         modelMap.put("prePerson", newsList4);
         return PREFIX + "/main";
     }
 
     @GetMapping("/news")
-    public String toNews() {
+    public String toNews(ModelMap modelMap) {
+        News news = new News();
+        news.setStatus("1");
+        // 顶部主图
+        news.setNewsType("7");
+        List<News> news1 = newsService.selectNewsList(news);
+        modelMap.put("mainTopPic", news1);
         return PREFIX + "/news";
     }
 
     @GetMapping("/newslist")
-    public String toNewsList() {
+    public String toNewsList(ModelMap modelMap) {
+        News news = new News();
+        news.setStatus("1");
+        // 顶部主图
+        news.setNewsType("7");
+        List<News> news1 = newsService.selectNewsList(news);
+        modelMap.put("mainTopPic", news1);
         return PREFIX + "/newslist";
     }
 
@@ -86,6 +100,11 @@ public class PageController {
         news.setNewsType("6");
         List<News> news1 = newsService.selectNewsList(news);
         modelMap.put("newsPic", news1);
+        news.setStatus("1");
+        // 顶部主图
+        news.setNewsType("7");
+        news1 = newsService.selectNewsList(news);
+        modelMap.put("mainTopPic", news1);
         return PREFIX + "/study";
     }
 

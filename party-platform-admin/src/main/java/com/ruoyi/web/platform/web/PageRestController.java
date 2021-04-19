@@ -37,7 +37,8 @@ public class PageRestController {
 
         HashMap<String, String> map = Maps.newHashMap();
         for (SysDictData sysDictData : newsType) {
-            if (!sysDictData.getDictValue().equals("6") && !sysDictData.getDictValue().equals("1")) {
+            if (!sysDictData.getDictValue().equals("7") && !sysDictData.getDictValue().equals("6")
+                && !sysDictData.getDictValue().equals("1")) {
                 News news = new News();
                 news.setNewsType(sysDictData.getDictValue());
                 news.setStatus("1");
