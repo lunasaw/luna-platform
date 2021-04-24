@@ -110,8 +110,8 @@
 		<div class="crumbs">
 			<span>您的位置：</span>
 			<span class="layui-breadcrumb crumbsDet" lay-separator=">">
-                <a href="#" th:href="@{/admin/page/main}">平台首页</a>
-                <a href="#">宣传教育</a>
+                <a href="#" th:href="@{/admin/page/main}"><span>平台首页</span></a>
+                <a href="#" th:href="@{/admin/page/study}"><span>宣传教育</span></a>
             </span>
 		</div>
 
@@ -170,7 +170,7 @@
 		contentId: "listContent", //渲染列表id
 		pageId: "pagination",  //渲染分页id
 		pageIndex: 1, //第几页开始渲染
-		pageSize: 5,//每页渲染多少条数据
+		pageSize: 20,//每页渲染多少条数据
 		pageSum: 0,//共多少条数据
 		refreshId: null
 	};
@@ -178,23 +178,23 @@
 	List.loadList = function (pageIndex) {
 		var ajaxRequest = function () {
 			$.ajax({
-				url: "/party-platform/mainPage/allNewsList",
+				url: "/party-platform/mainPage/allDocuments",
 				type: "POST",
 				// data: data,
 				error: function () {
 					// console.log(error);
 				},
 				success: function (result) {
-					console.log(result);
+					// console.log(result);
 					let arr = result
-					let data = [];
+					let data = result;
 					let j = 0;
-					for (let i = 0; i < arr.length; i++) {
-						if (arr[i].newsType == "5") {
-							data[j] = arr[i];
-							j++;
-						}
-					}
+					// for (let i = 0; i < arr.length; i++) {
+					// 	if (arr[i].newsType == "5") {
+					// 		data[j] = arr[i];
+					// 		j++;
+					// 	}
+					// }
 					console.log(data.length);
 					if (data.length == 0) {
 						console.log('当前没有数据记录');
@@ -230,7 +230,7 @@
 		var start = (pageIndex - 1) * List.pageSize; // 数据开始点
 		var content = '';
 		for (var index = start; index < pageIndex * List.pageSize && index < data.length; index++) { //遍历第几页内容，pageIndex也页面顺序
-			console.log(data[index]);
+			// console.log(data[index]);
 			content += List.getListItem(data[index]);
 		}
 		$('#' + List.contentId).html('');
@@ -243,15 +243,15 @@
 			+ '<td>'
 			+ '<div class="media mediapa">'
 			+ '<div class="media-left media-middle">'
-			+ '<img class="media-object" src="' + item.newsPicture + '" alt="" style="width:200px">'
+			//+ '<img class="media-object" src="' + item.newsPicture + '" alt="" style="width:200px">'
 
 			+ '</div>'
 			+ '<div class="media-body mediafont">'
-			+ '<a href="/party-platform/admin/page/news?newsid=' + item.newsId + '" target="_blank">' + item.newsTitle + '</a>'
-			+ '<p>' + item.newsContent + '</p>'
-			+ '<p class="listname">' + item.createBy + '<span>' + changeDateFormat("yyyy-mm-dd", item.newsTime) + '</span>' + '</p>'
+			+ '<a href="/party-platform/admin/page/news?documentaryId=' + item.documentaryId + '" target="_blank">' + item.documentaryTitle + '</a>'
+			// + '<p>' + item.documentaryContent + '</p>'
+			+ '<p class="listname">' + item.createBy + '<span>' + changeDateFormat("yyyy-mm-dd", item.documentaryStartTime) + '</span>' + '</p>'
 			+ '</div>'
-			+ '<a href="' + item.newsUrl + '" target="_blank" >新闻链接'
+			//+ '<a href="' + item.newsUrl + '" target="_blank" >新闻链接'
 			+ '</a>'
 			+ '</div>'
 			+ '</td>'

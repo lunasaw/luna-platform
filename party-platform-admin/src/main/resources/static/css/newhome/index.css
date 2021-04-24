@@ -376,26 +376,25 @@ li {
 }
 
 .zhuanti_mode :nth-child(1) {
-    background-image: url("../../img/images/picture/zt1.jpg");
+    background-image: url("../../img/pic/zt1.jpg");
 }
 
 .zhuanti_mode :nth-child(2) {
-    background-image: url("../../img/images/picture/tz2.jpg");
+    background-image: url("../../img/pic/tz2.jpg");
 
 }
 
 .zhuanti_mode :nth-child(3) {
-    background-image: url("../../img/images/picture/tz3.jpg");
+    background-image: url("../../img/pic/tz3.jpg");
 }
 
 .zhuanti_mode :nth-child(4) {
-    background-image: url("../../img/images/picture/tz4.jpg");
+    background-image: url("../../img/pic/tz4.jpg");
 }
 
 .zhuanti_mode :nth-child(5) {
-    background-image: url("../../img/images/picture/tz5.jpg");
+    background-image: url("../../img/pic/tz5.jpg");
 }
-
 
 
 .newser {

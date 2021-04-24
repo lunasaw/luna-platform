@@ -76,7 +76,8 @@ public class NewsDocumentaryServiceImpl implements INewsDocumentaryService {
                     }
                     documentary.setDocumentaryJionPeople(userNames.toString());
                 } else {
-                    SysUser sysUser = sysUserMapper.selectUserById(Long.valueOf(list.get(0)));
+                    SysUser sysUser =
+                        sysUserMapper.selectUserById(Long.valueOf(documentary.getDocumentaryJionPeople()));
                     documentary.setDocumentaryJionPeople(sysUser.getUserName());
                 }
             }
@@ -141,12 +142,13 @@ public class NewsDocumentaryServiceImpl implements INewsDocumentaryService {
         if (newsDocumentary != null) {
             list.forEach(id -> {
                 long l = Long.parseLong(id);
-                if (l < 1000) {
+                if (l < 1000L) {
+
                     userId.add(l);
                 }
             });
             if (userId.size() == 1) {
-                newsDocumentary.setDocumentaryJionPeople(list.get(0));
+                newsDocumentary.setDocumentaryJionPeople(String.valueOf(userId.get(0)));
             } else {
                 newsDocumentary.setDocumentaryJionPeople(userId.toString());
             }

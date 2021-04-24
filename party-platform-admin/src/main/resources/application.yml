@@ -8,15 +8,15 @@ ruoyi:
   copyrightYear: 2020
   # 实例演示开关
   demoEnabled: false
-  # 文件路径 示例（ Windows配置D:/party-platform/upload，Linux配置 /home/ruoyi/uploadPath）
-  profile: D:/party-platform/upload
+  # 文件路径 示例（ Windows配置D:/party-platform/upload，Linux配置 /Users/luna_mac/party-platform/uploadPath）
+  profile: /Users/luna_mac/party-platform/uploadPath
   # 获取ip地址开关
   addressEnabled: true
 
 # 开发环境配置
 server:
   # 服务器的HTTP端口，默认为80
-  port: 8082
+  port: 8081
   servlet:
     # 应用的访问路径
     context-path: /party-platform

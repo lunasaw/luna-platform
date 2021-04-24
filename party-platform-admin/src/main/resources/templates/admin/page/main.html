@@ -98,7 +98,7 @@
 								<div class="carousel-item" th:classappend="${{iterStat.index == 0}} ? 'active' : '' "
 								     th:each="item,iterStat : ${mainPic}">
 									<a href="/party-platform/admin/page/news?newsid=' + item[j][i].newsId + '"
-									   th:href="'/party-platform/admin/page/news?newsid='+${{item.newsId}}"
+									   th:href="${{item.newsUrl}}"
 									   target="_blank">
 										<img th:src="${{item.newsPicture}}">
 									</a>
@@ -182,11 +182,12 @@
 					<div class="zhuanti">
 						<ui class="zhuanti_mode modefont">
 
-							<a class=""></a>
-							<a class=""></a>
-							<a class=""></a>
-							<a class=""></a>
-							<a class=""></a>
+							<a class="" href="https://www.xuexi.cn/index.html" target="_blank"></a>
+							<a class="" href="http://www.12371.cn/" target="_blank"></a>
+							<a class="" href="http://www.jsxf.gov.cn/jsxf/" target="_blank"></a>
+							<a class="" href="http://news.jschina.com.cn/zt2021/202101/t20210119_2712837.shtml"
+							   target="_blank"></a>
+							<a class="" href="http://cpc.people.com.cn/GB/67481/435238/index.html" target="_blank"></a>
 
 						</ui>
 					</div>
@@ -336,7 +337,7 @@
 							'<div class="layui-col-xs12 textHei mb10">' +
 							'<a href="/party-platform/admin/page/news?documentaryId=' + item[i].documentaryId + '" target="_blank">' +
 							'<div class="layui-col-xs2 widthLi ">' +
-							'<span class="">' + '</span>' + '【组织生活】' +
+							'<span class="">' + '</span>' + '【宣传教育】' +
 							'</div>' +
 							'<div class="layui-col-xs7 overHid colorBig  bigBox">' + item[i].documentaryTitle
 							+ '</div>'
@@ -378,7 +379,7 @@
 						for (let i = 0; i < maxsize; i++) {
 							containerwrapper.append(
 								'<div class="layui-col-xs12 textHei mb10">' +
-								'<a href="/party-platform/admin/page/news?newsid=' + item[j][i].newsId + '" target="_blank">' +
+								'<a href="' + item[j][i].newsUrl + '"target="_blank">' +
 								'<div class="layui-col-xs2 widthLi ">' +
 								'<span class="">' + '</span>' + '【' + item[j][i].newsType + '】' +
 								'</div>'

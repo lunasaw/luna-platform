@@ -47,33 +47,37 @@
 
     <div id="demo" class="carousel slide content" data-ride="carousel">
 
-        <!-- 指示符 -->
-        <ul class="carousel-indicators">
-            <li data-target="#demo" data-slide-to="0" class="active"></li>
-            <li data-target="#demo" data-slide-to="1"></li>
-            <li data-target="#demo" data-slide-to="2"></li>
-        </ul>
+	    <!-- 指示符 -->
+	    <ul class="carousel-indicators">
+		    <li data-target="#demo" data-slide-to="0" class="active"></li>
+		    <li data-target="#demo" data-slide-to="1"></li>
+		    <li data-target="#demo" data-slide-to="2"></li>
+	    </ul>
 
-        <!-- 轮播图片 -->
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img th:src="@{/img/images/picture/banner.jpg}">
-            </div>
-            <div class="carousel-item">
-                <img th:src="@{/img/images/picture/banner1.jpg}">
-            </div>
-            <div class="carousel-item">
-                <img th:src="@{/img/images/picture/banner.jpg}">
-            </div>
-        </div>
+	    <!-- 轮播图片 -->
+	    <div class="carousel-inner">
+		    <div class="carousel-item " th:each="item,iterStat : ${mainTopPic}">
+			    <img th:src="${{item.newsPicture}}">
+		    </div>
 
-        <!-- 左右切换按钮 -->
-        <a class="carousel-control-prev" href="#demo" data-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </a>
-        <a class="carousel-control-next" href="#demo" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </a>
+		    <div class="carousel-item active">
+			    <img th:src="@{/img/images/picture/banner.jpg}">
+		    </div>
+		    <!--			<div class="carousel-item">-->
+		    <!--				<img th:src="@{/img/images/picture/banner1.jpg}">-->
+		    <!--			</div>-->
+		    <!--			<div class="carousel-item">-->
+		    <!--				<img th:src="@{/img/images/picture/banner.jpg}">-->
+		    <!--			</div>-->
+	    </div>
+
+	    <!-- 左右切换按钮 -->
+	    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+		    <span class="carousel-control-prev-icon"></span>
+	    </a>
+	    <a class="carousel-control-next" href="#demo" data-slide="next">
+		    <span class="carousel-control-next-icon"></span>
+	    </a>
 
     </div>
     <!-- 新闻 -->
@@ -85,7 +89,7 @@
             <span>您的位置：</span>
 	        <span class="layui-breadcrumb crumbsDet" lay-separator=">">
                 <a href="#" th:href="@{/admin/page/main}">平台首页</a>
-                <a href="#" th:href="@{/admin/page/newslist}">新闻中心</a> > 正文
+                <a href="#" th:href="@{/admin/page/study}">宣传教育</a> > 正文
             </span>
         </div>
         <div class="newbody">

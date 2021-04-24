@@ -1,7 +1,10 @@
 package com.ruoyi.web.platform.web;
 
+import com.alibaba.fastjson.JSON;
+import com.google.common.collect.Lists;
 import com.ruoyi.common.constant.UserConstants;
 import com.ruoyi.common.core.domain.Ztree;
+import com.ruoyi.common.json.JSONObject;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.system.domain.SysDept;
 import com.ruoyi.system.domain.SysUser;
@@ -66,11 +69,27 @@ public class WebController {
         if (StringUtils.isEmpty(newsDocumentary.getDocumentaryJionPeople())) {
             return ztrees;
         }
-        ztrees.clear();
-        List<String> list = Arrays.asList(newsDocumentary.getDocumentaryJionPeople().split(","));
+        ztrees = new ArrayList<>();
+
+        // List<String> list = Arrays.asList(newsDocumentary.getDocumentaryJionPeople().split(","));
+        List<Long> collect = null;
+        if (newsDocumentary.getDocumentaryJionPeople().startsWith("[")) {
+            collect = JSON.parseArray(newsDocumentary.getDocumentaryJionPeople(), Long.class);
+        } else {
+            collect = new ArrayList<>();
+            collect.add(Long.valueOf(newsDocumentary.getDocumentaryJionPeople()));
+        }
         for (SysUser user : sysAllUsers) {
-            if (!list.contains(user.getUserId().toString())) {
-                if (UserConstants.NORMAL.equals(user.getStatus())) {
+            if (UserConstants.NORMAL.equals(user.getStatus())) {
+                if (collect.contains(user.getUserId())) {
+                    Ztree ztree = new Ztree();
+                    ztree.setId(user.getUserId());
+                    ztree.setpId(user.getDeptId());
+                    ztree.setName(user.getUserName());
+                    ztree.setTitle(user.getUserName());
+                    ztree.setChecked(true);
+                    ztrees.add(ztree);
+                } else {
                     Ztree ztree = new Ztree();
                     ztree.setId(user.getUserId());
                     ztree.setpId(user.getDeptId());
@@ -79,17 +98,8 @@ public class WebController {
                     ztree.setChecked(false);
                     ztrees.add(ztree);
                 }
-            } else {
-                if (UserConstants.NORMAL.equals(user.getStatus())) {
-                    Ztree ztree = new Ztree();
-                    ztree.setId(user.getUserId());
-                    ztree.setpId(user.getDeptId());
-                    ztree.setName(user.getUserName());
-                    ztree.setTitle(user.getUserName());
-                    ztree.setChecked(true);
-                    ztrees.add(ztree);
-                }
             }
+
         }
         ztrees.addAll(deptTree);
         return ztrees;
