@@ -83,6 +83,7 @@ public class NewsDocumentaryServiceImpl implements INewsDocumentaryService {
             }
         });
 
+        Collections.reverse(newsDocumentaries);
         return newsDocumentaries;
     }
 

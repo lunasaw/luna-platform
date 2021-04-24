@@ -1,6 +1,7 @@
 package com.ruoyi.web.platform.documentary.domain;
 
 import java.util.Date;
+import java.util.Objects;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -153,5 +154,20 @@ public class NewsDocumentary extends BaseEntity {
             .append("updateTime", getUpdateTime())
             .append("remark", getRemark())
             .toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof NewsDocumentary))
+            return false;
+        NewsDocumentary that = (NewsDocumentary)o;
+        return documentaryId.equals(that.documentaryId) && documentaryStartTime.equals(that.documentaryStartTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(documentaryId, documentaryStartTime);
     }
 }

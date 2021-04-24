@@ -107,10 +107,8 @@
 		<!-- 第一行 -->
 		<div class="crumbs">
 			<span>您的位置：</span>
-			<span class="layui-breadcrumb crumbsDet" lay-separator=">">
-                <a href="#" th:href="@{/admin/page/main}"></a><span>平台首页</span>
-                <a href="#" th:href="@{/admin/page/newslist}"><span>新闻中心</span></a>
-            </span>
+			<a href="#" th:href="@{/admin/page/main}"><span>平台首页</span></a>
+			<a href="#" th:href="@{/admin/page/newslist}"> <span>新闻中心</span></a>
 		</div>
 
 		<div class="list card">
@@ -183,7 +181,7 @@
 					// console.log(error);
 				},
 				success: function (result) {
-					console.log(result);
+					//console.log(result);
 					let arr = result
 					let data = [];
 					let j = 0;

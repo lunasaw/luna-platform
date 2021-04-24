@@ -109,10 +109,8 @@
 		<!-- 第一行 -->
 		<div class="crumbs">
 			<span>您的位置：</span>
-			<span class="layui-breadcrumb crumbsDet" lay-separator=">">
-                <a href="#" th:href="@{/admin/page/main}"><span>平台首页</span></a>
-                <a href="#" th:href="@{/admin/page/study}"><span>宣传教育</span></a>
-            </span>
+			<a href="#" th:href="@{/admin/page/main}"><span>平台首页 > </span></a>
+			<a href="#" th:href="@{/admin/page/study}"><span>宣传教育</span></a>
 		</div>
 
 		<div class="list card">
@@ -266,7 +264,7 @@
 		var pageTotal = Math.ceil(count / pageSize);
 		var pageIndex = List.pageIndex;
 		List.pageSum = pageTotal;
-		console.log(pageTotal);
+		// console.log(pageTotal);
 		var html = "";
 		for (var i = pageIndex; i <= pageTotal; i++) {
 			html += '<li class="page" data-page="' + i + '"><a href="javascript:;">' + i + '</a></li>';
