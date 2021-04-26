@@ -50,6 +50,7 @@
 			<li data-target="#demo" data-slide-to="0" class="active"></li>
 			<li data-target="#demo" data-slide-to="1"></li>
 			<li data-target="#demo" data-slide-to="2"></li>
+			<li data-target="#demo" data-slide-to="3"></li>
 		</ul>
 
 		<!-- 轮播图片 -->
@@ -181,14 +182,12 @@
 				<div class="">
 					<div class="zhuanti">
 						<ui class="zhuanti_mode modefont">
-
 							<a class="" href="https://www.xuexi.cn/index.html" target="_blank"></a>
 							<a class="" href="http://www.12371.cn/" target="_blank"></a>
 							<a class="" href="http://www.jsxf.gov.cn/jsxf/" target="_blank"></a>
 							<a class="" href="http://news.jschina.com.cn/zt2021/202101/t20210119_2712837.shtml"
 							   target="_blank"></a>
 							<a class="" href="http://cpc.people.com.cn/GB/67481/435238/index.html" target="_blank"></a>
-
 						</ui>
 					</div>
 				</div>
@@ -363,9 +362,6 @@
 					let containerwrapper = $("#news");
 
 					let item = result;
-					// console.info(item);
-					// item.reverse();
-					// console.info(item);
 					for (let j = 0; j < item.length; j++) {
 						let maxsize;
 						if (item[j].length < 5) {
@@ -375,6 +371,9 @@
 						}
 
 						for (let i = 0; i < maxsize; i++) {
+							if (item[j][i].newsType == "先进事迹") {
+								continue;
+							}
 							containerwrapper.append(
 								'<div class="layui-col-xs12 textHei mb10">' +
 								'<a href="' + item[j][i].newsUrl + '"target="_blank">' +
